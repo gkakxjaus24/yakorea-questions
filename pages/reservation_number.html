@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-1 예약 확인 페이지</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/reservation_number.css" />
+
+    <!-- 영상: 헤드라인과 예약정보 표 사이에 작게 중앙 정렬로 표시 -->
+    <style>
+      .video-inline-wrap {
+        display: none;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0 14px;
+      }
+      .video-inline-box {
+        width: 33%;        /* ← 기존 50%의 약 2/3 */
+        max-width: 360px;  /* ← 520px의 약 2/3 */
+        min-width: 200px;  /* ← 너무 작아지는 것 방지 */
+        text-align: center;
+      }
+      /* 체크인 방법 영상만 크게(가로 최대 720) */
+#checkinInlineWrap .video-inline-box {
+  width: 66%;        /* 화면 비율로도 좀 넓게 */
+  max-width: 720px;  /* 요청한 가로 720 정도 */
+  min-width: 320px;  /* 작은 화면에서 너무 작아지는 것 방지 */
+}
+      .video-inline-player {
+        width: 100%;
+        border-radius: 12px;
+        background: #000;
+        pointer-events: none; /* 손님 터치/클릭 완전 차단 */
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="headline"></header>
+
+    <main class="grid-container">
+      <div>
+        <div class="input-row">
+          <input
+            type="text"
+            id="reservationInput"
+            class="reservation-input"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            autocomplete="new-password"
+            placeholder=""
+          />
+          <button id="searchButton"></button>
+        </div>
+      
+        <p id="inputGuide" class="input-guide"></p>
+        <p id="errorMessage" class="error-message"></p>
+
+        <div
+  id="searchFailHelp"
+  style="display:none; margin-top:14px; font-size:20px; line-height:1.5;"
+>
+  <!-- 내용은 JS에서 i18n으로 채워짐 -->
+</div>
+
+
+
+      </div>
+      
+      <div id="details" class="details"></div>
+
+      <div class="grid-item">
+        <div id="common-buttons"></div>
+      </div>
+    </main>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="../js/reservation_number.js"></script>
+    <!-- On-screen keyboard -->
+<div id="osk" class="osk hidden" aria-hidden="true">
+  <div class="osk-bar">
+    <div class="osk-title">Keyboard</div>
+    <div class="osk-actions">
+      <button type="button" class="osk-btn" data-action="mode" id="oskModeBtn">123</button>
+      <button type="button" class="osk-btn" data-action="bksp">⌫</button>
+      <button type="button" class="osk-btn" data-action="clear">Clear</button>
+      <button type="button" class="osk-btn osk-btn-primary" data-action="done">Done</button>
+    </div>
+  </div>
+
+  <div class="osk-keys" id="oskKeys"></div>
+</div>
+
+  </body>
+</html>

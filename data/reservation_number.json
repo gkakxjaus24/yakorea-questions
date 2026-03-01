@@ -1,0 +1,145 @@
+{
+  "ko": {
+    "duplicateName": "같은 이름의 예약이 여러 개 있습니다. 예약번호를 입력해주세요",
+    "reservationNotFound": "예약을 찾을 수 없습니다. 예약번호 또는 이름을 다시 입력해주세요",
+    "loadError": "예약 데이터를 로드하는 데 실패했습니다. 잠시 후 다시 시도해주세요.",
+    "bedNumber": "침대번호",
+    "roomAndLockerPassword": "방/사물함 비밀번호",
+    "tableHeaders": {
+      "name": "이름",
+      "roomNumber": "방번호",
+      "roomPassword": "방 비밀번호",
+      "lockerPassword": "사물함 비밀번호",
+      "roomAndLockerPassword": "방/사물함 비밀번호",
+      "checkoutDate": "체크아웃 날짜",
+      "checkInMethod": "체크인 방법"
+    },
+    "ui": {
+      "title": "셀프 체크인💻👆",
+      "nextButton": "다음",
+      "inputGuide": "",
+      "inputPlaceholder": "이름 또는 예약번호"
+    },
+    "checkIn": {
+      "slipperRoom": "{room}호 슬리퍼를 갈아 신고 방으로 들어가 주세요.",
+      "slipperBed": "{room}번 슬리퍼를 신고 방으로 들어가 주세요.",
+      "routeBackStair": "{room}호는 카운터 뒤쪽 계단을 통해서 올라가세요.",
+      "routeFrontPass": "{room}호는 카운터와 주방 사이를 통과해서 가세요.",
+      "amenity": "수건, 치약, 칫솔이 필요하면 카운터 오른쪽에서 챙겨가세요."
+    },
+    "searchFailHelp": {
+  "title": "예약을 찾을 수 없는 경우 다음사항을 체크해주세요",
+  "line1": "당일 예약일 경우 아직 시스템 업데이트가 안됐을 수 있습니다. 화면 오른쪽 아래 메시지창을 눌러서 ‘직원에게 연결’(Talk to person)이라고 말해주세요",
+  "line2": "야코리아호스텔 [강남점]으로 예약한 경우입니다 (여기는 동대문점입니다)",
+  "line3": "체크인 날짜가 확실한가요? 다시 한번 확인해주세요"
+}
+  },
+
+  "en": {
+    "duplicateName": "More than one reservation has the same name. Please enter your reservation number",
+    "reservationNotFound": "Reservation not found. Please enter your reservation number or name again",
+    "loadError": "Failed to load reservation data. Please try again later.",
+    "bedNumber": "Bed number",
+    "roomAndLockerPassword": "Room / Locker Password",
+    "tableHeaders": {
+      "name": "Name",
+      "roomNumber": "Room No.",
+      "roomPassword": "Room Password",
+      "lockerPassword": "Locker Password",
+      "roomAndLockerPassword": "Room / Locker Password",
+      "checkoutDate": "Checkout Date",
+      "checkInMethod": "Check-in Method"
+    },
+    "ui": {
+      "title": "Self Check-in💻👆",
+      "nextButton": "Next",
+      "inputGuide": "",
+      "inputPlaceholder": "Name or reservation number"
+    },
+    "checkIn": {
+      "slipperRoom": "Please wear the slippers for room {room} and go to your room.",
+      "slipperBed": "Please wear the slippers for bed {room} and go to your room.",
+      "routeBackStair": "Room {room} is upstairs via the stairs behind the counter.",
+      "routeFrontPass": "Room {room} can be reached by passing between the counter and the kitchen.",
+      "amenity": "If you need towels, toothpaste, or a toothbrush, please take them from the right side of the counter."
+    },
+    "searchFailHelp": {
+  "title": "If we cannot find your reservation, please check the following",
+  "line1": "If this is a same-day reservation, the system may not be updated yet. Please tap the message button at the bottom right and say 'Talk to person'.",
+  "line2": "You may have booked Yakorea Hostel [Gangnam]. (This is the Dongdaemun location.)",
+  "line3": "Please check your check-in date again."
+}
+  },
+
+  "zh": {
+    "duplicateName": "发现多个相同姓名的预订。请输入预订编号",
+    "reservationNotFound": "未找到预订信息。请重新输入预订编号或姓名",
+    "loadError": "加载预订信息失败。请稍后再试。",
+    "bedNumber": "床号",
+    "roomAndLockerPassword": "房间／储物柜密码",
+    "tableHeaders": {
+      "name": "姓名",
+      "roomNumber": "房间号",
+      "roomPassword": "房间密码",
+      "lockerPassword": "储物柜密码",
+      "roomAndLockerPassword": "房间／储物柜密码",
+      "checkoutDate": "退房日期",
+      "checkInMethod": "入住方式"
+    },
+    "ui": {
+      "title": "自助入住💻👆",
+      "nextButton": "下一步",
+      "inputGuide": "",
+      "inputPlaceholder": "姓名或预订编号"
+    },
+    "checkIn": {
+      "slipperRoom": "请穿上与房间 {room} 号码相对应的拖鞋。",
+      "slipperBed": "请穿上与床位 {room} 号码相对应的拖鞋。",
+      "routeBackStair": "房间 {room} 需要通过后楼梯到达。",
+      "routeFrontPass": "房间 {room} 需要通过前台和厨房之间的通道到达。",
+      "amenity": "如需毛巾、牙膏、牙刷，请在柜台右侧自取。"
+    },
+    "searchFailHelp": {
+  "title": "如果我们无法找到您的预订，请检查以下内容",
+  "line1": "如果您是同一天预订的，系统可能还没有更新。请点击屏幕右下方的消息按钮，并说“Talk to person”。",
+  "line2": "您可能预订了雅可瑞亚旅馆 [江南]。（这里是东大门店。）",
+  "line3": "请再次检查您的入住日期。"
+}
+  },
+
+  "ja": {
+    "duplicateName": "同じ名前の予約が複数あります。予約番号を入力してください",
+    "reservationNotFound": "予約が見つかりません。予約番号またはお名前をもう一度入力してください",
+    "loadError": "予約データの読み込みに失敗しました。しばらくしてから再試行してください。",
+    "bedNumber": "ベッド番号",
+    "roomAndLockerPassword": "部屋／ロッカーの暗証番号",
+    "tableHeaders": {
+      "name": "名前",
+      "roomNumber": "部屋番号",
+      "roomPassword": "部屋の暗証番号",
+      "lockerPassword": "ロッカーの暗証番号",
+      "roomAndLockerPassword": "部屋／ロッカーの暗証番号",
+      "checkoutDate": "チェックアウト日",
+      "checkInMethod": "チェックイン方法"
+    },
+    "ui": {
+      "title": "セルフチェックイン💻👆",
+      "nextButton": "次へ",
+      "inputGuide": "",
+      "inputPlaceholder": "お名前または予約番号"
+    },
+    "checkIn": {
+      "slipperRoom": "部屋 {room} に合ったスリッパに履き替えてください。",
+      "slipperBed": "ベッド {room} に合ったスリッパに履き替えてください。",
+      "routeBackStair": "部屋 {room} はカウンターの背後の階段を通って到達できます。",
+      "routeFrontPass": "部屋 {room} はカウンターとキッチンの間を通って到達できます。",
+      "amenity": "タオル・歯磨き粉・歯ブラシが必要な方は、カウンター右側からお取りください。"
+    },
+    "searchFailHelp": {
+  "title": "予約が見つからない場合は、以下の点を確認してください",
+  "line1": "同日予約の場合、システムがまだ更新されていない可能性があります。画面右下のメッセージボタンをタップして「人に連絡」と言ってください。",
+  "line2": "ヤコリアホステル [江南] で予約された場合です。（これは東大門店です。）",
+  "line3": "チェックイン日を再確認してください。"
+}
+  }
+}

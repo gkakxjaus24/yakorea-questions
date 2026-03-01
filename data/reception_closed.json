@@ -1,0 +1,26 @@
+{
+  "ko": {
+    "title": "카운터 마감 🕰️❌",
+    "noticeText": "빈 방 없습니다🛏️❌<br /><br /><br /><br />도움이 필요하면 <br />화면 아래쪽 헬프 버튼을 눌러주세요",
+    "buttonText": "셀프 체크인",
+    "nextPage": "reservation_number.html?lang=ko"
+  },
+  "en": {
+    "title": "FRONT DESK IS CLOSED 🕰️❌",
+    "noticeText": "NO ROOMS AVAILABLE. WE ARE FULL🛏️❌<br><br><br><br>If you need help, please press the Help button at the bottom of the screen.",
+    "buttonText": "SELF CHECK-IN",
+    "nextPage": "reservation_number.html?lang=en"
+  },
+  "ja": {
+    "title": "フロントは閉まっています 🕰️❌",
+    "noticeText": "満室です🛏️❌<br><br><br><br>お困りの際は、画面下の「ヘルプ」ボタンを押してください。",
+    "buttonText": "セルフチェックイン",
+    "nextPage": "reservation_number.html?lang=ja"
+  },
+  "zh": {
+    "title": "前台已关闭 🕰️❌",
+    "noticeText": "没有空房。已满员🛏️❌<br><br><br><br>如果您如果您需要帮助，请点击屏幕下方的“帮助”按钮。",
+    "buttonText": "自助入住",
+    "nextPage": "reservation_number.html?lang=zh"
+  }
+}

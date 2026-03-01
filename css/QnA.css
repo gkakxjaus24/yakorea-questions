@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px; /* ✅ 전체 폰트 크기 축소 */
+  line-height: 1.2; /* ✅ 줄 간격 줄임 */
+}
+
+.category-heading {
+  font-size: 1.0em;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  align-self: flex-start; /* ★ 화면 왼쪽으로 붙이기 */
+  padding-left: 20px;      /* 보기 좋게 살짝 띄우기 (선택 사항) */
+}
+
+.question {
+  font-size: 0.95em;      /* ✅ 질문 크기 살짝 줄임 */
+  padding: 6px 8px;       /* ✅ 패딩 축소 */
+  margin: 2px 0;          /* ✅ 질문 사이 여백 줄임 */
+  border: 1px solid #000;
+  cursor: pointer;
+  position: relative;
+}
+
+.question::after {
+  content: "▼"; /* 삼각형 */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease; /* 부드러운 회전 효과 */
+}
+
+/* active 클래스가 추가되면 삼각형이 180도 회전 */
+.question.active::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.answer {
+  display: none;
+  padding: 10px;
+}
+
+.flex-item {
+  border: none;
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em; /* 추가된 스타일: 글자 폰트 크기 약간 증가 */
+  text-align: center;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #000;
+  border: solid;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.button:hover, .button:focus {
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.bottom-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+.bottom-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: none;
+  color: white;
+  border: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* 미디어 콘텐츠 컨테이너 스타일: 왼쪽 정렬 */
+.media-container {
+  margin-top: 10px;
+  text-align: left;
+}
+
+/* 이미지와 동영상 크기 조절 */
+.media-container img,
+.media-container video {
+  width: 25vw;   /* 뷰포트 너비의 25% */
+  height: auto;  /* 비율 유지 */
+}
+

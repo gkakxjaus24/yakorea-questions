@@ -1,0 +1,38 @@
+{
+  "ko": {
+    "title": "체크아웃 필요 없음 😄✋",
+    "mainNotice": "체크아웃 절차가 필요 없습니다. <br />짐만 챙기고 나가시면 됩니다✋",
+    "bagStorage": "가방 보관: 카운터 앞 테이블에 가방을 두세요<br />(CCTV가 보고 있어요 📷👀)",
+    "buttonText": "어제 도착 예정이었는데 늦어서 이제 왔어요",
+    "nextPage": "reservation_number.html?lang=ko",
+    "earlyButtonText": "제가 좀 일찍 도착했는데 지금 체크인 할 수 있나요?",
+    "earlyNextPage": "cleaning_time.html?lang=ko"
+  },
+  "en": {
+    "title": "NO NEED TO CHECK OUT 😄✋",
+    "mainNotice": "No Check-out Procedure Needed. <br>Just Take Your Belongings and Leave ✋",
+    "bagStorage": "BAG STORAGE: You Can Leave Your Bags Under the Table in Front of the Front Desk<br>(CCTV is watching📷👀)",
+    "buttonText": "I was supposed to arrive yesterday, but I got here late",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "I arrived early. Can I check in now?",
+    "earlyNextPage": "cleaning_time.html?lang=en"
+  },
+  "ja": {
+    "title": "チェックアウト不要 😄✋",
+    "mainNotice": "チェックアウト手続きは不要です。<br>荷物を持ってそのままお出かけください ✋",
+    "bagStorage": "荷物預かり: カウンター前のテーブルの下に荷物を置いてください。<br>(📷👀 防犯カメラ作動中)",
+    "buttonText": "昨日到着予定でしたが、遅れて今着きました。",
+    "nextPage": "reservation_number.html?lang=ja",
+    "earlyButtonText": "少し早く着いたのですが、今チェックインできますか？",
+    "earlyNextPage": "cleaning_time.html?lang=ja"
+  },
+  "zh": {
+    "title": "无需退房手续 😄✋",
+    "mainNotice": "无需办理退房手续，带好您的行李离开即可 ✋",
+    "bagStorage": "行李寄存: 请将行李放在柜台前的桌子下方。<br>(监控摄像头正在监视 📷👀)",
+    "buttonText": "我本来昨天要到的，但因为晚了现在才到。",
+    "nextPage": "reservation_number.html?lang=zh",
+    "earlyButtonText": "我来得有点早，现在可以办理入住吗？",
+    "earlyNextPage": "cleaning_time.html?lang=zh"
+  }
+}

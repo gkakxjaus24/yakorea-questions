@@ -1,0 +1,23 @@
+{
+  "ko": {
+    "title": "청소시간🛏️🧹",
+    "mainNotice": "체크인은 오후 3시부터에요. 죄송하지만 빠른 체크인 불가능해요<br />(체크인 시스템이 3시에 자동으로 열립니다.)<br /><br />피곤한 손님은 Extra slippers 를 신고 주방 소파에서 기다려주세요 :)🪑👌",
+    "bagStorage": "가방 보관: 카운터 앞 테이블에 가방을 두세요(CCTV가 보고 있어요 📷👀)"
+  },
+  "en": {
+    "title": "Cleaning Time 🛏️🧹",
+    "mainNotice": "Check-in starts at 3:00 PM. Sorry, early check-in is not possible.<br />(The system opens automatically at 3:00 PM.)<br /><br />If you're tired, please wear extra slippers and relax on the kitchen sofa :)🪑👌",
+    "bagStorage": "Bag storage: Leave your bag on the table in front of the counter (CCTV is watching 📷👀)"
+  },
+  "ja": {
+    "title": "清掃中 🛏️🧹",
+    "mainNotice": "チェックインは午後3時からです。申し訳ありませんが、早めのチェックインはできません。<br />(チェックインシステムは午後3時に自動で開きます)<br /><br />お疲れの方は、スリッパを履いてキッチンのソファでおくつろぎください :)🪑👌",
+    "bagStorage": "荷物預かり：カウンター前のテーブルに置いてください（防犯カメラ作動中 📷👀）"
+  },
+  "zh": {
+    "title": "清洁时间 🛏️🧹",
+    "mainNotice": "下午3点开始才能办理入住，提前入住不可以哦。<br />(系统会在3点准时自动开放，人工无法操作)<br /><br />如果您感到疲劳，可以穿上我们准备的拖鞋，在厨房沙发上稍作休息 :)🪑👌",
+    "bagStorage": "行李寄存：请将行李放在前台前的桌子上（监控录像中 📷👀）"
+  }
+
+}

@@ -1,0 +1,503 @@
+{
+  "ko": {
+    "title": "자주묻는질문🙋‍♂️❓",
+    "qna": [
+      {
+        "q": "공용화장실이 있나요?",
+        "a": "죄송합니다. 공용화장실은 없습니다.",
+        "category": "생활 편의 시설 및 비품 관련"
+      },
+      {
+        "q": "출입문은 언제 닫나요?",
+        "a": "출입문은 24시간 열려 있습니다",
+        "category": "출입/운영 방식/무인 관련"
+      },
+      {
+        "q": "마시는 물은 어디에 있나요?",
+        "a": "주방 테이블 위의 정수기를 이용하세요(뜨거운물은 전기주전자를 사용하세요)",
+        "category": "생활 편의 시설 및 비품 관련"
+      },
+      {
+        "q": "수건이 더 필요해요.",
+        "a": "다 쓴 수건은 2층 수건 바구니(지하객실은 샤워실 앞 바구니)에 \"반드시\" 반납하고 카운터 오른쪽 수건 바구니에서 새 수건을 가져가세요",
+        "category": "생활 편의 시설 및 비품 관련"
+      },
+      {
+        "q": "제 슬리퍼가 없어요",
+        "a": "다른 손님이 슬리퍼 번호를 착각하고 가져 갔나보네요. 이런 경우를 대비해서 신발장에 Extra Slippers를 놔 뒀습니다. 그걸 사용해주세요.",
+        "category": "생활 편의 시설 및 비품 관련"
+      },
+      {
+        "q": "조식은 언제 먹을 수 있나요?",
+        "a": "조식은 오전 7시부터 10시까지 주방에서 셀프로 먹을 수 있습니다.",
+        "category": "생활 편의 시설 및 비품 관련"
+      },
+      {
+        "q": "변압기와 핸드폰 충전기를 빌려주세요.",
+        "a": "카운터 위에 있는 박스에서 가져가세요. 체크아웃 할 때 \"반드시\" 반납해주세요",
+        "category": "생활 편의 시설 및 비품 관련"
+      },
+      {
+        "q": "빨래를 하고 싶어요.",
+        "a": "빨래는 카운터의 세탁가방 하나에 5,000원입니다(세탁/건조 포함). 카운터 오른쪽의 세탁가방에 현금과 빨래를 넣고 카운터 옆에 두세요. 세탁은 24시간 안에 완료되고 끝나면 카운터 옆에 둘게요.",
+        "category": "세탁 및 냉장고 이용"
+      },
+      {
+        "q": "공용공간은 언제까지 사용할 수 있나요?",
+        "a": "공용공간은 24시간 사용할 수 있습니다. 하지만 1층에는 다른 손님방도 있으니 밤 11시 이후 또는 이른 새벽에는 조용히 해주세요",
+        "category": "출입/운영 방식/무인 관련"
+      },
+      {
+        "q": "제 가방을 보관하고 싶어요.",
+        "a": "체크인 전/후 카운터 앞에 짐 보관 가능합니다.",
+        "category": "짐 보관 및 저울 이용"
+      },
+      {
+        "q": "가방 무게를 잴 수 있는 저울이 있나요?",
+        "a": "카운터 앞 테이블에 휴대용 저울이 있습니다",
+        "category": "짐 보관 및 저울 이용"
+      },
+      {
+        "q": "가방을 장기로 보관 할 수 있나요?",
+        "a": "가방은 일주일 까지 무료 보관 가능합니다. 카운터 앞에 두고 이름, 연락처, 체크아웃 날짜, 돌아오는 날짜를 붙여 주세요. 일주일 부터 하루에 천원을 내야 해요.",
+        "category": "짐 보관 및 저울 이용"
+      },
+      {
+        "q": "연박을 하게 되면 짐을 빼지 않고 그대로 사용 가능한가요?",
+        "a": "네, '같은 유형의 방','같은 이름'으로 예약했으면 짐을 빼지 않고 똑같은 침대를 계속 사용할 수 있어요.",
+        "category": "객실 및 침대 관련"
+      },
+      {
+        "q": "물건을 잃어버렸어요",
+        "a": "잃어버린 물건 1.이름 2.크기 3.모양 4.색깔 5.날짜 6.시간 7.장소를 이메일(dongdaemun2@gmail.com)로 보내주세요. CCTV 확인해 볼게요. 도미토리 방은 개인 사물함이 있기 때문에 저희가 잃어버린 물건의 책임은 없어요.",
+        "category": "기타 요청 및 문의"
+      },
+      {
+        "q": "제 침대에 다른 사람 또는 물건이 있어요",
+        "a": "다른 손님이 침대번호를 착각하고 사용하고 있나보네요. 카운터에서 직원에게 메시지를 보내주세요요.",
+        "category": "객실 및 침대 관련"
+      },
+      {
+        "q": "와이파이는 어디에 있나요?",
+        "a": "각 방 스위치에 와이파이 아이디와 비밀번호를 붙여 놨습니다",
+        "category": "생활 편의 시설 및 비품 관련"
+      },
+      {
+        "q": "프린트를 하고 싶어요",
+        "a": "프린트할 파일을 dongdaemun2@gmail.com으로 보낸 후 키오스크 화면 오른쪽 아래 메시지창으로 문자주세요. 1시간안에 출력됩니다.(제목: 프린트 요청, 이름, 방번호) 문서: 흑백 20장, 컬러 10장 까지 무료. 사진 or 그림 출력불가",
+        "category": "생활 편의 시설 및 비품 관련"
+      },
+      {
+        "q": "누가 냉장고에 내 음식을 먹었어요",
+        "a": "냉장고 안내문을 다시 확인해주세요. 음식에 '체크아웃 날짜'가 없는 음식은 누구나 먹을 수 있어요!!",
+        "category": "세탁 및 냉장고 이용"
+      },
+      {
+        "q": "침대번호를 바꾸고 싶어요",
+        "a": "카운터에서 문자메시지를 보내주세요. 침대를 바꿀 수 있는 날짜를 알려드릴게요. (체크인 당일은 이미 침대배정이 끝나서 침대를 바꿀 수 없어요) 침대를 바꾸는 날 오전 11시까지 원래 사용하던 침대를 비워주세요. 청소가 끝나는 오후 3시 이후에 새로운 침대로 옮길 수 있어요.",
+        "category": "객실 및 침대 관련"
+      },
+      {
+        "q": "환불규정",
+        "a": "각 예약사이트의 환불 규정을 확인해주세요. 손님의 개인적인 일정변경의 이유로는 환불 불가능해요.",
+        "category": "기타 요청 및 문의"
+      },
+      {
+        "q": "방 비밀번호를 잊어버렸어요",
+        "a": "다음 웹사이트를 클릭해서 이름 또는 예약번호를 입력해주세요. -> <a href=\"http://localhost:8000/pages/reservation_number.html\" target=\"_blank\">예약번호 입력 페이지</a>",
+        "category": "객실 및 침대 관련"
+      },
+      {
+        "q": "카운터에 왜 항상 사람이 없나요?",
+        "a": "저희 호스텔은 무인으로 운영하고 있습니다. 인건비를 절약해서 여러분들에게 좀 더 저렴한 가격으로 게스트하우스를 이용할 수 있게 해드리고 있습니다. 하지만 도움이 필요하면 언제든지 전화주세요",
+        "category": "출입/운영 방식/무인 관련"
+      },
+      {
+        "q": "다른 도움이 더 필요해요(직원 연결)",
+        "a": "다음 메세지창을 이용해서 문자주세요. 문자에 답이 없다면 전화({{phone}})주세요",
+        "category": "기타 요청 및 문의",
+        "media": "../images/contact_us.jpg",
+        "mediaType": "image",
+        "dynamicPhone": true
+        
+      }
+    ]
+  
+  },
+  "en": {
+  "title": "HELP & QUESTIONS🙋‍♂️❓",
+  "qna": [
+    {
+      "q": "Is there a public restroom?",
+      "a": "Sorry, but there is no public bathroom.",
+      "category": "Facilities & Amenities"
+    },
+    {
+      "q": "When does the front door close?",
+      "a": "The front door is open 24 hours.",
+      "category": "Entry & Unmanned Operation"
+    },
+    {
+      "q": "Where can I get drinking water?",
+      "a": "Use the water purifier on the kitchen table. For hot water, use the electric kettle.",
+      "category": "Facilities & Amenities"
+    },
+    {
+      "q": "I need more towels.",
+      "a": "Please return used towels to the towel basket on the 2nd floor (or the basket in front of the shower room for basement rooms). Then take new towels from the basket on the right side of the counter.",
+      "category": "Facilities & Amenities"
+    },
+    {
+      "q": "My slippers are missing.",
+      "a": "Another guest may have taken the wrong slippers. Please use the 'Extra Slippers' in the shoe rack.",
+      "category": "Facilities & Amenities"
+    },
+    {
+      "q": "When can I have breakfast?",
+      "a": "Breakfast is self-serve in the kitchen from 7 AM to 10 AM.",
+      "category": "Facilities & Amenities"
+    },
+    {
+      "q": "Can I borrow a power converter and phone charger?",
+      "a": "Take them from the box on the counter. Please make sure to return them when you check out.",
+      "category": "Facilities & Amenities"
+    },
+    {
+      "q": "I want to do laundry.",
+      "a": "Laundry costs 5,000 KRW per bag at the counter (includes washing and drying). Put the cash in an envelope, put it in the laundry bag with your clothes, and leave it next to the counter. Your laundry will be done within 24 hours, and we will place it next to the counter when it's ready.",
+      "category": "Laundry & Fridge"
+    },
+    {
+      "q": "When can I use the common area?",
+      "a": "The common area is open 24 hours. But please be quiet after 11 PM and early in the morning because there are guest rooms on the 1st floor.",
+      "category": "Entry & Unmanned Operation"
+    },
+    {
+      "q": "I want to store my bag.",
+      "a": "You can store your bag in front of the counter before check-in or after check-out.",
+      "category": "Luggage & Scale"
+    },
+    {
+      "q": "Is there a scale to weigh my bag?",
+      "a": "There is a portable scale on the table in front of the counter.",
+      "category": "Luggage & Scale"
+    },
+    {
+      "q": "Can I store my bag for a long time?",
+      "a": "Bags can be stored for free for up to one week. Leave it in front of the counter with your name, contact information, check-out date, and return date. After one week, a fee of 1,000 KRW per day applies.",
+      "category": "Luggage & Scale"
+    },
+    {
+      "q": "If I extend my stay, can I keep my belongings in my bed?",
+      "a": "Yes, if you made a booking under the same name and the same room type, you can continue using the same bed without moving your belongings.",
+      "category": "Room & Bed Related"
+    },
+    {
+      "q": "I lost something.",
+      "a": "Please provide details: 1. Name, 2. Size, 3. Shape, 4. Color, 5. Date, 6. Time, 7. Location. We will check CCTV. We are not responsible for lost items in dormitory rooms as each bed has a personal locker.",
+      "category": "Other Requests & Help"
+    },
+    {
+      "q": "There is someone or something on my bed.",
+      "a": "Another guest may have mistaken the bed number. Please send us a message using the kiosk. Our staff will help you soon.",
+      "category": "Room & Bed Related"
+    },
+    {
+      "q": "Where is the Wi-Fi?",
+      "a": "The Wi-Fi ID and password are above the light switch or near the door in each room.",
+      "category": "Facilities & Amenities"
+    },
+    {
+      "q": "I want to print something.",
+      "a": "Please send your file to dongdaemun2@gmail.com and message us through the kiosk screen (bottom right corner). We'll print it within 1 hour. (Subject: Print request / Include your name and room number) Up to 20 black-and-white pages or 10 color pages are free. Photos and image printing are not available.",
+      "category": "Facilities & Amenities"
+    },
+    {
+      "q": "Someone took my food from the fridge.",
+      "a": "Please check the fridge notice again. Any food without a 'check-out date' label is free for anyone to take!",
+      "category": "Laundry & Fridge"
+    },
+    {
+      "q": "Can I change my bed number?",
+      "a": "Leave a memo at the counter. You can change beds from the next day. Please vacate your current bed by 11 AM, and move to the new bed after 3 PM when cleaning is done.",
+      "category": "Room & Bed Related"
+    },
+    {
+      "q": "What is the refund policy?",
+      "a": "Please check the refund policy of your booking site. We do not offer refunds for personal schedule changes.",
+      "category": "Other Requests & Help"
+    },
+    {
+      "q": "I forgot the room password",
+      "a": "Please click the following website and enter your name or reservation number. -> <a href=\"http://localhost:8000/pages/reservation_number.html\" target=\"_blank\">Reservation Number Entry Page</a>",
+      "category": "Room & Bed Related"
+    },
+    {
+      "q": "Why is there no one at the counter?",
+      "a": "Our hostel is unmanned. This helps us save costs, so we can offer cheaper prices. But if you need help, please call us anytime.",
+      "category": "Entry & Unmanned Operation"
+    },
+    {
+      "q": "I need more help (Message our staff)",
+      "a": "Please use the message box at the bottom right of the screen to send us a message. If no one answers, call us ({{phone}})",
+      "category": "Other Requests & Help",
+      "media": "../images/contact_us.jpg",
+      "mediaType": "image",
+      "dynamicPhone": true
+      
+    }
+  ]
+},
+"ja": {
+  "title": "ヘルプと質問🙋‍♂️❓",
+  "qna": [
+    {
+      "q": "共用トイレはありますか？",
+      "a": "申し訳ありませんが、共用トイレはありません。",
+      "category": "設備と備品関連"
+    },
+    {
+      "q": "玄関はいつ閉まりますか？",
+      "a": "玄関は24時間開いています。",
+      "category": "出入り・無人運営"
+    },
+    {
+      "q": "飲み水はどこで取れますか？",
+      "a": "キッチンテーブルの浄水器をご利用ください。お湯は電気ポットをお使いください。",
+      "category": "設備と備品関連"
+    },
+    {
+      "q": "タオルをもっとください。",
+      "a": "使ったタオルは必ず2階のタオルかご（地下の部屋はシャワー室前のかご）に返してください。そのあと、カウンター右側のかごから新しいタオルを取ってください。",
+      "category": "設備と備品関連"
+    },
+    {
+      "q": "私のスリッパがありません。",
+      "a": "他のゲストがスリッパの番号を間違えて持って行った可能性があります。靴箱の「予備スリッパ」をご利用ください。",
+      "category": "設備と備品関連"
+    },
+    {
+      "q": "朝食はいつ食べられますか？",
+      "a": "朝食は午前7時から10時までキッチンでセルフサービスです。",
+      "category": "設備と備品関連"
+    },
+    {
+      "q": "変圧器や充電器は借りられますか？",
+      "a": "カウンター上のボックスからお取りください。チェックアウト時に必ず返却してください。",
+      "category": "設備と備品関連"
+    },
+    {
+      "q": "洗濯をしたいです",
+      "a": "洗濯は1袋5,000ウォン（洗濯＋乾燥込み）です。現金を封筒に入れ、洗濯物と一緒にランドリーバッグに入れてカウンターの横に置いてください。24時間以内に仕上げ、準備ができたらカウンターの横に置きます。",
+      "category": "洗濯と冷蔵庫"
+    },
+    {
+      "q": "共用スペースはいつ使えますか？",
+      "a": "24時間ご利用いただけますが、1階に客室があるため、午後11時以降と朝は静かにお願いします。",
+      "category": "出入り・無人運営"
+    },
+    {
+      "q": "荷物を預けたいです",
+      "a": "チェックイン前またはチェックアウト後にカウンター前で荷物を保管できます。",
+      "category": "荷物とスケール"
+    },
+    {
+      "q": "荷物の重さを測れますか？",
+      "a": "カウンター前のテーブルにポータブルスケールがあります。",
+      "category": "荷物とスケール"
+    },
+    {
+      "q": "長期間、荷物を預けることはできますか？",
+      "a": "荷物は1週間まで無料で預けられます。カウンター前に置き、名前、連絡先、チェックアウト日、戻る日を記入してください。1週間を超えると1日1,000ウォンの料金がかかります。",
+      "category": "荷物とスケール"
+    },
+    {
+      "q": "連泊する場合、荷物をそのまま置いておけますか？",
+      "a": "はい、「同じ名前」と「同じ部屋タイプ」で予約している場合は、荷物を移動せずに同じベッドを引き続き利用できます。"
+,
+      "category": "客室とベッド関連"
+    },
+    {
+      "q": "物をなくしました。",
+      "a": "紛失した物の詳細を教えてください。1. 名前 2. 大きさ 3. 形 4. 色 5. 日付 6. 時間 7. 場所。CCTV を確認します。ドミトリールームには個人ロッカーがあるため、紛失物の責任は負いかねます。",
+      "category": "その他の問い合わせ"
+    },
+    {
+      "q": "私のベッドに他の人や物があります。",
+      "a": "他のゲストがベッド番号を間違えて使っている可能性があります。カウンターにメッセージを送ってください。スタッフが対応いたします。",
+      "category": "客室とベッド関連"
+    },
+    {
+      "q": "Wi-Fiはどこにありますか？",
+      "a": "Wi-FiのIDとパスワードは、部屋のスイッチの上またはドア付近にあります。",
+      "category": "設備と備品関連"
+    },
+    {
+      "q": "プリントをしたいです。",
+      "a": "ファイルを dongdaemun2@gmail.com に送信した後、キオスク画面の右下にあるメッセージボックスでメッセージを送ってください。1時間以内に印刷されます（件名: プリントリクエスト、名前、部屋番号）無料: 白黒20枚、カラー10枚。写真や画像の印刷はできません。",
+      "category": "設備と備品関連"
+    },
+    {
+      "q": "誰かが冷蔵庫の私の食べ物を食べました。",
+      "a": "冷蔵庫の案内をもう一度確認してください。「チェックアウト日」が記載されていない食品は誰でも食べることができます！",
+      "category": "洗濯と冷蔵庫"
+    },
+    {
+      "q": "ベッドの番号を変更したいです。",
+      "a": "フロントにメッセージをお送りください。ベッドを変更できる日をご案内いたします。（チェックイン当日はすでにベッドの割り当てが完了しているため、変更はできません。）ベッドを変更する当日は、午前11時までに元のベッドを空けてください。清掃が完了した午後3時以降に、新しいベッドへ移動していただけます。",
+      "category": "客室とベッド関連"
+    },
+    {
+      "q": "返金ポリシーについて教えてください。",
+      "a": "各予約サイトの返金ポリシーをご確認ください。お客様の個人的な予定変更による返金はできません。",
+      "category": "その他の問い合わせ"
+    },
+    {
+      "q": "部屋の暗証番号を忘れてしまいました",
+      "a": "以下のウェブサイトをクリックし、お名前または予約番号を入力してください。 -> <a href=\"http://localhost:8000/pages/reservation_number.html\" target=\"_blank\">予約番号入力ページ</a>",
+      "category": "客室とベッド関連"
+    },
+    {
+      "q": "なぜカウンターに人がいないのですか？",
+      "a": "当宿は無人運営です。コストを削減し、安い価格を提供しています。必要な場合はカウンターの電話でご連絡ください。",
+      "category": "出入り・無人運営"
+    },
+    {
+      "q": "もっと助けが必要です",
+      "a": "画面の右下にあるメッセージ欄からご連絡ください。返信がない場合は電話({{phone}})してください",
+      "category": "その他の問い合わせ",
+      "media": "../images/contact_us.jpg",
+      "mediaType": "image",
+      "dynamicPhone": true
+    }
+  ]
+},
+"zh": {
+  "title": "帮助与问题🙋‍♂️❓",
+  "qna": [
+    {
+      "q": "有公共卫生间吗？",
+      "a": "很抱歉，我们这里没有公共卫生间。",
+      "category": "设施与用品相关"
+    },
+    {
+      "q": "大门什么时候关闭？",
+      "a": "大门24小时开放。",
+      "category": "出入与无人运营"
+    },
+    {
+      "q": "在哪里可以喝水？",
+      "a": "请使用厨房桌子上的净水器。热水请使用电热水壶。",
+      "category": "设施与用品相关"
+    },
+    {
+      "q": "我需要更多毛巾。",
+      "a": "请把用过的毛巾放回2楼的毛巾篮子（地下房间请放在淋浴间前的篮子），然后去柜台右边的篮子拿新的毛巾。",
+      "category": "设施与用品相关"
+    },
+    {
+      "q": "我的拖鞋不见了。",
+      "a": "可能是其他客人拿错了拖鞋，请使用鞋架上的‘备用拖鞋’。",
+      "category": "设施与用品相关"
+    },
+    {
+      "q": "什么时候可以吃早餐？",
+      "a": "早餐为自助，供应时间为上午7点至10点。",
+      "category": "设施与用品相关"
+    },
+    {
+      "q": "可以借用变压器和手机充电器吗？",
+      "a": "请从柜台上的盒子里取用，退房时请务必归还。",
+      "category": "设施与用品相关"
+    },
+    {
+      "q": "我想洗衣服",
+      "a": "洗衣费用为每袋5,000韩元（包含洗涤和烘干）。将现金放入信封，与衣物一起放入洗衣袋，放在柜台旁边。24小时内完成，完成后会放在柜台旁边。",
+      "category": "洗衣与冰箱"
+    },
+    {
+      "q": "公共区域什么时候可以使用？",
+      "a": "24小时开放，但由于1楼有客房，晚上11点后和早上请保持安静。",
+      "category": "出入与无人运营"
+    },
+    {
+      "q": "我想存放行李",
+      "a": "可以在入住前或退房后将行李存放在柜台前。",
+      "category": "行李与称重"
+    },
+    {
+      "q": "可以称行李吗？",
+      "a": "柜台前的桌子上有便携式秤。",
+      "category": "行李与称重"
+    },
+    {
+      "q": "可以长期寄存行李吗？",
+      "a": "行李最多可免费存放一周。请将行李放在柜台前，并附上姓名、联系方式、退房日期和返回日期。一周后，每天收费1,000韩元。",
+      "category": "行李与称重"
+    },
+    {
+      "q": "如果延长入住，我的行李可以不搬走吗？",
+      "a": "可以。如果您是以“同一姓名”并且预订的是“同一房型”，可以继续使用同一张床，无需搬运行李。",
+      "category": "客房和床位相关"
+    },
+    {
+      "q": "我丢失了物品。",
+      "a": "请提供详细信息：1. 名称 2. 大小 3. 形状 4. 颜色 5. 日期 6. 时间 7. 地点。我们将检查 CCTV。宿舍房间有个人储物柜，我们不对遗失物品负责。",
+      "category": "其他问题与帮助"
+    },
+    {
+      "q": "我的床上有其他人或物品。",
+      "a": "可能是其他客人弄错了床号，请通过留言窗口发送信息给我们，工作人员会尽快帮您处理。",
+      "category": "客房和床位相关"
+    },
+    {
+      "q": "Wi-Fi在哪里？",
+      "a": "Wi-Fi账号和密码位于房间内的开关上方或门旁边。",
+      "category": "设施与用品相关"
+    },
+    {
+      "q": "我想打印文件。",
+      "a": "请把文件发送到 dongdaemun2@gmail.com，然后用自助机屏幕右下角的留言框发信息。1小时内会打印出来。(邮件标题：打印请求，姓名，房号) 免费打印：黑白20页，彩色10页。不提供照片或图片打印。",
+      "category": "设施与用品相关"
+    },
+    {
+      "q": "有人吃了我的冰箱食物。",
+      "a": "请检查冰箱上的通知。没有‘退房日期’标签的食物，任何人都可以取用！",
+      "category": "洗衣与冰箱"
+    },
+    {
+      "q": "我想换床号。",
+      "a": "请给前台发送短信，我们会告知您可以更换床位的日期。（在您入住当天，床位已经分配完毕，无法更换床位。）在更换床位当天，请您务必在上午11点前腾空原来的床位。等清洁完成后，您可以在下午3点之后搬到新的床位。",
+      "category": "客房和床位相关"
+    },
+    {
+      "q": "退款政策是什么？",
+      "a": "请查看您的预订网站的退款政策。因个人行程更改，我们不提供退款。",
+      "category": "其他问题与帮助"
+    },
+    {
+      "q": "为什么不能退款？",
+      "a": "您预订后，我们会为您保留房间。大多数旅客会提前几周预订，所以如果临近入住才取消，我们很难再找到新客人。这样房间可能会空着，我们也会有损失。因此，临近入住或住宿期间取消会给我们带来很大困难。",
+      "category": "其他问题与帮助"
+    },    
+    {
+      "q": "我忘记了房间密码",
+      "a": "请点击以下网站并输入您的姓名或预订号。 -> <a href=\"http://localhost:8000/pages/reservation_number.html\" target=\"_blank\">预订号输入页面</a>",
+      "category": "客房和床位相关"
+    },
+    {
+      "q": "为什么柜台没有人？",
+      "a": "我们是无人管理的旅馆，这样可以降低成本，提供更便宜的价格。如果需要帮助，请随时拨打电话联系。",
+      "category": "出入与无人运营"
+    },
+    {
+      "q": "我需要更多帮助",
+      "a": "请使用屏幕右下角的留言窗口发送信息。如果没有回复，请拨打电话({{phone}})",
+      "category": "其他问题与帮助",
+      "media": "../images/contact_us.jpg",
+      "mediaType": "image",
+      "dynamicPhone": true
+    }
+  ]
+}
+}

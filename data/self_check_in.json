@@ -1,0 +1,22 @@
+{
+  "ko": {
+    "title": "셀프 체크인💻👆",
+    "buttonText": "셀프 체크인",
+    "nextPage": "reservation_number.html?lang=ko"
+  },
+  "en": {
+    "title": "SELF CHECK-IN💻👆",
+    "buttonText": "SELF CHECK-IN",
+    "nextPage": "reservation_number.html?lang=en"
+  },
+  "ja": {
+    "title": "セルフチェックイン💻👆",
+    "buttonText": "セルフチェックイン",
+    "nextPage": "reservation_number.html?lang=ja"
+  },
+  "zh": {
+    "title": "自助入住💻👆",
+    "buttonText": "自助入住",
+    "nextPage": "reservation_number.html?lang=zh"
+  }
+}
