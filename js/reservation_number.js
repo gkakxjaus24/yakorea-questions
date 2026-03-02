@@ -479,6 +479,7 @@ function applyConfirmStepUI(tableEl) {
     // password 단계: 도어락 -> (있으면) 락커 -> checkout
     if (stepKey === "password") {
       if (lastHasRoomPassword) {
+        btn.disabled = true;
         showDoorVideoInline(() => {
           if (lastHasLockerPassword) {
             showLockerVideoInline(() => {
@@ -492,6 +493,7 @@ function applyConfirmStepUI(tableEl) {
       }
 
       if (lastHasLockerPassword) {
+        btn.disabled = true;
         showLockerVideoInline(() => {
           advanceStep();
         });
@@ -501,6 +503,7 @@ function applyConfirmStepUI(tableEl) {
 
     // method 단계: 체크인 방법 영상 -> 다음 단계
     if (stepKey === "method" && lastHasCheckInInstructionVideo) {
+      btn.disabled = true;
       showCheckInVideoInline(() => {
         advanceStep();
       });
