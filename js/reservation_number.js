@@ -370,25 +370,56 @@ function showCheckInVideoInline(onDone) { _showInlineVideo("checkinInline", onDo
 // ==============================================
 function skipVideoAndGoToNextStep() {
   const currentKey = confirmStepOrder[currentConfirmStep];
+  const tableEl = document.querySelector("table.confirm-table");
 
   if (currentKey === "password") {
     // password 단계 영상 스킵 시 checkout 단계로
     const checkoutIndex = confirmStepOrder.indexOf("checkout");
     if (checkoutIndex !== -1) {
       currentConfirmStep = checkoutIndex;
-      updateConfirmStepUI(document.querySelector("table.confirm-table"));
+      if (tableEl) updateConfirmStepUI(tableEl);
     }
   } else if (currentKey === "method") {
-    // method 단계 영상 스킵 시 바로 버튼 활성화
-    const methodBtn = document.querySelector('table.confirm-table .confirm-row[data-stepkey="method"] .confirm-btn');
-    if (methodBtn) methodBtn.disabled = false;
+    // method 단계 영상 스킵 시 바로 버튼 활성화 및 타이머 재시작
+    if (tableEl) {
+      const methodBtn = tableEl.querySelector('.confirm-row[data-stepkey="method"] .confirm-btn');
+      if (methodBtn) methodBtn.disabled = false;
+      if (typeof resetConfirmIdleTimer === "function") resetConfirmIdleTimer(tableEl);
+    }
   }
 }
 
 
 // ==============================================
-// 7. 단계별 확인(Blur + 확인 버튼)
+// 7. 단계별 확인(Blur + 확인 버튼) 및 유휴 상태 감지
 // ==============================================
+
+let confirmIdleTimer = null;
+
+function resetConfirmIdleTimer(tableEl) {
+  clearTimeout(confirmIdleTimer);
+
+  if (!tableEl) return;
+
+  // 모든 버튼에서 is-idle 클래스 제거
+  const allBtns = tableEl.querySelectorAll(".confirm-btn");
+  allBtns.forEach(btn => btn.classList.remove("is-idle"));
+
+  if (currentConfirmStep >= confirmStepOrder.length) return;
+
+  // 6초 후 현재 활성화된 버튼에 is-idle 클래스 추가
+  confirmIdleTimer = setTimeout(() => {
+    const activeKey = confirmStepOrder[currentConfirmStep];
+    const activeRow = tableEl.querySelector(`.confirm-row[data-stepkey="${activeKey}"]`);
+    if (activeRow) {
+      const activeBtn = activeRow.querySelector(".confirm-btn");
+      // 버튼이 활성화 상태일 때만 애니메이션 적용 (동영상 재생 중에는 비활성화 상태임)
+      if (activeBtn && !activeBtn.disabled) {
+        activeBtn.classList.add("is-idle");
+      }
+    }
+  }, 6000);
+}
 
 let confirmStepOrder = [];
 let currentConfirmStep = 0;
@@ -480,6 +511,7 @@ function applyConfirmStepUI(tableEl) {
       if (btn) btn.disabled = true;
       showCheckInVideoInline(() => {
         if (btn) btn.disabled = false;
+        if (typeof resetConfirmIdleTimer === "function") resetConfirmIdleTimer(tableEl);
       });
     }
   };
@@ -542,6 +574,9 @@ function updateConfirmStepUI(tableEl) {
     hideLockerVideoInline();
     hideCheckInVideoInline();
   }
+
+  // UI 갱신 시 유휴 타이머 초기화 (6초 뒤 애니메이션 시작)
+  resetConfirmIdleTimer(tableEl);
 }
 
 function finishConfirmSteps(tableEl) {
