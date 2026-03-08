@@ -16,7 +16,7 @@
     },
     "ui": {
       "title": "셀프 체크인💻👆",
-      "nextButton": "다음",
+      "nextButton": "검색",
       "inputGuide": "",
       "inputPlaceholder": "이름 또는 예약번호"
     },
@@ -51,7 +51,7 @@
     },
     "ui": {
       "title": "Self Check-in💻👆",
-      "nextButton": "Next",
+      "nextButton": "Search",
       "inputGuide": "",
       "inputPlaceholder": "Name or reservation number"
     },
@@ -86,7 +86,7 @@
     },
     "ui": {
       "title": "自助入住💻👆",
-      "nextButton": "下一步",
+      "nextButton": "搜索",
       "inputGuide": "",
       "inputPlaceholder": "姓名或预订编号"
     },
@@ -121,7 +121,7 @@
     },
     "ui": {
       "title": "セルフチェックイン💻👆",
-      "nextButton": "次へ",
+      "nextButton": "検索",
       "inputGuide": "",
       "inputPlaceholder": "お名前または予約番号"
     },
