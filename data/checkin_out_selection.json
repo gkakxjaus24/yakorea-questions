@@ -1,0 +1,22 @@
+{
+  "ko": {
+    "title": "무엇을 도와드릴까요?",
+    "checkinButton": "체크인",
+    "checkoutButton": "체크아웃"
+  },
+  "en": {
+    "title": "How can I help you?",
+    "checkinButton": "Check-in",
+    "checkoutButton": "Check-out"
+  },
+  "ja": {
+    "title": "どのようなご用件でしょうか？",
+    "checkinButton": "チェックイン",
+    "checkoutButton": "チェックアウト"
+  },
+  "zh": {
+    "title": "请问需要什么帮助？",
+    "checkinButton": "办理入住",
+    "checkoutButton": "办理退房"
+  }
+}

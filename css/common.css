@@ -1,4 +1,4 @@
-/* 기본 스타일 초기화 */
+﻿/* 기본 스타일 초기화 */
 * {
     margin: 0;
     padding: 0;
@@ -20,13 +20,18 @@ body {
     font-size: 5.5em;
     font-weight: bold;
     color: red;
-    margin: 60px 0 40px 0;  /* 위쪽 간격을 더 벌림 */
-    padding-top: 50px !important; /* 위쪽 간격을 추가로 확보 */
+    margin: 60px 0 40px 0;
+    /* 위쪽 간격을 더 벌림 */
+    padding-top: 50px !important;
+    /* 위쪽 간격을 추가로 확보 */
 }
 
 /* ✅ 공통 헤드라인 스타일 설정 (우선순위 강화) */
-h1, h2, .headline {
-    font-size: 70px !important; /* !important로 강제 적용 */
+h1,
+h2,
+.headline {
+    font-size: 70px !important;
+    /* !important로 강제 적용 */
     font-weight: bold !important;
     text-align: center !important;
     margin: 60px 0 40px 0 !important;
@@ -34,14 +39,20 @@ h1, h2, .headline {
 
 /* 미디어 쿼리로 인한 크기 변화 방지 */
 @media (max-width: 768px) {
-    h1, h2, .headline {
-        font-size: 36px !important; /* 작은 화면에서도 동일한 크기 유지 */
+
+    h1,
+    h2,
+    .headline {
+        font-size: 36px !important;
+        /* 작은 화면에서도 동일한 크기 유지 */
     }
 }
 
 /* 페이지별 스타일 덮어씌우기 방지 */
-body h1, body h2 {
-    font-size: 36px !important; /* 페이지 별 CSS 우선순위 강제 적용 */
+body h1,
+body h2 {
+    font-size: 36px !important;
+    /* 페이지 별 CSS 우선순위 강제 적용 */
 }
 
 
@@ -72,194 +83,324 @@ body h1, body h2 {
     align-items: center;
 }
 
-/* ✅ 셀프 체크인 버튼을 홈/헬프 버튼과 일관되게 수정 */
+/* =========================================
+   셀프 체크인 버튼 스타일
+   ========================================= */
 .self-checkin-button {
-    padding: 20px 40px !important;
-    font-size: 30px !important;
-    margin: 10px !important;
-    cursor: pointer !important;
-    background-color: white !important;
-    border: 2px solid black !important;
-    border-radius: 12px !important;
-    transition: transform 0.3s, box-shadow 0.3s !important;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3) !important; /* 그림자 추가 */
-    font-weight: bold !important; /* 글자 강조 */
+    padding: 20px 80px;
+    /* 버튼 내부 여백 (위/아래 20px, 좌/우 80px) - 가로로 1.5배 넓게 조정됨 */
+    font-size: 40px;
+    /* 글자 크기 */
+    font-weight: bold;
+    /* 글자 굵게 만들기 */
+    background-color: white;
+    /* 버튼 기본 배경색 (현재 흰색) */
+    color: #333;
+    /* 글자 색상 (현재 진한 회색) */
+    border: 4px solid #333;
+    /* 테두리 두께(4px)와 색상(#333) */
+    border-radius: 20px;
+    /* 모서리를 얼마나 둥글게 할지 (숫자가 클수록 더 둥글어짐) */
+    cursor: pointer;
+    /* 마우스를 올렸을 때 손가락 모양으로 변경 */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    /* 버튼 밑에 깔리는 그림자 효과 (입체감) */
+    display: flex;
+    /* 내부 요소 정렬을 위한 설정 (건드리지 마세요) */
+    align-items: center;
+    /* 글자와 아이콘을 세로 중앙에 맞춤 */
+    justify-content: center;
+    /* 글자와 아이콘을 가로 중앙에 맞춤 */
+    gap: 15px;
+    /* 글자와 아이콘(만약 있다면) 사이의 띄어쓰기 간격 */
+    transition: all 0.3s ease;
+    /* 마우스를 올릴 때 애니메이션이 서서히(0.3초) 변하게 함 */
+    margin: 10px auto;
+    /* 바깥쪽 여백 (버튼 주변 띄어쓰기) */
 }
 
-/* 마우스 오버 효과 강화 */
+/* 마우스 오버 시 효과 (마우스를 올렸을 때 어떻게 변할지) */
 .self-checkin-button:hover {
-    transform: scale(1.05) !important;
-    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5) !important; /* 오버 시 그림자 진하게 */
+    transform: scale(1.05);
+    /* 원래 크기의 1.05배로 살짝 커지는 효과 */
+    background-color: white;
+    /* 배경색 유지 */
+    border-color: #007bff;
+    /* 테두리 색을 파란색으로 변경 */
+    color: #007bff;
+    /* 글자 색도 파란색으로 변경 */
+    box-shadow: 6px 6px 15px rgba(0, 123, 255, 0.3);
+    /* 그림자도 파란빛으로 퍼지게 만듦 */
 }
 
+/* 클릭 시 눌리는 효과 (마우스 버튼을 딸깍 누르는 순간) */
+.self-checkin-button:active {
+    transform: scale(0.95);
+    /* 원래 크기의 0.95배로 살짝 작아짐 (눌리는 느낌) */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    /* 그림자 크기를 줄여서 꾹 눌려 보이게 함 */
+}
 
-
-
-/* Help 버튼과 처음으로 버튼 공통 스타일 */
+/* =========================================
+   공통 버튼 (도움말, 뒤로가기, 처음으로 버튼 등)을 담는 상자
+   ========================================= */
 #common-buttons {
     display: flex;
+    /* 버튼들을 가로로 나열하기 위한 설정 */
     justify-content: center;
-    gap: 40px; /* 버튼 간 간격을 약간 줄임 */
-    margin-top: 15px; /* 위쪽 여백도 살짝 조절 */
+    /* 버튼 전체를 화면 가운데로 정렬 */
+    gap: 40px;
+    /* 버튼과 버튼 사이의 간격 (더 멀리 떨어뜨리려면 숫자를 늘리세요) */
+    margin-top: 15px;
+    /* 위쪽 여백 (버튼 위쪽으로 띄어쓰기) */
 }
 
+/* =========================================
+   공통 버튼 (도움말, 처음으로 버튼 등) 개별 스타일
+   ========================================= */
 .common-button {
-    padding: 8px 16px;              /* 상하 8px, 좌우 16px로 간격 축소 */
-    font-size: 40px;                /* 글씨 크기 약간 축소 */
+    padding: 12px 30px;
+    /* 버튼 내부 여백 (위/아래 12px, 좌/우 30px) */
+    font-size: 32px;
+    /* 글자 크기 */
+    font-weight: bold;
+    /* 글자 굵게 */
     background-color: white;
-    color: black;
-    border: 2px solid black;
-    border-radius: 10px;            /* 둥근 정도를 약간 줄임 */
+    /* 배경색 */
+    color: #333;
+    /* 글자 색상 */
+    border: 4px solid #333;
+    /* 테두리 (4px 두께 실선 검은색 계열) */
+    border-radius: 20px;
+    /* 모서리 둥글기 (숫자가 클수록 더 부드러워짐) */
     cursor: pointer;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);  /* 그림자도 살짝 축소 */
+    /* 손가락 커서 모양 */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    /* 그림자 효과 */
     display: flex;
+    /* 정렬 기준 */
     align-items: center;
-    gap: 5px;                       /* 아이콘과 텍스트 사이 간격 좁힘 */
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    gap: 10px;
+    /* 버튼 안의 텍스트와 아이콘 간격 */
+    transition: all 0.3s ease;
+    /* 부드러운 애니메이션 변환 속도 (0.3초) */
 }
 
-/* 마우스 오버 시 효과 */
+/* 마우스를 올렸을 때 효과 */
 .common-button:hover {
-    transform: scale(1.05);         /* 확대 효과를 1.1 → 1.05로 완화 */
-    background-color: #f0f0f0;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25); 
+    transform: scale(1.05);
+    /* 사이즈 5% 확대 */
+    background-color: white;
+    border-color: #007bff;
+    /* 테두리가 파란색으로 변함 */
+    color: #007bff;
+    /* 글자도 파란색으로 변함 */
+    box-shadow: 6px 6px 15px rgba(0, 123, 255, 0.3);
+    /* 파란색 느낌의 그림자 발산 */
 }
 
 /* 클릭 시 눌리는 효과 */
 .common-button:active {
-    transform: scale(0.97);         /* 클릭 시 축소 효과 약간 조정 */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    transform: scale(0.95);
+    /* 사이즈 축소로 눌린 느낌 주기 */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* 언어 선택 버튼 스타일 */
-/* 언어 선택 버튼 컨테이너 */
-#language-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2열로 배치 */
-    grid-template-rows: repeat(2, 1fr);    /* 2행으로 배치 */
-    gap: 20px;                             /* 버튼 간격 */
-    justify-content: center;               /* 가운데 정렬 */
-    align-items: center;                   /* 수직 중앙 정렬 */
-    margin: 20px auto;                     /* 가운데 정렬 */
-    max-width: 300px;                      /* 전체 너비 제한 */
+.osk.hidden {
+    display: none;
 }
-
-/* 언어 선택 버튼 스타일 */
-.language-button {
-    width: 320px;               /* 버튼 너비 통일 */
-    height: 220px;               /* 버튼 높이 통일 */
-    padding: 10px;              /* 버튼 내부 여백 */
-    font-size: 16px;            /* 글씨 크기 */
-    background-color: white;    /* 배경색: 흰색 */
-    color: black;               /* 글자 색: 검은색 */
-    border: 2px solid black;    /* 테두리: 검은색 */
-    border-radius: 15px;        /* 둥근 테두리 */
-    cursor: pointer;            /* 마우스 포인터 변경 */
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);  /* 그림자 효과 */
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
-    text-align: center;         /* 텍스트 중앙 정렬 */
-    display: flex;              /* 버튼 내부 요소 정렬 */
-    justify-content: center;    /* 수평 중앙 정렬 */
-    align-items: center;        /* 수직 중앙 정렬 */
-}
-
-/* 마우스를 올렸을 때 효과 */
-.language-button:hover {
-    transform: scale(1.05);      /* 살짝 확대 효과 */
-    background-color: #f0f0f0;   /* 배경색 약간 회색으로 */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);  /* 더 진한 그림자 */
-}
-
-/* 클릭 시 눌리는 효과 */
-.language-button:active {
-    transform: scale(0.97);      /* 살짝 눌리는 효과 */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);   /* 그림자 축소 */
-}
-
-.osk.hidden { display: none; }
 
 .osk {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  background: #fff;
-  border-top: 3px solid #333;
-  box-shadow: 0 -6px 18px rgba(0,0,0,0.15);
-  padding: 10px 10px 14px;
-  user-select: none;
-  touch-action: manipulation;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: #fff;
+    border-top: 3px solid #333;
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
+    padding: 10px 10px 14px;
+    user-select: none;
+    touch-action: manipulation;
 }
 
-.osk-bar{
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  gap: 10px;
-  margin-bottom: 10px;
+.osk-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
-.osk-title{
-  font-size: 18px;
-  font-weight: 700;
-  color:#111;
+.osk-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
 }
 
-.osk-actions{
-  display:flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+.osk-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
-.osk-btn{
-  font-size: 18px;
-  padding: 10px 14px;
-  border: 2px solid #333;
-  border-radius: 10px;
-  background: #fff;
+.osk-btn {
+    font-size: 18px;
+    padding: 10px 14px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #fff;
 }
 
-.osk-btn:active{
-  transform: translateY(1px);
+.osk-btn:active {
+    transform: translateY(1px);
 }
 
-.osk-btn-primary{
-  background:#111;
-  color:#fff;
+.osk-btn-primary {
+    background: #111;
+    color: #fff;
 }
 
-.osk-keys{
-  display:grid;
-  gap: 8px;
+.osk-keys {
+    display: grid;
+    gap: 8px;
 }
 
-.osk-row{
-  display:grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 8px;
+.osk-row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
 }
 
-.osk-key{
-  font-size: 22px;
-  padding: 14px 0;
-  border: 2px solid #333;
-  border-radius: 12px;
-  background: #f9f9f9;
-  text-align:center;
+.osk-key {
+    font-size: 22px;
+    padding: 14px 0;
+    border: 2px solid #333;
+    border-radius: 12px;
+    background: #f9f9f9;
+    text-align: center;
 }
 
-.osk-key:active{
-  transform: translateY(1px);
-  background:#eee;
+.osk-key:active {
+    transform: translateY(1px);
+    background: #eee;
 }
 
 /* space / wide keys */
-.osk-key.wide { grid-column: span 3; }
-.osk-key.wider { grid-column: span 4; }
+.osk-key.wide {
+    grid-column: span 3;
+}
+
+.osk-key.wider {
+    grid-column: span 4;
+}
 
 /* 입력칸이 키보드에 가리지 않게 여백 */
-.body-has-osk{
-  padding-bottom: 320px; /* 키보드 높이에 맞춰 조정 */
+.body-has-osk {
+    padding-bottom: 320px;
+    /* 키보드 높이에 맞춰 조정 */
+}
+
+/* ========================================================================= */
+/* 언어 선택 버튼 스타일 (index.html 등 공통) */
+/* ========================================================================= */
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(3, 90px);
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.lang-button {
+    border: 3px solid black;
+    background-color: white;
+    color: black;
+    font-size: 1.4rem;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}
+
+.language-button {
+    position: relative;
+    padding: 0;
+    font-size: 2.2em;
+    font-weight: bold;
+    background-color: transparent;
+    /* Changed from white to transparent to let the ::before flags show through */
+    color: #333;
+    border: 4px solid #333;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    /* Match the other buttons' modern look */
+}
+
+.language-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+
+.language-button:hover {
+    transform: scale(1.05);
+    border-color: #007bff;
+    color: #007bff;
+    box-shadow: 6px 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+.language-button:hover::before {
+    opacity: 0.7;
+}
+
+#btn-chinese::before {
+    background-image: url('../images/cn.svg');
+}
+
+#btn-japanese::before {
+    background-image: url('../images/jp.svg');
+}
+
+#btn-korean::before {
+    background-image: url('../images/kr.svg');
+}
+
+#btn-english::before {
+    background-image: url('../images/globe.svg');
+    background-size: 50%;
+}
+
+.language-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    grid-template-rows: repeat(2, 200px);
+    gap: 30px;
+    justify-content: center;
+    margin: 40px 0;
 }

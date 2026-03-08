@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>메인 페이지</title>
+  <link rel="stylesheet" href="./css/common.css" />
+
+</head>
+
+<script src="//code.tidio.co/hpgcwfwwn4j31bkmo50bp6q28d70y2d2.js" async></script>
+
+<body>
+  <header class="headline" id="dynamic-headline"></header>
+
+  <main class="grid-container">
+    <div class="grid-item"></div>
+    <div class="grid-item">
+      <div id="language-buttons" class="language-buttons">
+        <button class="language-button" id="btn-english">English</button>
+        <button class="language-button" id="btn-chinese">中文</button>
+        <button class="language-button" id="btn-japanese">日本語</button>
+        <button class="language-button" id="btn-korean">한국어</button>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div id="common-buttons"></div>
+    </div>
+  </main>
+  <!-- 카메라 요소 (움직임 감지용) -->
+  <video id="camera" autoplay playsinline style="display: none;"></video>
+  <canvas id="canvas" style="display: none;"></canvas>
+
+  <!-- 설정 및 공통 JS -->
+  <script src="./js/config.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/index.js"></script>
+
+  <!-- 체크인 시간 맞춰 재생할 음성 (단일 M4A 파일로 변경) -->
+  <audio id="checkinReady">
+    <source src="./audio/CHECK_IN_READY.m4a" type="audio/mp4" />
+  </audio>
+
+
+</body>
+
+</html>

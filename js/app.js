@@ -3,50 +3,7 @@
    - 모든 페이지 JS에서 공유합니다. 수정은 여기 한 곳에서만.
    ============================================================ */
 
-/**
- * URL의 ?lang= 파라미터를 읽어 언어 코드를 반환합니다.
- * 없으면 기본값 "ko"를 반환합니다.
- * @returns {string} 언어 코드 (예: "ko", "en", "zh", "ja")
- */
-function getLanguageFromURL() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("lang") || "ko";
-}
 
-/**
- * i18n 문자열 템플릿에서 변수를 치환합니다.
- * 예: t("안녕 {name}!", { name: "앨빈" }) → "안녕 앨빈!"
- * @param {string} template  - 치환할 템플릿 문자열
- * @param {Object} vars      - 치환할 변수 객체
- * @returns {string}
- */
-function t(template, vars) {
-  return template.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
-}
-
-/**
- * JSON 파일을 fetch하여 현재 언어의 i18n 데이터를 반환합니다.
- * - document.documentElement.lang 도 자동으로 설정합니다.
- * - 언어 코드가 없으면 "ko"로 fallback합니다.
- * @param {string} url - fetch할 JSON 파일 경로 (예: "../data/QnA.json")
- * @returns {Promise<Object|null>} i18n 객체, 실패 시 null
- */
-async function loadI18n(url) {
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    const langCode = getLanguageFromURL();
-    document.documentElement.lang = langCode;
-    const result = data[langCode] || data.ko;
-    if (!result) throw new Error(`언어 코드 "${langCode}" 없음, "ko" fallback도 없음`);
-    return result;
-  } catch (e) {
-    console.error(`[i18n] 로드 실패 (${url}, lang=${getLanguageFromURL()}):`, e);
-    document.documentElement.lang = "ko";
-    return null;
-  }
-}
 
 // ✅ 공통 버튼 생성 함수
 function createCommonButtons() {
@@ -55,18 +12,18 @@ function createCommonButtons() {
 
   if (buttonContainer) {
     // "처음으로" 버튼 (메인 페이지에서는 표시하지 않음)
-    if (currentPage !== "main.html") {
+    if (currentPage !== "index.html") {
       const homeButton = document.createElement("button");
       homeButton.className = "common-button";
       homeButton.innerHTML = "🏠 HOME";
       homeButton.onclick = function () {
-        window.location.href = "/pages/main.html";
+        window.location.href = "/index.html";
       };
       buttonContainer.appendChild(homeButton);
     }
 
     // "도움요청" 버튼 (메인 페이지와 QnA 페이지에서는 표시하지 않음)
-    if (!currentPage.startsWith("QnA") && currentPage !== "main.html") {
+    if (!currentPage.startsWith("QnA") && currentPage !== "index.html") {
       const helpButton = document.createElement("button");
       helpButton.className = "common-button help-button";
       helpButton.innerHTML = "❓ HELP";
@@ -117,14 +74,14 @@ function createLanguageButtons() {
 let inactivityTimer;
 function goHomePreserveQueryAndHash() {
   try {
-    const target = new URL("/pages/main.html", location.origin);
+    const target = new URL("/index.html", location.origin);
     const cur = new URL(location.href);
     if (cur.search) target.search = cur.search;
     if (cur.hash) target.hash = cur.hash;
     target.searchParams.set("_r", Date.now().toString()); // 캐시 무력화
     window.location.replace(target.toString()); // 히스토리 누적 방지
   } catch {
-    window.location.href = "/pages/main.html?_r=" + Date.now();
+    window.location.href = "/index.html?_r=" + Date.now();
   }
 }
 function resetInactivityTimer() {
@@ -139,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // createCommonButtons(); // 공통 버튼 생성 (필요 시 주석 해제)
 
   // 메인 페이지가 아닐 경우 비활동 타이머 설정
-  if (!window.location.href.includes("/pages/main.html")) {
+  if (!window.location.href.includes("/index.html")) {
     resetInactivityTimer();
     document.addEventListener("mousemove", resetInactivityTimer);
     document.addEventListener("mousedown", resetInactivityTimer);
@@ -190,14 +147,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* ============================================================
    ✅ 10분마다 메인으로 복귀(입력 중이면 건너뜀) + 쿼리/해시 보존 + 캐시버스터
-   - 1-2) 항상 /pages/main.html 로 이동
+   - 1-2) 항상 /index.html 로 이동
    - 2-2) 입력 중이면 이번 회차 건너뜀
    - 3-1) 쿼리/해시 보존
    - 5-1) 캐시버스터 파라미터 추가
    ============================================================ */
 (function () {
   const INTERVAL = 10 * 60 * 1000; // 10분
-  const MAIN = "/pages/main.html";
+  const MAIN = "/index.html";
 
   function isTypingNow() {
     const a = document.activeElement;

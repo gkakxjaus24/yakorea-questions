@@ -1,0 +1,47 @@
+/* checkin_out_selection.css */
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+}
+
+.selection-button {
+    width: 100%;
+    max-width: 600px;
+    height: 120px;
+    font-size: 4rem;
+    font-weight: bold;
+    background-color: white;
+    /* White background */
+    color: #333;
+    /* Dark gray text */
+    border: 4px solid #333;
+    /* Thick black/dark-gray border */
+    border-radius: 20px;
+    /* Rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.selection-button:hover {
+    transform: scale(1.05);
+    background-color: white;
+    border-color: #007bff;
+    color: #007bff;
+    box-shadow: 6px 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+.selection-button:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific button colors removed to match the requested black/white style */

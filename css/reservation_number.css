@@ -1,177 +1,178 @@
 .grid-container {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  gap: 20px;
-  padding: 20px;
-  height: 100vh;
-  justify-items: center;
-  align-items: center;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+    justify-items: center;
+    align-items: center;
 }
 
 .reservation-input {
-  width: 400px;
-  padding: 10px;
-  font-size: 1.5rem;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+    width: 400px;
+    padding: 10px;
+    font-size: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
 }
 
 .reservation-input::placeholder {
-  color: #bbb;
+    color: #bbb;
 }
 
 .error-message {
-  color: red;
-  font-size: 1.5rem;
-  display: none;
+    color: red;
+    font-size: 1.5rem;
+    display: none;
 }
 
 .details {
-  margin-top: 20px;
-  font-size: 1.3rem;
-  color: #333;
-  text-align: left;
-  line-height: 1.8;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #333;
+    text-align: left;
+    line-height: 1.8;
 }
 
 .details-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
 .details-table th,
 .details-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
 }
 
 .details-table th {
-  background-color: #f9f9f9;
-  text-align: center;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 
 .details-table td {
-  text-align: left;
+    text-align: left;
 }
 
 #searchButton {
-  font-size: 1.5rem;
-  padding: 6px 14px;
-  background-color: rgb(223, 219, 219);
-  color: black;
-  border: 2px solid black;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+    font-size: 1.5rem;
+    padding: 6px 14px;
+    background-color: rgb(223, 219, 219);
+    color: black;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 #searchButton:hover {
-  background-color: #e0e0e0;
+    background-color: #e0e0e0;
 }
 
-/* 단계 확인 테이블 셀 레이아웃 */
+/* 예약 확인 테이블 레이아웃 */
 .confirm-cell {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .confirm-value {
-  flex: 1;
-  min-width: 0;
+    flex: 1;
+    min-width: 0;
 }
 
 /* 흐림 처리 */
 .confirm-row.is-blurred .confirm-value {
-  filter: blur(4px);
-  opacity: 0.35;
+    filter: blur(4px);
+    opacity: 0.35;
 }
 
 .confirm-row.is-blurred .confirm-btn {
-  opacity: 0.35;
+    opacity: 0.35;
 }
 
-/* 활성 행 */
+/* 활성 상태 */
 .confirm-row.is-active .confirm-value {
-  filter: none;
-  opacity: 1;
+    filter: none;
+    opacity: 1;
 }
 
 /* 버튼 */
 .confirm-btn {
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.18);
-  background: white;
-  cursor: pointer;
-  font-weight: 700;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    background: white;
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .confirm-btn:disabled {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }
 
 .input-guide {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-top: 10px;
-  }
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 10px;
+}
 
-  .confirm-btn {
+.confirm-btn {
     padding: 14px 18px;
     border-radius: 14px;
-    border: 2px solid rgba(0,0,0,0.35);
+    border: 2px solid rgba(0, 0, 0, 0.35);
     background: #fff;
     cursor: pointer;
     font-weight: 800;
     font-size: 1.15rem;
     line-height: 1;
-    box-shadow: 0 6px 0 rgba(0,0,0,0.18);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.18);
     transform: translateY(0);
     transition: transform 0.05s ease, box-shadow 0.05s ease, background-color 0.15s ease;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-  }
-  
-  .confirm-btn:hover {
-    background: rgba(0,0,0,0.03);
-  }
-  
-  .confirm-btn:active {
+}
+
+.confirm-btn:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.confirm-btn:active {
     transform: translateY(4px);
-    box-shadow: 0 2px 0 rgba(0,0,0,0.18);
-  }
-  
-  .confirm-btn:disabled {
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+}
+
+.confirm-btn:disabled {
     opacity: 0.35;
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
-  }
+}
 
-  .video-progress-wrap {
+.video-progress-wrap {
     width: 100%;
     height: 6px;
     background: #e0e0e0;
     border-radius: 3px;
     overflow: hidden;
     margin-top: 6px;
-  }
-  
-  .video-progress-bar {
+}
+
+.video-progress-bar {
     width: 0%;
     height: 100%;
-    background: #3b82f6; /* 파란색 */
+    background: #3b82f6;
+    /* 파란색 */
     transition: width 0.15s linear;
-  }
-  
-  .video-with-close {
+}
+
+.video-with-close {
     position: relative;
-  }
-  
-  .video-close-btn {
+}
+
+.video-close-btn {
     position: absolute;
     top: 6px;
     right: 6px;
@@ -186,30 +187,63 @@
     text-align: center;
     cursor: pointer;
     z-index: 5;
-  }
-  
-  .video-close-btn:active {
-    background: rgba(0, 0, 0, 0.75);
-  }
+}
 
-  .guide-highlight {
+.video-close-btn:active {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.guide-highlight {
     color: red;
     font-weight: 900;
-    }
+}
 
-    /* 입력창 + Next 버튼을 안내문 길이와 독립적으로 항상 중앙 고정 */
+/* 입력창 + Next 버튼 안내문 중앙 고정 */
 .input-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
 }
 
 #searchFailHelp {
-  color:#d32f2f;
-  font-weight:700;
-  margin-bottom:6px;
-  font-size:20px;
-  line-height:1.5;
+    color: #d32f2f;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   영상: 헤드라인과 예약정보 표 사이에 작게 중앙 정렬로 표시
+   ========================================= */
+.video-inline-wrap {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 14px;
+}
+
+.video-inline-box {
+    width: 33%;
+    max-width: 360px;
+    min-width: 200px;
+    text-align: center;
+}
+
+/* 체크인 방법 영상만 크게(가로 최대 720) */
+#checkinInlineWrap .video-inline-box {
+    width: 66%;
+    max-width: 720px;
+    min-width: 320px;
+}
+
+.video-inline-player {
+    width: 100%;
+    border-radius: 12px;
+    background: #000;
+    pointer-events: none;
+    /* 손님 터치/클릭 완전 차단 */
 }

@@ -25,7 +25,7 @@ let lastHasCheckInInstructionVideo = false;
 // 2. URL lang 파라미터
 // ==============================================
 // ==============================================
-// 2. i18n 로드 (공통 loadI18n은 common.js 참조)
+// 2. i18n 로드 (공통 loadI18n은 i18n.js 참조, 텍스트 치환 t() 함수 포함)
 // ==============================================
 async function loadLanguageData() {
   i18n = await loadI18n("../data/reservation_number.json");
@@ -50,9 +50,9 @@ async function loadExcelData() {
 
     for (let r = range.s.r + 1; r <= range.e.r; r++) {
       const nameCell = sh[XLSX.utils.encode_cell({ r, c: cols.guestName })];
-      const resCell  = sh[XLSX.utils.encode_cell({ r, c: cols.reservationNumber })];
+      const resCell = sh[XLSX.utils.encode_cell({ r, c: cols.reservationNumber })];
       const roomCell = sh[XLSX.utils.encode_cell({ r, c: cols.roomNumber })];
-      const outCell  = sh[XLSX.utils.encode_cell({ r, c: cols.checkOutDate })];
+      const outCell = sh[XLSX.utils.encode_cell({ r, c: cols.checkOutDate })];
 
       if (nameCell && resCell && roomCell && outCell) {
         const reservationNumber = resCell.v.toString().trim().toUpperCase();
@@ -119,7 +119,7 @@ async function loadPasswordData() {
     const res = await fetch(CONFIG.PASSWORDS_URL);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    roomPasswords   = data.roomPasswords   || {};
+    roomPasswords = data.roomPasswords || {};
     lockerPasswords = data.lockerPasswords || {};
   } catch (e) {
     console.error("비밀번호 데이터 로드 오류:", e);
@@ -158,9 +158,9 @@ function matchesName(query, fullName) {
   const allRev = joinNoSpace([...nameTokens].reverse());
   if (qNo === allFwd || qNo === allRev) return true;
 
-  const isLatin    = (t) => /^[a-z0-9]+$/i.test(t);
-  const isHangul   = (t) => /^\p{Script=Hangul}+$/u.test(t);
-  const isHan      = (t) => /^\p{Script=Han}+$/u.test(t);
+  const isLatin = (t) => /^[a-z0-9]+$/i.test(t);
+  const isHangul = (t) => /^\p{Script=Hangul}+$/u.test(t);
+  const isHan = (t) => /^\p{Script=Han}+$/u.test(t);
   const isHiragana = (t) => /^\p{Script=Hiragana}+$/u.test(t);
   const isKatakana = (t) => /^\p{Script=Katakana}+$/u.test(t);
 
@@ -204,14 +204,14 @@ function updateUITexts() {
 
   const guideTextEl = document.getElementById("inputGuide");
   if (guideTextEl) {
-  const guide = i18n?.ui?.inputGuide;
-  if (typeof guide === "string" && guide.trim() !== "") {
-  guideTextEl.innerHTML = guide;
-  guideTextEl.style.display = "block";
-  } else {
-  guideTextEl.innerHTML = "";
-  guideTextEl.style.display = "none";
-  }
+    const guide = i18n?.ui?.inputGuide;
+    if (typeof guide === "string" && guide.trim() !== "") {
+      guideTextEl.innerHTML = guide;
+      guideTextEl.style.display = "block";
+    } else {
+      guideTextEl.innerHTML = "";
+      guideTextEl.style.display = "none";
+    }
   }
 
   const reservationInput = document.getElementById("reservationInput");
@@ -224,7 +224,7 @@ function updateUITexts() {
     errorMessage.textContent = "";
     errorMessage.style.display = "none";
     reservationSearchFailCount = 0;
-hideSearchFailHelp();
+    hideSearchFailHelp();
   }
 
   const inputField = document.getElementById("reservationInput");
@@ -232,7 +232,7 @@ hideSearchFailHelp();
 }
 
 // ==============================================
-// 문자열 템플릿 치환 유틸은 common.js의 t() 사용
+// 문자열 템플릿 치환 유틸은 i18n.js의 t() 사용
 // ==============================================
 // ==============================================
 // 예약 검색 실패 안내 (4회 이상)
@@ -274,7 +274,7 @@ function hideSearchFailHelp() {
 // ==============================================
 function _hideInlineVideo(prefix) {
   const bar = document.getElementById(prefix.replace("Inline", "") + "Progress");
-if (bar) bar.style.width = "0%";
+  if (bar) bar.style.width = "0%";
   const wrap = document.getElementById(prefix + "Wrap");
   const video = document.getElementById(prefix + "Video");
   if (video) {
@@ -285,8 +285,8 @@ if (bar) bar.style.width = "0%";
   if (wrap) wrap.style.display = "none";
 }
 
-function hideDoorVideoInline()    { _hideInlineVideo("doorInline"); }
-function hideLockerVideoInline()  { _hideInlineVideo("lockerInline"); }
+function hideDoorVideoInline() { _hideInlineVideo("doorInline"); }
+function hideLockerVideoInline() { _hideInlineVideo("lockerInline"); }
 function hideCheckInVideoInline() { _hideInlineVideo("checkinInline"); }
 
 function _showInlineVideo(prefix, onDone) {
@@ -307,18 +307,18 @@ function _showInlineVideo(prefix, onDone) {
       }
     };
   }
-  
-// ended 핸들러 중복/덮어쓰기 방지용: 기존 핸들러 정리
-video.onended = null;
 
-// ended 이벤트를 addEventListener로 고정(한 번만 실행)
-video.addEventListener("ended", () => {
-if (progressBar) {
-progressBar.style.width = "100%";
-}
-_hideInlineVideo(prefix);
-if (typeof onDone === "function") onDone();
-}, { once: true });
+  // ended 핸들러 중복/덮어쓰기 방지용: 기존 핸들러 정리
+  video.onended = null;
+
+  // ended 이벤트를 addEventListener로 고정(한 번만 실행)
+  video.addEventListener("ended", () => {
+    if (progressBar) {
+      progressBar.style.width = "100%";
+    }
+    _hideInlineVideo(prefix);
+    if (typeof onDone === "function") onDone();
+  }, { once: true });
 
 
 
@@ -344,23 +344,23 @@ if (typeof onDone === "function") onDone();
         setTimeout(() => {
           const p = video.play();
           if (p && typeof p.catch === "function") {
-            p.catch(() => {});
+            p.catch(() => { });
           }
         }, 1500);
       })
-      .catch(() => {});
+      .catch(() => { });
   } else {
     video.pause();
     video.currentTime = 0;
     setTimeout(() => {
-      try { video.play(); } catch (e) {}
+      try { video.play(); } catch (e) { }
     }, 1500);
   }
 }
 
-function showDoorVideoInline(onDone)   { _showInlineVideo("doorInline", onDone); }
+function showDoorVideoInline(onDone) { _showInlineVideo("doorInline", onDone); }
 function showLockerVideoInline(onDone) { _showInlineVideo("lockerInline", onDone); }
-function showCheckInVideoInline(onDone){ _showInlineVideo("checkinInline", onDone); }
+function showCheckInVideoInline(onDone) { _showInlineVideo("checkinInline", onDone); }
 
 // ==============================================
 // 영상 스킵 시 → 체크아웃 단계로 강제 이동
@@ -550,7 +550,7 @@ function finishConfirmSteps(tableEl) {
     if (btn) btn.style.display = "none";
   });
 
-  window.location.href = `main.html?lang=${getLanguageFromURL()}`;
+  window.location.href = `/index.html?lang=${getLanguageFromURL()}`;
 }
 
 // ==============================================
@@ -643,9 +643,9 @@ function checkReservation() {
         return;
       } else {
         reservationSearchFailCount += 1;
-if (reservationSearchFailCount >= 4) {
-  showSearchFailHelp();
-}
+        if (reservationSearchFailCount >= 4) {
+          showSearchFailHelp();
+        }
         errorMessage.style.display = "block";
         errorMessage.textContent = i18n.reservationNotFound;
         detailsDiv.innerHTML = "";
@@ -661,9 +661,9 @@ if (reservationSearchFailCount >= 4) {
         return;
       } else {
         reservationSearchFailCount += 1;
-if (reservationSearchFailCount >= 4) {
-  showSearchFailHelp();
-}
+        if (reservationSearchFailCount >= 4) {
+          showSearchFailHelp();
+        }
         errorMessage.style.display = "block";
         errorMessage.textContent = i18n.reservationNotFound;
         detailsDiv.innerHTML = "";
@@ -674,7 +674,7 @@ if (reservationSearchFailCount >= 4) {
 
   errorMessage.style.display = "none";
   reservationSearchFailCount = 0;
-hideSearchFailHelp();
+  hideSearchFailHelp();
 
   const roomNumber = matchingReservation.room_number;
   const roomPassword = roomPasswords[roomNumber] || "";
@@ -820,7 +820,7 @@ document.addEventListener("click", (e) => {
   // 2. 분기 처리
   if (exitType === "home") {
     // 처음 화면으로
-    window.location.href = `main.html?lang=${getLanguageFromURL()}`;
+    window.location.href = `/index.html?lang=${getLanguageFromURL()}`;
     return;
   }
 
@@ -832,7 +832,7 @@ document.addEventListener("click", (e) => {
   ) {
     skipVideoAndGoToCheckout();
   }
-  
+
 });
 
 
@@ -850,14 +850,14 @@ document.addEventListener("click", (e) => {
   ].filter(Boolean);
 
   const layoutNum = [
-    ["1","2","3","4","5","6","7","8","9","0"],
-    ["-","/","*","+","(",")",".",",","@","#"]
+    ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+    ["-", "/", "*", "+", "(", ")", ".", ",", "@", "#"]
   ];
 
   const layoutText = [
-    ["q","w","e","r","t","y","u","i","o","p"],
-    ["a","s","d","f","g","h","j","k","l","-"],
-    ["z","x","c","v","b","n","m",".","@","_"]
+    ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+    ["a", "s", "d", "f", "g", "h", "j", "k", "l", "-"],
+    ["z", "x", "c", "v", "b", "n", "m", ".", "@", "_"]
   ];
 
   function renderKeys() {
@@ -911,7 +911,7 @@ document.addEventListener("click", (e) => {
       const v = inputEl.value || "";
       inputEl.focus();
       inputEl.setSelectionRange(v.length, v.length);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   function closeOSK() {
@@ -936,7 +936,7 @@ document.addEventListener("click", (e) => {
     try {
       el.focus();
       el.setSelectionRange(newPos, newPos);
-    } catch (e) {}
+    } catch (e) { }
 
     el.dispatchEvent(new Event("input", { bubbles: true }));
   }
@@ -952,23 +952,23 @@ document.addEventListener("click", (e) => {
       const before = el.value.slice(0, start);
       const after = el.value.slice(end);
       el.value = before + after;
-      try { el.setSelectionRange(start, start); } catch (e) {}
+      try { el.setSelectionRange(start, start); } catch (e) { }
     } else if (start > 0) {
       const before = el.value.slice(0, start - 1);
       const after = el.value.slice(start);
       el.value = before + after;
-      try { el.setSelectionRange(start - 1, start - 1); } catch (e) {}
+      try { el.setSelectionRange(start - 1, start - 1); } catch (e) { }
     }
 
     el.dispatchEvent(new Event("input", { bubbles: true }));
-    try { el.focus(); } catch (e) {}
+    try { el.focus(); } catch (e) { }
   }
 
   function clearAll() {
     if (!activeInput) return;
     activeInput.value = "";
     activeInput.dispatchEvent(new Event("input", { bubbles: true }));
-    try { activeInput.focus(); } catch (e) {}
+    try { activeInput.focus(); } catch (e) { }
   }
 
   targets.forEach(el => {
