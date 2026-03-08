@@ -243,19 +243,22 @@ function showSearchFailHelp() {
 
   const h = i18n?.searchFailHelp || {
     title: "예약을 찾을 수 없는 경우 다음사항을 체크해주세요",
-    line1: "당일 예약일 경우 아직 시스템 업데이트가 안됐을 수 있습니다. 화면 오른쪽 아래 메시지창을 눌러서 ‘직원에게 연결’(Talk to person)이라고 말해주세요",
-    line2: "야코리아호스텔 [강남점]으로 예약한 경우입니다 (여기는 동대문점입니다)",
-    line3: "체크인 날짜가 확실한가요? 다시 한번 확인해주세요"
+    line1: "야코리아호스텔 [강남점]으로 예약한 경우입니다 (여기는 동대문점입니다)",
+    line2: "체크인 날짜가 확실한가요? 다시 한번 확인해주세요",
+    line3: "당일 예약일 경우 아직 시스템 업데이트가 안됐을 수 있습니다. 화면 오른쪽 아래 메시지창을 눌러서 ‘직원에게 연결’(Talk to person)이라고 타이핑해주세요"
   };
 
+  el.style.textAlign = "center";
   el.innerHTML = `
-    <div style="color:#d32f2f; font-weight:700; margin-bottom:6px;">
-      ${h.title}
-    </div>
-    <div>
-      1. ${h.line1}<br>
-      2. ${h.line2}<br>
-      3. ${h.line3}
+    <div style="display:inline-block; text-align:left; color:#000;">
+      <div style="color:#d32f2f; font-weight:700; margin-bottom:6px;">
+        ${h.title}
+      </div>
+      <div>
+        1. ${h.line1}<br>
+        2. ${h.line2}<br>
+        3. ${h.line3}
+      </div>
     </div>
   `;
   el.style.display = "block";
@@ -363,19 +366,22 @@ function showLockerVideoInline(onDone) { _showInlineVideo("lockerInline", onDone
 function showCheckInVideoInline(onDone) { _showInlineVideo("checkinInline", onDone); }
 
 // ==============================================
-// 영상 스킵 시 → 체크아웃 단계로 강제 이동
+// 영상 스킵 시 → 다음 단계로 강제 이동
 // ==============================================
-function skipVideoAndGoToCheckout() {
-  // 현재 단계가 password 또는 method일 때만 동작
+function skipVideoAndGoToNextStep() {
   const currentKey = confirmStepOrder[currentConfirmStep];
 
-  if (currentKey === "password" || currentKey === "method") {
-    // checkout 단계의 index 찾기
+  if (currentKey === "password") {
+    // password 단계 영상 스킵 시 checkout 단계로
     const checkoutIndex = confirmStepOrder.indexOf("checkout");
     if (checkoutIndex !== -1) {
       currentConfirmStep = checkoutIndex;
       updateConfirmStepUI(document.querySelector("table.confirm-table"));
     }
+  } else if (currentKey === "method") {
+    // method 단계 영상 스킵 시 바로 버튼 활성화
+    const methodBtn = document.querySelector('table.confirm-table .confirm-row[data-stepkey="method"] .confirm-btn');
+    if (methodBtn) methodBtn.disabled = false;
   }
 }
 
@@ -466,6 +472,16 @@ function applyConfirmStepUI(tableEl) {
       return;
     }
     updateConfirmStepUI(tableEl);
+
+    // method 단계 진입 시 자동 영상 재생
+    const newStepKey = confirmStepOrder[currentConfirmStep];
+    if (newStepKey === "method" && lastHasCheckInInstructionVideo) {
+      const btn = tableEl.querySelector('.confirm-row[data-stepkey="method"] .confirm-btn');
+      if (btn) btn.disabled = true;
+      showCheckInVideoInline(() => {
+        if (btn) btn.disabled = false;
+      });
+    }
   };
 
   tableEl.addEventListener("click", (e) => {
@@ -499,15 +515,6 @@ function applyConfirmStepUI(tableEl) {
         });
         return;
       }
-    }
-
-    // method 단계: 체크인 방법 영상 -> 다음 단계
-    if (stepKey === "method" && lastHasCheckInInstructionVideo) {
-      btn.disabled = true;
-      showCheckInVideoInline(() => {
-        advanceStep();
-      });
-      return;
     }
 
     advanceStep();
@@ -584,8 +591,8 @@ function buildCheckInInstruction(roomNumber) {
 
   return `
     ${slipperText}<br>
-    ${routeText}<br>
-    ${amenityText}
+    ${amenityText}<br>
+    ${routeText}
   `;
 }
 
@@ -643,11 +650,13 @@ function checkReservation() {
         return;
       } else {
         reservationSearchFailCount += 1;
-        if (reservationSearchFailCount >= 4) {
+        if (reservationSearchFailCount >= 3) {
           showSearchFailHelp();
+          errorMessage.style.display = "none";
+        } else {
+          errorMessage.style.display = "block";
+          errorMessage.textContent = i18n.reservationNotFound;
         }
-        errorMessage.style.display = "block";
-        errorMessage.textContent = i18n.reservationNotFound;
         detailsDiv.innerHTML = "";
         return;
       }
@@ -661,11 +670,13 @@ function checkReservation() {
         return;
       } else {
         reservationSearchFailCount += 1;
-        if (reservationSearchFailCount >= 4) {
+        if (reservationSearchFailCount >= 3) {
           showSearchFailHelp();
+          errorMessage.style.display = "none";
+        } else {
+          errorMessage.style.display = "block";
+          errorMessage.textContent = i18n.reservationNotFound;
         }
-        errorMessage.style.display = "block";
-        errorMessage.textContent = i18n.reservationNotFound;
         detailsDiv.innerHTML = "";
         return;
       }
@@ -762,7 +773,7 @@ function checkReservation() {
 
   <div id="checkinInlineWrap" class="video-inline-wrap">
     <div class="video-inline-box video-with-close">
-      <button class="video-close-btn" data-prefix="checkinInline" data-exit="home">✕</button>
+      <button class="video-close-btn" data-prefix="checkinInline">✕</button>
 
       <video id="checkinInlineVideo"
              class="video-inline-player"
@@ -824,13 +835,13 @@ document.addEventListener("click", (e) => {
     return;
   }
 
-  // 3. 기본 동작: 체크아웃 단계로 이동
+  // 3. 기본 동작: 다음 단계로 이동
   if (
-    typeof skipVideoAndGoToCheckout === "function" &&
+    typeof skipVideoAndGoToNextStep === "function" &&
     Array.isArray(confirmStepOrder) &&
     confirmStepOrder.length > 0
   ) {
-    skipVideoAndGoToCheckout();
+    skipVideoAndGoToNextStep();
   }
 
 });
