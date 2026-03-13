@@ -1,4 +1,4 @@
-﻿/* 기본 스타일 초기화 */
+/* 기본 스타일 초기화 */
 * {
     margin: 0;
     padding: 0;
@@ -209,101 +209,6 @@ body h2 {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.osk.hidden {
-    display: none;
-}
-
-.osk {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-    background: #fff;
-    border-top: 3px solid #333;
-    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
-    padding: 10px 10px 14px;
-    user-select: none;
-    touch-action: manipulation;
-}
-
-.osk-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.osk-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #111;
-}
-
-.osk-actions {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
-
-.osk-btn {
-    font-size: 18px;
-    padding: 10px 14px;
-    border: 2px solid #333;
-    border-radius: 10px;
-    background: #fff;
-}
-
-.osk-btn:active {
-    transform: translateY(1px);
-}
-
-.osk-btn-primary {
-    background: #111;
-    color: #fff;
-}
-
-.osk-keys {
-    display: grid;
-    gap: 8px;
-}
-
-.osk-row {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 8px;
-}
-
-.osk-key {
-    font-size: 22px;
-    padding: 14px 0;
-    border: 2px solid #333;
-    border-radius: 12px;
-    background: #f9f9f9;
-    text-align: center;
-}
-
-.osk-key:active {
-    transform: translateY(1px);
-    background: #eee;
-}
-
-/* space / wide keys */
-.osk-key.wide {
-    grid-column: span 3;
-}
-
-.osk-key.wider {
-    grid-column: span 4;
-}
-
-/* 입력칸이 키보드에 가리지 않게 여백 */
-.body-has-osk {
-    padding-bottom: 320px;
-    /* 키보드 높이에 맞춰 조정 */
-}
 
 /* ========================================================================= */
 /* 언어 선택 버튼 스타일 (index.html 등 공통) */

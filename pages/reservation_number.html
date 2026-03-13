@@ -29,6 +29,20 @@
         <!-- 내용은 JS에서 i18n으로 채워짐 -->
       </div>
 
+      <!-- On-screen keyboard (Moved here to be below input) -->
+      <div id="osk" class="osk hidden" aria-hidden="true">
+        <div class="osk-bar">
+          <div class="osk-title">Keyboard</div>
+          <div class="osk-actions">
+            <button type="button" class="osk-btn" data-action="bksp">⌫</button>
+            <button type="button" class="osk-btn" data-action="clear">Clear</button>
+            <button type="button" class="osk-btn osk-btn-primary" data-action="done">Done</button>
+          </div>
+        </div>
+
+        <div class="osk-keys" id="oskKeys"></div>
+      </div>
+
 
 
     </div>
@@ -45,20 +59,6 @@
   <script src="../js/app.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="../js/reservation_number.js"></script>
-  <!-- On-screen keyboard -->
-  <div id="osk" class="osk hidden" aria-hidden="true">
-    <div class="osk-bar">
-      <div class="osk-title">Keyboard</div>
-      <div class="osk-actions">
-        <button type="button" class="osk-btn" data-action="mode" id="oskModeBtn">123</button>
-        <button type="button" class="osk-btn" data-action="bksp">⌫</button>
-        <button type="button" class="osk-btn" data-action="clear">Clear</button>
-        <button type="button" class="osk-btn osk-btn-primary" data-action="done">Done</button>
-      </div>
-    </div>
-
-    <div class="osk-keys" id="oskKeys"></div>
-  </div>
 
 </body>
 

@@ -22,6 +22,65 @@ let lastHasLockerPassword = false;
 let lastHasCheckInInstructionVideo = false;
 
 // ==============================================
+// 1-1. 안내 음성 재생 시스템 (다국어 확장 가능)
+// ==============================================
+
+// 현재 재생 중인 Audio 객체를 추적 (중복 재생 방지용)
+let currentGuideAudio = null;
+
+// 언어별 + 단계별 음성 파일 매핑 테이블
+// - "name": 이름이 테이블에 표시될 때
+// - "room_private": 개인실(하이픈 없는 방) 방번호 표시
+// - "room_dorm": 도미토리(하이픈 있는 방) 방번호 표시
+// - "password_private": 개인실 비밀번호 표시
+// - "password_dorm": 도미토리 방/사물함 비밀번호 표시
+// - "checkout": 체크아웃 날짜 표시
+// - "method": 체크인 방법 정보 표시
+const GUIDE_AUDIO_MAP = {
+  zh: {
+    name: "02_zh_check_name.m4a",
+    room_private: "03_zh_check_room_number.m4a",
+    room_dorm: "04_zh_check_room_and_bed_number.m4a",
+    password_private: "05_zh_check_password.m4a",
+    password_dorm: "06_zh_check_room_and_locker_password.m4a",
+    checkout: "07_zh_check_checkout_date.m4a",
+    method: "08_zh_room_slippers_and_amenities.m4a"
+  }
+  // ★ 다른 언어 추가 시 여기에 블록 추가 (예: en: { name: "...", ... })
+};
+
+// 안내 음성 재생 함수
+// guideKey: GUIDE_AUDIO_MAP의 키 (예: "name", "room_private")
+function playGuideAudio(guideKey) {
+  // 기존 재생 중인 음성이 있으면 정지
+  stopGuideAudio();
+
+  // 현재 언어 가져오기
+  const lang = getLanguageFromURL();
+
+  // 해당 언어의 매핑이 없으면 재생하지 않음
+  const langMap = GUIDE_AUDIO_MAP[lang];
+  if (!langMap) return;
+
+  // 해당 단계의 파일이 없으면 재생하지 않음
+  const fileName = langMap[guideKey];
+  if (!fileName) return;
+
+  // Audio 객체 생성 및 재생
+  const audio = new Audio(`../audio/${fileName}`);
+  currentGuideAudio = audio;
+  audio.play().catch(e => console.warn("[GuideAudio] 재생 실패:", e));
+}
+
+// 안내 음성 정지 함수
+function stopGuideAudio() {
+  if (currentGuideAudio) {
+    currentGuideAudio.pause();
+    currentGuideAudio = null;
+  }
+}
+
+// ==============================================
 // 2. URL lang 파라미터
 // ==============================================
 // ==============================================
@@ -424,13 +483,16 @@ function resetConfirmIdleTimer(tableEl) {
 let confirmStepOrder = [];
 let currentConfirmStep = 0;
 
-function getConfirmButtonText(stepKey) {
+// 확인 버튼에 들어갈 텍스트를 언어별/단계별로 반환하는 함수입니다.
+// isDorm: 도미토리 방인지 여부 (개인방일 경우 버튼 텍스트를 다르게 표시하기 위함)
+function getConfirmButtonText(stepKey, isDorm = false) {
   const lang = document.documentElement.lang || "ko";
 
   const dict = {
     ko: {
       name: "이름 확인",
-      room: "방(침대번호) 확인",
+      // 도미토리면 '방(침대번호) 확인', 개인방이면 '방번호 확인'으로 표시
+      room: isDorm ? "방(침대번호) 확인" : "방번호 확인",
       password: "비밀번호 확인",
       checkout: "퇴실 날짜 확인",
       method: "체크인 방법 확인",
@@ -438,7 +500,7 @@ function getConfirmButtonText(stepKey) {
     },
     en: {
       name: "Check Name",
-      room: "Check Room / Bed Number",
+      room: isDorm ? "Check Room / Bed Number" : "Check Room Number",
       password: "Check Password",
       checkout: "Check Check-out Date",
       method: "Check Check-in Instructions",
@@ -446,7 +508,7 @@ function getConfirmButtonText(stepKey) {
     },
     ja: {
       name: "名前の確認",
-      room: "部屋・ベッド番号の確認",
+      room: isDorm ? "部屋・ベッド番号の確認" : "部屋番号の確認",
       password: "パスワードの確認",
       checkout: "チェックアウト日の確認",
       method: "チェックイン方法の確認",
@@ -454,7 +516,7 @@ function getConfirmButtonText(stepKey) {
     },
     zh: {
       name: "确认姓名",
-      room: "确认房间 / 床位号",
+      room: isDorm ? "确认房间 / 床位号" : "确认房间号",
       password: "确认密码",
       checkout: "确认退房日期",
       method: "确认入住方式",
@@ -466,8 +528,9 @@ function getConfirmButtonText(stepKey) {
   return table[stepKey] || table.done;
 }
 
-function buildConfirmRow(thText, valueHtml, stepKey) {
-  const btnText = getConfirmButtonText(stepKey);
+// 확인 테이블의 각 행(Row)을 생성하는 함수입니다.
+function buildConfirmRow(thText, valueHtml, stepKey, isDorm = false) {
+  const btnText = getConfirmButtonText(stepKey, isDorm); // 버튼에 들어갈 텍스트 결정
   return `
     <tr class="confirm-row" data-stepkey="${stepKey}">
       <th class="confirm-th">${thText}</th>
@@ -504,8 +567,27 @@ function applyConfirmStepUI(tableEl) {
     }
     updateConfirmStepUI(tableEl);
 
-    // method 단계 진입 시 자동 영상 재생
+    // ★ 단계 전환 시 안내 음성 재생
     const newStepKey = confirmStepOrder[currentConfirmStep];
+
+    if (newStepKey === "room") {
+      // 개인실(하이픈 없음) vs 도미토리(하이픈 있음) 구분
+      // 도미토리 방은 테이블에 "205 (침대번호 1)" 같은 형식으로 표시됨
+      const roomCell = tableEl.querySelector('.confirm-row[data-stepkey="room"] .confirm-value');
+      const roomText = roomCell ? roomCell.textContent : "";
+      // 괄호가 있으면 도미토리(침대번호가 포함된 형식), 아니면 개인실
+      const isDormRoom = roomText.includes("(") || roomText.includes("-");
+      playGuideAudio(isDormRoom ? "room_dorm" : "room_private");
+    } else if (newStepKey === "password") {
+      // 사물함 비밀번호가 있으면 도미토리, 없으면 개인실
+      playGuideAudio(lastHasLockerPassword ? "password_dorm" : "password_private");
+    } else if (newStepKey === "checkout") {
+      playGuideAudio("checkout");
+    } else if (newStepKey === "method") {
+      playGuideAudio("method");
+    }
+
+    // method 단계 진입 시 자동 영상 재생
     if (newStepKey === "method" && lastHasCheckInInstructionVideo) {
       const btn = tableEl.querySelector('.confirm-row[data-stepkey="method"] .confirm-btn');
       if (btn) btn.disabled = true;
@@ -580,6 +662,8 @@ function updateConfirmStepUI(tableEl) {
 }
 
 function finishConfirmSteps(tableEl) {
+  // ★ 모든 단계 완료 시 안내 음성 정지
+  stopGuideAudio();
   hideDoorVideoInline();
   hideLockerVideoInline();
   hideCheckInVideoInline();
@@ -749,15 +833,21 @@ function checkReservation() {
     passwordDisplay = lockerPassword;
   }
 
+  // 방 번호에 하이픈(-)이 포함되어 있으면 도미토리(침대번호 있음)로 판단합니다.
+  const isDorm = roomNumber.includes("-");
   let roomDisplay = roomNumber;
-  const roomParts = roomNumber.split("-");
-  if (roomParts.length === 2) {
+  
+  // 도미토리일 경우 방 번호와 침대 번호를 분리하여 표시합니다 (예: 205 (Bed 1))
+  if (isDorm) {
+    const roomParts = roomNumber.split("-");
     roomDisplay = `${roomParts[0]} (${i18n.bedNumber} ${roomParts[1]})`;
   }
 
   const rowsHtml = [];
+  // 이름 확인 행 추가
   rowsHtml.push(buildConfirmRow(i18n.tableHeaders.name, matchingReservation.name, "name"));
-  rowsHtml.push(buildConfirmRow(i18n.tableHeaders.roomNumber, roomDisplay, "room"));
+  // 방번호 확인 행 추가 (도미토리 여부에 따라 버튼 문구가 달라짐)
+  rowsHtml.push(buildConfirmRow(i18n.tableHeaders.roomNumber, roomDisplay, "room", isDorm));
 
   if (hasRoomPassword || hasLockerPassword) {
     rowsHtml.push(buildConfirmRow(passwordTitle, passwordDisplay, "password"));
@@ -832,6 +922,9 @@ function checkReservation() {
 
 
   applyConfirmStepUI(detailsDiv.querySelector("table.confirm-table"));
+
+  // ★ 이름이 테이블에 표시된 직후 → 이름 확인 안내 음성 재생
+  playGuideAudio("name");
 }
 
 // ==============================================
@@ -882,91 +975,104 @@ document.addEventListener("click", (e) => {
 });
 
 
+/**
+ * 가상 키보드 (OSK: On-Screen Keyboard) 시스템
+ * 예약번호(숫자)와 이름(영문) 입력을 지원합니다.
+ */
 (function () {
   let activeInput = null;
-  let mode = "num";
+  let mode = "num"; // "num" (숫자) 또는 "abc" (영문)
 
   const osk = document.getElementById("osk");
   const oskKeys = document.getElementById("oskKeys");
-  const oskModeBtn = document.getElementById("oskModeBtn");
-  if (!osk || !oskKeys || !oskModeBtn) return;
+  const oskTitle = osk?.querySelector(".osk-title");
 
-  const targets = [
-    document.getElementById("reservationInput"),
-  ].filter(Boolean);
+  if (!osk || !oskKeys) return;
 
-  const layoutNum = [
+  // OSK에 표시될 텍스트
+  const OSK_TEXT = {
+    title: "Virtual Keyboard",
+    done: "Done",
+    clear: "Clear"
+  };
+
+  // 키보드 레이아웃 정의 (숫자와 영문을 하나로 합침)
+  const layout = [
     ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
-    ["-", "/", "*", "+", "(", ")", ".", ",", "@", "#"]
+    ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+    ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+    ["Z", "X", "C", "V", "B", "N", "M"]
   ];
 
-  const layoutText = [
-    ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
-    ["a", "s", "d", "f", "g", "h", "j", "k", "l", "-"],
-    ["z", "x", "c", "v", "b", "n", "m", ".", "@", "_"]
-  ];
-
+  /**
+   * 키보드 렌더링 함수
+   */
   function renderKeys() {
     oskKeys.innerHTML = "";
-    const layout = (mode === "num") ? layoutNum : layoutText;
 
     layout.forEach(row => {
       const rowEl = document.createElement("div");
       rowEl.className = "osk-row";
-      row.forEach(k => {
+      row.forEach(key => {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "osk-key";
-        btn.textContent = k;
-        btn.dataset.key = k;
+        btn.textContent = key;
+        btn.dataset.key = key;
         rowEl.appendChild(btn);
       });
       oskKeys.appendChild(rowEl);
     });
 
-    const last = document.createElement("div");
-    last.className = "osk-row";
-    last.style.gridTemplateColumns = "repeat(10, 1fr)";
+    // 마지막 줄: Space와 Done 버튼 배치
+    const bottomRow = document.createElement("div");
+    bottomRow.className = "osk-row";
 
-    const space = document.createElement("button");
-    space.type = "button";
-    space.className = "osk-key wider";
-    space.textContent = "Space";
-    space.dataset.key = " ";
-    last.appendChild(space);
+    const spaceBtn = document.createElement("button");
+    spaceBtn.type = "button";
+    spaceBtn.className = "osk-key wider";
+    spaceBtn.textContent = "Space";
+    spaceBtn.dataset.key = " ";
+    bottomRow.appendChild(spaceBtn);
 
-    const enter = document.createElement("button");
-    enter.type = "button";
-    enter.className = "osk-key wide";
-    enter.textContent = "Enter";
-    enter.dataset.action = "done";
-    last.appendChild(enter);
+    const doneBtn = document.createElement("button");
+    doneBtn.type = "button";
+    doneBtn.className = "osk-key wide osk-btn-primary";
+    doneBtn.textContent = OSK_TEXT.done;
+    doneBtn.dataset.action = "done";
+    bottomRow.appendChild(doneBtn);
 
-    oskKeys.appendChild(last);
+    oskKeys.appendChild(bottomRow);
 
-    oskModeBtn.textContent = (mode === "num") ? "ABC" : "123";
+    if (oskTitle) oskTitle.textContent = OSK_TEXT.title;
   }
 
+  /**
+   * 키보드 열기
+   */
   function openOSK(inputEl) {
     activeInput = inputEl;
     osk.classList.remove("hidden");
     osk.setAttribute("aria-hidden", "false");
-    document.body.classList.add("body-has-osk");
 
-    try {
-      const v = inputEl.value || "";
-      inputEl.focus();
-      inputEl.setSelectionRange(v.length, v.length);
-    } catch (e) { }
+    // 입력창으로 스크롤 이동 (키보드가 나타날 때 입력창이 보이도록)
+    setTimeout(() => {
+      inputEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
   }
 
+  /**
+   * 키보드 닫기
+   */
   function closeOSK() {
     osk.classList.add("hidden");
     osk.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("body-has-osk");
     activeInput = null;
   }
 
+  /**
+   * 텍스트 삽입 (커서 위치 고려)
+   */
   function insertText(text) {
     if (!activeInput) return;
     const el = activeInput;
@@ -974,82 +1080,104 @@ document.addEventListener("click", (e) => {
     const start = el.selectionStart ?? el.value.length;
     const end = el.selectionEnd ?? el.value.length;
 
-    const before = el.value.slice(0, start);
-    const after = el.value.slice(end);
-    el.value = before + text + after;
+    const val = el.value;
+    el.value = val.slice(0, start) + text + val.slice(end);
 
     const newPos = start + text.length;
-    try {
-      el.focus();
-      el.setSelectionRange(newPos, newPos);
-    } catch (e) { }
+    el.setSelectionRange(newPos, newPos);
+    el.focus();
 
+    // input 이벤트 발생 (다른 리스너들이 변경 감지하도록 함)
     el.dispatchEvent(new Event("input", { bubbles: true }));
   }
 
-  function backspace() {
+  /**
+   * 백스페이스 처리
+   */
+  function handleBackspace() {
     if (!activeInput) return;
     const el = activeInput;
 
     const start = el.selectionStart ?? el.value.length;
     const end = el.selectionEnd ?? el.value.length;
 
+    const val = el.value;
     if (start !== end) {
-      const before = el.value.slice(0, start);
-      const after = el.value.slice(end);
-      el.value = before + after;
-      try { el.setSelectionRange(start, start); } catch (e) { }
+      el.value = val.slice(0, start) + val.slice(end);
+      el.setSelectionRange(start, start);
     } else if (start > 0) {
-      const before = el.value.slice(0, start - 1);
-      const after = el.value.slice(start);
-      el.value = before + after;
-      try { el.setSelectionRange(start - 1, start - 1); } catch (e) { }
+      el.value = val.slice(0, start - 1) + val.slice(start);
+      el.setSelectionRange(start - 1, start - 1);
     }
-
+    el.focus();
     el.dispatchEvent(new Event("input", { bubbles: true }));
-    try { el.focus(); } catch (e) { }
   }
 
-  function clearAll() {
+  /**
+   * 전체 삭제
+   */
+  function clearInput() {
     if (!activeInput) return;
     activeInput.value = "";
+    activeInput.focus();
     activeInput.dispatchEvent(new Event("input", { bubbles: true }));
-    try { activeInput.focus(); } catch (e) { }
   }
 
-  targets.forEach(el => {
-    el.addEventListener("focus", () => openOSK(el));
-    el.addEventListener("click", () => openOSK(el));
-    el.addEventListener("touchstart", () => openOSK(el), { passive: true });
-  });
+  // 대상 입력창 이벤트 연결
+  const reservationInput = document.getElementById("reservationInput");
+  if (reservationInput) {
+    reservationInput.addEventListener("focus", () => openOSK(reservationInput));
+    reservationInput.addEventListener("click", () => openOSK(reservationInput));
+    // 터치 기기 대응
+    reservationInput.addEventListener("touchstart", (e) => {
+      openOSK(reservationInput);
+    }, { passive: true });
+  }
 
+  // 키보드 버튼 클릭 이벤트 리스너 (위임 방식)
   osk.addEventListener("click", (e) => {
-    const t = e.target;
-    if (!(t instanceof HTMLElement)) return;
+    // 버튼 클릭 시 포커스 빼앗기지 않도록 함
+    e.preventDefault();
 
-    const action = t.dataset.action;
-    const key = t.dataset.key;
+    const btn = e.target.closest("button");
+    if (!btn) return;
 
-    if (action === "mode") {
-      mode = (mode === "num") ? "text" : "num";
-      renderKeys();
+    const action = btn.dataset.action;
+    const key = btn.dataset.key;
+
+    if (action === "bksp" || btn.getAttribute("data-action") === "bksp") {
+      handleBackspace();
       return;
     }
-    if (action === "bksp") return backspace();
-    if (action === "clear") return clearAll();
-    if (action === "done") return closeOSK();
 
-    if (typeof key === "string") insertText(key);
-  });
+    if (action === "clear") {
+      clearInput();
+      return;
+    }
 
-  renderKeys();
+    if (action === "done") {
+      closeOSK();
+      return;
+    }
 
-  document.addEventListener("mousedown", (e) => {
-    if (!osk.classList.contains("hidden")) {
-      const withinOSK = osk.contains(e.target);
-      const withinInput = activeInput && activeInput.contains(e.target);
-      if (!withinOSK && !withinInput) closeOSK();
+    if (key !== undefined) {
+      insertText(key);
     }
   });
+
+  // 외부 클릭 시 키보드 닫기
+  document.addEventListener("mousedown", (e) => {
+    if (osk.classList.contains("hidden")) return;
+
+    const withinOSK = osk.contains(e.target);
+    const withinInput = activeInput && activeInput.contains(e.target);
+
+    if (!withinOSK && !withinInput) {
+      closeOSK();
+    }
+  });
+
+  // 초기 렌더링
+  renderKeys();
 })();
 

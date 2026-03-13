@@ -58,13 +58,13 @@
 #searchButton {
     font-size: 1.5rem;
     padding: 10px 40px;
-    background-color: #343a40;
+    background-color: #b3b3b3;
     /* 진한 남색(다크 그레이) 배경 */
-    color: white;
+    color: rgb(255, 255, 255);
     /* 흰색 글자 */
     border: none;
     /* 테두리 제거 */
-    border-radius: 4px;
+    border-radius: 12px;
     /* 입력창과 비슷한 모서리 (4px) */
     cursor: pointer;
     font-weight: bold;
@@ -289,4 +289,123 @@
     background: #000;
     pointer-events: none;
     /* 손님 터치/클릭 완전 차단 */
+}
+
+/* =========================================
+   가상 키보드 (OSK) 스타일
+   ========================================= */
+.osk {
+    margin-top: 20px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 600px;
+    max-width: 95vw;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.osk.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.osk-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.osk-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #495057;
+}
+
+.osk-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.osk-btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border: 1px solid #adb5bd;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.1s;
+}
+
+.osk-btn:active {
+    background: #e9ecef;
+    transform: translateY(1px);
+}
+
+.osk-btn-primary {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.osk-btn-primary:active {
+    background: #000;
+}
+
+.osk-keys {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.osk-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.osk-key {
+    flex: 1;
+    min-width: 40px;
+    height: 55px;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-bottom: 3px solid #ced4da;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.05s;
+}
+
+.osk-key:active {
+    transform: translateY(2px);
+    border-bottom-width: 1px;
+    background: #e9ecef;
+}
+
+.osk-key.wide {
+    flex: 2;
+}
+
+.osk-key.wider {
+    flex: 4;
+}
+
+/* 입력창 포커스 시 키보드 부드럽게 나타나게 하기 위해 opacity 추가 가능 */
+.osk:not(.hidden) {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
