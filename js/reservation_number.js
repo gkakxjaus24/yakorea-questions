@@ -940,6 +940,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (e.key === "Enter") checkReservation();
   });
 
+  // F1 (도움말), F3 (찾기) 키 비활성화
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "F1" || e.key === "F3") {
+      e.preventDefault();
+      console.log(`[System] ${e.key} key disabled to prevent accidental navigation.`);
+    }
+  });
+
   createCommonButtons();
 });
 
