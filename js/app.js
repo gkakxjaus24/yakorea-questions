@@ -15,6 +15,7 @@ function createCommonButtons() {
     if (currentPage !== "index.html") {
       const homeButton = document.createElement("button");
       homeButton.className = "common-button";
+      homeButton.id = "homeButton";
       homeButton.innerHTML = "🏠 HOME";
       homeButton.onclick = function () {
         window.location.href = "/index.html";
@@ -26,6 +27,7 @@ function createCommonButtons() {
     if (!currentPage.startsWith("QnA") && currentPage !== "index.html") {
       const helpButton = document.createElement("button");
       helpButton.className = "common-button help-button";
+      helpButton.id = "helpButton";
       helpButton.innerHTML = "❓ HELP";
       helpButton.onclick = function () {
         const urlParams = new URLSearchParams(window.location.search);

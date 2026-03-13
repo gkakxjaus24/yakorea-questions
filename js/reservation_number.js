@@ -741,6 +741,7 @@ function checkReservation() {
     errorMessage.style.display = "block";
     errorMessage.textContent = i18n.enterReservation;
     detailsDiv.innerHTML = "";
+    toggleNavigationButtons(true);
     return;
   }
 
@@ -766,6 +767,7 @@ function checkReservation() {
         errorMessage.style.display = "block";
         errorMessage.textContent = i18n.duplicateName;
         detailsDiv.innerHTML = "";
+        toggleNavigationButtons(true);
         return;
       } else {
         reservationSearchFailCount += 1;
@@ -777,6 +779,7 @@ function checkReservation() {
           errorMessage.textContent = i18n.reservationNotFound;
         }
         detailsDiv.innerHTML = "";
+        toggleNavigationButtons(true);
         return;
       }
     } else {
@@ -786,6 +789,7 @@ function checkReservation() {
         errorMessage.style.display = "block";
         errorMessage.textContent = i18n.duplicateName;
         detailsDiv.innerHTML = "";
+        toggleNavigationButtons(true);
         return;
       } else {
         reservationSearchFailCount += 1;
@@ -797,10 +801,14 @@ function checkReservation() {
           errorMessage.textContent = i18n.reservationNotFound;
         }
         detailsDiv.innerHTML = "";
+        toggleNavigationButtons(true);
         return;
       }
     }
   }
+
+  // 매칭 성공 시 버튼 숨김
+  toggleNavigationButtons(false);
 
   errorMessage.style.display = "none";
   reservationSearchFailCount = 0;
@@ -824,7 +832,10 @@ function checkReservation() {
 
   if (hasRoomPassword && hasLockerPassword) {
     passwordTitle = i18n.tableHeaders.roomAndLockerPassword;
-    passwordDisplay = `${roomPassword} / ${lockerPassword}`;
+    // 사용자 요청에 따라 '방:XXXX 사물함: YYYY' 형식으로 변경 (라벨은 i18n에서 가져옴)
+    const rLabel = i18n.tableHeaders.roomLabel || "Room";
+    const lLabel = i18n.tableHeaders.lockerLabel || "Locker";
+    passwordDisplay = `${rLabel}:${roomPassword} ${lLabel}: ${lockerPassword}`;
   } else if (hasRoomPassword) {
     passwordTitle = i18n.tableHeaders.roomPassword;
     passwordDisplay = roomPassword;
@@ -927,6 +938,17 @@ function checkReservation() {
   playGuideAudio("name");
 }
 
+/**
+ * 하단 네비게이션 버튼(Home, Help) 표시 여부를 제어합니다.
+ * @param {boolean} show true면 표시, false면 숨김
+ */
+function toggleNavigationButtons(show) {
+  const container = document.getElementById("common-buttons");
+  if (container) {
+    container.style.display = show ? "flex" : "none";
+  }
+}
+
 // ==============================================
 // 9. DOMContentLoaded 초기화
 // ==============================================
@@ -949,6 +971,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   createCommonButtons();
+  toggleNavigationButtons(true);
 });
 
 // ==============================================
