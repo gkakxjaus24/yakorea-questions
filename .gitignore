@@ -1,2 +1,26 @@
 # Excel 임시 잠금 파일
 data/~$*
+
+# Node.js 의존성
+node_modules/
+chat-system/server/node_modules/
+chat-system/admin/node_modules/
+
+# Next.js 빌드 결과물
+chat-system/admin/.next/
+chat-system/admin/out/
+
+# 환경변수 (절대 커밋 금지)
+chat-system/server/.env
+chat-system/admin/.env.local
+
+# 백업 폴더 (불필요)
+chat-system-backup-v1/
+
+# Claude 내부 폴더
+.claude/
+
+# 기타
+*.log
+.DS_Store
+Thumbs.db
