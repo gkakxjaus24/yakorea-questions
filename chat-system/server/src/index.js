@@ -95,9 +95,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 // ========== 위젯 정적 파일 서빙 ==========
 // 채팅 위젯 JS 파일을 서버에서 직접 제공합니다.
+// Railway 배포 시 server/public/ 폴더에 위젯 파일이 있어야 합니다.
 // 캐시 문제를 방지하기 위해 항상 최신 파일을 제공합니다.
 app.get('/widget/chat-widget.js', (req, res) => {
-    const filePath = path.join(__dirname, '../../widget/dist/chat-widget.js');
+    const filePath = path.join(__dirname, '../public/chat-widget.js');
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate');
     res.set('Pragma', 'no-cache');
     res.set('Expires', '0');
@@ -105,7 +106,7 @@ app.get('/widget/chat-widget.js', (req, res) => {
 });
 
 // 위젯 테스트 페이지 (개발 시 편의용)
-app.use('/widget', express.static(path.join(__dirname, '../../widget/dist')));
+app.use('/widget', express.static(path.join(__dirname, '../public')));
 
 // ========== API 라우트 연결 ==========
 
