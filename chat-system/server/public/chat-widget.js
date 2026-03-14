@@ -276,12 +276,17 @@
 
         .msg-time { font-size: 9px; color: #aaa; padding: 0 4px; }
 
-        /* 매니저 연결 버튼 */
+        /* 매니저 연결 버튼 바 (입력창 위 고정 영역) */
+        .manager-bar {
+            display: none; justify-content: center;
+            padding: 8px 16px; background: #fff5f5;
+            border-top: 1px solid #ffd6d6; flex-shrink: 0;
+        }
+        .manager-bar.show { display: flex; }
         .manager-btn {
-            align-self: center; margin: 6px 0;
-            padding: 9px 18px; border-radius: 20px; border: none;
+            padding: 9px 20px; border-radius: 20px; border: none;
             background: #ff6b6b; color: white; cursor: pointer;
-            font-size: 13px; font-weight: 600;
+            font-size: 13px; font-weight: 600; width: 100%;
             transition: background 0.2s, transform 0.1s;
         }
         .manager-btn:hover  { background: #ee5a24; transform: scale(1.02); }
@@ -430,6 +435,11 @@
                     <!-- 메시지 목록 -->
                     <div class="messages" id="messages"></div>
 
+                    <!-- 매니저 연결 버튼 바 (폴백 발생 시 표시) -->
+                    <div class="manager-bar" id="managerBar">
+                        <button class="manager-btn" id="managerBtn">${i.manager_btn}</button>
+                    </div>
+
                     <!-- 입력 영역 -->
                     <div class="input-area">
                         <div class="input-row">
@@ -457,7 +467,9 @@
                 sendBtn:     this.shadowRoot.getElementById('sendBtn'),
                 kbToggleBtn: this.shadowRoot.getElementById('kbToggleBtn'),
                 keyboard:    this.shadowRoot.getElementById('keyboard'),
-                langTabs:    this.shadowRoot.querySelectorAll('.lang-tab')
+                langTabs:    this.shadowRoot.querySelectorAll('.lang-tab'),
+                managerBar:  this.shadowRoot.getElementById('managerBar'),
+                managerBtn:  this.shadowRoot.getElementById('managerBtn')
             };
 
             this._bindEvents();
@@ -486,6 +498,18 @@
             this.el.msgInput.addEventListener('input', () => {
                 this.el.msgInput.style.height = 'auto';
                 this.el.msgInput.style.height = Math.min(this.el.msgInput.scrollHeight, 100) + 'px';
+            });
+
+            // 매니저 연결 버튼
+            this.el.managerBtn.addEventListener('click', () => {
+                if (this.isManagerRequested) return;
+                this.isManagerRequested = true;
+                const i = I18N[this.language];
+                this.el.managerBtn.textContent = i.manager_requested;
+                this.el.managerBtn.classList.add('requested');
+                if (this.socket && this.roomId) {
+                    this.socket.emit('guest:request_manager', { roomId: this.roomId });
+                }
             });
 
             // 가상 키보드 토글
@@ -681,6 +705,14 @@
             // 새 메시지 수신
             this.socket.on('new_message', ({ message }) => {
                 this._appendMessage(message);
+                // 폴백(자동응답 실패) 시스템 메시지면 매니저 버튼 bar 표시
+                if (message.sender_type === 'system' && message.is_auto_reply) {
+                    this._appendManagerButton();
+                }
+                // 매니저가 직접 연결되면 버튼 bar 숨김
+                if (message.sender_type === 'manager' && !message.is_auto_reply) {
+                    this.el.managerBar.classList.remove('show');
+                }
                 // 채팅창이 닫혀있으면 배지 카운트 증가
                 if (!this.isOpen && message.sender_type !== 'guest') {
                     this.unreadCount++;
@@ -721,10 +753,8 @@
                 if (!data.isNew) {
                     await this._loadMessages();
                 } else {
-                    // 신규 대화방이면 환영 메시지를 서버에서 이미 저장했으므로 불러오기
+                    // 신규 대화방이면 환영 메시지 불러오기
                     await this._loadMessages();
-                    // 매니저 연결 버튼 표시
-                    this._appendManagerButton();
                 }
 
             } catch (err) {
@@ -794,28 +824,8 @@
 
         /** 매니저와 대화하기 버튼을 메시지 목록에 추가합니다. */
         _appendManagerButton() {
-            if (this.isManagerRequested) return;
-
-            const i   = I18N[this.language];
-            const btn = document.createElement('button');
-            btn.className  = 'manager-btn';
-            btn.id         = 'managerBtn';
-            btn.textContent = i.manager_btn;
-
-            btn.addEventListener('click', () => {
-                if (this.isManagerRequested) return;
-                this.isManagerRequested = true;
-                btn.textContent = i.manager_requested;
-                btn.classList.add('requested');
-
-                // 서버에 매니저 연결 요청 전송
-                if (this.socket && this.roomId) {
-                    this.socket.emit('guest:request_manager', { roomId: this.roomId });
-                }
-            });
-
-            this.el.messages.appendChild(btn);
-            this._scrollToBottom();
+            // 이미 요청됐으면 bar는 계속 보여주되 버튼 상태만 유지
+            this.el.managerBar.classList.add('show');
         }
 
         // ================================================
