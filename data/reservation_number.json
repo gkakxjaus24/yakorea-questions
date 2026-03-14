@@ -10,7 +10,9 @@
       "roomNumber": "방번호",
       "roomPassword": "방 비밀번호",
       "lockerPassword": "사물함 비밀번호",
-      "roomAndLockerPassword": "방/사물함 비밀번호",
+      "roomAndLockerPassword": "비밀번호",
+      "roomLabel": "방",
+      "lockerLabel": "사물함",
       "checkoutDate": "체크아웃 날짜",
       "checkInMethod": "체크인 방법"
     },
@@ -18,7 +20,7 @@
       "title": "셀프 체크인💻👆",
       "nextButton": "검색",
       "inputGuide": "",
-      "inputPlaceholder": "이름 또는 예약번호"
+      "inputPlaceholder": "이름(영문 or 국문) 또는 예약번호"
     },
     "checkIn": {
       "slipperRoom": "{room}호 슬리퍼를 갈아 신고 방으로 들어가 주세요.",
@@ -102,7 +104,9 @@
       "line1": "您可能预订了雅可瑞亚旅馆 [江南]。（这里是东大门店。）",
       "line2": "请再次检查您的入住日期。",
       "line3": "如果您是同一天预订的，系统可能还没有更新。请点击屏幕右下方的消息按钮，并输入“Talk to person”。"
-    }
+    },
+    "smokingWarning": "房间内禁止吸烟。一旦发现吸烟，将处以 20 万韩元的罚款，并立即要求退房且不予退款。",
+    "agreeButton": "我同意"
   },
   "ja": {
     "duplicateName": "同じ名前の予約が複数あります。予約番号を入力してください",

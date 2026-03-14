@@ -409,3 +409,43 @@
     opacity: 1;
     transform: translateY(0);
 }
+/* =========================================
+   금연 동의 배너 (Smoking Agreement)
+   ========================================= */
+.agreement-banner {
+    background: #fff5f5;
+    border: 3px solid #ff8787;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.15);
+}
+
+.agreement-msg {
+    color: #e03131;
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    word-break: keep-all;
+}
+
+.agreement-btn {
+    padding: 16px 40px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    background: #fa5252;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #c92a2a;
+    transition: all 0.1s;
+}
+
+.agreement-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #c92a2a;
+}

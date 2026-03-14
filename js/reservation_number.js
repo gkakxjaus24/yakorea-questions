@@ -815,6 +815,48 @@ function checkReservation() {
   hideSearchFailHelp();
 
   const roomNumber = matchingReservation.room_number;
+  // 방 번호에 하이픈(-)이 포함되어 있으면 도미토리(침대번호 있음)로 판단합니다.
+  const isDorm = roomNumber.includes("-");
+
+  // 중국어 언어 + 개인실(하이픈 없음)인 경우 금연 동의 단계를 먼저 보여줍니다.
+  const lang = getLanguageFromURL();
+  if (lang === "zh" && !isDorm) {
+    showSmokingAgreement(matchingReservation, roomNumber, isDorm);
+    return;
+  }
+
+  // 그 외의 경우 바로 예약 정보 표시
+  renderReservationDetails(matchingReservation, roomNumber, isDorm);
+}
+
+/**
+ * 금연 동의 배너를 표시합니다.
+ */
+function showSmokingAgreement(reservation, roomNumber, isDorm) {
+  const detailsDiv = document.getElementById("details");
+  if (!detailsDiv) return;
+
+  detailsDiv.innerHTML = `
+    <div class="agreement-banner">
+      <div class="agreement-msg">${i18n.smokingWarning}</div>
+      <button type="button" class="agreement-btn" id="agreeSmokingBtn">
+        ${i18n.agreeButton}
+      </button>
+    </div>
+  `;
+
+  document.getElementById("agreeSmokingBtn").addEventListener("click", () => {
+    renderReservationDetails(reservation, roomNumber, isDorm);
+  });
+}
+
+/**
+ * 실제 예약 정보를 화면에 렌더링하고 확인 단계를 시작합니다.
+ */
+function renderReservationDetails(matchingReservation, roomNumber, isDorm) {
+  const detailsDiv = document.getElementById("details");
+  if (!detailsDiv) return;
+
   const roomPassword = roomPasswords[roomNumber] || "";
   const lockerPassword = lockerPasswords[roomNumber] || "";
 
@@ -824,7 +866,7 @@ function checkReservation() {
   lastHasRoomPassword = hasRoomPassword;
   lastHasLockerPassword = hasLockerPassword;
 
-  // 체크인 방법 영상은 항상 있다고 가정(원하시면 조건 분기 가능)
+  // 체크인 방법 영상은 항상 있다고 가정
   lastHasCheckInInstructionVideo = true;
 
   let passwordTitle = "";
@@ -832,7 +874,6 @@ function checkReservation() {
 
   if (hasRoomPassword && hasLockerPassword) {
     passwordTitle = i18n.tableHeaders.roomAndLockerPassword;
-    // 사용자 요청에 따라 '방:XXXX 사물함: YYYY' 형식으로 변경 (라벨은 i18n에서 가져옴)
     const rLabel = i18n.tableHeaders.roomLabel || "Room";
     const lLabel = i18n.tableHeaders.lockerLabel || "Locker";
     passwordDisplay = `${rLabel}:${roomPassword} ${lLabel}: ${lockerPassword}`;
@@ -844,18 +885,13 @@ function checkReservation() {
     passwordDisplay = lockerPassword;
   }
 
-  // 방 번호에 하이픈(-)이 포함되어 있으면 도미토리(침대번호 있음)로 판단합니다.
-  const isDorm = roomNumber.includes("-");
   let roomDisplay = roomNumber;
-  
-  // 도미토리일 경우 방 번호와 침대 번호를 분리하여 표시합니다 (예: 205 (Bed 1))
   if (isDorm) {
     const roomParts = roomNumber.split("-");
     roomDisplay = `${roomParts[0]} (${i18n.bedNumber} ${roomParts[1]})`;
   }
 
   const rowsHtml = [];
-  // 이름 확인 행 추가
   rowsHtml.push(buildConfirmRow(i18n.tableHeaders.name, matchingReservation.name, "name"));
   // 방번호 확인 행 추가 (도미토리 여부에 따라 버튼 문구가 달라짐)
   rowsHtml.push(buildConfirmRow(i18n.tableHeaders.roomNumber, roomDisplay, "room", isDorm));
