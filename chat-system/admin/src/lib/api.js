@@ -99,12 +99,12 @@ export async function getMe() {
 
 /**
  * 전체 대화방 목록을 조회합니다. (관리자용)
- * @param {{ status?: string, limit?: number }} params
+ * @param {string} [status] - 'all' 또는 'active' | 'waiting_manager' | 'closed' (생략 시 전체 조회)
  * @returns {Promise<{ rooms: Array, total: number }>}
  */
-export async function getRooms(params = {}) {
-    const query = new URLSearchParams(params).toString();
-    const res   = await fetch(`${API_URL}/api/chat/admin/rooms${query ? '?' + query : ''}`, {
+export async function getRooms(status) {
+    const qs  = status && status !== 'all' ? `?status=${status}` : '';
+    const res = await fetch(`${API_URL}/api/chat/admin/rooms${qs}`, {
         headers: authHeaders()
     });
     return handleResponse(res);

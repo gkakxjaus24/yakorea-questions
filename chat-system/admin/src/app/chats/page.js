@@ -44,8 +44,7 @@ export default function ChatsPage() {
         try {
             setLoading(true);
             setError(null);
-            const params = filter !== 'all' ? { status: filter } : {};
-            const data   = await getRooms(params);
+            const data = await getRooms(filter);
             setRooms(data.rooms || []);
         } catch (err) {
             setError(err.message);
