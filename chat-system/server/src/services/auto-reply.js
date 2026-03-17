@@ -251,14 +251,38 @@ async function processAutoReply(userMessage, language, roomId) {
                 status:        'pending'
             });
 
-        console.log(`❌ 자동응답 실패 — 신뢰도: ${matchResult.confidence}`);
+        // 매니저 연결 유도 메시지 (다국어)
+        const managerMsgs = {
+            ko: '자동응답으로 답변하기 어려운 질문입니다. 아래 "매니저와 대화하기" 버튼을 눌러주시면 담당자가 직접 도와드립니다.',
+            en: 'This question is difficult to answer automatically. Please click the "Chat with manager" button below and a staff member will help you directly.',
+            zh: '这个问题很难自动回答。请点击下面的"与经理聊天"按钮，工作人员会直接为您提供帮助。',
+            ja: 'この質問は自動で回答するのが難しいです。下の「マネージャーと話す」ボタンをクリックすると、スタッフが直接お手伝いします。'
+        };
+        const managerMsg = managerMsgs[language] ?? managerMsgs.ko;
+
+        // DB에 매니저 연결 유도 메시지 저장 (is_auto_reply: true로 위젯이 버튼 표시)
+        const { data: savedMsg } = await supabaseAdmin
+            .from('messages')
+            .insert({
+                chat_room_id:      roomId,
+                sender_type:       'system',
+                content:           managerMsg,
+                is_auto_reply:     true,  // 이것이 true여야 위젯에서 버튼을 표시합니다
+                matched_intent_id: null,
+                confidence_score:  matchResult.confidence,
+                is_read:           false
+            })
+            .select()
+            .single();
+
+        console.log(`❌ 자동응답 실패 — 신뢰도: ${matchResult.confidence}, 매니저 연결 유도`);
 
         return {
             type:       'no_match',
-            answer:     null,
+            answer:     managerMsg,
             intentId:   null,
             confidence: matchResult.confidence,
-            message:    null
+            message:    savedMsg
         };
 
     } catch (error) {
