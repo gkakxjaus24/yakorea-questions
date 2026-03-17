@@ -86,7 +86,8 @@ router.post('/rooms', async (req, res) => {
 
     } catch (err) {
         console.error('[Chat] 대화방 생성 에러:', err.message);
-        res.status(500).json({ error: '대화방 생성에 실패했습니다.' });
+        // 디버깅용: 실제 에러 메시지 노출 (확인 후 제거 예정)
+        res.status(500).json({ error: '대화방 생성에 실패했습니다.', debug: err.message });
     }
 });
 
