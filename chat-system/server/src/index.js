@@ -152,7 +152,8 @@ app.use((req, res) => {
 // 500 처리: 처리되지 않은 서버 에러
 app.use((err, req, res, _next) => {
     console.error('[서버 에러]', err.message);
-    res.status(500).json({ error: '서버 내부 오류가 발생했습니다.' });
+    // 디버깅용: 실제 에러 노출 (확인 후 제거 예정)
+    res.status(500).json({ error: '서버 내부 오류가 발생했습니다.', debug: err.message });
 });
 
 // ========== 서버 시작 ==========
