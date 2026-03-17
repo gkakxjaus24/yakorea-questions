@@ -62,7 +62,12 @@
         <p class="tip">⚠️ 서버가 http://localhost:3001 에서 실행 중이어야 합니다.</p>
     </div>
 
-    <!-- 채팅 위젯 스크립트 -->
-    <script src="http://localhost:3001/widget/chat-widget.js"></script>
+    <!-- 채팅 위젯 스크립트 (같은 서버에서 로드) -->
+    <script>
+        // 현재 페이지와 같은 서버에서 위젯을 로드 (로컬/배포 모두 자동 대응)
+        const script = document.createElement('script');
+        script.src = window.location.origin + '/widget/chat-widget.js';
+        document.body.appendChild(script);
+    </script>
 </body>
 </html>
