@@ -1261,6 +1261,10 @@ document.addEventListener("click", (e) => {
 
     if (action === "done") {
       closeOSK();
+      // '검색' 버튼 누른 것과 동일하게 예약 확인 로직 실행
+      if (typeof checkReservation === "function") {
+        checkReservation();
+      }
       return;
     }
 
