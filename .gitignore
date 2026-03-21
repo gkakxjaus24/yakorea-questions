@@ -1,6 +1,9 @@
 # Excel 임시 잠금 파일
 data/~$*
 
+# 운영 데이터 파일
+data/reservations.xlsx
+
 # Node.js 의존성
 node_modules/
 chat-system/server/node_modules/
