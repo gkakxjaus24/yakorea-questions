@@ -127,8 +127,9 @@ export default function ChatDetailPage() {
 
     // 발신자 타입별 표시 정보
     const senderInfo = (msg) => {
-        if (msg.sender_type === 'guest')   return { label: '손님', cls: 'guest' };
-        if (msg.sender_type === 'manager') return { label: msg.is_auto_reply ? '🤖 자동응답' : '👤 매니저', cls: 'manager' };
+        if (msg.sender_type === 'guest')                         return { label: '손님',        cls: 'guest'   };
+        if (msg.sender_type === 'system' && msg.is_auto_reply)   return { label: '🤖 자동응답', cls: 'system'  };
+        if (msg.sender_type === 'manager')                       return { label: '👤 매니저',   cls: 'manager' };
         return { label: '시스템', cls: 'system' };
     };
 

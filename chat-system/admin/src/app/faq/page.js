@@ -14,7 +14,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import AdminLayout from '@/components/AdminLayout';
-import { getIntents, getIntentDetail, toggleIntent, addQuestion, deleteQuestion, saveAnswer } from '@/lib/api';
+import { getIntents, getIntentDetail, toggleIntent, addQuestion, deleteQuestion, saveAnswer, getUnmatchedQuestions, dismissUnmatchedQuestion } from '@/lib/api';
 
 // 지원 언어 목록
 const LANGUAGES = [
@@ -40,6 +40,13 @@ export default function FaqPage() {
     const [answerDrafts,   setAnswerDrafts]   = useState({});  // { ko: '...', en: '...' }
     const [savingLang,     setSavingLang]     = useState(null);
 
+    // 탭 상태 (faq / unmatched)
+    const [activeTab,      setActiveTab]      = useState('faq');
+
+    // 미매칭 질문
+    const [unmatched,      setUnmatched]      = useState([]);
+    const [unmatchedLoading, setUnmatchedLoading] = useState(false);
+
     // 토스트 메시지
     const [toast,          setToast]          = useState('');
 
@@ -62,6 +69,30 @@ export default function FaqPage() {
     }, []);
 
     useEffect(() => { fetchIntents(); }, [fetchIntents]);
+
+    // ===== 미매칭 질문 조회 =====
+    const fetchUnmatched = useCallback(async () => {
+        try {
+            setUnmatchedLoading(true);
+            const data = await getUnmatchedQuestions();
+            setUnmatched(data.questions || []);
+        } catch (err) {
+            console.error('미매칭 질문 조회 오류:', err.message);
+        } finally {
+            setUnmatchedLoading(false);
+        }
+    }, []);
+
+    // ===== 미매칭 질문 무시 =====
+    const handleDismiss = async (id) => {
+        try {
+            await dismissUnmatchedQuestion(id);
+            setUnmatched(prev => prev.filter(q => q.id !== id));
+            showToast('질문이 무시 처리되었습니다.');
+        } catch (err) {
+            alert('처리에 실패했습니다.');
+        }
+    };
 
     // ===== 의도 상세 조회 =====
     const fetchDetail = useCallback(async (intentId) => {
@@ -96,7 +127,7 @@ export default function FaqPage() {
             setIntents(prev => prev.map(i =>
                 i.id === intent.id ? { ...i, is_active: !i.is_active } : i
             ));
-            showToast(`"${intent.name}" ${!intent.is_active ? '활성화' : '비활성화'}됨`);
+            showToast(`"${intent.category}" ${!intent.is_active ? '활성화' : '비활성화'}됨`);
         } catch (err) {
             alert('상태 변경에 실패했습니다.');
         }
@@ -108,7 +139,7 @@ export default function FaqPage() {
         if (!q || addingQ) return;
         try {
             setAddingQ(true);
-            const data = await addQuestion(selectedId, q, newQuestLang);
+            const data = await addQuestion(selectedId, { language: newQuestLang, question_text: q });
             setDetail(prev => ({
                 ...prev,
                 questions: [...(prev.questions || []), data.question]
@@ -126,7 +157,7 @@ export default function FaqPage() {
     const handleDeleteQuestion = async (qId) => {
         if (!confirm('이 질문을 삭제하시겠습니까?')) return;
         try {
-            await deleteQuestion(qId);
+            await deleteQuestion(selectedId, qId);
             setDetail(prev => ({
                 ...prev,
                 questions: prev.questions.filter(q => q.id !== qId)
@@ -168,13 +199,76 @@ export default function FaqPage() {
 
             <div className="card-header">
                 <h2>📋 FAQ 관리</h2>
-                <button className="btn btn-secondary btn-sm" onClick={fetchIntents}>
+                <button className="btn btn-secondary btn-sm" onClick={activeTab === 'faq' ? fetchIntents : fetchUnmatched}>
                     🔄 새로고침
                 </button>
             </div>
 
-            {/* 2단 레이아웃: 좌(목록) + 우(상세) */}
-            <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+            {/* 탭 */}
+            <div className="filter-bar" style={{ marginBottom: 16 }}>
+                <button
+                    className={`filter-btn ${activeTab === 'faq' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('faq')}
+                >
+                    📋 FAQ 의도
+                </button>
+                <button
+                    className={`filter-btn ${activeTab === 'unmatched' ? 'active' : ''}`}
+                    onClick={() => { setActiveTab('unmatched'); fetchUnmatched(); }}
+                >
+                    ❓ 미매칭 질문 {unmatched.length > 0 && `(${unmatched.length})`}
+                </button>
+            </div>
+
+            {/* ===== 미매칭 질문 탭 ===== */}
+            {activeTab === 'unmatched' && (
+                <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+                    {unmatchedLoading ? (
+                        <div className="loading"><div className="spinner"></div> 불러오는 중...</div>
+                    ) : unmatched.length === 0 ? (
+                        <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
+                            <div style={{ fontSize: 32, marginBottom: 8 }}>✅</div>
+                            <p>미매칭 질문이 없습니다.</p>
+                        </div>
+                    ) : (
+                        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                            <thead>
+                                <tr style={{ background: 'var(--bg)', fontSize: 12, color: 'var(--text-muted)' }}>
+                                    <th style={{ padding: '10px 16px', textAlign: 'left', fontWeight: 600 }}>질문</th>
+                                    <th style={{ padding: '10px 16px', textAlign: 'left', fontWeight: 600, width: 80 }}>언어</th>
+                                    <th style={{ padding: '10px 16px', textAlign: 'left', fontWeight: 600, width: 140 }}>수신 시각</th>
+                                    <th style={{ padding: '10px 16px', textAlign: 'center', fontWeight: 600, width: 80 }}>처리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {unmatched.map((q, idx) => (
+                                    <tr key={q.id} style={{ borderTop: idx > 0 ? '1px solid var(--border)' : 'none' }}>
+                                        <td style={{ padding: '12px 16px', fontSize: 13 }}>{q.question_text}</td>
+                                        <td style={{ padding: '12px 16px', fontSize: 12, color: 'var(--text-muted)' }}>
+                                            {q.language?.toUpperCase() || 'KO'}
+                                        </td>
+                                        <td style={{ padding: '12px 16px', fontSize: 12, color: 'var(--text-muted)' }}>
+                                            {new Date(q.created_at).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                                        </td>
+                                        <td style={{ padding: '12px 16px', textAlign: 'center' }}>
+                                            <button
+                                                className="btn btn-secondary btn-sm"
+                                                style={{ fontSize: 11 }}
+                                                onClick={() => handleDismiss(q.id)}
+                                            >
+                                                무시
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    )}
+                </div>
+            )}
+
+            {/* 2단 레이아웃: 좌(목록) + 우(상세) — FAQ 탭일 때만 */}
+            {activeTab === 'faq' && <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
 
                 {/* ===== 의도 목록 ===== */}
                 <div className="card" style={{ width: 280, flexShrink: 0, padding: 0, overflow: 'hidden' }}>
@@ -230,7 +324,7 @@ export default function FaqPage() {
                                             color: intent.is_active ? 'var(--text)' : 'var(--text-muted)',
                                             overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'
                                         }}>
-                                            {intent.name}
+                                            {intent.category}
                                         </div>
                                         {intent.description && (
                                             <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
@@ -261,15 +355,15 @@ export default function FaqPage() {
                             <div className="card" style={{ marginBottom: 16 }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                                     <div style={{ flex: 1 }}>
-                                        <h3 style={{ fontSize: 16, fontWeight: 700 }}>{detail.name}</h3>
-                                        {detail.description && (
+                                        <h3 style={{ fontSize: 16, fontWeight: 700 }}>{detail.intent?.category}</h3>
+                                        {detail.intent?.description && (
                                             <p style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 4 }}>
-                                                {detail.description}
+                                                {detail.intent.description}
                                             </p>
                                         )}
                                     </div>
-                                    <span className={`badge ${detail.is_active ? 'badge-active' : 'badge-closed'}`}>
-                                        {detail.is_active ? '활성' : '비활성'}
+                                    <span className={`badge ${detail.intent?.is_active ? 'badge-active' : 'badge-closed'}`}>
+                                        {detail.intent?.is_active ? '활성' : '비활성'}
                                     </span>
                                 </div>
                             </div>
@@ -383,7 +477,7 @@ export default function FaqPage() {
                         </>
                     ) : null}
                 </div>
-            </div>
+            </div>}
         </AdminLayout>
     );
 }

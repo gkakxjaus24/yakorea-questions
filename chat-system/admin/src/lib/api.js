@@ -216,6 +216,32 @@ export async function deleteQuestion(intentId, questionId) {
 
 
 /**
+ * 미매칭 질문 목록을 조회합니다. (자동응답에 실패한 질문들)
+ * @returns {Promise<{ questions: Array }>}
+ */
+export async function getUnmatchedQuestions() {
+    const res = await fetch(`${API_URL}/api/admin/intents/unmatched`, {
+        headers: authHeaders()
+    });
+    return handleResponse(res);
+}
+
+
+/**
+ * 미매칭 질문을 무시(dismiss) 처리합니다.
+ * @param {string} id - 미매칭 질문 UUID
+ * @returns {Promise<{ success: boolean }>}
+ */
+export async function dismissUnmatchedQuestion(id) {
+    const res = await fetch(`${API_URL}/api/admin/intents/unmatched/${id}`, {
+        method:  'PATCH',
+        headers: authHeaders()
+    });
+    return handleResponse(res);
+}
+
+
+/**
  * 언어별 답변 템플릿을 저장합니다. (없으면 생성, 있으면 수정)
  * @param {string} intentId
  * @param {string} lang      - ko | en | zh | ja

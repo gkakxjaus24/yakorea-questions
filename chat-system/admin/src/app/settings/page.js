@@ -29,8 +29,8 @@ const KEY_INFO = {
     check_out_time:       { label: '체크아웃 시간',     desc: '답변 템플릿에서 {{check_out_time}} 으로 사용' },
     wifi_password:        { label: 'Wi-Fi 비밀번호',    desc: '답변 템플릿에서 {{wifi_password}} 으로 사용' },
     locker_password:      { label: '락커 비밀번호',     desc: '답변 템플릿에서 {{locker_password}} 으로 사용' },
-    auto_reply_threshold_high: { label: '자동응답 확정 임계값', desc: '이 점수 이상이면 즉시 자동응답 (0~1)' },
-    auto_reply_threshold_low:  { label: '자동응답 후보 임계값', desc: '이 점수 이상이면 후보로 제안 (0~1)' },
+    auto_reply_high_threshold: { label: '자동응답 확정 임계값', desc: '이 점수 이상이면 즉시 자동응답 (0~1)' },
+    auto_reply_low_threshold:  { label: '자동응답 후보 임계값', desc: '이 점수 이상이면 후보로 제안 (0~1)' },
 };
 
 export default function SettingsPage() {

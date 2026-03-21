@@ -78,6 +78,55 @@ router.post('/', async (req, res) => {
 
 
 /**
+ * GET /api/admin/intents/unmatched
+ * 미매칭 질문 목록을 조회합니다. (dismissed=false 항목만)
+ *
+ * 응답: { questions: Array }
+ */
+router.get('/unmatched', async (req, res) => {
+    try {
+        const { data: questions, error } = await supabaseAdmin
+            .from('unmatched_questions')
+            .select('*')
+            .eq('dismissed', false)
+            .order('created_at', { ascending: false })
+            .limit(100);
+
+        if (error) throw error;
+        res.json({ questions: questions || [] });
+
+    } catch (err) {
+        console.error('[Intents] 미매칭 질문 조회 에러:', err.message);
+        res.status(500).json({ error: '미매칭 질문 조회에 실패했습니다.' });
+    }
+});
+
+
+/**
+ * PATCH /api/admin/intents/unmatched/:id
+ * 미매칭 질문을 무시(dismiss) 처리합니다.
+ *
+ * 응답: { success: true }
+ */
+router.patch('/unmatched/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { error } = await supabaseAdmin
+            .from('unmatched_questions')
+            .update({ dismissed: true })
+            .eq('id', id);
+
+        if (error) throw error;
+        res.json({ success: true });
+
+    } catch (err) {
+        console.error('[Intents] 미매칭 질문 dismiss 에러:', err.message);
+        res.status(500).json({ error: '미매칭 질문 처리에 실패했습니다.' });
+    }
+});
+
+
+/**
  * GET /api/admin/intents/:id
  * 특정 FAQ 의도의 상세 정보를 조회합니다.
  * 유사 질문 목록과 언어별 답변 템플릿을 함께 반환합니다.
