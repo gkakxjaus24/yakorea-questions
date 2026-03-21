@@ -1063,12 +1063,22 @@ document.addEventListener("click", (e) => {
     clear: "Clear"
   };
 
-  // 키보드 레이아웃 정의 (숫자와 영문을 하나로 합침)
-  const layout = [
+  let currentLang = "en"; // "en" (영문) 또는 "ko" (국문)
+
+  // 상단바에 들어갈 영문 키보드 배열
+  const layoutEn = [
     ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
     ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
     ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
     ["Z", "X", "C", "V", "B", "N", "M"]
+  ];
+
+  // 한글(자음/모음) 키보드 레이아웃
+  const layoutKo = [
+    ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+    ["ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ", "ㅛ", "ㅕ", "ㅑ", "ㅐ", "ㅔ"],
+    ["ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ", "ㅗ", "ㅓ", "ㅏ", "ㅣ"],
+    ["ㅋ", "ㅌ", "ㅊ", "ㅍ", "ㅠ", "ㅜ", "ㅡ"]
   ];
 
   /**
@@ -1077,7 +1087,9 @@ document.addEventListener("click", (e) => {
   function renderKeys() {
     oskKeys.innerHTML = "";
 
-    layout.forEach(row => {
+    const activeLayout = currentLang === "ko" ? layoutKo : layoutEn;
+
+    activeLayout.forEach(row => {
       const rowEl = document.createElement("div");
       rowEl.className = "osk-row";
       row.forEach(key => {
@@ -1091,9 +1103,16 @@ document.addEventListener("click", (e) => {
       oskKeys.appendChild(rowEl);
     });
 
-    // 마지막 줄: Space와 Done 버튼 배치
+    // 마지막 줄: 한/영 토글 버튼, Space와 Done 버튼 배치
     const bottomRow = document.createElement("div");
     bottomRow.className = "osk-row";
+
+    const langToggleBtn = document.createElement("button");
+    langToggleBtn.type = "button";
+    langToggleBtn.className = "osk-key wide";
+    langToggleBtn.textContent = currentLang === "en" ? "한글" : "ENG";
+    langToggleBtn.dataset.action = "toggleLang";
+    bottomRow.appendChild(langToggleBtn);
 
     const spaceBtn = document.createElement("button");
     spaceBtn.type = "button";
@@ -1148,10 +1167,28 @@ document.addEventListener("click", (e) => {
     const end = el.selectionEnd ?? el.value.length;
 
     const val = el.value;
-    el.value = val.slice(0, start) + text + val.slice(end);
+    const beforeCursor = val.slice(0, start);
+    const afterCursor = val.slice(end);
 
-    const newPos = start + text.length;
-    el.setSelectionRange(newPos, newPos);
+    const isKoreanJamo = /[ㄱ-ㅎㅏ-ㅣ]/.test(text);
+    const lastChar = beforeCursor.slice(-1);
+    const isLastCharKorean = /[가-힣ㄱ-ㅎㅏ-ㅣ]/.test(lastChar);
+
+    if (currentLang === "ko" && isKoreanJamo && isLastCharKorean && typeof Hangul !== "undefined") {
+      // Hangul.js를 이용한 글자 조합
+      const disassembled = Hangul.d(lastChar);
+      disassembled.push(text);
+      const assembled = Hangul.a(disassembled);
+      
+      el.value = beforeCursor.slice(0, -1) + assembled + afterCursor;
+      const newPos = start - 1 + assembled.length;
+      el.setSelectionRange(newPos, newPos);
+    } else {
+      el.value = beforeCursor + text + afterCursor;
+      const newPos = start + text.length;
+      el.setSelectionRange(newPos, newPos);
+    }
+
     el.focus();
 
     // input 이벤트 발생 (다른 리스너들이 변경 감지하도록 함)
@@ -1224,6 +1261,12 @@ document.addEventListener("click", (e) => {
 
     if (action === "done") {
       closeOSK();
+      return;
+    }
+
+    if (action === "toggleLang") {
+      currentLang = currentLang === "en" ? "ko" : "en";
+      renderKeys();
       return;
     }
 
