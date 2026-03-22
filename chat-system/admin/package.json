@@ -9,7 +9,7 @@
     "start": "next start --port 3000"
   },
   "dependencies": {
-    "next": "15.5.14",
+    "next": "^15.1.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "socket.io-client": "^4.7.5"
