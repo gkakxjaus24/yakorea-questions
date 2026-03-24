@@ -16,7 +16,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import AdminLayout from '@/components/AdminLayout';
 import { getMessages, updateRoom } from '@/lib/api';
-import { getSocket, joinRoom, sendReply } from '@/lib/socket';
+import { getSocket, joinRoom, sendReply, closeRoom } from '@/lib/socket';
 
 // 언어 국기
 const LANG_FLAG = { ko: '🇰🇷', en: '🇺🇸', zh: '🇨🇳', ja: '🇯🇵' };
@@ -98,14 +98,10 @@ export default function ChatDetailPage() {
     };
 
     // ===== 대화방 종료 =====
-    const handleClose = async () => {
+    const handleClose = () => {
         if (!confirm('대화방을 종료하시겠습니까? 손님에게 더 이상 답장을 보낼 수 없습니다.')) return;
-        try {
-            await updateRoom(id, { status: 'closed' });
-            router.push('/chats');
-        } catch (err) {
-            alert('종료 처리에 실패했습니다.');
-        }
+        closeRoom(id);
+        router.push('/chats');
     };
 
     // ===== 유틸 =====

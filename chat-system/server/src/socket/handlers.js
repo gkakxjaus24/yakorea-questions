@@ -110,7 +110,10 @@ function initSocketHandlers(io) {
                     .eq('id', roomId)
                     .single();
 
-                if (!room || room.is_manager_connected) return;
+                if (!room || room.is_manager_connected) {
+                    console.log(`⏭️ 자동응답 건너뜀 — 방: ${roomId}, is_manager_connected: ${room?.is_manager_connected}`);
+                    return;
+                }
 
                 const language    = room.language || 'ko';
                 const autoResult  = await processAutoReply(trimmedContent, language, roomId);
@@ -125,24 +128,31 @@ function initSocketHandlers(io) {
 
                 } else if (autoResult.type === 'no_match') {
                     // 자동응답 실패 → 매니저 연결 유도 메시지 전송
-                    const noMatchTexts = {
-                        ko: '자동응답으로 답변하기 어려운 질문입니다. 아래 "매니저와 대화하기" 버튼을 눌러주시면 담당자가 직접 도와드립니다.',
-                        en: 'I couldn\'t find an automatic answer. Please click "Talk to Manager" below for assistance.',
-                        zh: '很抱歉，无法自动回答您的问题。请点击下方"联系管理人员"按钮。',
-                        ja: '申し訳ありませんが、自動回答が見つかりませんでした。下の「マネージャーと話す」ボタンをお押しください。'
-                    };
+                    // auto-reply.js에서 이미 메시지를 저장했으면 그대로 사용, 아니면 새로 생성
+                    let noMatchMsg = autoResult.message;
 
-                    const { data: noMatchMsg } = await supabaseAdmin
-                        .from('messages')
-                        .insert({
-                            chat_room_id:  roomId,
-                            sender_type:   'system',
-                            content:       noMatchTexts[language] ?? noMatchTexts.ko,
-                            is_auto_reply: false,
-                            is_read:       false
-                        })
-                        .select()
-                        .single();
+                    if (!noMatchMsg) {
+                        const noMatchTexts = {
+                            ko: '자동응답으로 답변하기 어려운 질문입니다. 아래 "매니저와 대화하기" 버튼을 눌러주시면 담당자가 직접 도와드립니다.',
+                            en: 'I couldn\'t find an automatic answer. Please click "Talk to Manager" below for assistance.',
+                            zh: '很抱歉，无法自动回答您的问题。请点击下方"联系管理人员"按钮。',
+                            ja: '申し訳ありませんが、自動回答が見つかりませんでした。下の「マネージャーと話す」ボタンをお押しください。'
+                        };
+
+                        const { data: savedMsg } = await supabaseAdmin
+                            .from('messages')
+                            .insert({
+                                chat_room_id:  roomId,
+                                sender_type:   'system',
+                                content:       noMatchTexts[language] ?? noMatchTexts.ko,
+                                is_auto_reply: true,  // 위젯에서 "매니저와 대화하기" 버튼을 표시하기 위해 true
+                                is_read:       false
+                            })
+                            .select()
+                            .single();
+
+                        noMatchMsg = savedMsg;
+                    }
 
                     if (noMatchMsg) {
                         io.to(`room:${roomId}`).emit('new_message', { message: noMatchMsg });
@@ -207,6 +217,35 @@ function initSocketHandlers(io) {
 
             } catch (err) {
                 console.error('[Socket] guest:request_manager 에러:', err.message);
+            }
+        });
+
+
+        /**
+         * [손님] guest:close_room — 손님이 직접 대화를 종료할 때 호출
+         *
+         * 클라이언트 전송 데이터: { roomId: string }
+         */
+        socket.on('guest:close_room', async ({ roomId } = {}) => {
+            if (!roomId) return;
+
+            try {
+                await supabaseAdmin
+                    .from('chat_rooms')
+                    .update({
+                        status:               'closed',
+                        is_manager_connected: false,
+                        updated_at:           new Date().toISOString()
+                    })
+                    .eq('id', roomId);
+
+                // 매니저 채널에 종료 알림
+                io.to('manager_channel').emit('manager:room_update', { roomId, status: 'closed' });
+
+                console.log(`🔒 손님이 대화 종료 — 방: ${roomId}`);
+
+            } catch (err) {
+                console.error('[Socket] guest:close_room 에러:', err.message);
             }
         });
 
@@ -304,6 +343,61 @@ function initSocketHandlers(io) {
             } catch (err) {
                 console.error('[Socket] manager:send_reply 에러:', err.message);
                 socket.emit('error', { message: '답장 전송 중 오류가 발생했습니다.' });
+            }
+        });
+
+
+        /**
+         * [매니저] manager:close_room — 매니저가 대화방을 종료할 때 호출
+         *
+         * 처리 순서:
+         *   1. 대화방 상태를 'closed'로 변경, is_manager_connected 리셋
+         *   2. 종료 안내 메시지를 저장 및 전달
+         *   3. 손님 위젯에 room_closed 이벤트 전달
+         *
+         * 클라이언트 전송 데이터: { roomId: string }
+         */
+        socket.on('manager:close_room', async ({ roomId } = {}) => {
+            if (!roomId) return;
+
+            try {
+                // 1) 대화방 상태 변경
+                await supabaseAdmin
+                    .from('chat_rooms')
+                    .update({
+                        status:               'closed',
+                        is_manager_connected: false,
+                        updated_at:           new Date().toISOString()
+                    })
+                    .eq('id', roomId);
+
+                // 2) 종료 안내 메시지 저장
+                const { data: closeMsg } = await supabaseAdmin
+                    .from('messages')
+                    .insert({
+                        chat_room_id:  roomId,
+                        sender_type:   'system',
+                        content:       '대화가 종료되었습니다. 추가 문의가 있으시면 새로 메시지를 보내주세요.',
+                        is_auto_reply: false,
+                        is_read:       false
+                    })
+                    .select()
+                    .single();
+
+                // 3) 해당 방에 종료 메시지 + 종료 이벤트 전달
+                if (closeMsg) {
+                    io.to(`room:${roomId}`).emit('new_message', { message: closeMsg });
+                }
+                io.to(`room:${roomId}`).emit('room_closed', { roomId });
+
+                // 매니저 채널에도 알림
+                io.to('manager_channel').emit('manager:room_update', { roomId, status: 'closed' });
+
+                console.log(`🔒 대화방 종료 — 방: ${roomId}`);
+
+            } catch (err) {
+                console.error('[Socket] manager:close_room 에러:', err.message);
+                socket.emit('error', { message: '대화 종료에 실패했습니다.' });
             }
         });
 

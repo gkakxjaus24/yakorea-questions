@@ -73,3 +73,15 @@ export function sendReply(roomId, content) {
     const s = getSocket();
     s.emit('manager:send_reply', { roomId, content });
 }
+
+
+/**
+ * 대화방을 종료합니다.
+ * 서버에서 상태 변경 + 손님 위젯에 종료 알림을 보냅니다.
+ *
+ * @param {string} roomId - 대화방 UUID
+ */
+export function closeRoom(roomId) {
+    const s = getSocket();
+    s.emit('manager:close_room', { roomId });
+}

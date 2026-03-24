@@ -221,6 +221,7 @@
             transition: background 0.2s;
         }
         .header-actions button:hover { background: rgba(255,255,255,0.35); }
+        .end-chat-btn { font-size: 16px !important; }
 
         /* 언어 선택 탭 */
         .lang-tabs {
@@ -420,6 +421,7 @@
                             <div class="header-sub" id="headerSub">연결 중...</div>
                         </div>
                         <div class="header-actions">
+                            <button id="endChatBtn" class="end-chat-btn" title="${i.close_chat}">🚪</button>
                             <button id="closeBtn" title="닫기">✕</button>
                         </div>
                     </div>
@@ -469,7 +471,8 @@
                 keyboard:    this.shadowRoot.getElementById('keyboard'),
                 langTabs:    this.shadowRoot.querySelectorAll('.lang-tab'),
                 managerBar:  this.shadowRoot.getElementById('managerBar'),
-                managerBtn:  this.shadowRoot.getElementById('managerBtn')
+                managerBtn:  this.shadowRoot.getElementById('managerBtn'),
+                endChatBtn:  this.shadowRoot.getElementById('endChatBtn')
             };
 
             this._bindEvents();
@@ -484,6 +487,9 @@
             // 채팅창 열기/닫기
             this.el.toggleBtn.addEventListener('click', () => this._toggleChat());
             this.el.closeBtn.addEventListener('click',  () => this._toggleChat(false));
+
+            // 대화 종료 (손님이 직접 종료)
+            this.el.endChatBtn.addEventListener('click', () => this._endChat());
 
             // 메시지 전송
             this.el.sendBtn.addEventListener('click', () => this._sendMessage());
@@ -704,9 +710,11 @@
 
             // 새 메시지 수신
             this.socket.on('new_message', ({ message }) => {
+                console.log('[Widget] new_message 수신:', JSON.stringify({ sender_type: message.sender_type, is_auto_reply: message.is_auto_reply, content: message.content?.substring(0, 30) }));
                 this._appendMessage(message);
                 // 폴백(자동응답 실패) 시스템 메시지면 매니저 버튼 bar 표시
                 if (message.sender_type === 'system' && message.is_auto_reply) {
+                    console.log('[Widget] ✅ 매니저 버튼 표시 조건 충족!');
                     this._appendManagerButton();
                 }
                 // 매니저가 직접 연결되면 버튼 bar 숨김
@@ -718,6 +726,18 @@
                     this.unreadCount++;
                     this._updateBadge();
                 }
+            });
+
+            // 대화방 종료 알림 (매니저가 종료했을 때)
+            this.socket.on('room_closed', () => {
+                console.log('[Widget] 대화방 종료됨 — 새 대화방 준비');
+                this.roomId = null;
+                this.isManagerRequested = false;
+                // 매니저 버튼 상태 초기화
+                const i = I18N[this.language];
+                this.el.managerBtn.textContent = i.manager_btn;
+                this.el.managerBtn.classList.remove('requested');
+                this.el.managerBar.classList.remove('show');
             });
 
             // 서버 에러
@@ -771,7 +791,21 @@
             try {
                 const res  = await fetch(`${SERVER_URL}/api/chat/rooms/${this.roomId}/messages`);
                 const data = await res.json();
-                (data.messages || []).forEach(msg => this._appendMessage(msg, false));
+                const messages = data.messages || [];
+                messages.forEach(msg => this._appendMessage(msg, false));
+
+                // 히스토리에 폴백(자동응답 실패) 메시지가 있으면 매니저 버튼 표시
+                const hasFallback = messages.some(msg =>
+                    msg.sender_type === 'system' && msg.is_auto_reply
+                );
+                // 매니저가 이미 연결된 경우는 버튼 숨김 유지
+                const hasManager = messages.some(msg =>
+                    msg.sender_type === 'manager' && !msg.is_auto_reply
+                );
+                if (hasFallback && !hasManager) {
+                    this._appendManagerButton();
+                }
+
                 this._scrollToBottom();
             } catch (err) {
                 console.error('[Widget] 메시지 로드 에러:', err.message);
@@ -828,13 +862,38 @@
             this.el.managerBar.classList.add('show');
         }
 
+        /** 손님이 직접 대화를 종료합니다. */
+        _endChat() {
+            const i = I18N[this.language];
+            if (!confirm(i.confirm_close)) return;
+
+            // 서버에 대화방 종료 요청 (roomId가 있을 때만)
+            if (this.roomId && this.socket) {
+                this.socket.emit('guest:close_room', { roomId: this.roomId });
+            }
+
+            // 로컬 상태 초기화
+            this.roomId = null;
+            this.isManagerRequested = false;
+            this.el.managerBtn.textContent = i.manager_btn;
+            this.el.managerBtn.classList.remove('requested');
+            this.el.managerBar.classList.remove('show');
+            this.el.messages.innerHTML = '';
+        }
+
         // ================================================
         // 메시지 전송
         // ================================================
 
-        _sendMessage() {
+        async _sendMessage() {
             const content = this.el.msgInput.value.trim();
-            if (!content || !this.roomId || !this.socket) return;
+            if (!content || !this.socket) return;
+
+            // 대화방이 종료된 상태면 새 대화방 생성 후 전송
+            if (!this.roomId) {
+                await this._createRoom();
+                if (!this.roomId) return;  // 대화방 생성 실패 시 중단
+            }
 
             // 소켓으로 메시지 전송 (낙관적 UI: 서버 응답 전에 화면에 즉시 표시)
             this.socket.emit('guest:send_message', { roomId: this.roomId, content });
