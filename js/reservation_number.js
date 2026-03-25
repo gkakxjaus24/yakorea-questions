@@ -199,6 +199,20 @@ function _noSpace(s) {
   return _normBase(s).replace(/\s/g, "");
 }
 
+// 배열의 모든 순서 가능한 조합(순열)을 반환하는 함수입니다.
+// 예: ['a', 'b', 'c'] -> [['a','b','c'], ['a','c','b'], ... ]
+function _getPermutations(arr) {
+  if (arr.length <= 1) return [arr];
+  const perms = [];
+  for (let i = 0; i < arr.length; i++) {
+    const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
+    for (const p of _getPermutations(rest)) {
+      perms.push([arr[i], ...p]);
+    }
+  }
+  return perms;
+}
+
 function matchesName(query, fullName) {
   const q = _normBase(query);
   if (!q) return false;
@@ -214,8 +228,18 @@ function matchesName(query, fullName) {
   if (tokenSet.has(q)) return true;
 
   const allFwd = joinNoSpace(nameTokens);
-  const allRev = joinNoSpace([...nameTokens].reverse());
-  if (qNo === allFwd || qNo === allRev) return true;
+  
+  // 이름 띄어쓰기 토큰 개수가 6개 이하이고 길이가 딱 맞을 경우 (가장 흔한 케이스)
+  // 모든 단어 순서 조합에 대해서 띄어쓰기를 지운 문자열이 검색어와 일치하는지 확인합니다.
+  if (qNo.length === allFwd.length && nameTokens.length > 1 && nameTokens.length <= 6) {
+    const perms = _getPermutations(nameTokens);
+    for (const p of perms) {
+      if (qNo === joinNoSpace(p)) return true;
+    }
+  } else {
+    const allRev = joinNoSpace([...nameTokens].reverse());
+    if (qNo === allFwd || qNo === allRev) return true;
+  }
 
   const isLatin = (t) => /^[a-z0-9]+$/i.test(t);
   const isHangul = (t) => /^\p{Script=Hangul}+$/u.test(t);
@@ -234,8 +258,16 @@ function matchesName(query, fullName) {
   for (const g of groups) {
     if (g.length >= 1) {
       const fwd = joinNoSpace(g);
-      const rev = joinNoSpace([...g].reverse());
-      if (qNo === fwd || qNo === rev) return true;
+      // 언어 스크립트 그룹 내에서도 순서 조합을 확인합니다.
+      if (qNo.length === fwd.length && g.length > 1 && g.length <= 6) {
+        const perms = _getPermutations(g);
+        for (const p of perms) {
+          if (qNo === joinNoSpace(p)) return true;
+        }
+      } else {
+        const rev = joinNoSpace([...g].reverse());
+        if (qNo === fwd || qNo === rev) return true;
+      }
     }
   }
 
