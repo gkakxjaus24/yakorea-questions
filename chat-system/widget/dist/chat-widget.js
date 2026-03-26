@@ -717,9 +717,9 @@
                     console.log('[Widget] ✅ 매니저 버튼 표시 조건 충족!');
                     this._appendManagerButton();
                 }
-                // 매니저가 직접 연결되면 버튼 bar 숨김
+                // 매니저가 직접 연결되면 매니저 버튼 숨김
                 if (message.sender_type === 'manager' && !message.is_auto_reply) {
-                    this.el.managerBar.classList.remove('show');
+                    this.el.managerBtn.style.display = 'none';
                 }
                 // 채팅창이 닫혀있으면 배지 카운트 증가
                 if (!this.isOpen && message.sender_type !== 'guest') {
@@ -737,7 +737,7 @@
                 const i = I18N[this.language];
                 this.el.managerBtn.textContent = i.manager_btn;
                 this.el.managerBtn.classList.remove('requested');
-                this.el.managerBar.classList.remove('show');
+                this.el.managerBtn.style.display = '';
             });
 
             // 서버 에러
@@ -877,7 +877,7 @@
             this.isManagerRequested = false;
             this.el.managerBtn.textContent = i.manager_btn;
             this.el.managerBtn.classList.remove('requested');
-            this.el.managerBar.classList.remove('show');
+            this.el.managerBtn.style.display = '';
             this.el.messages.innerHTML = '';
         }
 

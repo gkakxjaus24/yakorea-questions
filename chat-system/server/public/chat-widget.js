@@ -37,6 +37,7 @@
             manager_label:     '👤 매니저',
             welcome:           '안녕하세요! 야코리아입니다.',
             close_chat:        '대화 종료 및 기록 삭제',
+            end_chat_short:    '대화종료',
             confirm_close:     '대화 내용을 모두 삭제하고 종료하시겠습니까?',
             keyboard_btn:      '⌨️ 키보드',
             lang_ko:           '한국어',
@@ -56,6 +57,7 @@
             manager_label:     '👤 Manager',
             welcome:           'Hello! Welcome to Yakorea.',
             close_chat:        'End Chat & Clear History',
+            end_chat_short:    'End Chat',
             confirm_close:     'Are you sure you want to end the chat?',
             keyboard_btn:      '⌨️ Keyboard',
             lang_ko:           '한국어',
@@ -75,6 +77,7 @@
             manager_label:     '👤 管理人员',
             welcome:           '您好！欢迎来到Yakorea。',
             close_chat:        '结束对话并清除记录',
+            end_chat_short:    '结束对话',
             confirm_close:     '您确定要结束对话吗？',
             keyboard_btn:      '⌨️ 键盘',
             lang_ko:           '한국어',
@@ -94,6 +97,7 @@
             manager_label:     '👤 マネージャー',
             welcome:           'こんにちは！Yakoreaへようこそ。',
             close_chat:        '対話を終了して記録を削除',
+            end_chat_short:    '終了',
             confirm_close:     '対話を終了してもよろしいですか？',
             keyboard_btn:      '⌨️ キーボード',
             lang_ko:           '한국어',
@@ -221,7 +225,6 @@
             transition: background 0.2s;
         }
         .header-actions button:hover { background: rgba(255,255,255,0.35); }
-        .end-chat-btn { font-size: 16px !important; }
 
         /* 언어 선택 탭 */
         .lang-tabs {
@@ -279,7 +282,7 @@
 
         /* 매니저 연결 버튼 바 (입력창 위 고정 영역) */
         .manager-bar {
-            display: none; justify-content: center;
+            display: none; justify-content: center; gap: 8px;
             padding: 8px 16px; background: #fff5f5;
             border-top: 1px solid #ffd6d6; flex-shrink: 0;
         }
@@ -287,12 +290,20 @@
         .manager-btn {
             padding: 9px 20px; border-radius: 20px; border: none;
             background: #ff6b6b; color: white; cursor: pointer;
-            font-size: 13px; font-weight: 600; width: 100%;
+            font-size: 13px; font-weight: 600; flex: 1;
             transition: background 0.2s, transform 0.1s;
         }
         .manager-btn:hover  { background: #ee5a24; transform: scale(1.02); }
         .manager-btn:active { transform: scale(0.98); }
         .manager-btn.requested { background: #aaa; cursor: default; }
+        .manager-bar .end-chat-btn {
+            padding: 9px 16px; border-radius: 20px; border: none;
+            background: #aaa; color: white; cursor: pointer;
+            font-size: 13px; font-weight: 600; white-space: nowrap;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .manager-bar .end-chat-btn:hover  { background: #888; transform: scale(1.02); }
+        .manager-bar .end-chat-btn:active { transform: scale(0.98); }
 
         /* ---- 입력 영역 ---- */
         .input-area {
@@ -421,7 +432,6 @@
                             <div class="header-sub" id="headerSub">연결 중...</div>
                         </div>
                         <div class="header-actions">
-                            <button id="endChatBtn" class="end-chat-btn" title="${i.close_chat}">🚪</button>
                             <button id="closeBtn" title="닫기">✕</button>
                         </div>
                     </div>
@@ -438,8 +448,9 @@
                     <div class="messages" id="messages"></div>
 
                     <!-- 매니저 연결 버튼 바 (폴백 발생 시 표시) -->
-                    <div class="manager-bar" id="managerBar">
+                    <div class="manager-bar show" id="managerBar">
                         <button class="manager-btn" id="managerBtn">${i.manager_btn}</button>
+                        <button class="end-chat-btn" id="endChatBtn">${i.end_chat_short}</button>
                     </div>
 
                     <!-- 입력 영역 -->
@@ -560,6 +571,12 @@
 
             // 입력창 placeholder 갱신
             this.el.msgInput.placeholder = I18N[lang].placeholder;
+
+            // 매니저 버튼, 대화종료 버튼 텍스트 갱신
+            if (!this.isManagerRequested) {
+                this.el.managerBtn.textContent = I18N[lang].manager_btn;
+            }
+            this.el.endChatBtn.textContent = I18N[lang].end_chat_short;
 
             // 키보드 레이아웃 갱신
             this._renderKeyboard();
@@ -717,9 +734,9 @@
                     console.log('[Widget] ✅ 매니저 버튼 표시 조건 충족!');
                     this._appendManagerButton();
                 }
-                // 매니저가 직접 연결되면 버튼 bar 숨김
+                // 매니저가 직접 연결되면 매니저 버튼 숨김
                 if (message.sender_type === 'manager' && !message.is_auto_reply) {
-                    this.el.managerBar.classList.remove('show');
+                    this.el.managerBtn.style.display = 'none';
                 }
                 // 채팅창이 닫혀있으면 배지 카운트 증가
                 if (!this.isOpen && message.sender_type !== 'guest') {
@@ -737,7 +754,7 @@
                 const i = I18N[this.language];
                 this.el.managerBtn.textContent = i.manager_btn;
                 this.el.managerBtn.classList.remove('requested');
-                this.el.managerBar.classList.remove('show');
+                this.el.managerBtn.style.display = '';
             });
 
             // 서버 에러
@@ -877,7 +894,6 @@
             this.isManagerRequested = false;
             this.el.managerBtn.textContent = i.manager_btn;
             this.el.managerBtn.classList.remove('requested');
-            this.el.managerBar.classList.remove('show');
             this.el.messages.innerHTML = '';
         }
 
