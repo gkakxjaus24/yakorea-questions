@@ -26,7 +26,8 @@ const { processAutoReply } = require('../services/auto-reply');
 function initSocketHandlers(io) {
 
     io.on('connection', (socket) => {
-        console.log(`🔌 소켓 연결됨: ${socket.id}`);
+        const origin = socket.handshake.headers.origin || '(없음)';
+        console.log(`🔌 소켓 연결됨: ${socket.id}, origin: ${origin}`);
 
         // ========================================================
         // 손님 전용 이벤트

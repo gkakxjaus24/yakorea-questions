@@ -121,6 +121,19 @@ app.get('/api/health', (req, res) => {
     });
 });
 
+// 디버그: 특정 방의 소켓 상태 확인 (운영 중 문제 추적용)
+app.get('/api/debug/room/:roomId', (req, res) => {
+    const { roomId } = req.params;
+    const room = io.sockets.adapter.rooms.get(`room:${roomId}`);
+    const socketsInRoom = room ? [...room] : [];
+    const socketDetails = socketsInRoom.map(sid => {
+        const s = io.sockets.sockets.get(sid);
+        return { id: sid, role: s?.data?.role || '알 수 없음', connected: s?.connected };
+    });
+    const allRooms = [...io.sockets.adapter.rooms.keys()].filter(r => r.startsWith('room:'));
+    res.json({ roomId, roomKey: `room:${roomId}`, socketsInRoom: socketDetails, allRooms });
+});
+
 // 인증 API (로그인, 내 정보)
 app.use('/api/auth', authRoutes);
 
