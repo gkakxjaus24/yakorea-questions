@@ -42,7 +42,8 @@ function initSocketHandlers(io) {
             if (!roomId) return;
             socket.join(`room:${roomId}`);
             socket.data = { roomId, sessionId, role: 'guest' };
-            console.log(`🧳 손님 입장 — 방: ${roomId}`);
+            const room = io.sockets.adapter.rooms.get(`room:${roomId}`);
+            console.log(`🧳 손님 입장 — 방: ${roomId}, 소켓: ${socket.id}, 방 안 소켓 수: ${room ? room.size : 0}`);
         });
 
 
@@ -336,9 +337,11 @@ function initSocketHandlers(io) {
                     .eq('id', roomId);
 
                 // 3) 해당 방의 손님에게 답장 전달
-                io.to(`room:${roomId}`).emit('new_message', { message });
+                const room = io.sockets.adapter.rooms.get(`room:${roomId}`);
+                const socketsInRoom = room ? [...room] : [];
+                console.log(`📩 매니저 답장 — 방: ${roomId}, 방 안 소켓 수: ${socketsInRoom.length}, 소켓 ID 목록: [${socketsInRoom.join(', ')}]`);
 
-                console.log(`📩 매니저 답장 — 방: ${roomId}`);
+                io.to(`room:${roomId}`).emit('new_message', { message });
 
             } catch (err) {
                 console.error('[Socket] manager:send_reply 에러:', err.message);
@@ -405,9 +408,10 @@ function initSocketHandlers(io) {
         // ========================================================
         // 연결 해제 처리
         // ========================================================
-        socket.on('disconnect', () => {
-            const role = socket.data?.role || 'unknown';
-            console.log(`🔌 소켓 연결 해제: ${socket.id} (역할: ${role})`);
+        socket.on('disconnect', (reason) => {
+            const role   = socket.data?.role || 'unknown';
+            const roomId = socket.data?.roomId;
+            console.log(`🔌 소켓 연결 해제: ${socket.id} (역할: ${role}, 방: ${roomId || '없음'}, 이유: ${reason})`);
         });
     });
 }

@@ -448,7 +448,7 @@
                     <div class="messages" id="messages"></div>
 
                     <!-- 매니저 연결 버튼 바 (폴백 발생 시 표시) -->
-                    <div class="manager-bar show" id="managerBar">
+                    <div class="manager-bar" id="managerBar">
                         <button class="manager-btn" id="managerBtn">${i.manager_btn}</button>
                         <button class="end-chat-btn" id="endChatBtn">${i.end_chat_short}</button>
                     </div>
@@ -714,9 +714,12 @@
             this.socket.on('connect', () => {
                 console.log('[Widget] 소켓 연결 성공:', this.socket.id);
                 this.el.headerSub.textContent = '연결됨';
-                // 이미 대화방이 있으면 재조인
+                // 이미 대화방이 있으면 재조인 + 놓친 메시지 불러오기
                 if (this.roomId) {
                     this.socket.emit('guest:join', { roomId: this.roomId, sessionId: this.sessionId });
+                    // 재연결 시 놓친 메시지 불러오기 (기존 메시지 비우고 다시 로드)
+                    this.el.messages.innerHTML = '';
+                    this._loadMessages();
                 }
             });
 
@@ -734,9 +737,9 @@
                     console.log('[Widget] ✅ 매니저 버튼 표시 조건 충족!');
                     this._appendManagerButton();
                 }
-                // 매니저가 직접 연결되면 매니저 버튼 숨김
+                // 매니저가 직접 연결되면 버튼 bar 숨김
                 if (message.sender_type === 'manager' && !message.is_auto_reply) {
-                    this.el.managerBtn.style.display = 'none';
+                    this.el.managerBar.classList.remove('show');
                 }
                 // 채팅창이 닫혀있으면 배지 카운트 증가
                 if (!this.isOpen && message.sender_type !== 'guest') {
@@ -754,7 +757,7 @@
                 const i = I18N[this.language];
                 this.el.managerBtn.textContent = i.manager_btn;
                 this.el.managerBtn.classList.remove('requested');
-                this.el.managerBtn.style.display = '';
+                this.el.managerBar.classList.remove('show');
             });
 
             // 서버 에러
@@ -894,6 +897,7 @@
             this.isManagerRequested = false;
             this.el.managerBtn.textContent = i.manager_btn;
             this.el.managerBtn.classList.remove('requested');
+            this.el.managerBar.classList.remove('show');
             this.el.messages.innerHTML = '';
         }
 
