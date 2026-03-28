@@ -112,21 +112,28 @@ async function loadExcelData() {
       const resCell = sh[XLSX.utils.encode_cell({ r, c: cols.reservationNumber })];
       const roomCell = sh[XLSX.utils.encode_cell({ r, c: cols.roomNumber })];
       const outCell = sh[XLSX.utils.encode_cell({ r, c: cols.checkOutDate })];
+      const memoCell = sh[XLSX.utils.encode_cell({ r, c: cols.specialMemo })];
 
       if (nameCell && resCell && roomCell && outCell) {
         const reservationNumber = resCell.v.toString().trim().toUpperCase();
         const roomNumber = roomCell.v.toString().trim();
         const checkOutDate = outCell.v.toString().trim();
+        const specialMemo = memoCell ? memoCell.v.toString().trim() : "";
 
         reservationData.set(reservationNumber, {
           name: nameCell.v.trim().replace(/\s+/g, " "),
           reservation_number: reservationNumber,
           room_number: roomNumber,
-          check_out_date: checkOutDate
+          check_out_date: checkOutDate,
+          special_memo: specialMemo
         });
       }
     }
     excelLoadSuccess = true;
+    
+    // [추가됨] 엑셀 데이터 로딩 성공 시 구글 시트로 명단 동기화 전송 (신호 보내기)
+    syncReservationsToGoogleSheet();
+    
   } catch (e) {
     console.error("엑셀 로드 오류:", e);
     excelLoadSuccess = false;
@@ -527,6 +534,7 @@ function getConfirmButtonText(stepKey, isDorm = false) {
       room: isDorm ? "방(침대번호) 확인" : "방번호 확인",
       password: "비밀번호 확인",
       checkout: "퇴실 날짜 확인",
+      memo: "특별 메모 확인",
       method: "체크인 방법 확인",
       done: "확인 완료"
     },
@@ -535,6 +543,7 @@ function getConfirmButtonText(stepKey, isDorm = false) {
       room: isDorm ? "Check Room / Bed Number" : "Check Room Number",
       password: "Check Password",
       checkout: "Check Check-out Date",
+      memo: "Check Special Memo",
       method: "Check Check-in Instructions",
       done: "Done"
     },
@@ -543,6 +552,7 @@ function getConfirmButtonText(stepKey, isDorm = false) {
       room: isDorm ? "部屋・ベッド番号の確認" : "部屋番号の確認",
       password: "パスワードの確認",
       checkout: "チェックアウト日の確認",
+      memo: "特別メモの確認",
       method: "チェックイン方法の確認",
       done: "確認完了"
     },
@@ -551,6 +561,7 @@ function getConfirmButtonText(stepKey, isDorm = false) {
       room: isDorm ? "确认房间 / 床位号" : "确认房间号",
       password: "确认密码",
       checkout: "确认退房日期",
+      memo: "确认特别备注",
       method: "确认入住方式",
       done: "确认完成"
     }
@@ -602,7 +613,9 @@ function applyConfirmStepUI(tableEl) {
     // ★ 단계 전환 시 안내 음성 재생
     const newStepKey = confirmStepOrder[currentConfirmStep];
 
-    if (newStepKey === "room") {
+    if (newStepKey === "memo") {
+      // 특별 메모 확인 단계 - 필요한 경우 음성 추가 가능
+    } else if (newStepKey === "room") {
       // 개인실(하이픈 없음) vs 도미토리(하이픈 있음) 구분
       // 도미토리 방은 테이블에 "205 (침대번호 1)" 같은 형식으로 표시됨
       const roomCell = tableEl.querySelector('.confirm-row[data-stepkey="room"] .confirm-value');
@@ -889,6 +902,9 @@ function renderReservationDetails(matchingReservation, roomNumber, isDorm) {
   const detailsDiv = document.getElementById("details");
   if (!detailsDiv) return;
 
+  // [추가됨] 손님 정보가 화면에 뜨면 구글 시트에 체크인 시간 기록 (신호 보내기)
+  markCheckInToGoogleSheet(matchingReservation.reservation_number);
+
   const roomPassword = roomPasswords[roomNumber] || "";
   const lockerPassword = lockerPasswords[roomNumber] || "";
 
@@ -925,6 +941,11 @@ function renderReservationDetails(matchingReservation, roomNumber, isDorm) {
 
   const rowsHtml = [];
   rowsHtml.push(buildConfirmRow(i18n.tableHeaders.name, matchingReservation.name, "name"));
+  
+  if (matchingReservation.special_memo) {
+    rowsHtml.push(buildConfirmRow(i18n.tableHeaders.specialMemo, matchingReservation.special_memo, "memo"));
+  }
+
   // 방번호 확인 행 추가 (도미토리 여부에 따라 버튼 문구가 달라짐)
   rowsHtml.push(buildConfirmRow(i18n.tableHeaders.roomNumber, roomDisplay, "room", isDorm));
 
@@ -1326,4 +1347,73 @@ document.addEventListener("click", (e) => {
   // 초기 렌더링
   renderKeys();
 })();
+
+
+// ==============================================
+// 10. 구글 스프레드시트 연동 (동기화 및 체크인 보고)
+// ==============================================
+// 매니저님이 새로 발급받은 구글 스크립트 웹 앱 URL입니다.
+const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGbt4mDV5foCyxxutDUA_1pOvkTA6brBKiTIAeaDbuwenMaMNPeMOoMGJGM1rfE53x/exec";
+
+/**
+ * 엑셀 데이터 로드 직후, 구글 스프레드시트로 최신 예약자 명단을 전송합니다.
+ * (이미 있는 예약은 놔두고, 새로운 예약만 추가하거나 기존 예약 정보를 덮어씁니다.)
+ */
+function syncReservationsToGoogleSheet() {
+  if (reservationData.size === 0) return; // 데이터가 없으면 무시
+
+  // 1) 엑셀에서 읽은 예약 정보들을 구글 서버로 보낼 수 있게 배열로 포장합니다.
+  const dataArray = [];
+  reservationData.forEach(item => {
+    dataArray.push({
+      resNum: item.reservation_number,
+      name: item.name,
+      room: item.room_number,
+      checkout: item.check_out_date
+    });
+  });
+
+  // 2) 어떤 명령을 보낼지(action: sync) 설정합니다.
+  const payload = {
+    action: "sync",
+    data: dataArray
+  };
+
+  // 3) 구글 시트로 데이터를 휙 던집니다(POST 통신).
+  fetch(GOOGLE_APP_SCRIPT_URL, {
+    method: "POST",
+    headers: {
+      // 프론트엔드 통신 오류(CORS)를 피하기 위해 글자(text/plain)로 위장해서 보냅니다.
+      "Content-Type": "text/plain;charset=utf-8", 
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(data => console.log("[GoogleSheet] 동기화 완료:", data))
+  .catch(err => console.error("[GoogleSheet] 동기화 에러:", err));
+}
+
+/**
+ * 손님이 검색에 성공하여 키오스크 정보 화면이 나타날 때,
+ * 해당 예약번호 손님이 지금 체크인했다고 구글 시트에 보고(체크인 시간 기록)합니다.
+ */
+function markCheckInToGoogleSheet(reservationNumber) {
+  // 1) 어떤 명령을 보낼지(action: checkin) 설정합니다.
+  const payload = {
+    action: "checkin",
+    resNum: reservationNumber
+  };
+
+  // 2) 구글 시트로 체크인 신호를 휙 던집니다.
+  fetch(GOOGLE_APP_SCRIPT_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8", 
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(data => console.log("[GoogleSheet] 체크인 기록 완료:", data))
+  .catch(err => console.error("[GoogleSheet] 체크인 기록 에러:", err));
+}
 

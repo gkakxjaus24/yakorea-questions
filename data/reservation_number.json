@@ -14,6 +14,7 @@
       "roomLabel": "방",
       "lockerLabel": "사물함",
       "checkoutDate": "체크아웃 날짜",
+      "specialMemo": "특별메모",
       "checkInMethod": "체크인 방법"
     },
     "ui": {
@@ -49,6 +50,7 @@
       "lockerPassword": "Locker Password",
       "roomAndLockerPassword": "Room / Locker Password",
       "checkoutDate": "Checkout Date",
+      "specialMemo": "Special Memo",
       "checkInMethod": "Check-in Method"
     },
     "ui": {
@@ -84,6 +86,7 @@
       "lockerPassword": "储物柜密码",
       "roomAndLockerPassword": "房间／储物柜密码",
       "checkoutDate": "退房日期",
+      "specialMemo": "特别备注",
       "checkInMethod": "入住方式"
     },
     "ui": {
@@ -121,6 +124,7 @@
       "lockerPassword": "ロッカーの暗証番号",
       "roomAndLockerPassword": "部屋／ロッカーの暗証番号",
       "checkoutDate": "チェックアウト日",
+      "specialMemo": "特別メモ",
       "checkInMethod": "チェックイン方法"
     },
     "ui": {
