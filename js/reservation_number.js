@@ -1365,16 +1365,25 @@ const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGbt4mDV
 function syncReservationsToGoogleSheet() {
   if (reservationData.size === 0) return; // 데이터가 없으면 무시
 
-  // 1) 엑셀에서 읽은 예약 정보들을 구글 서버로 보낼 수 있게 배열로 포장합니다.
+  // 1) 오늘 날짜를 DD/MM/YYYY 형식으로 만들어 입실날짜와 비교합니다.
+  const now = new Date();
+  const todayStr =
+    String(now.getDate()).padStart(2, "0") + "/" +
+    String(now.getMonth() + 1).padStart(2, "0") + "/" +
+    now.getFullYear();
+
+  // 2) 오늘 입실하는 손님만 골라서 배열로 포장합니다.
   const dataArray = [];
   reservationData.forEach(item => {
-    dataArray.push({
-      resNum: item.reservation_number,
-      name: item.name,
-      room: item.room_number,
-      checkin_date: item.check_in_date,
-      checkout: item.check_out_date
-    });
+    if (item.check_in_date === todayStr) {
+      dataArray.push({
+        resNum: item.reservation_number,
+        name: item.name,
+        room: item.room_number,
+        checkin_date: item.check_in_date,
+        checkout: item.check_out_date
+      });
+    }
   });
 
   // 2) 어떤 명령을 보낼지(action: sync) 설정합니다.

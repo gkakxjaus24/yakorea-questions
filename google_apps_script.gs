@@ -34,17 +34,30 @@ function doPost(e) {
   }
 }
 
-/** sync: 예약 명단을 A~E열에 기록 (F열 체크인시간은 건드리지 않음) */
+/** sync: 오늘 입실 손님만 A~E열에 기록, 기존 체크인시간(F열)은 예약번호 기준으로 자동 복원 */
 function syncReservations(dataArray) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-  if (!dataArray || dataArray.length === 0) {
-    return jsonResponse({ status: "ok", message: "데이터 없음" });
+
+  // 1) 기존 시트에서 체크인 시간(F열) 백업 (예약번호 → 시간)
+  const savedTimes = {};
+  const lastRow = sheet.getLastRow();
+  if (lastRow >= 2) {
+    const existing = sheet.getRange(2, 1, lastRow - 1, 6).getValues();
+    existing.forEach(row => {
+      if (row[0] && row[5]) savedTimes[String(row[0]).trim()] = row[5];
+    });
   }
 
-  // 기존 예약 목록 삭제 (F열 체크인시간 보존)
-  clearOldReservations(sheet);
+  // 2) 기존 데이터 전체 삭제 (A~F)
+  if (lastRow >= 2) {
+    sheet.getRange(2, 1, lastRow - 1, 6).clearContent();
+  }
 
-  // 새 예약 목록을 A~E열에 기록
+  if (!dataArray || dataArray.length === 0) {
+    return jsonResponse({ status: "ok", message: "오늘 입실 손님 없음" });
+  }
+
+  // 3) 오늘 입실 손님 기록 (A~E)
   const rows = dataArray.map(item => [
     item.resNum      || "",           // A: 예약번호
     item.name        || "",           // B: 이름
@@ -52,9 +65,13 @@ function syncReservations(dataArray) {
     formatDate(item.checkin_date),    // D: 입실 날짜
     formatDate(item.checkout)         // E: 퇴실 날짜
   ]);
+  sheet.getRange(2, 1, rows.length, 5).setValues(rows);
 
-  const startRow = 2; // 1행은 헤더
-  sheet.getRange(startRow, 1, rows.length, 5).setValues(rows);
+  // 4) 이미 체크인한 손님의 시간 복원 (F열)
+  dataArray.forEach((item, idx) => {
+    const saved = savedTimes[String(item.resNum).trim()];
+    if (saved) sheet.getRange(idx + 2, 6).setValue(saved);
+  });
 
   return jsonResponse({ status: "ok", count: rows.length });
 }
