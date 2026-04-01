@@ -29,6 +29,7 @@ const CONFIG = {
     guestName: 0,   // A열: 손님 이름
     reservationNumber: 7,   // H열: 예약 번호
     roomNumber: 20,  // U열: 방 번호
+    checkInDate: 23,   // X열: 입실 날짜
     checkOutDate: 24,   // Y열: 체크아웃 날짜
     specialMemo: 5     // F열: Date of Birth (특별 메모로 활용)
   },

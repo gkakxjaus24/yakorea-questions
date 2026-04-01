@@ -111,12 +111,14 @@ async function loadExcelData() {
       const nameCell = sh[XLSX.utils.encode_cell({ r, c: cols.guestName })];
       const resCell = sh[XLSX.utils.encode_cell({ r, c: cols.reservationNumber })];
       const roomCell = sh[XLSX.utils.encode_cell({ r, c: cols.roomNumber })];
+      const inCell  = sh[XLSX.utils.encode_cell({ r, c: cols.checkInDate })];
       const outCell = sh[XLSX.utils.encode_cell({ r, c: cols.checkOutDate })];
       const memoCell = sh[XLSX.utils.encode_cell({ r, c: cols.specialMemo })];
 
       if (nameCell && resCell && roomCell && outCell) {
         const reservationNumber = resCell.v.toString().trim().toUpperCase();
         const roomNumber = roomCell.v.toString().trim();
+        const checkInDate  = inCell  ? inCell.v.toString().trim()  : "";
         const checkOutDate = outCell.v.toString().trim();
         const specialMemo = memoCell ? memoCell.v.toString().trim() : "";
 
@@ -124,6 +126,7 @@ async function loadExcelData() {
           name: nameCell.v.trim().replace(/\s+/g, " "),
           reservation_number: reservationNumber,
           room_number: roomNumber,
+          check_in_date: checkInDate,
           check_out_date: checkOutDate,
           special_memo: specialMemo
         });
@@ -1369,6 +1372,7 @@ function syncReservationsToGoogleSheet() {
       resNum: item.reservation_number,
       name: item.name,
       room: item.room_number,
+      checkin_date: item.check_in_date,
       checkout: item.check_out_date
     });
   });
