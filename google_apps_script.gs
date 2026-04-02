@@ -44,7 +44,8 @@ function syncReservations(dataArray) {
   if (lastRow >= 2) {
     const existing = sheet.getRange(2, 1, lastRow - 1, 6).getValues();
     existing.forEach(row => {
-      if (row[0] && row[5]) savedTimes[String(row[0]).trim()] = row[5];
+      // 문자열 타입(HH:mm)인 경우만 저장 — 숫자(날짜 시리얼)는 제외
+      if (row[0] && row[5] && typeof row[5] === "string") savedTimes[String(row[0]).trim()] = row[5];
     });
   }
 
@@ -57,7 +58,7 @@ function syncReservations(dataArray) {
     return jsonResponse({ status: "ok", message: "오늘 입실 손님 없음" });
   }
 
-  // 3) 오늘 입실 손님 기록 (A~E)
+  // 3) 오늘 입실 손님 기록 (A~E) — 입실날짜 내림차순 정렬 (최신 날짜 상단)
   const rows = dataArray.map(item => [
     item.resNum      || "",           // A: 예약번호
     item.name        || "",           // B: 이름
@@ -65,6 +66,16 @@ function syncReservations(dataArray) {
     formatDate(item.checkin_date),    // D: 입실 날짜
     formatDate(item.checkout)         // E: 퇴실 날짜
   ]);
+
+  // DD/MM/YYYY 문자열을 날짜 숫자로 변환해 비교 (최신 날짜가 위로)
+  rows.sort((a, b) => {
+    const toMs = str => {
+      if (!str) return 0;
+      const [d, m, y] = str.split("/");
+      return new Date(y, m - 1, d).getTime();
+    };
+    return toMs(b[3]) - toMs(a[3]); // 내림차순
+  });
   sheet.getRange(2, 1, rows.length, 5).setValues(rows);
 
   // 4) 이미 체크인한 손님의 시간 복원 (F열)
