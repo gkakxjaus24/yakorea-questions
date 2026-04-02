@@ -1365,17 +1365,23 @@ const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGbt4mDV
 function syncReservationsToGoogleSheet() {
   if (reservationData.size === 0) return; // 데이터가 없으면 무시
 
-  // 1) 오늘 날짜를 DD/MM/YYYY 형식으로 만들어 입실날짜와 비교합니다.
+  // 1) 오늘/어제 날짜를 DD/MM/YYYY 형식으로 만들어 입실날짜와 비교합니다.
   const now = new Date();
   const todayStr =
     String(now.getDate()).padStart(2, "0") + "/" +
     String(now.getMonth() + 1).padStart(2, "0") + "/" +
     now.getFullYear();
+  const yd = new Date(now);
+  yd.setDate(yd.getDate() - 1);
+  const yesterdayStr =
+    String(yd.getDate()).padStart(2, "0") + "/" +
+    String(yd.getMonth() + 1).padStart(2, "0") + "/" +
+    yd.getFullYear();
 
-  // 2) 오늘 입실하는 손님만 골라서 배열로 포장합니다.
+  // 2) 오늘 또는 어제 입실한 손님을 골라서 배열로 포장합니다.
   const dataArray = [];
   reservationData.forEach(item => {
-    if (item.check_in_date === todayStr) {
+    if (item.check_in_date === todayStr || item.check_in_date === yesterdayStr) {
       dataArray.push({
         resNum: item.reservation_number,
         name: item.name,
