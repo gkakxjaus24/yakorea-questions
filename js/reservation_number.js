@@ -938,8 +938,10 @@ function renderReservationDetails(matchingReservation, roomNumber, isDorm) {
 
   let roomDisplay = roomNumber;
   if (isDorm) {
-    const roomParts = roomNumber.split("-");
-    roomDisplay = `${roomParts[0]} (${i18n.bedNumber} ${roomParts[1]})`;
+    const entries = roomNumber.split(",").map(s => s.trim());
+    const baseRoom = entries[0].split("-")[0];
+    const bedNumbers = entries.map(e => e.split("-")[1]);
+    roomDisplay = `${baseRoom} (${i18n.bedNumber} ${bedNumbers.join(", ")})`;
   }
 
   const rowsHtml = [];
