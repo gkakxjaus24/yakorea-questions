@@ -44,8 +44,15 @@ function syncReservations(dataArray) {
   if (lastRow >= 2) {
     const existing = sheet.getRange(2, 1, lastRow - 1, 6).getValues();
     existing.forEach(row => {
-      // 문자열 타입(HH:mm)인 경우만 저장 — 숫자(날짜 시리얼)는 제외
-      if (row[0] && row[5] && typeof row[5] === "string") savedTimes[String(row[0]).trim()] = row[5];
+      if (!row[0] || !row[5]) return;
+      let timeVal = row[5];
+      // Google Sheets가 "HH:mm"을 Date 객체로 자동 변환하므로 되돌림
+      if (timeVal instanceof Date) {
+        timeVal = Utilities.formatDate(timeVal, "Asia/Seoul", "HH:mm");
+      }
+      if (typeof timeVal === "string" && timeVal) {
+        savedTimes[String(row[0]).trim()] = timeVal;
+      }
     });
   }
 
