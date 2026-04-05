@@ -5,16 +5,15 @@
 //   A: 예약번호
 //   B: 이름
 //   C: 방 번호
-//   D: 입실 날짜  ← 신규 추가
-//   E: 퇴실 날짜  ← 기존 D열에서 이동
-//   F: 체크인 시간 ← 기존 E열에서 이동
+//   D: 입실 날짜
+//   E: 퇴실 날짜
+//   F: 체크인 시간
 //
 // 배포 방법:
 //   Apps Script 편집기 → 배포 → 웹 앱으로 배포
 //   (실행 계정: 나, 액세스 권한: 모든 사용자)
 // ============================================================
 
-// ⚠️ 실제 시트 탭 이름으로 변경하세요
 const SHEET_NAME = "체크인확인";
 
 function doPost(e) {
@@ -44,15 +43,7 @@ function syncReservations(dataArray) {
   if (lastRow >= 2) {
     const existing = sheet.getRange(2, 1, lastRow - 1, 6).getValues();
     existing.forEach(row => {
-      if (!row[0] || !row[5]) return;
-      let timeVal = row[5];
-      // Google Sheets가 "HH:mm"을 Date 객체로 자동 변환하므로 되돌림
-      if (timeVal instanceof Date) {
-        timeVal = Utilities.formatDate(timeVal, "Asia/Seoul", "HH:mm");
-      }
-      if (typeof timeVal === "string" && timeVal) {
-        savedTimes[String(row[0]).trim()] = timeVal;
-      }
+      if (row[0] && row[5]) savedTimes[String(row[0]).trim()] = row[5];
     });
   }
 
@@ -65,16 +56,7 @@ function syncReservations(dataArray) {
     return jsonResponse({ status: "ok", message: "오늘 입실 손님 없음" });
   }
 
-  // 3) 입실날짜 내림차순으로 dataArray 자체를 정렬 (최신 날짜 상단)
-  //    rows를 따로 정렬하면 복원 루프(4번)의 인덱스와 순서가 어긋나므로
-  //    반드시 dataArray를 먼저 정렬한 뒤 rows를 만들어야 합니다.
-  const toMs = str => {
-    if (!str) return 0;
-    const [d, m, y] = str.split("/");
-    return new Date(y, m - 1, d).getTime();
-  };
-  dataArray.sort((a, b) => toMs(b.checkin_date) - toMs(a.checkin_date));
-
+  // 3) 오늘 입실 손님 기록 (A~E)
   const rows = dataArray.map(item => [
     item.resNum      || "",           // A: 예약번호
     item.name        || "",           // B: 이름
@@ -84,7 +66,7 @@ function syncReservations(dataArray) {
   ]);
   sheet.getRange(2, 1, rows.length, 5).setValues(rows);
 
-  // 4) 이미 체크인한 손님의 시간 복원 (F열) — dataArray와 rows가 같은 순서이므로 인덱스 일치
+  // 4) 이미 체크인한 손님의 시간 복원 (F열)
   dataArray.forEach((item, idx) => {
     const saved = savedTimes[String(item.resNum).trim()];
     if (saved) sheet.getRange(idx + 2, 6).setValue(saved);
