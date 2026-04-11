@@ -34,8 +34,8 @@ function addEventListeners() {
 async function getHelpPhoneNumber() {
   const now = new Date();
   const hour = now.getHours();
-  const myPhone = "010-8240-8892";     // ← 본인 번호로 바꾸세요
-  const staffPhone = "010-8240-8892";  // ← 직원 번호로 바꾸세요
+  const myPhone = "010-5747-1294";     // ← 본인 번호로 바꾸세요
+  const staffPhone = "010-5747-1294";  // ← 직원 번호로 바꾸세요
 
   // 밤 11시 ~ 다음날 오후 3시까지는 무조건 내 번호
   if (hour >= 23 || hour < 15) {

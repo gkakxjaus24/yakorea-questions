@@ -111,14 +111,14 @@ async function loadExcelData() {
       const nameCell = sh[XLSX.utils.encode_cell({ r, c: cols.guestName })];
       const resCell = sh[XLSX.utils.encode_cell({ r, c: cols.reservationNumber })];
       const roomCell = sh[XLSX.utils.encode_cell({ r, c: cols.roomNumber })];
-      const inCell  = sh[XLSX.utils.encode_cell({ r, c: cols.checkInDate })];
+      const inCell = sh[XLSX.utils.encode_cell({ r, c: cols.checkInDate })];
       const outCell = sh[XLSX.utils.encode_cell({ r, c: cols.checkOutDate })];
       const memoCell = sh[XLSX.utils.encode_cell({ r, c: cols.specialMemo })];
 
       if (nameCell && resCell && roomCell && outCell) {
         const reservationNumber = resCell.v.toString().trim().toUpperCase();
         const roomNumber = roomCell.v.toString().trim();
-        const checkInDate  = inCell  ? inCell.v.toString().trim()  : "";
+        const checkInDate = inCell ? inCell.v.toString().trim() : "";
         const checkOutDate = outCell.v.toString().trim();
         const specialMemo = memoCell ? memoCell.v.toString().trim() : "";
 
@@ -133,10 +133,10 @@ async function loadExcelData() {
       }
     }
     excelLoadSuccess = true;
-    
+
     // [추가됨] 엑셀 데이터 로딩 성공 시 구글 시트로 명단 동기화 전송 (신호 보내기)
     syncReservationsToGoogleSheet();
-    
+
   } catch (e) {
     console.error("엑셀 로드 오류:", e);
     excelLoadSuccess = false;
@@ -238,7 +238,7 @@ function matchesName(query, fullName) {
   if (tokenSet.has(q)) return true;
 
   const allFwd = joinNoSpace(nameTokens);
-  
+
   // 이름 띄어쓰기 토큰 개수가 6개 이하이고 길이가 딱 맞을 경우 (가장 흔한 케이스)
   // 모든 단어 순서 조합에 대해서 띄어쓰기를 지운 문자열이 검색어와 일치하는지 확인합니다.
   if (qNo.length === allFwd.length && nameTokens.length > 1 && nameTokens.length <= 6) {
@@ -946,7 +946,7 @@ function renderReservationDetails(matchingReservation, roomNumber, isDorm) {
 
   const rowsHtml = [];
   rowsHtml.push(buildConfirmRow(i18n.tableHeaders.name, matchingReservation.name, "name"));
-  
+
   if (matchingReservation.special_memo) {
     rowsHtml.push(buildConfirmRow(i18n.tableHeaders.specialMemo, matchingReservation.special_memo, "memo"));
   }
@@ -1237,7 +1237,7 @@ document.addEventListener("click", (e) => {
       const disassembled = Hangul.d(lastChar);
       disassembled.push(text);
       const assembled = Hangul.a(disassembled);
-      
+
       el.value = beforeCursor.slice(0, -1) + assembled + afterCursor;
       const newPos = start - 1 + assembled.length;
       el.setSelectionRange(newPos, newPos);
@@ -1358,32 +1358,37 @@ document.addEventListener("click", (e) => {
 // 10. 구글 스프레드시트 연동 (동기화 및 체크인 보고)
 // ==============================================
 // 매니저님이 새로 발급받은 구글 스크립트 웹 앱 URL입니다.
-const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGbt4mDV5foCyxxutDUA_1pOvkTA6brBKiTIAeaDbuwenMaMNPeMOoMGJGM1rfE53x/exec";
+const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBFG596O0DcL8YzssyoLZxGa5QoeXr_oIV4tqgqlx3Stq0e0nNgGCjNJLI_62kxAjr/exec";
 
-/**
- * 엑셀 데이터 로드 직후, 구글 스프레드시트로 최신 예약자 명단을 전송합니다.
- * (이미 있는 예약은 놔두고, 새로운 예약만 추가하거나 기존 예약 정보를 덮어씁니다.)
- */
 function syncReservationsToGoogleSheet() {
-  if (reservationData.size === 0) return; // 데이터가 없으면 무시
+  if (reservationData.size === 0) return;
 
-  // 1) 오늘/어제 날짜를 DD/MM/YYYY 형식으로 만들어 입실날짜와 비교합니다.
   const now = new Date();
-  const todayStr =
-    String(now.getDate()).padStart(2, "0") + "/" +
-    String(now.getMonth() + 1).padStart(2, "0") + "/" +
-    now.getFullYear();
+
+  const formatDDMMYYYY = (date) =>
+    String(date.getDate()).padStart(2, "0") + "/" +
+    String(date.getMonth() + 1).padStart(2, "0") + "/" +
+    date.getFullYear();
+
+  const todayStr = formatDDMMYYYY(now);
+
   const yd = new Date(now);
   yd.setDate(yd.getDate() - 1);
-  const yesterdayStr =
-    String(yd.getDate()).padStart(2, "0") + "/" +
-    String(yd.getMonth() + 1).padStart(2, "0") + "/" +
-    yd.getFullYear();
+  const yesterdayStr = formatDDMMYYYY(yd);
 
-  // 2) 오늘 또는 어제 입실한 손님을 골라서 배열로 포장합니다.
+  const dbd = new Date(now);
+  dbd.setDate(dbd.getDate() - 2);
+  const dayBeforeYesterdayStr = formatDDMMYYYY(dbd);
+
+  const allowedDates = new Set([
+    todayStr,
+    yesterdayStr,
+    dayBeforeYesterdayStr
+  ]);
+
   const dataArray = [];
   reservationData.forEach(item => {
-    if (item.check_in_date === todayStr || item.check_in_date === yesterdayStr) {
+    if (allowedDates.has(item.check_in_date)) {
       dataArray.push({
         resNum: item.reservation_number,
         name: item.name,
@@ -1394,47 +1399,38 @@ function syncReservationsToGoogleSheet() {
     }
   });
 
-  // 2) 어떤 명령을 보낼지(action: sync) 설정합니다.
   const payload = {
     action: "sync",
     data: dataArray
   };
 
-  // 3) 구글 시트로 데이터를 휙 던집니다(POST 통신).
   fetch(GOOGLE_APP_SCRIPT_URL, {
     method: "POST",
     headers: {
-      // 프론트엔드 통신 오류(CORS)를 피하기 위해 글자(text/plain)로 위장해서 보냅니다.
-      "Content-Type": "text/plain;charset=utf-8", 
+      "Content-Type": "text/plain;charset=utf-8",
     },
     body: JSON.stringify(payload)
   })
-  .then(res => res.json())
-  .then(data => console.log("[GoogleSheet] 동기화 완료:", data))
-  .catch(err => console.error("[GoogleSheet] 동기화 에러:", err));
+    .then(res => res.json())
+    .then(data => console.log("[GoogleSheet] 동기화 완료:", data))
+    .catch(err => console.error("[GoogleSheet] 동기화 에러:", err));
 }
 
-/**
- * 손님이 검색에 성공하여 키오스크 정보 화면이 나타날 때,
- * 해당 예약번호 손님이 지금 체크인했다고 구글 시트에 보고(체크인 시간 기록)합니다.
- */
 function markCheckInToGoogleSheet(reservationNumber) {
-  // 1) 어떤 명령을 보낼지(action: checkin) 설정합니다.
   const payload = {
     action: "checkin",
     resNum: reservationNumber
   };
 
-  // 2) 구글 시트로 체크인 신호를 휙 던집니다.
   fetch(GOOGLE_APP_SCRIPT_URL, {
     method: "POST",
     headers: {
-      "Content-Type": "text/plain;charset=utf-8", 
+      "Content-Type": "text/plain;charset=utf-8",
     },
     body: JSON.stringify(payload)
   })
-  .then(res => res.json())
-  .then(data => console.log("[GoogleSheet] 체크인 기록 완료:", data))
-  .catch(err => console.error("[GoogleSheet] 체크인 기록 에러:", err));
+    .then(res => res.json())
+    .then(data => console.log("[GoogleSheet] 체크인 기록 완료:", data))
+    .catch(err => console.error("[GoogleSheet] 체크인 기록 에러:", err));
 }
 
