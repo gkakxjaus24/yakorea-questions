@@ -103,15 +103,15 @@
 
 ---
 
-## Phase 7: Railway + Vercel 배포 [ ]
+## Phase 7: Railway + Vercel 배포 [x]
 **목표**: 프로덕션 배포 + 배포 환경 E2E 검증
 
 작업 목록:
 - [x] Railway 서버 배포 설정 (railway.toml)
 - [x] CORS 프로덕션 URL 설정 (ALLOWED_ORIGINS 환경변수 기반)
-- [ ] Railway 배포 실행 (`railway up`)
-- [ ] Vercel 관리자 배포 (환경변수 NEXT_PUBLIC_API_URL 세팅)
-- [ ] 프로덕션 URL로 Phase 5, 6 테스트 재실행
+- [x] Railway 배포 실행 (`railway up`)
+- [x] Vercel 관리자 배포 (환경변수 NEXT_PUBLIC_API_URL 세팅)
+- [x] 프로덕션 URL로 Phase 5, 6 테스트 재실행
 
 **검증 기준**:
 - 배포 URL로 전체 E2E 테스트 통과
@@ -125,3 +125,4 @@
 - 2026-04-19: Phase 4 완료 — FAQ 자동응답 엔진 (Jaccard+키워드), 정확도 100%, 자동 테스트 13/13 통과
 - 2026-04-19: Phase 5 완료 — Shadow DOM 채팅 위젯, Playwright E2E 테스트 5/5 통과
 - 2026-04-19: Phase 6 완료 — Next.js 관리자 페이지, E2E 통합 테스트 3/3 통과
+- 2026-04-19: Phase 7 완료 — Railway 서버 + Vercel 관리자 배포, 프로덕션 E2E 테스트 8/8 통과
