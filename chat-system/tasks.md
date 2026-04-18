@@ -6,15 +6,15 @@
 
 ---
 
-## Phase 1: 서버 기반 구축 + 자동 테스트 [ ]
+## Phase 1: 서버 기반 구축 + 자동 테스트 [x]
 **목표**: Express + Socket.IO 서버 실행, health 엔드포인트 확인
 
 작업 목록:
-- [ ] `server/` 폴더 초기화 (`npm init`, 의존성 설치)
-- [ ] `src/index.js` — Express + Socket.IO 서버 (PORT 환경변수)
-- [ ] `GET /api/health` — `{ status: 'ok', timestamp }` 반환
-- [ ] Socket.IO 연결/해제 console.log
-- [ ] `src/tests/phase1.test.js` — curl health + 소켓 연결 자동 테스트
+- [x] `server/` 폴더 초기화 (`npm init`, 의존성 설치)
+- [x] `src/index.js` — Express + Socket.IO 서버 (PORT 환경변수)
+- [x] `GET /api/health` — `{ status: 'ok', timestamp }` 반환
+- [x] Socket.IO 연결/해제 console.log
+- [x] `src/tests/phase1.test.js` — curl health + 소켓 연결 자동 테스트
 
 **검증 기준**:
 - `/api/health` 200 응답
@@ -118,4 +118,4 @@
 ---
 
 ## 완료 기록
-(완료된 Phase는 여기에 날짜와 함께 기록)
+- 2026-04-18: Phase 1 완료 — Express + Socket.IO 서버, /api/health, 자동 테스트 5/5 통과
