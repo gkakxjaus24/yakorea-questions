@@ -22,14 +22,14 @@
 
 ---
 
-## Phase 2: Supabase 연결 + 채팅방 API [ ]
+## Phase 2: Supabase 연결 + 채팅방 API [x]
 **목표**: DB 연결, 채팅방 생성/메시지 조회 API
 
 작업 목록:
-- [ ] `src/services/supabase.js` — Supabase 클라이언트 초기화
-- [ ] `POST /api/chat/rooms` — chat_rooms 테이블에 방 생성
-- [ ] `GET /api/chat/rooms/:id/messages` — 메시지 목록 조회
-- [ ] `src/tests/phase2.test.js` — API 자동 테스트
+- [x] `src/services/supabase.js` — Supabase 클라이언트 초기화
+- [x] `POST /api/chat/rooms` — chat_rooms 테이블에 방 생성
+- [x] `GET /api/chat/rooms/:id/messages` — 메시지 목록 조회
+- [x] `src/tests/phase2.test.js` — API 자동 테스트
 
 **선행 조건**: .env 파일 (SUPABASE_URL, SUPABASE_SERVICE_KEY) 필요 → Phase 2 시작 전 사용자에게 요청
 
@@ -119,3 +119,4 @@
 
 ## 완료 기록
 - 2026-04-18: Phase 1 완료 — Express + Socket.IO 서버, /api/health, 자동 테스트 5/5 통과
+- 2026-04-18: Phase 2 완료 — Supabase 연결, 채팅방 생성/메시지 조회 API, 자동 테스트 8/8 통과
