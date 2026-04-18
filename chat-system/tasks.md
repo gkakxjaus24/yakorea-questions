@@ -72,15 +72,15 @@
 
 ---
 
-## Phase 5: 채팅 위젯 (Shadow DOM) [ ]
+## Phase 5: 채팅 위젯 (Shadow DOM) [x]
 **목표**: 순수 JS 위젯 완성 + 자동 E2E 테스트
 
 작업 목록:
-- [ ] `widget/chat-widget.js` — Shadow DOM 위젯 UI
-- [ ] 위젯에서 script src URL 기반 서버 주소 자동 감지
-- [ ] 채팅창 열기/닫기, 메시지 전송/수신 UI
-- [ ] 매니저 연결 버튼 (escalate 시 표시)
-- [ ] `widget/tests/phase5.spec.js` — Playwright 자동 테스트
+- [x] `widget/chat-widget.js` — Shadow DOM 위젯 UI
+- [x] 위젯에서 script src URL 기반 서버 주소 자동 감지
+- [x] 채팅창 열기/닫기, 메시지 전송/수신 UI
+- [x] 매니저 연결 버튼 (escalate 시 표시)
+- [x] `widget/tests/phase5.spec.js` — Playwright 자동 테스트
 
 **검증 기준**:
 - 위젯 열기 → 메시지 전송 → 자동응답 수신 전체 플로우 통과
@@ -122,3 +122,4 @@
 - 2026-04-18: Phase 2 완료 — Supabase 연결, 채팅방 생성/메시지 조회 API, 자동 테스트 8/8 통과
 - 2026-04-19: Phase 3 완료 — 손님↔매니저 Socket.IO 실시간 메시지, 자동 테스트 4/4 통과
 - 2026-04-19: Phase 4 완료 — FAQ 자동응답 엔진 (Jaccard+키워드), 정확도 100%, 자동 테스트 13/13 통과
+- 2026-04-19: Phase 5 완료 — Shadow DOM 채팅 위젯, Playwright E2E 테스트 5/5 통과

@@ -4,6 +4,7 @@ const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
 
+const path = require('path');
 const healthRouter = require('./routes/health');
 const chatRouter = require('./routes/chat');
 const guestHandler = require('./socket/guestHandler');
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api', healthRouter);
 app.use('/api/chat', chatRouter);
+app.use('/widget', express.static(path.join(__dirname, '../../widget')));
 
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
