@@ -107,9 +107,10 @@
 **목표**: 프로덕션 배포 + 배포 환경 E2E 검증
 
 작업 목록:
-- [ ] Railway 서버 배포 설정 (railway.toml)
-- [ ] Vercel 관리자 배포 설정 (환경변수 세팅)
-- [ ] CORS 프로덕션 URL 설정
+- [x] Railway 서버 배포 설정 (railway.toml)
+- [x] CORS 프로덕션 URL 설정 (ALLOWED_ORIGINS 환경변수 기반)
+- [ ] Railway 배포 실행 (`railway up`)
+- [ ] Vercel 관리자 배포 (환경변수 NEXT_PUBLIC_API_URL 세팅)
 - [ ] 프로덕션 URL로 Phase 5, 6 테스트 재실행
 
 **검증 기준**:
