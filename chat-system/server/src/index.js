@@ -10,6 +10,7 @@ const chatRouter = require('./routes/chat');
 const guestHandler = require('./socket/guestHandler');
 const managerHandler = require('./socket/managerHandler');
 
+const fs = require('fs');
 const PORT = process.env.PORT || 3001;
 
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
@@ -29,7 +30,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api', healthRouter);
 app.use('/api/chat', chatRouter);
-app.use('/widget', express.static(path.join(__dirname, '../../widget')));
+const widgetPath1 = path.join(__dirname, '../../widget');
+const widgetPath2 = path.join(__dirname, '../widget');
+const widgetDir = fs.existsSync(widgetPath1) ? widgetPath1 : widgetPath2;
+console.log(`[Widget] serving from: ${widgetDir} (exists: ${fs.existsSync(widgetDir)})`);
+app.use('/widget', express.static(widgetDir));
 
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
