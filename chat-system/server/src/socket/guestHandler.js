@@ -1,4 +1,5 @@
 const supabase = require('../services/supabase');
+const faqMatcher = require('../services/faqMatcher');
 
 module.exports = function guestHandler(io, socket) {
   // 손님 입장 — roomId 없으면 신규 방 생성
@@ -52,7 +53,25 @@ module.exports = function guestHandler(io, socket) {
         timestamp: msg.created_at,
       });
 
-      console.log(`[Guest] message in room ${roomId}: ${content}`);
+      // FAQ 자동응답
+      const result = await faqMatcher.match(content);
+      if (result.type === 'auto') {
+        await supabase.from('messages').insert({
+          room_id: roomId,
+          sender_type: 'auto',
+          content: result.faq.answer,
+        });
+        socket.emit('auto:response', {
+          content: result.faq.answer,
+          confidence: result.confidence,
+        });
+      } else if (result.type === 'candidates') {
+        socket.emit('auto:candidates', { candidates: result.candidates });
+      } else {
+        socket.emit('auto:escalate', {});
+      }
+
+      console.log(`[Guest] message in room ${roomId}: ${content} → FAQ: ${result.type}`);
     } catch (err) {
       console.error('[guest:send_message] error:', err.message);
     }

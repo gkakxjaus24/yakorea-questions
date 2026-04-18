@@ -56,15 +56,15 @@
 
 ---
 
-## Phase 4: 자동응답 엔진 [ ]
+## Phase 4: 자동응답 엔진 [x]
 **목표**: FAQ 매칭 엔진 구현 + 임계값 기반 분기
 
 작업 목록:
-- [ ] `src/services/faqMatcher.js` — Jaccard 유사도 계산
-- [ ] Supabase faqs 테이블에서 FAQ 로드
-- [ ] 임계값 분기: ≥0.8 자동응답 / 0.5~0.8 후보 / <0.5 escalate
-- [ ] guest:send_message 핸들러에 faqMatcher 연동
-- [ ] `src/tests/phase4.test.js` — 테스트 질문 세트로 정확도 자동 측정
+- [x] `src/services/faqMatcher.js` — Jaccard 유사도 계산
+- [x] Supabase faqs 테이블에서 FAQ 로드
+- [x] 임계값 분기: ≥0.8 자동응답 / 0.5~0.8 후보 / <0.5 escalate
+- [x] guest:send_message 핸들러에 faqMatcher 연동
+- [x] `src/tests/phase4.test.js` — 테스트 질문 세트로 정확도 자동 측정
 
 **검증 기준**:
 - 정확도 80% 이상
@@ -121,3 +121,4 @@
 - 2026-04-18: Phase 1 완료 — Express + Socket.IO 서버, /api/health, 자동 테스트 5/5 통과
 - 2026-04-18: Phase 2 완료 — Supabase 연결, 채팅방 생성/메시지 조회 API, 자동 테스트 8/8 통과
 - 2026-04-19: Phase 3 완료 — 손님↔매니저 Socket.IO 실시간 메시지, 자동 테스트 4/4 통과
+- 2026-04-19: Phase 4 완료 — FAQ 자동응답 엔진 (Jaccard+키워드), 정확도 100%, 자동 테스트 13/13 통과
