@@ -39,15 +39,15 @@
 
 ---
 
-## Phase 3: Socket.IO 실시간 메시지 [ ]
+## Phase 3: Socket.IO 실시간 메시지 [x]
 **목표**: 손님 ↔ 매니저 소켓 이벤트 완전 구현
 
 작업 목록:
-- [ ] `src/socket/guestHandler.js` — guest:join, guest:send_message
-- [ ] `src/socket/managerHandler.js` — manager:join, manager:join_room, manager:send_reply
-- [ ] manager:join_room 시 해당 room 조인 처리 (핵심)
-- [ ] Socket.IO 재연결 시 roomId 있으면 guest:join 자동 재전송 로직
-- [ ] `src/tests/phase3.test.js` — 두 소켓 클라이언트로 양방향 메시지 전달 자동 검증
+- [x] `src/socket/guestHandler.js` — guest:join, guest:send_message
+- [x] `src/socket/managerHandler.js` — manager:join, manager:join_room, manager:send_reply
+- [x] manager:join_room 시 해당 room 조인 처리 (핵심)
+- [x] Socket.IO 재연결 시 roomId 있으면 guest:join 자동 재전송 로직
+- [x] `src/tests/phase3.test.js` — 두 소켓 클라이언트로 양방향 메시지 전달 자동 검증
 
 **검증 기준**:
 - 손님 메시지 → 매니저 수신 확인
@@ -120,3 +120,4 @@
 ## 완료 기록
 - 2026-04-18: Phase 1 완료 — Express + Socket.IO 서버, /api/health, 자동 테스트 5/5 통과
 - 2026-04-18: Phase 2 완료 — Supabase 연결, 채팅방 생성/메시지 조회 API, 자동 테스트 8/8 통과
+- 2026-04-19: Phase 3 완료 — 손님↔매니저 Socket.IO 실시간 메시지, 자동 테스트 4/4 통과

@@ -6,6 +6,8 @@ const cors = require('cors');
 
 const healthRouter = require('./routes/health');
 const chatRouter = require('./routes/chat');
+const guestHandler = require('./socket/guestHandler');
+const managerHandler = require('./socket/managerHandler');
 
 const PORT = process.env.PORT || 3001;
 
@@ -22,6 +24,8 @@ const io = new Server(httpServer, {
 
 io.on('connection', (socket) => {
   console.log(`[Socket] connected: ${socket.id}`);
+  guestHandler(io, socket);
+  managerHandler(io, socket);
   socket.on('disconnect', () => {
     console.log(`[Socket] disconnected: ${socket.id}`);
   });
