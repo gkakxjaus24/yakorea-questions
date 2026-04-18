@@ -87,15 +87,15 @@
 
 ---
 
-## Phase 6: 관리자 페이지 (Next.js) [ ]
+## Phase 6: 관리자 페이지 (Next.js) [x]
 **목표**: 관리자 대화방 목록 + 실시간 채팅 UI
 
 작업 목록:
-- [ ] `admin/` Next.js 프로젝트 초기화
-- [ ] `app/page.tsx` — 대화방 목록 (실시간 업데이트)
-- [ ] `app/chat/[roomId]/page.tsx` — 실시간 채팅방
-- [ ] Socket.IO 클라이언트 연동 (manager:join, manager:join_room)
-- [ ] E2E 통합 테스트: 위젯 손님 + 관리자 페이지 양방향
+- [x] `admin/` Next.js 프로젝트 초기화
+- [x] `app/page.tsx` — 대화방 목록 (실시간 업데이트)
+- [x] `app/chat/[roomId]/page.tsx` — 실시간 채팅방
+- [x] Socket.IO 클라이언트 연동 (manager:join, manager:join_room)
+- [x] E2E 통합 테스트: 위젯 손님 + 관리자 페이지 양방향
 
 **검증 기준**:
 - 위젯 손님 메시지 → 관리자 페이지 실시간 수신
@@ -123,3 +123,4 @@
 - 2026-04-19: Phase 3 완료 — 손님↔매니저 Socket.IO 실시간 메시지, 자동 테스트 4/4 통과
 - 2026-04-19: Phase 4 완료 — FAQ 자동응답 엔진 (Jaccard+키워드), 정확도 100%, 자동 테스트 13/13 통과
 - 2026-04-19: Phase 5 완료 — Shadow DOM 채팅 위젯, Playwright E2E 테스트 5/5 통과
+- 2026-04-19: Phase 6 완료 — Next.js 관리자 페이지, E2E 통합 테스트 3/3 통과

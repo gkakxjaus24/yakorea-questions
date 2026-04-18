@@ -3,6 +3,15 @@ const supabase = require('../services/supabase');
 
 const router = Router();
 
+router.get('/rooms', async (req, res) => {
+  const { data, error } = await supabase
+    .from('chat_rooms')
+    .select('*')
+    .order('created_at', { ascending: false });
+  if (error) return res.status(500).json({ error: error.message });
+  res.json(data);
+});
+
 router.post('/rooms', async (req, res) => {
   const { guest_id } = req.body;
   if (!guest_id) {

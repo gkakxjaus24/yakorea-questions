@@ -1,0 +1,116 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import { useSocket } from '@/hooks/useSocket';
+
+interface Message {
+  id?: string;
+  sender_type: 'guest' | 'manager' | 'auto' | 'system';
+  content: string;
+  created_at?: string;
+}
+
+const SENDER_STYLE: Record<string, string> = {
+  guest:   'self-start bg-gray-100 text-gray-800',
+  auto:    'self-start bg-blue-50 text-blue-800 italic',
+  manager: 'self-end bg-blue-600 text-white',
+  system:  'self-center bg-yellow-50 text-yellow-700 text-xs px-3 py-1 rounded-full',
+};
+
+export default function ChatRoomPage() {
+  const { roomId } = useParams<{ roomId: string }>();
+  const router = useRouter();
+  const { socketRef, connected } = useSocket();
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState('');
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Effect 1: 방 입장 (connected 될 때 한 번)
+  useEffect(() => {
+    const socket = socketRef.current;
+    if (!socket || !connected) return;
+    socket.emit('manager:join_room', { roomId });
+  }, [connected, roomId, socketRef]);
+
+  // Effect 2: 리스너 등록 (joined와 무관하게 유지)
+  useEffect(() => {
+    const socket = socketRef.current;
+    if (!socket || !connected) return;
+
+    const handleHistory = ({ messages: hist }: { messages: Message[] }) => {
+      setMessages(hist);
+    };
+    const handleGuestMsg = ({ content, timestamp }: { content: string; timestamp: string }) => {
+      setMessages((prev) => [...prev, { sender_type: 'guest', content, created_at: timestamp }]);
+    };
+
+    socket.on('room:history', handleHistory);
+    socket.on('guest:message', handleGuestMsg);
+
+    return () => {
+      socket.off('room:history', handleHistory);
+      socket.off('guest:message', handleGuestMsg);
+    };
+  }, [connected, socketRef]);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  function sendReply() {
+    const content = input.trim();
+    if (!content || !socketRef.current) return;
+    socketRef.current.emit('manager:send_reply', { roomId, content });
+    setMessages((prev) => [...prev, { sender_type: 'manager', content }]);
+    setInput('');
+  }
+
+  return (
+    <main className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-4 shadow-sm">
+        <button onClick={() => router.push('/')} className="text-gray-500 hover:text-gray-800 text-xl">←</button>
+        <div>
+          <h2 className="font-bold text-gray-800">채팅방</h2>
+          <p className="text-xs text-gray-400">{roomId}</p>
+        </div>
+        <span className={`ml-auto text-xs px-2 py-1 rounded-full ${connected ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}`}>
+          {connected ? '● 연결됨' : '○ 끊김'}
+        </span>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-3">
+        {messages.length === 0 && (
+          <p className="text-center text-gray-400 text-sm py-10">메시지가 없습니다.</p>
+        )}
+        {messages.map((msg, i) => (
+          <div key={i} className={`flex flex-col max-w-[75%] ${msg.sender_type === 'manager' ? 'self-end items-end' : 'self-start items-start'}`}>
+            <span className="text-xs text-gray-400 mb-1">
+              {msg.sender_type === 'guest' ? '손님' : msg.sender_type === 'manager' ? '매니저' : msg.sender_type === 'auto' ? '자동응답' : '시스템'}
+            </span>
+            <p className={`px-4 py-2 rounded-2xl text-sm leading-relaxed ${SENDER_STYLE[msg.sender_type]}`}>
+              {msg.content}
+            </p>
+          </div>
+        ))}
+        <div ref={bottomRef} />
+      </div>
+
+      <div className="bg-white border-t border-gray-200 px-4 py-3 flex gap-3">
+        <input
+          className="flex-1 border border-gray-200 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-blue-400"
+          placeholder="답장을 입력하세요..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') sendReply(); }}
+        />
+        <button
+          onClick={sendReply}
+          className="bg-blue-600 text-white rounded-full px-5 py-2 text-sm font-medium hover:bg-blue-700 transition"
+        >
+          전송
+        </button>
+      </div>
+    </main>
+  );
+}
