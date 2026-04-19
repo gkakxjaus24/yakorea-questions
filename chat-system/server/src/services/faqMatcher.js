@@ -1,5 +1,7 @@
 const supabase = require('./supabase');
 
+// --- 토크나이저 & 유사도 ---
+
 function tokenize(text) {
   return new Set(
     text
@@ -17,53 +19,103 @@ function jaccard(setA, setB) {
   return intersection.size / union.size;
 }
 
-// 질문 문자열 안에 FAQ 키워드가 몇 개나 포함되는지로 점수 계산
-function keywordScore(questionStr, keywords) {
-  if (!keywords || keywords.length === 0) return 0;
-  const qLower = questionStr.toLowerCase();
-  const hits = keywords.filter((kw) => qLower.includes(kw.toLowerCase())).length;
-  if (hits === 0) return 0;
-  if (hits >= 2) return 0.92;
-  return 0.82;
+
+// --- 5분 캐시 ---
+
+let _cache = null;
+let _cacheAt = 0;
+const CACHE_TTL = 5 * 60 * 1000;
+
+async function loadIntents() {
+  if (_cache && Date.now() - _cacheAt < CACHE_TTL) return _cache;
+
+  const [{ data: questions, error: qErr }, { data: answers, error: aErr }, { data: settings, error: sErr }] =
+    await Promise.all([
+      supabase.from('intent_questions').select('intent_id, question_text').eq('language', 'ko'),
+      supabase.from('intent_answers').select('intent_id, answer_template').eq('language', 'ko'),
+      supabase.from('settings').select('key, value'),
+    ]);
+
+  if (qErr || aErr || sErr) throw qErr || aErr || sErr;
+
+  // settings → { key: value } 맵
+  const settingsMap = {};
+  (settings || []).forEach((s) => (settingsMap[s.key] = s.value));
+
+  // intent별 질문 그룹화
+  const map = {};
+  (questions || []).forEach(({ intent_id, question_text }) => {
+    if (!map[intent_id]) map[intent_id] = { questions: [], answer: null };
+    map[intent_id].questions.push(question_text);
+  });
+
+  // intent별 답변 + {{변수}} 치환
+  (answers || []).forEach(({ intent_id, answer_template }) => {
+    if (!map[intent_id]) return;
+    const filled = answer_template.replace(/\{\{(\w+)\}\}/g, (_, key) => settingsMap[key] ?? `{{${key}}}`);
+    map[intent_id].answer = filled;
+  });
+
+  // 답변 없는 intent 제외 후 배열로
+  _cache = Object.entries(map)
+    .filter(([, v]) => v.answer && v.questions.length > 0)
+    .map(([id, v]) => ({
+      id,
+      answer: v.answer,
+      // 질문별 토큰셋 미리 계산
+      variants: v.questions.map((q) => ({ text: q, tokens: tokenize(q) })),
+    }));
+
+  _cacheAt = Date.now();
+  console.log(`[FAQ] ${_cache.length}개 intent 로드 완료 (질문 변형 총 ${(questions || []).length}개)`);
+  return _cache;
 }
 
-async function loadFaqs() {
-  const { data, error } = await supabase
-    .from('faqs')
-    .select('*')
-    .eq('is_active', true);
-  if (error) throw error;
-  return data || [];
+// 캐시 무효화 (설정 변경 시 외부 호출용)
+function invalidateCache() {
+  _cache = null;
 }
 
-// 임계값 분기: ≥0.8 자동응답 / 0.5~0.8 후보 / <0.5 escalate
+// --- 매칭 메인 ---
+
 async function match(question) {
-  const faqs = await loadFaqs();
-  if (faqs.length === 0) return { type: 'escalate' };
+  const intents = await loadIntents();
+  if (intents.length === 0) return { type: 'escalate' };
 
   const qTokens = tokenize(question);
 
-  const scored = faqs.map((faq) => {
-    const fTokens = tokenize(faq.question);
-    const wordScore = jaccard(qTokens, fTokens);
-    const kwScore = keywordScore(question, faq.keywords);
-    return { faq, score: Math.max(wordScore, kwScore) };
+  // 각 intent: 모든 질문 변형 중 최고 점수
+  const scored = intents.map((intent) => {
+    let best = 0;
+    for (const { tokens } of intent.variants) {
+      const s = jaccard(qTokens, tokens);
+      if (s > best) best = s;
+    }
+    return { intent, score: best };
   });
 
   scored.sort((a, b) => b.score - a.score);
-  const best = scored[0];
+  const top = scored[0];
 
-  if (best.score >= 0.8) {
-    return { type: 'auto', faq: best.faq, confidence: best.score };
-  } else if (best.score >= 0.5) {
+  if (top.score >= 0.8) {
+    return {
+      type: 'auto',
+      faq: { answer: top.intent.answer },
+      confidence: top.score,
+    };
+  } else if (top.score >= 0.5) {
     const candidates = scored
       .filter((s) => s.score >= 0.5)
       .slice(0, 3)
-      .map((s) => ({ question: s.faq.question, answer: s.faq.answer, score: s.score }));
-    return { type: 'candidates', candidates, confidence: best.score };
+      .map((s) => ({
+        question: s.intent.variants[0].text,
+        answer: s.intent.answer,
+        score: s.score,
+      }));
+    return { type: 'candidates', candidates, confidence: top.score };
   } else {
-    return { type: 'escalate', confidence: best.score };
+    return { type: 'escalate', confidence: top.score };
   }
 }
 
-module.exports = { match };
+module.exports = { match, invalidateCache };
