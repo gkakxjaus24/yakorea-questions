@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Language Selection</title>
+  <link rel="stylesheet" href="css/common.css" />
+</head>
+<body>
+  <div id="language-buttons">
+    <button class="language-button" onclick="goToQnA('en')">English</button>
+    <button class="language-button" onclick="goToQnA('zh')">中文</button>
+    <button class="language-button" onclick="goToQnA('ja')">日本語</button>
+    <button class="language-button" onclick="goToQnA('ko')">한국어</button>
+    <button class="language-button" onclick="goToQnA('ru')">Русский</button>
+    <button class="language-button" onclick="goToQnA('es')">Español</button>
+  </div>
+
+  <script>
+    function goToQnA(lang) {
+      window.location.href = `QnA.html?lang=${lang}`;
+    }
+  </script>
+</body>
+</html>
