@@ -103,6 +103,29 @@
 
 ---
 
+## Phase 8: 세션 관리 재설계 + 손님 상태 UI [ ]
+**목표**: 키오스크 손님 간 대화 섞임 방지 + 손님에게 방 상태 가시화 + 매니저 종료 기능
+
+작업 목록:
+- [x] 서버: `manager:close_room` / `guest:close_room` 이벤트 추가
+- [x] 서버: 손님 마지막 입력 후 10분 유휴 시 자동 종료 (in-memory timer)
+- [x] 서버: `guest:join` 시 closed 방은 재사용하지 않고 새 방 생성
+- [x] 서버: `GET /api/chat/rooms` 기본 closed 제외 (`?include_closed=1` 옵션)
+- [x] 서버: escalate 시 status='waiting', manager join 시 status='active' 브로드캐스트
+- [x] 위젯: 상태 배지 (auto/waiting/active/closed) + 대화 종료 버튼
+- [x] 위젯: `room:closed` 수신 시 입력 비활성화 + sessionStorage 초기화
+- [x] 관리자: 채팅방 페이지에 '대화 종료' 버튼
+- [x] 관리자: 목록 페이지 room:activity에 status 필드 반영 + closed 방 제거
+- [x] `widget/tests/phase8.spec.js` 테스트 4개
+
+**검증 기준**:
+- 손님이 "대화 종료" → 새 방 ID 생성 확인
+- 매니저가 종료 → 손님 위젯에 알림 + 입력 비활성화
+- 자동 재연결(탭 새로고침)에서 closed 아니면 같은 방 유지
+- 10분 유휴 타임아웃 작동
+
+---
+
 ## Phase 7: Railway + Vercel 배포 [x]
 **목표**: 프로덕션 배포 + 배포 환경 E2E 검증
 

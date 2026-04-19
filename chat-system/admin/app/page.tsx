@@ -81,28 +81,50 @@ export default function AdminPage() {
       });
     };
 
-    const onActivity = (data: { roomId: string; guestId: string; timestamp: string }) => {
+    const onActivity = (data: { roomId: string; guestId?: string; timestamp: string; status?: string; content?: string }) => {
+      const isClosed = data.status === 'closed';
+      const isMessage = !!data.content;
+
       setRooms((prev) => {
         const exists = prev.find((r) => r.id === data.roomId);
+        // 종료된 방은 목록에서 제거
+        if (isClosed) {
+          return prev.filter((r) => r.id !== data.roomId);
+        }
         if (exists) {
           return sortByRecent(
             prev.map((r) =>
-              r.id === data.roomId ? { ...r, updated_at: data.timestamp } : r
+              r.id === data.roomId
+                ? { ...r, updated_at: data.timestamp, status: data.status || r.status }
+                : r
             )
           );
         }
+        if (!data.guestId) return prev;
         return sortByRecent([
           {
             id: data.roomId,
             guest_id: data.guestId,
-            status: 'auto',
+            status: data.status || 'auto',
             created_at: data.timestamp,
             updated_at: data.timestamp,
           },
           ...prev,
         ]);
       });
-      setUnread((prev) => ({ ...prev, [data.roomId]: (prev[data.roomId] || 0) + 1 }));
+
+      if (isClosed) {
+        // unread 초기화
+        setUnread((prev) => {
+          if (!prev[data.roomId]) return prev;
+          const next = { ...prev };
+          delete next[data.roomId];
+          return next;
+        });
+      } else if (isMessage) {
+        // 실제 손님 메시지일 때만 unread 증가 (상태 변경 이벤트는 증가 X)
+        setUnread((prev) => ({ ...prev, [data.roomId]: (prev[data.roomId] || 0) + 1 }));
+      }
     };
 
     socket.on('room:new_request', onNewRequest);

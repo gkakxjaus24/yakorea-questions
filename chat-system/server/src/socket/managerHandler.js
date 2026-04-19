@@ -19,6 +19,10 @@ module.exports = function managerHandler(io, socket) {
         .update({ status: 'active', updated_at: new Date().toISOString() })
         .eq('id', roomId);
 
+      // 상태 변경 브로드캐스트 (위젯 상태 배지 + 관리자 목록 갱신)
+      io.to(roomId).emit('room:status', { status: 'active' });
+      io.emit('room:activity', { roomId, status: 'active', timestamp: new Date().toISOString() });
+
       // 기존 메시지 히스토리 전송
       const { data: messages } = await supabase
         .from('messages')
@@ -52,6 +56,25 @@ module.exports = function managerHandler(io, socket) {
       console.log(`[Manager] reply in room ${roomId}: ${content}`);
     } catch (err) {
       console.error('[manager:send_reply] error:', err.message);
+    }
+  });
+
+  // 매니저가 대화 종료
+  socket.on('manager:close_room', async ({ roomId }) => {
+    try {
+      await supabase
+        .from('chat_rooms')
+        .update({ status: 'closed', updated_at: new Date().toISOString() })
+        .eq('id', roomId);
+
+      // 방의 모든 참여자에게 종료 알림
+      io.to(roomId).emit('room:closed', { by: 'manager' });
+      // 관리자 목록 페이지 상태 배지 갱신
+      io.emit('room:activity', { roomId, status: 'closed', timestamp: new Date().toISOString() });
+
+      console.log(`[Manager] closed room ${roomId}`);
+    } catch (err) {
+      console.error('[manager:close_room] error:', err.message);
     }
   });
 };

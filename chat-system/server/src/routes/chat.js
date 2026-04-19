@@ -4,10 +4,16 @@ const supabase = require('../services/supabase');
 const router = Router();
 
 router.get('/rooms', async (req, res) => {
-  const { data, error } = await supabase
+  let query = supabase
     .from('chat_rooms')
     .select('*')
-    .order('created_at', { ascending: false });
+    .order('updated_at', { ascending: false });
+
+  if (!req.query.include_closed) {
+    query = query.neq('status', 'closed');
+  }
+
+  const { data, error } = await query;
   if (error) return res.status(500).json({ error: error.message });
   res.json(data);
 });

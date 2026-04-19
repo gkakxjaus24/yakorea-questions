@@ -24,16 +24,17 @@ export default function ChatRoomPage() {
   const { socketRef, connected } = useSocket();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
+  const [isClosed, setIsClosed] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // Effect 1: 방 입장 (connected 될 때 한 번)
+  // Effect 1: 방 입장
   useEffect(() => {
     const socket = socketRef.current;
     if (!socket || !connected) return;
     socket.emit('manager:join_room', { roomId });
   }, [connected, roomId, socketRef]);
 
-  // Effect 2: 리스너 등록 (joined와 무관하게 유지)
+  // Effect 2: 리스너 등록
   useEffect(() => {
     const socket = socketRef.current;
     if (!socket || !connected) return;
@@ -44,15 +45,26 @@ export default function ChatRoomPage() {
     const handleGuestMsg = ({ content, timestamp }: { content: string; timestamp: string }) => {
       setMessages((prev) => [...prev, { sender_type: 'guest', content, created_at: timestamp }]);
     };
+    const handleClosed = ({ by }: { by: string }) => {
+      setIsClosed(true);
+      const label =
+        by === 'guest' ? '손님이 대화를 종료했습니다.' :
+        by === 'idle_timeout' ? '장시간 활동이 없어 자동 종료되었습니다.' :
+        '대화가 종료되었습니다.';
+      setMessages((prev) => [...prev, { sender_type: 'system', content: label }]);
+      setTimeout(() => router.push('/'), 2000);
+    };
 
     socket.on('room:history', handleHistory);
     socket.on('guest:message', handleGuestMsg);
+    socket.on('room:closed', handleClosed);
 
     return () => {
       socket.off('room:history', handleHistory);
       socket.off('guest:message', handleGuestMsg);
+      socket.off('room:closed', handleClosed);
     };
-  }, [connected, socketRef]);
+  }, [connected, socketRef, router]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -60,10 +72,16 @@ export default function ChatRoomPage() {
 
   function sendReply() {
     const content = input.trim();
-    if (!content || !socketRef.current) return;
+    if (!content || !socketRef.current || isClosed) return;
     socketRef.current.emit('manager:send_reply', { roomId, content });
     setMessages((prev) => [...prev, { sender_type: 'manager', content }]);
     setInput('');
+  }
+
+  function closeRoom() {
+    if (!socketRef.current || isClosed) return;
+    if (!confirm('이 대화를 종료하시겠습니까?')) return;
+    socketRef.current.emit('manager:close_room', { roomId });
   }
 
   return (
@@ -77,6 +95,13 @@ export default function ChatRoomPage() {
         <span className={`ml-auto text-xs px-2 py-1 rounded-full ${connected ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}`}>
           {connected ? '● 연결됨' : '○ 끊김'}
         </span>
+        <button
+          onClick={closeRoom}
+          disabled={isClosed}
+          className="text-xs px-3 py-1.5 rounded-full bg-red-50 text-red-600 border border-red-200 hover:bg-red-100 disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          대화 종료
+        </button>
       </div>
 
       <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-3">
@@ -98,15 +123,17 @@ export default function ChatRoomPage() {
 
       <div className="bg-white border-t border-gray-200 px-4 py-3 flex gap-3">
         <input
-          className="flex-1 border border-gray-200 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-blue-400"
-          placeholder="답장을 입력하세요..."
+          className="flex-1 border border-gray-200 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-blue-400 disabled:bg-gray-100 disabled:cursor-not-allowed"
+          placeholder={isClosed ? '대화가 종료되었습니다' : '답장을 입력하세요...'}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => { if (e.key === 'Enter') sendReply(); }}
+          disabled={isClosed}
         />
         <button
           onClick={sendReply}
-          className="bg-blue-600 text-white rounded-full px-5 py-2 text-sm font-medium hover:bg-blue-700 transition"
+          disabled={isClosed}
+          className="bg-blue-600 text-white rounded-full px-5 py-2 text-sm font-medium hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
         >
           전송
         </button>

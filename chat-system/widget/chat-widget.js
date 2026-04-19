@@ -18,6 +18,19 @@
 
   const STORAGE_KEY = 'ya_chat_room_id';
 
+  const STATUS_LABEL = {
+    auto: '자동응답 중',
+    waiting: '매니저 연결 대기 중',
+    active: '매니저 상담 중',
+    closed: '대화가 종료되었습니다',
+  };
+  const STATUS_COLOR = {
+    auto: '#60a5fa',
+    waiting: '#facc15',
+    active: '#4ade80',
+    closed: '#9ca3af',
+  };
+
   // ── Shadow DOM 생성 ──────────────────────────────────────────
   const host = document.createElement('div');
   host.id = 'ya-chat-widget-host';
@@ -51,12 +64,22 @@
 
     #chat-header {
       background: #2563eb; color: white;
-      padding: 14px 16px; font-weight: bold; font-size: 15px;
+      padding: 12px 14px; font-weight: bold; font-size: 15px;
       display: flex; align-items: center; gap: 8px;
     }
     #status-dot {
       width: 8px; height: 8px; border-radius: 50%; background: #86efac;
+      flex-shrink: 0;
     }
+    #title-wrap { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+    #title { font-size: 14px; }
+    #status-text { font-size: 11px; font-weight: normal; opacity: 0.9; }
+    #close-btn {
+      background: transparent; border: none; color: white;
+      font-size: 16px; cursor: pointer; padding: 4px 8px;
+      border-radius: 6px; opacity: 0.8;
+    }
+    #close-btn:hover { background: rgba(255,255,255,0.15); opacity: 1; }
 
     #messages {
       flex: 1; overflow-y: auto; padding: 12px;
@@ -101,6 +124,7 @@
       border-radius: 20px; font-size: 14px; outline: none;
     }
     #msg-input:focus { border-color: #2563eb; }
+    #msg-input:disabled { background: #f3f4f6; cursor: not-allowed; }
     #send-btn {
       width: 36px; height: 36px; border-radius: 50%;
       background: #2563eb; color: white; border: none;
@@ -108,6 +132,7 @@
       align-items: center; justify-content: center;
     }
     #send-btn:hover { background: #1d4ed8; }
+    #send-btn:disabled { background: #9ca3af; cursor: not-allowed; }
   `;
 
   // ── HTML ──────────────────────────────────────────────────────
@@ -117,7 +142,11 @@
     <div id="chat-box" class="hidden">
       <div id="chat-header">
         <div id="status-dot"></div>
-        <span>야코리아 호스텔 채팅</span>
+        <div id="title-wrap">
+          <span id="title">야코리아 호스텔 채팅</span>
+          <span id="status-text">자동응답 중</span>
+        </div>
+        <button id="close-btn" aria-label="대화 종료" title="대화 종료">✕</button>
       </div>
       <div id="messages"></div>
       <div id="candidates-box"></div>
@@ -135,6 +164,9 @@
   // ── 요소 참조 ─────────────────────────────────────────────────
   const toggleBtn     = shadow.getElementById('toggle-btn');
   const chatBox       = shadow.getElementById('chat-box');
+  const statusDot     = shadow.getElementById('status-dot');
+  const statusText    = shadow.getElementById('status-text');
+  const closeBtn      = shadow.getElementById('close-btn');
   const messagesEl    = shadow.getElementById('messages');
   const candidatesBox = shadow.getElementById('candidates-box');
   const escalateBtn   = shadow.getElementById('escalate-btn');
@@ -145,6 +177,24 @@
   let roomId = sessionStorage.getItem(STORAGE_KEY) || null;
   let socket = null;
   let connected = false;
+  let currentStatus = 'auto';
+
+  // ── 상태 배지 갱신 ─────────────────────────────────────────────
+  function updateStatus(status) {
+    if (!status) return;
+    currentStatus = status;
+    statusText.textContent = STATUS_LABEL[status] || status;
+    statusDot.style.background = STATUS_COLOR[status] || '#86efac';
+
+    const isClosed = status === 'closed';
+    msgInput.disabled = isClosed;
+    sendBtn.disabled = isClosed;
+    if (isClosed) {
+      msgInput.placeholder = '대화가 종료되었습니다';
+    } else {
+      msgInput.placeholder = '메시지를 입력하세요...';
+    }
+  }
 
   // ── 메시지 렌더링 ──────────────────────────────────────────────
   function appendMsg(text, type) {
@@ -175,6 +225,16 @@
     });
   }
 
+  // ── 세션 초기화 ────────────────────────────────────────────────
+  function resetSession() {
+    sessionStorage.removeItem(STORAGE_KEY);
+    roomId = null;
+    messagesEl.innerHTML = '';
+    candidatesBox.innerHTML = '';
+    escalateBtn.classList.remove('visible');
+    currentStatus = 'auto';
+  }
+
   // ── Socket.IO 로드 & 연결 ──────────────────────────────────────
   function loadSocketIO(cb) {
     if (window.io) return cb();
@@ -191,16 +251,21 @@
 
       socket.on('connect', () => {
         connected = true;
-        // 재연결 시 기존 roomId로 재입장
         socket.emit('guest:join', { roomId, guestId: getGuestId() });
       });
 
-      socket.on('room:created', ({ roomId: rid }) => {
+      socket.on('room:created', ({ roomId: rid, status }) => {
+        const isNewRoom = rid !== roomId;
         roomId = rid;
         sessionStorage.setItem(STORAGE_KEY, rid);
-        if (messagesEl.children.length === 0) {
+        updateStatus(status || 'auto');
+        if (isNewRoom && messagesEl.children.length === 0) {
           appendMsg('안녕하세요! 무엇을 도와드릴까요? 😊', 'system');
         }
+      });
+
+      socket.on('room:status', ({ status }) => {
+        updateStatus(status);
       });
 
       socket.on('auto:response', ({ content }) => {
@@ -224,6 +289,17 @@
         appendMsg(content, 'manager');
       });
 
+      socket.on('room:closed', ({ by }) => {
+        const msg =
+          by === 'manager' ? '매니저가 대화를 종료했습니다.' :
+          by === 'idle_timeout' ? '장시간 활동이 없어 대화가 자동 종료되었습니다.' :
+          '대화가 종료되었습니다.';
+        appendMsg(msg, 'system');
+        updateStatus('closed');
+        sessionStorage.removeItem(STORAGE_KEY);
+        roomId = null;
+      });
+
       socket.on('disconnect', () => {
         connected = false;
       });
@@ -241,16 +317,23 @@
 
   // ── 이벤트 ────────────────────────────────────────────────────
   toggleBtn.addEventListener('click', () => {
+    // 종료된 상태에서 다시 열면 세션 초기화
+    if (isOpen === false && currentStatus === 'closed') {
+      resetSession();
+    }
     isOpen = !isOpen;
     chatBox.classList.toggle('hidden', !isOpen);
     toggleBtn.textContent = isOpen ? '✕' : '💬';
     if (isOpen && !connected) connectSocket();
+    if (isOpen && connected && !roomId) {
+      socket.emit('guest:join', { guestId: getGuestId() });
+    }
     if (isOpen) msgInput.focus();
   });
 
   function sendMessage() {
     const content = msgInput.value.trim();
-    if (!content || !roomId) return;
+    if (!content || !roomId || currentStatus === 'closed') return;
     appendMsg(content, 'guest');
     socket.emit('guest:send_message', { roomId, content });
     msgInput.value = '';
@@ -266,5 +349,17 @@
   escalateBtn.addEventListener('click', () => {
     escalateBtn.classList.remove('visible');
     appendMsg('매니저 연결 요청을 보냈습니다. 잠시만 기다려 주세요.', 'system');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    if (!confirm('대화를 종료하시겠어요?')) return;
+    if (socket && roomId && currentStatus !== 'closed') {
+      socket.emit('guest:close_room', { roomId });
+    }
+    // 서버 응답(room:closed) 기다리지 않고 즉시 UI 초기화
+    appendMsg('대화를 종료했습니다.', 'system');
+    updateStatus('closed');
+    sessionStorage.removeItem(STORAGE_KEY);
+    roomId = null;
   });
 })();
