@@ -47,8 +47,22 @@ module.exports = function guestHandler(io, socket) {
         .single();
       if (error) throw error;
 
-      // 같은 방의 매니저에게 전달
+      // 같은 방의 매니저에게 전달 (이미 room에 조인한 매니저용)
       socket.to(roomId).emit('guest:message', {
+        content: msg.content,
+        timestamp: msg.created_at,
+      });
+
+      // 방 updated_at 갱신
+      await supabase
+        .from('chat_rooms')
+        .update({ updated_at: new Date().toISOString() })
+        .eq('id', roomId);
+
+      // 관리자 목록 페이지 전체에 알림 (room에 조인하지 않은 매니저 포함)
+      io.emit('room:activity', {
+        roomId,
+        guestId: socket.guestId || socket.id,
         content: msg.content,
         timestamp: msg.created_at,
       });
