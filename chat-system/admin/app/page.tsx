@@ -35,10 +35,41 @@ function sortByRecent(rooms: Room[]) {
   );
 }
 
+function playBeep(freq: number, times: number) {
+  try {
+    const ctx = new AudioContext();
+    for (let i = 0; i < times; i++) {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.value = freq;
+      osc.type = 'sine';
+      const t = ctx.currentTime + i * 0.35;
+      gain.gain.setValueAtTime(0.3, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
+      osc.start(t);
+      osc.stop(t + 0.25);
+    }
+  } catch {}
+}
+
+function showBrowserNotification(title: string, body: string) {
+  if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+    new Notification(title, { body, icon: '/favicon.ico' });
+  }
+}
+
 export default function AdminPage() {
   const { socketRef, connected } = useSocket();
   const [rooms, setRooms] = useState<Room[]>([]);
   const [unread, setUnread] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
+  }, []);
 
   useEffect(() => {
     try {
@@ -121,9 +152,14 @@ export default function AdminPage() {
           delete next[data.roomId];
           return next;
         });
+      } else if (data.status === 'waiting') {
+        // 에스컬레이션: 이중 비프 + 브라우저 알림
+        playBeep(880, 2);
+        showBrowserNotification('손님 연결 요청 🔔', '매니저 연결을 요청했습니다.');
       } else if (isMessage) {
         // 실제 손님 메시지일 때만 unread 증가 (상태 변경 이벤트는 증가 X)
         setUnread((prev) => ({ ...prev, [data.roomId]: (prev[data.roomId] || 0) + 1 }));
+        playBeep(440, 1);
       }
     };
 

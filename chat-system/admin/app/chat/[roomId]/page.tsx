@@ -18,6 +18,25 @@ const SENDER_STYLE: Record<string, string> = {
   system:  'self-center bg-yellow-50 text-yellow-700 text-xs px-3 py-1 rounded-full',
 };
 
+function playBeep(freq: number, times: number) {
+  try {
+    const ctx = new AudioContext();
+    for (let i = 0; i < times; i++) {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.value = freq;
+      osc.type = 'sine';
+      const t = ctx.currentTime + i * 0.35;
+      gain.gain.setValueAtTime(0.3, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
+      osc.start(t);
+      osc.stop(t + 0.25);
+    }
+  } catch {}
+}
+
 export default function ChatRoomPage() {
   const { roomId } = useParams<{ roomId: string }>();
   const router = useRouter();
@@ -44,6 +63,7 @@ export default function ChatRoomPage() {
     };
     const handleGuestMsg = ({ content, timestamp }: { content: string; timestamp: string }) => {
       setMessages((prev) => [...prev, { sender_type: 'guest', content, created_at: timestamp }]);
+      if (document.visibilityState !== 'visible') playBeep(440, 1);
     };
     const handleClosed = ({ by }: { by: string }) => {
       setIsClosed(true);
