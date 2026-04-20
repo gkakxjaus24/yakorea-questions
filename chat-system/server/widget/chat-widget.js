@@ -34,7 +34,8 @@
       closedMsg: '대화를 종료했습니다.', closedByManager: '매니저가 대화를 종료했습니다.',
       closedByIdle: '장시간 활동이 없어 대화가 자동 종료되었습니다.',
       escalateRequest: '매니저 연결 요청을 보냈습니다. 잠시만 기다려 주세요.',
-      kbSend: '전송',
+      kbSend: '전송', closeBtnLabel: '대화종료',
+      closeConfirmYes: '확인', closeConfirmNo: '취소',
     },
     en: {
       statusAuto: 'Auto-reply', statusWaiting: 'Waiting for manager',
@@ -44,7 +45,8 @@
       closedMsg: 'Conversation ended.', closedByManager: 'Manager has ended the chat.',
       closedByIdle: 'Chat ended due to inactivity.',
       escalateRequest: 'Connecting to manager. Please wait.',
-      kbSend: 'Send',
+      kbSend: 'Send', closeBtnLabel: 'End Chat',
+      closeConfirmYes: 'OK', closeConfirmNo: 'Cancel',
     },
     zh: {
       statusAuto: '自动回复中', statusWaiting: '等待客服',
@@ -54,7 +56,8 @@
       closedMsg: '对话已结束。', closedByManager: '客服已结束对话。',
       closedByIdle: '长时间无活动，对话已自动结束。',
       escalateRequest: '正在联系客服，请稍候。',
-      kbSend: '发送',
+      kbSend: '发送', closeBtnLabel: '结束对话',
+      closeConfirmYes: '确定', closeConfirmNo: '取消',
     },
     ja: {
       statusAuto: '自動応答中', statusWaiting: 'スタッフ接続待ち',
@@ -64,7 +67,8 @@
       closedMsg: 'チャットを終了しました。', closedByManager: 'スタッフがチャットを終了しました。',
       closedByIdle: '長時間操作がなかったため、チャットが終了しました。',
       escalateRequest: 'スタッフに接続中です。しばらくお待ちください。',
-      kbSend: '送信',
+      kbSend: '送信', closeBtnLabel: 'チャット終了',
+      closeConfirmYes: 'OK', closeConfirmNo: 'キャンセル',
     },
     ru: {
       statusAuto: 'Автоответ', statusWaiting: 'Ожидание менеджера',
@@ -74,7 +78,8 @@
       closedMsg: 'Чат завершён.', closedByManager: 'Менеджер завершил чат.',
       closedByIdle: 'Чат завершён из-за неактивности.',
       escalateRequest: 'Подключение к менеджеру. Пожалуйста, подождите.',
-      kbSend: 'Отправить',
+      kbSend: 'Отправить', closeBtnLabel: 'Завершить',
+      closeConfirmYes: 'Да', closeConfirmNo: 'Нет',
     },
     es: {
       statusAuto: 'Respuesta automática', statusWaiting: 'Esperando al gerente',
@@ -84,7 +89,8 @@
       closedMsg: 'Conversación finalizada.', closedByManager: 'El gerente ha finalizado el chat.',
       closedByIdle: 'Chat finalizado por inactividad.',
       escalateRequest: 'Conectando con el gerente. Por favor espera.',
-      kbSend: 'Enviar',
+      kbSend: 'Enviar', closeBtnLabel: 'Finalizar',
+      closeConfirmYes: 'Sí', closeConfirmNo: 'Cancelar',
     },
   };
 
@@ -215,11 +221,33 @@
     #title { font-size: 14px; }
     #status-text { font-size: 11px; font-weight: normal; opacity: 0.9; }
     #close-btn {
-      background: transparent; border: none; color: white;
-      font-size: 16px; cursor: pointer; padding: 4px 8px;
-      border-radius: 6px; opacity: 0.8;
+      background: transparent; border: 1px solid rgba(255,255,255,0.55);
+      color: white; font-size: 12px; font-weight: 600;
+      cursor: pointer; padding: 4px 10px; border-radius: 6px;
+      white-space: nowrap; flex-shrink: 0;
     }
-    #close-btn:hover { background: rgba(255,255,255,0.15); opacity: 1; }
+    #close-btn:hover { background: rgba(255,255,255,0.18); }
+
+    #close-confirm {
+      position: absolute; inset: 0; background: rgba(255,255,255,0.97);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 20px; z-index: 20; border-radius: 16px;
+    }
+    #close-confirm.hidden { display: none; }
+    #close-confirm p { font-size: 16px; color: #1e293b; font-weight: 500; text-align: center; }
+    .confirm-btns { display: flex; gap: 12px; }
+    #confirm-yes {
+      padding: 10px 28px; border-radius: 10px; border: none;
+      background: #2563eb; color: white; font-size: 15px; font-weight: 600; cursor: pointer;
+    }
+    #confirm-yes:hover { background: #1d4ed8; }
+    #confirm-no {
+      padding: 10px 28px; border-radius: 10px;
+      border: 1px solid #e2e8f0; background: #f1f5f9;
+      color: #475569; font-size: 15px; font-weight: 600; cursor: pointer;
+    }
+    #confirm-no:hover { background: #e2e8f0; }
 
     #lang-bar {
       display: flex; flex-wrap: wrap; gap: 4px;
@@ -377,7 +405,14 @@
           <span id="title">야코리아 호스텔 채팅</span>
           <span id="status-text">${WIDGET_TEXT.ko.statusAuto}</span>
         </div>
-        <button id="close-btn" aria-label="대화 종료" title="대화 종료">✕</button>
+        <button id="close-btn">${WIDGET_TEXT.ko.closeBtnLabel}</button>
+      </div>
+      <div id="close-confirm" class="hidden">
+        <p>${WIDGET_TEXT.ko.closeConfirm}</p>
+        <div class="confirm-btns">
+          <button id="confirm-yes">${WIDGET_TEXT.ko.closeConfirmYes}</button>
+          <button id="confirm-no">${WIDGET_TEXT.ko.closeConfirmNo}</button>
+        </div>
       </div>
       ${IS_KIOSK ? `
       <div id="lang-bar">
@@ -433,6 +468,9 @@
   const checkoutSubmit  = shadow.getElementById('checkout-submit');
   const checkoutBlocked = shadow.getElementById('checkout-blocked');
   const inputArea       = shadow.getElementById('input-area');
+  const closeConfirmEl  = shadow.getElementById('close-confirm');
+  const confirmYesBtn   = shadow.getElementById('confirm-yes');
+  const confirmNoBtn    = shadow.getElementById('confirm-no');
   const virtualKb       = IS_KIOSK ? shadow.getElementById('virtual-kb') : null;
   const vkCandidates    = IS_KIOSK ? shadow.getElementById('vk-candidates') : null;
   const kbSpace         = IS_KIOSK ? shadow.getElementById('kb-space') : null;
@@ -630,6 +668,10 @@
     };
     statusText.textContent = labels[currentStatus] || t('statusAuto');
     escalateBtn.textContent = t('escalateBtn');
+    closeBtn.textContent = t('closeBtnLabel');
+    confirmYesBtn.textContent = t('closeConfirmYes');
+    confirmNoBtn.textContent = t('closeConfirmNo');
+    closeConfirmEl.querySelector('p').textContent = t('closeConfirm');
     const isClosed = currentStatus === 'closed';
     msgInput.placeholder = isClosed ? t('statusClosed') : t('placeholder');
     if (kbSend) kbSend.textContent = t('kbSend');
@@ -849,6 +891,7 @@
     isOpen = !isOpen;
     chatBox.classList.toggle('hidden', !isOpen);
     toggleBtn.textContent = isOpen ? '✕' : '💬';
+    if (!isOpen) hideCloseConfirm();
 
     if (isOpen) {
       if (IS_QR_MODE) {
@@ -889,8 +932,19 @@
     appendMsg(t('escalateRequest'), 'system');
   });
 
-  closeBtn.addEventListener('click', () => {
-    if (!confirm(t('closeConfirm'))) return;
+  function showCloseConfirm() {
+    closeConfirmEl.classList.remove('hidden');
+  }
+  function hideCloseConfirm() {
+    closeConfirmEl.classList.add('hidden');
+  }
+
+  closeBtn.addEventListener('click', showCloseConfirm);
+
+  confirmNoBtn.addEventListener('click', hideCloseConfirm);
+
+  confirmYesBtn.addEventListener('click', () => {
+    hideCloseConfirm();
     if (socket && roomId && currentStatus !== 'closed') {
       socket.emit('guest:close_room', { roomId });
     }
