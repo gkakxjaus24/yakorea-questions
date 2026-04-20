@@ -76,9 +76,51 @@ function invalidateCache() {
   _cache = null;
 }
 
+// --- 에스컬레이션 키워드 선탐지 ---
+
+function isEscalationRequest(text) {
+  const t = text.replace(/\s+/g, '').toLowerCase();
+
+  // 단독으로 에스컬레이션을 의미하는 한국어 단어
+  const koSingle = ['담당자', '상담원'];
+  if (koSingle.some((k) => t.includes(k))) return true;
+
+  // 직원/매니저/사람 + 연결/이야기/통화 조합
+  const koStaff = ['직원', '매니저', '사람', '직접'];
+  const koConnect = ['연결', '이야기', '통화', '상담', '연락', '부탁'];
+  if (koStaff.some((k) => t.includes(k)) && koConnect.some((k) => t.includes(k))) return true;
+
+  // 영어
+  const en = text.toLowerCase();
+  const enPhrases = [
+    'speak to staff', 'talk to staff', 'connect to staff',
+    'speak to manager', 'talk to manager', 'connect to manager',
+    'speak to someone', 'talk to someone', 'talk to a person',
+    'talk to human', 'real person', 'human agent', 'connect me',
+  ];
+  if (enPhrases.some((p) => en.includes(p))) return true;
+
+  // 일본어
+  if (['スタッフ', '担当者', 'スタッフに'].some((k) => text.includes(k))) return true;
+
+  // 중국어
+  if (['联系客服', '转人工', '人工客服', '找客服'].some((k) => text.includes(k))) return true;
+
+  // 러시아어
+  if (t.includes('менеджер') || t.includes('сотрудник')) return true;
+
+  // 스페인어
+  if (['hablar con', 'conectar con', 'hablar con gerente'].some((p) => en.includes(p))) return true;
+
+  return false;
+}
+
 // --- 매칭 메인 ---
 
 async function match(question) {
+  // 에스컬레이션 키워드 선탐지 — FAQ 매칭 전에 처리
+  if (isEscalationRequest(question)) return { type: 'escalate' };
+
   const intents = await loadIntents();
   if (intents.length === 0) return { type: 'escalate' };
 
