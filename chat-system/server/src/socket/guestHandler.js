@@ -1,5 +1,6 @@
 const supabase = require('../services/supabase');
 const faqMatcher = require('../services/faqMatcher');
+const telegram = require('../services/telegram');
 
 const IDLE_TIMEOUT_MS = 10 * 60 * 1000; // 10분
 const idleTimers = new Map(); // roomId -> setTimeout
@@ -127,6 +128,7 @@ module.exports = function guestHandler(io, socket) {
         io.emit('room:activity', { roomId, status: 'waiting', timestamp: new Date().toISOString() });
         socket.emit('auto:escalate', {});
         socket.emit('room:status', { status: 'waiting' });
+        telegram.alertEscalation(roomId);
       }
 
       console.log(`[Guest] message in room ${roomId}: ${content} → FAQ: ${result.type}`);
