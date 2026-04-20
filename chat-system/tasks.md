@@ -103,7 +103,7 @@
 
 ---
 
-## Phase 8: 세션 관리 재설계 + 손님 상태 UI [ ]
+## Phase 8: 세션 관리 재설계 + 손님 상태 UI [x]
 **목표**: 키오스크 손님 간 대화 섞임 방지 + 손님에게 방 상태 가시화 + 매니저 종료 기능
 
 작업 목록:
@@ -118,11 +118,32 @@
 - [x] 관리자: 목록 페이지 room:activity에 status 필드 반영 + closed 방 제거
 - [x] `widget/tests/phase8.spec.js` 테스트 4개
 
-**검증 기준**:
-- 손님이 "대화 종료" → 새 방 ID 생성 확인
-- 매니저가 종료 → 손님 위젯에 알림 + 입력 비활성화
-- 자동 재연결(탭 새로고침)에서 closed 아니면 같은 방 유지
-- 10분 유휴 타임아웃 작동
+---
+
+## Phase 8.5: 위젯 듀얼 모드 — QR 체크아웃 날짜 게이트 [x]
+**목표**: 단일 위젯으로 키오스크/QR 두 환경 지원. QR 모드에서 체크아웃 이후 손님 채팅 차단.
+
+작업 목록:
+- [x] `data-mode` 속성으로 모드 구분 (`kiosk` 기본값 / `guest-qr`)
+- [x] QR 모드: 체크아웃 날짜 입력 폼 (Shadow DOM 내부)
+- [x] KST 명시적 UTC+9 계산 (`getTodayKST()`)
+- [x] 체크아웃 날짜 < 오늘(KST) → 채팅 차단 메시지 표시
+- [x] 체크아웃 날짜 ≥ 오늘(KST) → 정상 채팅 진행
+- [x] 날짜 sessionStorage 저장 (탭 닫으면 리셋)
+- [x] `server/widget/chat-widget.js` 동기화 (Railway 서빙용)
+
+**사용법**:
+```html
+<!-- 카운터 키오스크 -->
+<script src="https://railway-url/widget/chat-widget.js" data-mode="kiosk"></script>
+
+<!-- 객실 QnA 페이지 -->
+<script src="https://railway-url/widget/chat-widget.js" data-mode="guest-qr"></script>
+```
+
+**날짜 규칙**:
+- 체크아웃 날짜 ≥ 오늘 → 허용 (당일 체크아웃 포함)
+- 체크아웃 날짜 < 오늘 → 차단 (이미 체크아웃됨)
 
 ---
 
@@ -149,3 +170,6 @@
 - 2026-04-19: Phase 5 완료 — Shadow DOM 채팅 위젯, Playwright E2E 테스트 5/5 통과
 - 2026-04-19: Phase 6 완료 — Next.js 관리자 페이지, E2E 통합 테스트 3/3 통과
 - 2026-04-19: Phase 7 완료 — Railway 서버 + Vercel 관리자 배포, 프로덕션 E2E 테스트 8/8 통과
+- 2026-04-19: Phase 8 완료 — 세션 관리 재설계, 상태 배지, 대화 종료 버튼, Playwright 테스트 4/4 통과
+- 2026-04-19: Phase 8.5 완료 — 위젯 듀얼 모드 (kiosk/guest-qr), 체크아웃 날짜 게이트, KST 명시적 계산
+- 2026-04-19: Phase 9 완료 — 키오스크 6개 언어 선택 바 + 가상 키보드 (RU: 키릴, ES: QWERTY+특수, ZH: 병음→한자, JA: 로마자→히라가나), i18n UI 텍스트, pinyin-dict.js 지연 로드
