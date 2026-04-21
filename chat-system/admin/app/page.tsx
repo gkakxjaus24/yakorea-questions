@@ -11,6 +11,7 @@ interface Room {
   created_at: string;
   updated_at: string;
   room_label?: string;
+  guest_name?: string;
 }
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
@@ -127,7 +128,7 @@ export default function AdminPage() {
           return sortByRecent(
             prev.map((r) =>
               r.id === data.roomId
-                ? { ...r, updated_at: data.timestamp, status: data.status || r.status, room_label: (data as any).roomLabel || r.room_label }
+                ? { ...r, updated_at: data.timestamp, status: data.status || r.status, room_label: (data as any).roomLabel || r.room_label, guest_name: (data as any).guestName || r.guest_name }
                 : r
             )
           );
@@ -141,6 +142,7 @@ export default function AdminPage() {
             created_at: data.timestamp,
             updated_at: data.timestamp,
             room_label: (data as any).roomLabel || '',
+            guest_name: (data as any).guestName || '',
           },
           ...prev,
         ]);
@@ -231,13 +233,17 @@ export default function AdminPage() {
                           <span className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
                         )}
                         <div>
-                          <p className={`font-medium ${hasUnread ? 'text-gray-900' : 'text-gray-800'} flex items-center gap-2`}>
+                          <p className={`font-medium ${hasUnread ? 'text-gray-900' : 'text-gray-800'} flex items-center gap-2 flex-wrap`}>
                             {room.room_label ? (
                               <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-bold">
                                 {room.room_label}호
                               </span>
                             ) : null}
-                            손님 {room.guest_id.slice(0, 8)}…
+                            {room.guest_name ? (
+                              <span className="font-semibold text-gray-800">{room.guest_name}</span>
+                            ) : (
+                              <span className="text-gray-500 text-sm">손님 {room.guest_id.slice(0, 8)}…</span>
+                            )}
                           </p>
                           <p className="text-xs text-gray-400 mt-1">
                             {new Date(room.updated_at).toLocaleString('ko-KR')}

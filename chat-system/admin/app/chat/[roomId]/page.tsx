@@ -45,6 +45,7 @@ export default function ChatRoomPage() {
   const [input, setInput] = useState('');
   const [isClosed, setIsClosed] = useState(false);
   const [roomLabel, setRoomLabel] = useState('');
+  const [guestName, setGuestName] = useState('');
   const bottomRef = useRef<HTMLDivElement>(null);
 
   // Effect 1: 방 입장 + roomLabel 로드
@@ -58,9 +59,10 @@ export default function ChatRoomPage() {
     const SERVER_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
     fetch(`${SERVER_URL}/api/chat/rooms`)
       .then(r => r.json())
-      .then((rooms: { id: string; room_label?: string }[]) => {
+      .then((rooms: { id: string; room_label?: string; guest_name?: string }[]) => {
         const found = rooms.find(r => r.id === roomId);
         if (found?.room_label) setRoomLabel(found.room_label);
+        if (found?.guest_name) setGuestName(found.guest_name);
       })
       .catch(() => {});
   }, [roomId]);
@@ -73,9 +75,10 @@ export default function ChatRoomPage() {
     const handleHistory = ({ messages: hist }: { messages: Message[] }) => {
       setMessages(hist);
     };
-    const handleGuestMsg = ({ content, timestamp, roomLabel: lbl }: { content: string; timestamp: string; roomLabel?: string }) => {
+    const handleGuestMsg = ({ content, timestamp, roomLabel: lbl, guestName: nm }: { content: string; timestamp: string; roomLabel?: string; guestName?: string }) => {
       setMessages((prev) => [...prev, { sender_type: 'guest', content, created_at: timestamp }]);
       if (lbl) setRoomLabel(lbl);
+      if (nm) setGuestName(nm);
       if (document.visibilityState !== 'visible') playBeep(440, 1);
     };
     const handleClosed = ({ by }: { by: string }) => {
@@ -122,12 +125,15 @@ export default function ChatRoomPage() {
       <div className="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-4 shadow-sm">
         <button onClick={() => router.push('/')} className="text-gray-500 hover:text-gray-800 text-xl">←</button>
         <div>
-          <h2 className="font-bold text-gray-800 flex items-center gap-2">
+          <h2 className="font-bold text-gray-800 flex items-center gap-2 flex-wrap">
             채팅방
             {roomLabel && (
               <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-bold">
                 {roomLabel}호
               </span>
+            )}
+            {guestName && (
+              <span className="text-sm font-semibold text-gray-700">{guestName}</span>
             )}
           </h2>
           <p className="text-xs text-gray-400">{roomId}</p>

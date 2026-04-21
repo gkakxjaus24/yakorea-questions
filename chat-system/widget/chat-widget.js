@@ -22,6 +22,7 @@
   const STORAGE_KEY = 'ya_chat_room_id';
   const CHECKOUT_KEY = 'ya_checkout_date';
   const ROOM_KEY = 'ya_qr_room';
+  const NAME_KEY = 'ya_qr_name';
   const KIOSK_LANG_KEY = 'ya_kiosk_lang';
 
   // ── 객실 구성 (QR 모드 전용) ─────────────────────────────────
@@ -419,16 +420,41 @@
       letter-spacing: 0.05em; text-transform: uppercase; margin-top: 6px;
     }
     #room-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-    #bed-grid { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-    #bed-grid.hidden { display: none; }
-    #bed-grid > p { font-size: 13px; color: #475569; font-weight: 600; }
+    #bed-btns-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    #bed-btns-wrap.hidden { display: none; }
     #bed-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    #bed-back {
+      align-self: flex-start; font-size: 12px; color: #64748b;
+      background: none; border: none; cursor: pointer; padding: 2px 0;
+      text-decoration: underline;
+    }
     .room-btn, .bed-btn {
       padding: 9px 14px; border-radius: 10px; border: 1.5px solid #e2e8f0;
       background: white; color: #1e293b; font-size: 14px; font-weight: 600;
       cursor: pointer; transition: border-color 0.15s, background 0.15s;
     }
     .room-btn:hover, .bed-btn:hover { border-color: #2563eb; background: #eff6ff; color: #2563eb; }
+    #name-gate {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 24px 20px; gap: 14px;
+    }
+    #name-gate.hidden { display: none; }
+    #name-gate > p { font-size: 15px; font-weight: 600; color: #334155; }
+    #name-input {
+      width: 100%; padding: 11px 14px; border: 1.5px solid #e2e8f0;
+      border-radius: 10px; font-size: 16px; outline: none; color: #1e293b;
+      box-sizing: border-box; text-align: center;
+    }
+    #name-input:focus { border-color: #2563eb; }
+    #name-submit {
+      width: 100%; padding: 12px; border-radius: 10px;
+      background: #2563eb; color: white; border: none;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+    }
+    #name-submit:hover { background: #1d4ed8; }
+    #name-error { font-size: 13px; color: #ef4444; }
+    #name-error.hidden { display: none; }
   `;
 
   // ── HTML ──────────────────────────────────────────────────────
@@ -468,12 +494,18 @@
       </div>
       ${IS_QR_MODE ? `
       <div id="room-gate" class="hidden">
-        <p>방 번호를 선택해주세요</p>
+        <p id="room-gate-title">방 번호를 선택해주세요</p>
         <div id="room-grid"></div>
-        <div id="bed-grid" class="hidden">
-          <p>침대 번호를 선택해주세요</p>
+        <div id="bed-btns-wrap" class="hidden">
           <div id="bed-btns"></div>
+          <button id="bed-back">← 방 번호 다시 선택</button>
         </div>
+      </div>
+      <div id="name-gate" class="hidden">
+        <p>이름을 입력해주세요</p>
+        <input id="name-input" type="text" placeholder="홍길동" maxlength="20" />
+        <button id="name-submit">채팅 시작하기</button>
+        <p id="name-error" class="hidden">이름을 입력해주세요</p>
       </div>` : ''}
       <div id="messages"></div>
       <div id="candidates-box"></div>
@@ -515,8 +547,14 @@
   const checkoutBlocked = shadow.getElementById('checkout-blocked');
   const roomGate        = IS_QR_MODE ? shadow.getElementById('room-gate') : null;
   const roomGrid        = IS_QR_MODE ? shadow.getElementById('room-grid') : null;
-  const bedGrid         = IS_QR_MODE ? shadow.getElementById('bed-grid') : null;
+  const roomGateTitle   = IS_QR_MODE ? shadow.getElementById('room-gate-title') : null;
+  const bedBtnsWrap     = IS_QR_MODE ? shadow.getElementById('bed-btns-wrap') : null;
   const bedBtns         = IS_QR_MODE ? shadow.getElementById('bed-btns') : null;
+  const bedBack         = IS_QR_MODE ? shadow.getElementById('bed-back') : null;
+  const nameGate        = IS_QR_MODE ? shadow.getElementById('name-gate') : null;
+  const nameInput       = IS_QR_MODE ? shadow.getElementById('name-input') : null;
+  const nameSubmit      = IS_QR_MODE ? shadow.getElementById('name-submit') : null;
+  const nameError       = IS_QR_MODE ? shadow.getElementById('name-error') : null;
   const titleEl         = shadow.getElementById('title');
   const inputArea       = shadow.getElementById('input-area');
   const closeConfirmEl  = shadow.getElementById('close-confirm');
@@ -593,14 +631,27 @@
   }
 
   // ── 방 번호 게이트 (QR 모드 전용) ────────────────────────────
-  function showRoomGate() {
-    if (!roomGate) return;
+  function hideChat() {
     messagesEl.style.display = 'none';
     candidatesBox.style.display = 'none';
     escalateBtn.style.display = 'none';
     inputArea.style.display = 'none';
+  }
+  function showChat() {
+    messagesEl.style.display = '';
+    candidatesBox.style.display = '';
+    escalateBtn.style.display = '';
+    inputArea.style.display = '';
+  }
+
+  function showRoomGate() {
+    if (!roomGate) return;
+    hideChat();
+    nameGate.classList.add('hidden');
     roomGate.classList.remove('hidden');
-    bedGrid.classList.add('hidden');
+    roomGateTitle.textContent = '방 번호를 선택해주세요';
+    roomGrid.style.display = '';
+    bedBtnsWrap.classList.add('hidden');
 
     // 층별로 방 버튼 렌더링
     roomGrid.innerHTML = '';
@@ -631,7 +682,9 @@
   }
 
   function showBedGrid(room) {
-    bedGrid.classList.remove('hidden');
+    // 방 그리드 숨기고 침대 선택만 표시
+    roomGrid.style.display = 'none';
+    roomGateTitle.textContent = `${room.label}호 — 침대 번호를 선택해주세요`;
     bedBtns.innerHTML = '';
     for (let i = 1; i <= room.beds; i++) {
       const btn = document.createElement('button');
@@ -640,23 +693,59 @@
       btn.addEventListener('click', () => finishRoomGate(room.label + '-' + i));
       bedBtns.appendChild(btn);
     }
-    bedGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    bedBtnsWrap.classList.remove('hidden');
+  }
+
+  if (bedBack) {
+    bedBack.addEventListener('click', showRoomGate);
   }
 
   function hideRoomGate() {
     if (!roomGate) return;
     roomGate.classList.add('hidden');
-    messagesEl.style.display = '';
-    candidatesBox.style.display = '';
-    escalateBtn.style.display = '';
-    inputArea.style.display = '';
   }
 
   function finishRoomGate(label) {
     sessionStorage.setItem(ROOM_KEY, label);
     hideRoomGate();
+    showNameGate(label);
+  }
+
+  // ── 이름 입력 게이트 (QR 모드 전용) ────────────────────────
+  function showNameGate(roomLabel) {
+    hideChat();
+    if (nameGate) {
+      nameGate.classList.remove('hidden');
+      nameInput.value = sessionStorage.getItem(NAME_KEY) || '';
+      nameError.classList.add('hidden');
+      nameInput.focus();
+    }
+  }
+
+  function hideNameGate() {
+    if (nameGate) nameGate.classList.add('hidden');
+  }
+
+  function handleNameSubmit() {
+    const name = nameInput.value.trim();
+    if (!name) {
+      nameError.classList.remove('hidden');
+      return;
+    }
+    sessionStorage.setItem(NAME_KEY, name);
+    hideNameGate();
+    showChat();
     if (!connected) connectSocket();
-    else if (!roomId) socket.emit('guest:join', { guestId: getGuestId(), roomLabel: label });
+    else if (!roomId) socket.emit('guest:join', {
+      guestId: getGuestId(),
+      roomLabel: sessionStorage.getItem(ROOM_KEY) || '',
+      guestName: name,
+    });
+  }
+
+  if (nameSubmit) {
+    nameSubmit.addEventListener('click', handleNameSubmit);
+    nameInput?.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleNameSubmit(); });
   }
 
   // ── 가상 키보드 ───────────────────────────────────────────────
@@ -911,6 +1000,7 @@
     if (IS_QR_MODE) {
       sessionStorage.removeItem(CHECKOUT_KEY);
       sessionStorage.removeItem(ROOM_KEY);
+      sessionStorage.removeItem(NAME_KEY);
       if (titleEl) titleEl.textContent = '야코리아 호스텔 채팅';
     }
     roomId = null;
@@ -943,6 +1033,7 @@
           roomId,
           guestId: getGuestId(),
           roomLabel: sessionStorage.getItem(ROOM_KEY) || '',
+          guestName: sessionStorage.getItem(NAME_KEY) || '',
         });
       });
 
@@ -951,10 +1042,11 @@
         roomId = rid;
         sessionStorage.setItem(STORAGE_KEY, rid);
         updateStatus(status || 'auto');
-        // QR 모드: 헤더에 방 번호 표시
+        // QR 모드: 헤더에 방 번호 + 이름 표시
         if (IS_QR_MODE && titleEl) {
           const lbl = sessionStorage.getItem(ROOM_KEY);
-          if (lbl) titleEl.textContent = `야코리아 · ${lbl}호`;
+          const nm  = sessionStorage.getItem(NAME_KEY);
+          if (lbl || nm) titleEl.textContent = `야코리아 · ${lbl ? lbl+'호' : ''}${lbl && nm ? ' · ' : ''}${nm || ''}`;
         }
         if (isNewRoom && messagesEl.children.length === 0) {
           appendMsg(t('welcome'), 'system');
@@ -1032,16 +1124,21 @@
         }
         hideCheckoutGate();
         const savedRoom = sessionStorage.getItem(ROOM_KEY);
-        if (!savedRoom) {
-          showRoomGate();
-          return;
-        }
+        if (!savedRoom) { showRoomGate(); return; }
         hideRoomGate();
+        const savedName = sessionStorage.getItem(NAME_KEY);
+        if (!savedName) { showNameGate(savedRoom); return; }
+        hideNameGate();
+        showChat();
       } else if (IS_KIOSK) {
         switchLang(currentLang);
       }
       if (!connected) connectSocket();
-      else if (!roomId) socket.emit('guest:join', { guestId: getGuestId(), roomLabel: sessionStorage.getItem(ROOM_KEY) || '' });
+      else if (!roomId) socket.emit('guest:join', {
+        guestId: getGuestId(),
+        roomLabel: sessionStorage.getItem(ROOM_KEY) || '',
+        guestName: sessionStorage.getItem(NAME_KEY) || '',
+      });
       if (!VIRTUAL_KB_LANGS.includes(currentLang)) msgInput.focus();
     }
   });

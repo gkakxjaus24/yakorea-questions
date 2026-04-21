@@ -26,13 +26,15 @@ function sendMessage(text) {
   req.end();
 }
 
-function alertEscalation(roomId, roomLabel) {
+function alertEscalation(roomId, roomLabel, guestName) {
   const kst = new Date(Date.now() + 9 * 60 * 60 * 1000);
   const time = kst.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
   const link = `${ADMIN_URL}/chat/${roomId}`;
-  const roomInfo = roomLabel ? `🚪 <b>${roomLabel}호</b>\n` : '';
+  const roomInfo = roomLabel ? `🚪 <b>${roomLabel}호</b>` : '';
+  const nameInfo = guestName ? `👤 <b>${guestName}</b>` : '';
+  const detail = [roomInfo, nameInfo].filter(Boolean).join('  ');
   sendMessage(
-    `🔔 <b>손님 연결 요청</b>\n\n${roomInfo}매니저 연결을 요청했습니다.\n🕐 ${time} (KST)\n\n👉 <a href="${link}">채팅방 바로가기</a>`
+    `🔔 <b>손님 연결 요청</b>\n\n${detail ? detail + '\n' : ''}매니저 연결을 요청했습니다.\n🕐 ${time} (KST)\n\n👉 <a href="${link}">채팅방 바로가기</a>`
   );
 }
 
