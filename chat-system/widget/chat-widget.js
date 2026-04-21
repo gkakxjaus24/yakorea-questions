@@ -21,7 +21,22 @@
 
   const STORAGE_KEY = 'ya_chat_room_id';
   const CHECKOUT_KEY = 'ya_checkout_date';
+  const ROOM_KEY = 'ya_qr_room';
   const KIOSK_LANG_KEY = 'ya_kiosk_lang';
+
+  // ── 객실 구성 (QR 모드 전용) ─────────────────────────────────
+  const ROOM_CONFIG = [
+    { label:'B1',  dorm:true, beds:14 },
+    { label:'201' }, { label:'202' }, { label:'203' }, { label:'204' },
+    { label:'205', dorm:true, beds:6 },
+    { label:'206', dorm:true, beds:4 },
+    { label:'207' }, { label:'208' },
+    { label:'301', dorm:true, beds:4 },
+    { label:'302' }, { label:'303', dorm:true, beds:4 },
+    { label:'304' }, { label:'305' }, { label:'306' },
+    { label:'307' }, { label:'308' }, { label:'309' },
+    { label:'401' }, { label:'402' }, { label:'403' },
+  ];
   const VIRTUAL_KB_LANGS = ['zh', 'ja', 'ru', 'es'];
 
   // ── i18n ──────────────────────────────────────────────────────
@@ -392,6 +407,28 @@
       font-size: 13px; color: #ef4444; margin-top: 4px;
     }
     #checkout-blocked.hidden { display: none; }
+
+    #room-gate {
+      flex: 1; display: flex; flex-direction: column;
+      padding: 16px 16px 8px; gap: 10px; overflow-y: auto;
+    }
+    #room-gate.hidden { display: none; }
+    #room-gate > p { font-size: 15px; font-weight: 600; color: #334155; text-align: center; margin-bottom: 4px; }
+    .floor-label {
+      width: 100%; font-size: 11px; font-weight: 700; color: #94a3b8;
+      letter-spacing: 0.05em; text-transform: uppercase; margin-top: 6px;
+    }
+    #room-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    #bed-grid { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    #bed-grid.hidden { display: none; }
+    #bed-grid > p { font-size: 13px; color: #475569; font-weight: 600; }
+    #bed-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .room-btn, .bed-btn {
+      padding: 9px 14px; border-radius: 10px; border: 1.5px solid #e2e8f0;
+      background: white; color: #1e293b; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: border-color 0.15s, background 0.15s;
+    }
+    .room-btn:hover, .bed-btn:hover { border-color: #2563eb; background: #eff6ff; color: #2563eb; }
   `;
 
   // ── HTML ──────────────────────────────────────────────────────
@@ -426,9 +463,18 @@
       <div id="checkout-gate" class="hidden">
         <p>체크아웃 날짜를 입력해주세요</p>
         <input id="checkout-date" type="date" />
-        <button id="checkout-submit">채팅 시작하기</button>
+        <button id="checkout-submit">다음 →</button>
         <p id="checkout-blocked" class="hidden">체크아웃 이후에는 채팅을 이용하실 수 없습니다.</p>
       </div>
+      ${IS_QR_MODE ? `
+      <div id="room-gate" class="hidden">
+        <p>방 번호를 선택해주세요</p>
+        <div id="room-grid"></div>
+        <div id="bed-grid" class="hidden">
+          <p>침대 번호를 선택해주세요</p>
+          <div id="bed-btns"></div>
+        </div>
+      </div>` : ''}
       <div id="messages"></div>
       <div id="candidates-box"></div>
       <button id="escalate-btn">${WIDGET_TEXT.ko.escalateBtn}</button>
@@ -467,6 +513,11 @@
   const checkoutDate    = shadow.getElementById('checkout-date');
   const checkoutSubmit  = shadow.getElementById('checkout-submit');
   const checkoutBlocked = shadow.getElementById('checkout-blocked');
+  const roomGate        = IS_QR_MODE ? shadow.getElementById('room-gate') : null;
+  const roomGrid        = IS_QR_MODE ? shadow.getElementById('room-grid') : null;
+  const bedGrid         = IS_QR_MODE ? shadow.getElementById('bed-grid') : null;
+  const bedBtns         = IS_QR_MODE ? shadow.getElementById('bed-btns') : null;
+  const titleEl         = shadow.getElementById('title');
   const inputArea       = shadow.getElementById('input-area');
   const closeConfirmEl  = shadow.getElementById('close-confirm');
   const confirmYesBtn   = shadow.getElementById('confirm-yes');
@@ -533,13 +584,79 @@
     }
     sessionStorage.setItem(CHECKOUT_KEY, val);
     hideCheckoutGate();
-    if (!connected) connectSocket();
-    else if (!roomId) socket.emit('guest:join', { guestId: getGuestId() });
+    showRoomGate();
   }
 
   if (checkoutSubmit) {
     checkoutSubmit.addEventListener('click', handleCheckoutSubmit);
     checkoutDate.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleCheckoutSubmit(); });
+  }
+
+  // ── 방 번호 게이트 (QR 모드 전용) ────────────────────────────
+  function showRoomGate() {
+    if (!roomGate) return;
+    messagesEl.style.display = 'none';
+    candidatesBox.style.display = 'none';
+    escalateBtn.style.display = 'none';
+    inputArea.style.display = 'none';
+    roomGate.classList.remove('hidden');
+    bedGrid.classList.add('hidden');
+
+    // 층별로 방 버튼 렌더링
+    roomGrid.innerHTML = '';
+    const floors = [
+      { name: 'B1F', filter: r => r.label === 'B1' },
+      { name: '2F',  filter: r => r.label.startsWith('2') },
+      { name: '3F',  filter: r => r.label.startsWith('3') },
+      { name: '4F',  filter: r => r.label.startsWith('4') },
+    ];
+    floors.forEach(({ name, filter }) => {
+      const rooms = ROOM_CONFIG.filter(filter);
+      if (!rooms.length) return;
+      const lbl = document.createElement('div');
+      lbl.className = 'floor-label';
+      lbl.textContent = name;
+      roomGrid.appendChild(lbl);
+      rooms.forEach(room => {
+        const btn = document.createElement('button');
+        btn.className = 'room-btn';
+        btn.textContent = room.dorm ? `${room.label} 🛏` : room.label;
+        btn.addEventListener('click', () => {
+          if (room.dorm) showBedGrid(room);
+          else finishRoomGate(room.label);
+        });
+        roomGrid.appendChild(btn);
+      });
+    });
+  }
+
+  function showBedGrid(room) {
+    bedGrid.classList.remove('hidden');
+    bedBtns.innerHTML = '';
+    for (let i = 1; i <= room.beds; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'bed-btn';
+      btn.textContent = `${i}번`;
+      btn.addEventListener('click', () => finishRoomGate(room.label + '-' + i));
+      bedBtns.appendChild(btn);
+    }
+    bedGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function hideRoomGate() {
+    if (!roomGate) return;
+    roomGate.classList.add('hidden');
+    messagesEl.style.display = '';
+    candidatesBox.style.display = '';
+    escalateBtn.style.display = '';
+    inputArea.style.display = '';
+  }
+
+  function finishRoomGate(label) {
+    sessionStorage.setItem(ROOM_KEY, label);
+    hideRoomGate();
+    if (!connected) connectSocket();
+    else if (!roomId) socket.emit('guest:join', { guestId: getGuestId(), roomLabel: label });
   }
 
   // ── 가상 키보드 ───────────────────────────────────────────────
@@ -791,6 +908,11 @@
   // ── 세션 초기화 ────────────────────────────────────────────────
   function resetSession() {
     sessionStorage.removeItem(STORAGE_KEY);
+    if (IS_QR_MODE) {
+      sessionStorage.removeItem(CHECKOUT_KEY);
+      sessionStorage.removeItem(ROOM_KEY);
+      if (titleEl) titleEl.textContent = '야코리아 호스텔 채팅';
+    }
     roomId = null;
     messagesEl.innerHTML = '';
     candidatesBox.innerHTML = '';
@@ -817,7 +939,11 @@
 
       socket.on('connect', () => {
         connected = true;
-        socket.emit('guest:join', { roomId, guestId: getGuestId() });
+        socket.emit('guest:join', {
+          roomId,
+          guestId: getGuestId(),
+          roomLabel: sessionStorage.getItem(ROOM_KEY) || '',
+        });
       });
 
       socket.on('room:created', ({ roomId: rid, status }) => {
@@ -825,6 +951,11 @@
         roomId = rid;
         sessionStorage.setItem(STORAGE_KEY, rid);
         updateStatus(status || 'auto');
+        // QR 모드: 헤더에 방 번호 표시
+        if (IS_QR_MODE && titleEl) {
+          const lbl = sessionStorage.getItem(ROOM_KEY);
+          if (lbl) titleEl.textContent = `야코리아 · ${lbl}호`;
+        }
         if (isNewRoom && messagesEl.children.length === 0) {
           appendMsg(t('welcome'), 'system');
         }
@@ -885,8 +1016,7 @@
   // ── 이벤트 ────────────────────────────────────────────────────
   toggleBtn.addEventListener('click', () => {
     if (isOpen === false && currentStatus === 'closed') {
-      resetSession();
-      if (IS_QR_MODE) sessionStorage.removeItem(CHECKOUT_KEY);
+      resetSession(); // CHECKOUT_KEY / ROOM_KEY 포함 QR 정리는 resetSession에서 처리
     }
     isOpen = !isOpen;
     chatBox.classList.toggle('hidden', !isOpen);
@@ -901,11 +1031,17 @@
           return;
         }
         hideCheckoutGate();
+        const savedRoom = sessionStorage.getItem(ROOM_KEY);
+        if (!savedRoom) {
+          showRoomGate();
+          return;
+        }
+        hideRoomGate();
       } else if (IS_KIOSK) {
         switchLang(currentLang);
       }
       if (!connected) connectSocket();
-      else if (!roomId) socket.emit('guest:join', { guestId: getGuestId() });
+      else if (!roomId) socket.emit('guest:join', { guestId: getGuestId(), roomLabel: sessionStorage.getItem(ROOM_KEY) || '' });
       if (!VIRTUAL_KB_LANGS.includes(currentLang)) msgInput.focus();
     }
   });

@@ -5,6 +5,9 @@ const telegram = require('../services/telegram');
 const IDLE_TIMEOUT_MS = 10 * 60 * 1000; // 10분
 const idleTimers = new Map(); // roomId -> setTimeout
 
+// roomId → roomLabel 인메모리 맵 (서버 프로세스 수명 동안 유지)
+const roomLabelMap = new Map();
+
 function clearIdleTimer(roomId) {
   const t = idleTimers.get(roomId);
   if (t) {
@@ -22,7 +25,10 @@ function scheduleIdleClose(io, roomId) {
         .update({ status: 'closed', updated_at: new Date().toISOString() })
         .eq('id', roomId);
       io.to(roomId).emit('room:closed', { by: 'idle_timeout' });
-      io.emit('room:activity', { roomId, status: 'closed', timestamp: new Date().toISOString() });
+      io.emit('room:activity', {
+        roomId, status: 'closed', timestamp: new Date().toISOString(),
+        roomLabel: roomLabelMap.get(roomId) || '',
+      });
       console.log(`[Guest] idle timeout closed room ${roomId}`);
     } catch (err) {
       console.error('[idle timeout] error:', err.message);
@@ -35,7 +41,7 @@ function scheduleIdleClose(io, roomId) {
 
 module.exports = function guestHandler(io, socket) {
   // 손님 입장 — roomId 없으면 신규 방 생성
-  socket.on('guest:join', async ({ roomId, guestId }) => {
+  socket.on('guest:join', async ({ roomId, guestId, roomLabel }) => {
     try {
       let room;
 
@@ -64,9 +70,13 @@ module.exports = function guestHandler(io, socket) {
       socket.join(room.id);
       socket.roomId = room.id;
       socket.guestId = guestId || socket.id;
+      socket.roomLabel = roomLabel || '';
+
+      // 방 번호 맵에 저장 (새 방이거나 roomLabel 있을 때)
+      if (roomLabel) roomLabelMap.set(room.id, roomLabel);
 
       socket.emit('room:created', { roomId: room.id, status: room.status });
-      console.log(`[Guest] ${socket.id} joined room ${room.id} (status: ${room.status})`);
+      console.log(`[Guest] ${socket.id} joined room ${room.id} (status: ${room.status}, label: ${roomLabel || '-'})`);
     } catch (err) {
       console.error('[guest:join] error:', err.message);
     }
@@ -82,7 +92,9 @@ module.exports = function guestHandler(io, socket) {
         .single();
       if (error) throw error;
 
-      // 같은 방의 매니저에게 전달 (이미 room에 조인한 매니저용)
+      const roomLabel = roomLabelMap.get(roomId) || '';
+
+      // 같은 방의 매니저에게 전달
       socket.to(roomId).emit('guest:message', {
         content: msg.content,
         timestamp: msg.created_at,
@@ -100,9 +112,10 @@ module.exports = function guestHandler(io, socket) {
         guestId: socket.guestId || socket.id,
         content: msg.content,
         timestamp: msg.created_at,
+        roomLabel,
       });
 
-      // 유휴 타임아웃 리셋 (손님 입력 기준)
+      // 유휴 타임아웃 리셋
       scheduleIdleClose(io, roomId);
 
       // FAQ 자동응답
@@ -125,10 +138,10 @@ module.exports = function guestHandler(io, socket) {
           .from('chat_rooms')
           .update({ status: 'waiting', updated_at: new Date().toISOString() })
           .eq('id', roomId);
-        io.emit('room:activity', { roomId, status: 'waiting', timestamp: new Date().toISOString() });
+        io.emit('room:activity', { roomId, status: 'waiting', timestamp: new Date().toISOString(), roomLabel });
         socket.emit('auto:escalate', {});
         socket.emit('room:status', { status: 'waiting' });
-        telegram.alertEscalation(roomId);
+        telegram.alertEscalation(roomId, roomLabel);
       }
 
       console.log(`[Guest] message in room ${roomId}: ${content} → FAQ: ${result.type}`);
@@ -141,13 +154,14 @@ module.exports = function guestHandler(io, socket) {
   socket.on('guest:close_room', async ({ roomId }) => {
     try {
       clearIdleTimer(roomId);
+      const roomLabel = roomLabelMap.get(roomId) || '';
       await supabase
         .from('chat_rooms')
         .update({ status: 'closed', updated_at: new Date().toISOString() })
         .eq('id', roomId);
 
       io.to(roomId).emit('room:closed', { by: 'guest' });
-      io.emit('room:activity', { roomId, status: 'closed', timestamp: new Date().toISOString() });
+      io.emit('room:activity', { roomId, status: 'closed', timestamp: new Date().toISOString(), roomLabel });
 
       console.log(`[Guest] closed room ${roomId}`);
     } catch (err) {
@@ -155,3 +169,5 @@ module.exports = function guestHandler(io, socket) {
     }
   });
 };
+
+module.exports.roomLabelMap = roomLabelMap;

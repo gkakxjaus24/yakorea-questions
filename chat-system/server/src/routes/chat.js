@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const supabase = require('../services/supabase');
+const { roomLabelMap } = require('../socket/guestHandler');
 
 const router = Router();
 
@@ -15,7 +16,12 @@ router.get('/rooms', async (req, res) => {
 
   const { data, error } = await query;
   if (error) return res.status(500).json({ error: error.message });
-  res.json(data);
+  // roomLabel 인메모리 맵에서 병합
+  const result = (data || []).map(r => ({
+    ...r,
+    room_label: roomLabelMap.get(r.id) || '',
+  }));
+  res.json(result);
 });
 
 router.post('/rooms', async (req, res) => {

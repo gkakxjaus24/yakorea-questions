@@ -44,14 +44,26 @@ export default function ChatRoomPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isClosed, setIsClosed] = useState(false);
+  const [roomLabel, setRoomLabel] = useState('');
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // Effect 1: 방 입장
+  // Effect 1: 방 입장 + roomLabel 로드
   useEffect(() => {
     const socket = socketRef.current;
     if (!socket || !connected) return;
     socket.emit('manager:join_room', { roomId });
   }, [connected, roomId, socketRef]);
+
+  useEffect(() => {
+    const SERVER_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+    fetch(`${SERVER_URL}/api/chat/rooms`)
+      .then(r => r.json())
+      .then((rooms: { id: string; room_label?: string }[]) => {
+        const found = rooms.find(r => r.id === roomId);
+        if (found?.room_label) setRoomLabel(found.room_label);
+      })
+      .catch(() => {});
+  }, [roomId]);
 
   // Effect 2: 리스너 등록
   useEffect(() => {
@@ -61,8 +73,9 @@ export default function ChatRoomPage() {
     const handleHistory = ({ messages: hist }: { messages: Message[] }) => {
       setMessages(hist);
     };
-    const handleGuestMsg = ({ content, timestamp }: { content: string; timestamp: string }) => {
+    const handleGuestMsg = ({ content, timestamp, roomLabel: lbl }: { content: string; timestamp: string; roomLabel?: string }) => {
       setMessages((prev) => [...prev, { sender_type: 'guest', content, created_at: timestamp }]);
+      if (lbl) setRoomLabel(lbl);
       if (document.visibilityState !== 'visible') playBeep(440, 1);
     };
     const handleClosed = ({ by }: { by: string }) => {
@@ -109,7 +122,14 @@ export default function ChatRoomPage() {
       <div className="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-4 shadow-sm">
         <button onClick={() => router.push('/')} className="text-gray-500 hover:text-gray-800 text-xl">←</button>
         <div>
-          <h2 className="font-bold text-gray-800">채팅방</h2>
+          <h2 className="font-bold text-gray-800 flex items-center gap-2">
+            채팅방
+            {roomLabel && (
+              <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-bold">
+                {roomLabel}호
+              </span>
+            )}
+          </h2>
           <p className="text-xs text-gray-400">{roomId}</p>
         </div>
         <span className={`ml-auto text-xs px-2 py-1 rounded-full ${connected ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}`}>
