@@ -3,13 +3,18 @@ const supabase = require('./supabase');
 // --- 토크나이저 & 유사도 ---
 
 function tokenize(text) {
-  return new Set(
-    text
-      .toLowerCase()
-      .replace(/[^\w\s가-힣]/g, ' ')
-      .split(/\s+/)
-      .filter((t) => t.length > 0)
-  );
+  // CJK(중국어/일본어): 문자 단위 분리 (띄어쓰기 없음)
+  const cjk = text.match(/[\u4e00-\u9fff\u3040-\u30ff\u31f0-\u31ff]/g) || [];
+
+  // 나머지(한국어/라틴/키릴/스페인어 특수문자 등): 공백 기준 분리
+  const rest = text
+    .replace(/[\u4e00-\u9fff\u3040-\u30ff\u31f0-\u31ff]/g, ' ')
+    .toLowerCase()
+    .replace(/[^\p{L}\s]/gu, ' ')   // 유니코드 모든 문자 유지, 구두점만 제거
+    .split(/\s+/)
+    .filter((t) => t.length > 0);
+
+  return new Set([...cjk, ...rest]);
 }
 
 function jaccard(setA, setB) {
@@ -26,17 +31,39 @@ let _cache = null;
 let _cacheAt = 0;
 const CACHE_TTL = 5 * 60 * 1000;
 
+// 전체 질문 페이지네이션 로드 (Supabase 기본 한도 1000행 우회)
+async function fetchAllQuestions() {
+  const PAGE = 1000;
+  let all = [];
+  let from = 0;
+  while (true) {
+    const { data, error } = await supabase
+      .from('intent_questions')
+      .select('intent_id, question_text')
+      .range(from, from + PAGE - 1);
+    if (error) throw error;
+    if (!data || data.length === 0) break;
+    all = all.concat(data);
+    if (data.length < PAGE) break;
+    from += PAGE;
+  }
+  return all;
+}
+
 async function loadIntents() {
   if (_cache && Date.now() - _cacheAt < CACHE_TTL) return _cache;
 
-  const [{ data: questions, error: qErr }, { data: answers, error: aErr }, { data: settings, error: sErr }] =
+  const [questions, [{ data: answers, error: aErr }, { data: settings, error: sErr }]] =
     await Promise.all([
-      supabase.from('intent_questions').select('intent_id, question_text').eq('language', 'ko'),
-      supabase.from('intent_answers').select('intent_id, answer_template').eq('language', 'ko'),
-      supabase.from('settings').select('key, value'),
+      fetchAllQuestions(),
+      Promise.all([
+        supabase.from('intent_answers').select('intent_id, answer_template').eq('language', 'ko'),
+        supabase.from('settings').select('key, value'),
+      ]),
     ]);
 
-  if (qErr || aErr || sErr) throw qErr || aErr || sErr;
+  const qErr = null;
+  if (aErr || sErr) throw aErr || sErr;
 
   // settings → { key: value } 맵
   const settingsMap = {};
@@ -67,7 +94,7 @@ async function loadIntents() {
     }));
 
   _cacheAt = Date.now();
-  console.log(`[FAQ] ${_cache.length}개 intent 로드 완료 (질문 변형 총 ${(questions || []).length}개)`);
+  console.log(`[FAQ] ${_cache.length}개 intent 로드 완료 (전체 언어 질문 변형 총 ${(questions || []).length}개)`);
   return _cache;
 }
 
