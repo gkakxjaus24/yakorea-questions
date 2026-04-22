@@ -52,6 +52,17 @@
       escalateRequest: '매니저 연결 요청을 보냈습니다. 잠시만 기다려 주세요.',
       kbSend: '전송', closeBtnLabel: '대화종료',
       closeConfirmYes: '확인', closeConfirmNo: '취소',
+      // QR 게이트
+      checkoutTitle: '체크아웃 날짜를 입력해주세요',
+      checkoutNext: '다음 →',
+      checkoutBlockedMsg: '체크아웃 이후에는 채팅을 이용하실 수 없습니다.',
+      roomGateTitle: '방 번호를 선택해주세요',
+      bedBack: '← 방 번호 다시 선택',
+      nameTitle: '이름을 입력해주세요',
+      nameSubmitBtn: '채팅 시작하기',
+      nameErrorMsg: '이름을 입력해주세요',
+      namePlaceholder: '홍길동',
+      bedUnit: '번',
     },
     en: {
       statusAuto: 'Auto-reply', statusWaiting: 'Waiting for manager',
@@ -63,6 +74,17 @@
       escalateRequest: 'Connecting to manager. Please wait.',
       kbSend: 'Send', closeBtnLabel: 'End Chat',
       closeConfirmYes: 'OK', closeConfirmNo: 'Cancel',
+      // QR gates
+      checkoutTitle: 'Enter your check-out date',
+      checkoutNext: 'Next →',
+      checkoutBlockedMsg: 'Chat is not available after your check-out date.',
+      roomGateTitle: 'Select your room number',
+      bedBack: '← Back to room selection',
+      nameTitle: 'Enter your name',
+      nameSubmitBtn: 'Start Chat',
+      nameErrorMsg: 'Please enter your name',
+      namePlaceholder: 'Your name',
+      bedUnit: '',
     },
     zh: {
       statusAuto: '自动回复中', statusWaiting: '等待客服',
@@ -74,6 +96,17 @@
       escalateRequest: '正在联系客服，请稍候。',
       kbSend: '发送', closeBtnLabel: '结束对话',
       closeConfirmYes: '确定', closeConfirmNo: '取消',
+      // QR 게이트
+      checkoutTitle: '请输入退房日期',
+      checkoutNext: '下一步 →',
+      checkoutBlockedMsg: '退房后无法使用聊天服务。',
+      roomGateTitle: '请选择您的房间号',
+      bedBack: '← 返回房间选择',
+      nameTitle: '请输入您的姓名',
+      nameSubmitBtn: '开始聊天',
+      nameErrorMsg: '请输入您的姓名',
+      namePlaceholder: '您的姓名',
+      bedUnit: '号',
     },
     ja: {
       statusAuto: '自動応答中', statusWaiting: 'スタッフ接続待ち',
@@ -85,6 +118,17 @@
       escalateRequest: 'スタッフに接続中です。しばらくお待ちください。',
       kbSend: '送信', closeBtnLabel: 'チャット終了',
       closeConfirmYes: 'OK', closeConfirmNo: 'キャンセル',
+      // QR ゲート
+      checkoutTitle: 'チェックアウト日を入力してください',
+      checkoutNext: '次へ →',
+      checkoutBlockedMsg: 'チェックアウト後はチャットをご利用いただけません。',
+      roomGateTitle: '部屋番号を選択してください',
+      bedBack: '← 部屋番号の選択に戻る',
+      nameTitle: 'お名前を入力してください',
+      nameSubmitBtn: 'チャットを開始',
+      nameErrorMsg: 'お名前を入力してください',
+      namePlaceholder: 'お名前',
+      bedUnit: '番',
     },
     ru: {
       statusAuto: 'Автоответ', statusWaiting: 'Ожидание менеджера',
@@ -96,6 +140,17 @@
       escalateRequest: 'Подключение к менеджеру. Пожалуйста, подождите.',
       kbSend: 'Отправить', closeBtnLabel: 'Завершить',
       closeConfirmYes: 'Да', closeConfirmNo: 'Нет',
+      // QR ворота
+      checkoutTitle: 'Введите дату выезда',
+      checkoutNext: 'Далее →',
+      checkoutBlockedMsg: 'Чат недоступен после даты выезда.',
+      roomGateTitle: 'Выберите номер комнаты',
+      bedBack: '← Вернуться к выбору комнаты',
+      nameTitle: 'Введите ваше имя',
+      nameSubmitBtn: 'Начать чат',
+      nameErrorMsg: 'Пожалуйста, введите ваше имя',
+      namePlaceholder: 'Ваше имя',
+      bedUnit: '',
     },
     es: {
       statusAuto: 'Respuesta automática', statusWaiting: 'Esperando al gerente',
@@ -107,6 +162,17 @@
       escalateRequest: 'Conectando con el gerente. Por favor espera.',
       kbSend: 'Enviar', closeBtnLabel: 'Finalizar',
       closeConfirmYes: 'Sí', closeConfirmNo: 'Cancelar',
+      // Puertas QR
+      checkoutTitle: 'Ingresa tu fecha de salida',
+      checkoutNext: 'Siguiente →',
+      checkoutBlockedMsg: 'El chat no está disponible después de tu fecha de salida.',
+      roomGateTitle: 'Selecciona tu número de habitación',
+      bedBack: '← Volver a selección de habitación',
+      nameTitle: 'Ingresa tu nombre',
+      nameSubmitBtn: 'Iniciar chat',
+      nameErrorMsg: 'Por favor ingresa tu nombre',
+      namePlaceholder: 'Tu nombre',
+      bedUnit: '',
     },
   };
 
@@ -458,6 +524,11 @@
   `;
 
   // ── HTML ──────────────────────────────────────────────────────
+  // currentLang이 아직 undefined이므로 WIDGET_TEXT에서 직접 조회
+  function _ti(key) {
+    return (WIDGET_TEXT[currentLang] || WIDGET_TEXT.ko)[key] || '';
+  }
+
   const container = document.createElement('div');
   container.innerHTML = `
     <button id="toggle-btn" aria-label="채팅 열기">💬</button>
@@ -466,15 +537,15 @@
         <div id="status-dot"></div>
         <div id="title-wrap">
           <span id="title">야코리아 호스텔 채팅</span>
-          <span id="status-text">${WIDGET_TEXT.ko.statusAuto}</span>
+          <span id="status-text">${_ti('statusAuto')}</span>
         </div>
-        <button id="close-btn">${WIDGET_TEXT.ko.closeBtnLabel}</button>
+        <button id="close-btn">${_ti('closeBtnLabel')}</button>
       </div>
       <div id="close-confirm" class="hidden">
-        <p>${WIDGET_TEXT.ko.closeConfirm}</p>
+        <p>${_ti('closeConfirm')}</p>
         <div class="confirm-btns">
-          <button id="confirm-yes">${WIDGET_TEXT.ko.closeConfirmYes}</button>
-          <button id="confirm-no">${WIDGET_TEXT.ko.closeConfirmNo}</button>
+          <button id="confirm-yes">${_ti('closeConfirmYes')}</button>
+          <button id="confirm-no">${_ti('closeConfirmNo')}</button>
         </div>
       </div>
       ${IS_KIOSK ? `
@@ -487,29 +558,29 @@
         <button class="lang-btn" data-lang="es">ES</button>
       </div>` : ''}
       <div id="checkout-gate" class="hidden">
-        <p>체크아웃 날짜를 입력해주세요</p>
+        <p>${_ti('checkoutTitle')}</p>
         <input id="checkout-date" type="date" />
-        <button id="checkout-submit">다음 →</button>
-        <p id="checkout-blocked" class="hidden">체크아웃 이후에는 채팅을 이용하실 수 없습니다.</p>
+        <button id="checkout-submit">${_ti('checkoutNext')}</button>
+        <p id="checkout-blocked" class="hidden">${_ti('checkoutBlockedMsg')}</p>
       </div>
       ${IS_QR_MODE ? `
       <div id="room-gate" class="hidden">
-        <p id="room-gate-title">방 번호를 선택해주세요</p>
+        <p id="room-gate-title">${_ti('roomGateTitle')}</p>
         <div id="room-grid"></div>
         <div id="bed-btns-wrap" class="hidden">
           <div id="bed-btns"></div>
-          <button id="bed-back">← 방 번호 다시 선택</button>
+          <button id="bed-back">${_ti('bedBack')}</button>
         </div>
       </div>
       <div id="name-gate" class="hidden">
-        <p>이름을 입력해주세요</p>
-        <input id="name-input" type="text" placeholder="홍길동" maxlength="20" />
-        <button id="name-submit">채팅 시작하기</button>
-        <p id="name-error" class="hidden">이름을 입력해주세요</p>
+        <p>${_ti('nameTitle')}</p>
+        <input id="name-input" type="text" placeholder="${_ti('namePlaceholder')}" maxlength="20" />
+        <button id="name-submit">${_ti('nameSubmitBtn')}</button>
+        <p id="name-error" class="hidden">${_ti('nameErrorMsg')}</p>
       </div>` : ''}
       <div id="messages"></div>
       <div id="candidates-box"></div>
-      <button id="escalate-btn">${WIDGET_TEXT.ko.escalateBtn}</button>
+      <button id="escalate-btn">${_ti('escalateBtn')}</button>
       ${IS_KIOSK ? `
       <div id="virtual-kb" class="hidden">
         <div id="vk-candidates"></div>
@@ -517,11 +588,11 @@
         <div id="kb-actions">
           <button id="kb-space">SPACE</button>
           <button id="kb-back">⌫</button>
-          <button id="kb-send">${WIDGET_TEXT.ko.kbSend}</button>
+          <button id="kb-send">${_ti('kbSend')}</button>
         </div>
       </div>` : ''}
       <div id="input-area">
-        <input id="msg-input" type="text" placeholder="${WIDGET_TEXT.ko.placeholder}" />
+        <input id="msg-input" type="text" placeholder="${_ti('placeholder')}" />
         <button id="send-btn">➤</button>
       </div>
     </div>
@@ -571,7 +642,9 @@
   let socket = null;
   let connected = false;
   let currentStatus = 'auto';
-  let currentLang = IS_KIOSK ? (sessionStorage.getItem(KIOSK_LANG_KEY) || 'ko') : 'ko';
+  let currentLang = IS_KIOSK
+    ? (sessionStorage.getItem(KIOSK_LANG_KEY) || 'ko')
+    : (new URLSearchParams(window.location.search).get('lang') || 'ko');
   let pinyinBuffer = '';
   let romajiBuffer = '';
 
@@ -649,7 +722,7 @@
     hideChat();
     nameGate.classList.add('hidden');
     roomGate.classList.remove('hidden');
-    roomGateTitle.textContent = '방 번호를 선택해주세요';
+    roomGateTitle.textContent = t('roomGateTitle');
     roomGrid.style.display = '';
     bedBtnsWrap.classList.add('hidden');
 
@@ -684,12 +757,20 @@
   function showBedGrid(room) {
     // 방 그리드 숨기고 침대 선택만 표시
     roomGrid.style.display = 'none';
-    roomGateTitle.textContent = `${room.label}호 — 침대 번호를 선택해주세요`;
+    const bedTitleMap = {
+      ko: `${room.label}호 — 침대 번호를 선택해주세요`,
+      en: `Room ${room.label} — Select your bed number`,
+      zh: `${room.label}号房间 — 请选择床位编号`,
+      ja: `${room.label}号室 — ベッド番号を選択してください`,
+      ru: `Комната ${room.label} — Выберите номер кровати`,
+      es: `Habitación ${room.label} — Selecciona tu número de cama`,
+    };
+    roomGateTitle.textContent = bedTitleMap[currentLang] || bedTitleMap.ko;
     bedBtns.innerHTML = '';
     for (let i = 1; i <= room.beds; i++) {
       const btn = document.createElement('button');
       btn.className = 'bed-btn';
-      btn.textContent = `${i}번`;
+      btn.textContent = t('bedUnit') ? `${i}${t('bedUnit')}` : String(i);
       btn.addEventListener('click', () => finishRoomGate(room.label + '-' + i));
       bedBtns.appendChild(btn);
     }
