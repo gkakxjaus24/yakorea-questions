@@ -2,6 +2,24 @@ const supabase = require('./supabase');
 
 // --- 토크나이저 & 유사도 ---
 
+// 한국어 조사 목록 — 긴 것부터 순서 중요 (짧은 것이 먼저 매칭되면 잘못 제거됨)
+const KO_PARTICLES = [
+  '에서는','에게는','으로는','이라고','이에요','이어요',
+  '에서','에게','으로','이랑','하고','라고','부터','까지',
+  '를','을','는','은','가','이','도','와','과','의','로','에',
+];
+
+function stripKoParticle(token) {
+  // 한국어 글자가 없으면 스킵
+  if (!/[\uAC00-\uD7A3]/.test(token)) return null;
+  for (const p of KO_PARTICLES) {
+    if (token.endsWith(p) && token.length > p.length + 1) {
+      return token.slice(0, -p.length);
+    }
+  }
+  return null;
+}
+
 function tokenize(text) {
   // CJK(중국어/일본어): 문자 단위 분리 (띄어쓰기 없음)
   const cjk = text.match(/[\u4e00-\u9fff\u3040-\u30ff\u31f0-\u31ff]/g) || [];
@@ -14,7 +32,15 @@ function tokenize(text) {
     .split(/\s+/)
     .filter((t) => t.length > 0);
 
-  return new Set([...cjk, ...rest]);
+  // 한국어 조사 제거 형태를 원본과 함께 추가 (원본 유지 → 기존 매칭 깨지지 않음)
+  const expanded = [];
+  for (const t of rest) {
+    expanded.push(t);
+    const stem = stripKoParticle(t);
+    if (stem) expanded.push(stem);
+  }
+
+  return new Set([...cjk, ...expanded]);
 }
 
 function jaccard(setA, setB) {
