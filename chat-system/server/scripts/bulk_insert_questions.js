@@ -10,6 +10,42 @@ const supabase = require('../src/services/supabase');
 // ── ChatGPT 출력 데이터 ──────────────────────────────────────────
 const DATA = [
   {
+    "intent_id": "luggage_scale",
+    "ko": ["짐 무게 어디서 재요?","짐저울 있어요?","캐리어 무게 측정 가능?","저울 어디 있어?","수하물 무게 잴 수 있어요?","짐 무게 재고 싶어요","휴대용 저울 있나요?","가방 무게 확인 어디서 해?","저울 빌릴 수 있어요?","캐리어 몇 kg인지 보고 싶어요","짐저울 위치 알려줘","수화물 저울?","무게 재는 기계 있어?","카운터 앞에 저울 있어요?","짐 무게 확인 가능해요?","저울 어디있어","가방 무게 재려면?","짐 너무 무거운데 재볼 수 있어?","캐리어 저울 사용해도 돼요?","무게측정 어디서 하나요"],
+    "en": ["Do you have a luggage scale?","Where can I weigh my luggage?","Can I check my suitcase weight?","Is there a scale here?","Luggage scale?","Where is the portable scale?","Can I weigh my bag?","How do I check baggage weight?","Is there a scale near the counter?","Can I use the luggage scale?","Where is the bag scale?","Need to weigh my suitcase","Do you have a portable luggage scale?","Can I measure my luggage weight?","scale for luggage?","Where can I find the scale?","I want to check my baggage weight","Can I borrow a scale?","Suitcase weight check possible?","How to weigh my bag here?"],
+    "zh": ["有行李秤吗？","哪里可以称行李？","可以量行李重量吗？","秤在哪里？","能称一下箱子吗？","我想查行李重量","有便携秤吗？","包的重量怎么查？","可以借秤吗？","行李秤在哪儿？","可以称一下我的行李箱吗？","这里有秤吗？","怎么称托运行李？","柜台前有秤吗？","行李重量可以确认吗？","称重在哪里？","箱子多少公斤可以看吗？","可以用行李秤吗？","有测重量的东西吗？","行李称重？"],
+    "ja": ["荷物用のはかりありますか？","どこで荷物の重さを量れますか？","スーツケースの重さ確認できますか？","はかりどこ？","荷物量りたいです","携帯用のはかりありますか？","バッグの重さ見れますか？","荷物スケール使えますか？","カウンター前にはかりありますか？","スーツケース何キロか知りたい","荷物の重さチェックしたい","はかり借りられますか？","荷物量る機械ある？","ラゲッジスケールありますか？","どこで測定する？","重さ確認できますか？","スーツケース計れますか？","荷物の重さどうやって見る？","はかり使っていい？","荷物計量どこですか？"],
+    "ru": ["Есть весы для багажа?","Где взвесить багаж?","Можно проверить вес чемодана?","Где весы?","Есть переносные весы?","Хочу взвесить сумку","Можно измерить вес багажа?","Где проверить вес чемодана?","Можно воспользоваться весами?","Весы у стойки есть?","Багажные весы есть?","Как узнать вес сумки?","Можно одолжить весы?","Чемодан сколько кг проверить можно?","Где находится весы для багажа?","Есть чемоданный вес?","Как взвесить багаж здесь?","Можно сейчас взвесить?","Проверка веса багажа?","Где лежат весы?"],
+    "es": ["¿Tienen báscula para equipaje?","¿Dónde puedo pesar mi maleta?","¿Puedo revisar el peso de la maleta?","¿Dónde está la báscula?","¿Hay báscula aquí?","Quiero pesar mi equipaje","¿Tienen báscula portátil?","¿Cómo reviso el peso de la maleta?","¿Puedo usar la báscula?","¿La báscula está cerca del mostrador?","¿Hay báscula para equipaje?","¿Puedo medir el peso de mi bolsa?","¿Me prestan una báscula?","¿Puedo ver cuántos kilos tiene mi maleta?","¿Dónde encuentro la báscula?","peso de equipaje?","¿Se puede pesar la maleta aquí?","¿Hay aparato para pesar?","¿Báscula de maletas dónde?","¿Cómo peso mi equipaje?"]
+  },
+  {
+    "intent_id": "heavy_luggage",
+    "ko": ["무거운 짐 옮겨줄 수 있어요?","캐리어 들어주는 도움 되나요?","짐 운반 도와줘요","무거워서 못 들겠어요","짐 방까지 옮겨주실 수 있나요?","계단으로 짐 같이 들어줘요","수하물 운반 서비스 있어요?","큰 가방 옮기는 거 도와줘요?","직원이 짐 들어줘요?","짐 나르는 도움 가능?","캐리어 너무 무거운데 도와줄 수 있어?","짐 옮겨주는 서비스 있나요?","무거운 가방 도움 안되나요?","내 짐 좀 들어주세요","운반 서비스?","짐 이동 도와주나요?","캐리어 운반 가능해요?","무거운 짐 혼자 못 옮겨요","방까지 가져다줘요?","짐 들어주는 사람 있어요?"],
+    "en": ["Can you help carry heavy luggage?","Can staff help with my suitcase?","Do you have luggage carrying service?","My bag is too heavy","Can someone bring my luggage to the room?","Can you help me carry this upstairs?","Do you move heavy bags?","Can you carry my suitcase?","Is there help for luggage?","Can staff lift my baggage?","My luggage is very heavy, can you help?","Do you offer porter service?","Can someone move my bags for me?","Heavy luggage help?","Can you take my bag to the room?","I can't carry this alone","Any help with big luggage?","Can you transport my suitcase?","Do you assist with baggage?","Need help moving luggage"],
+    "zh": ["可以帮我搬重行李吗？","员工能帮忙拿箱子吗？","有行李搬运服务吗？","我的行李太重了","可以帮我搬到房间吗？","能帮我抬上楼吗？","可以搬大箱子吗？","有人帮忙搬行李吗？","能帮我提一下吗？","行李搬运可以吗？","箱子太重我拿不动","可以送到房间吗？","有搬运行李服务吗？","工作人员会帮忙吗？","重行李怎么办？","可以帮我运一下吗？","一个人搬不动","能帮忙移动行李吗？","帮我搬箱子可以吗？","行李很重怎么办"],
+    "ja": ["重い荷物を運ぶの手伝ってもらえますか？","スーツケース持ってくれますか？","荷物運搬サービスありますか？","荷物が重すぎます","部屋まで運んでもらえますか？","階段で手伝ってくれますか？","大きい荷物手伝ってもらえる？","スタッフが荷物持ってくれる？","荷物運びの手伝いありますか？","このキャリー重いです","一人で運べません","部屋まで持っていけますか？","ポーターサービスありますか？","荷物移動手伝って？","重いバッグ無理です","スーツケース運んでくれる？","運搬可能ですか？","荷物サポートありますか？","持ち上げるの手伝って","重い荷物どうすればいい？"],
+    "ru": ["Можете помочь с тяжёлым багажом?","Сотрудник может донести чемодан?","Есть услуга переноса багажа?","Моя сумка слишком тяжёлая","Можно помочь донести до комнаты?","Поможете поднять по лестнице?","Вы носите тяжёлые сумки?","Кто-то может помочь с багажом?","Можно помочь поднять чемодан?","Помощь с переносом багажа?","Я один не могу донести","Можно отнести в номер?","Есть сервис носильщика?","Сотрудники помогают с сумками?","Тяжёлый багаж что делать?","Поможете передвинуть чемодан?","Можно донести мой багаж?","Нужна помощь с вещами","Большой чемодан, можете помочь?","Перенос багажа возможен?"],
+    "es": ["¿Me pueden ayudar con equipaje pesado?","¿El personal puede cargar mi maleta?","¿Hay servicio para mover equipaje?","Mi maleta pesa mucho","¿Pueden llevarla al cuarto?","¿Me ayudan a subirla por las escaleras?","¿Ayudan con bolsas grandes?","¿Alguien puede cargar mi equipaje?","¿Hay ayuda para maletas?","¿Pueden levantar mi maleta?","No puedo cargar esto solo","¿La pueden llevar a la habitación?","¿Tienen servicio tipo porter?","¿Me ayudan a mover la maleta?","¿Ayuda con equipaje pesado?","¿Pueden transportar mi maleta?","¿El staff ayuda con equipaje?","Mi maleta está muy pesada","¿Pueden subir mi equipaje?","¿Quién me ayuda con esto?"]
+  },
+  {
+    "intent_id": "bed_keep",
+    "ko": ["연장하면 같은 침대 계속 써요?","같은 침대 유지 가능해요?","하루 더 예약하면 침대 안 바뀌죠?","같은 이름으로 연장했는데 같은 베드 써도 돼?","방타입 같으면 침대 그대로예요?","연장 예약했는데 자리 유지돼요?","같은 침대 계속 쓰고 싶어요","베드 바뀌나요 안 바뀌나요?","추가 예약했는데 같은 침대 가능?","연장하면 짐 안빼도 돼?","같은 이름 예약이면 침대 유지돼?","연박인데 침대 그대로죠?","같은 방타입으로 재예약했어요","침대 계속 사용 가능?","베드 유지 조건 뭐예요?","이름 같고 방타입 같으면 그대로?","체크아웃 없이 같은 침대 써요?","연장 시 같은 자리 보장돼요?","같은 침대 쭉 가능해?","재예약했는데 자리 안바뀌죠"],
+    "en": ["If I extend, can I keep the same bed?","Can I stay in the same bed after extension?","If I book one more night, will my bed stay the same?","Same name and same room type means same bed?","Will I keep my bed if I rebook?","I extended my stay, do I need to move beds?","Can I continue using the same bed?","Will the bed change or not?","Same room type, same bed possible?","Do I need to pack my things when extending?","If the booking name is the same, can I keep the bed?","I'm staying longer, same bed right?","I rebooked the same room type","Bed keep possible?","What are the conditions to keep the same bed?","If same name and room type, is it unchanged?","Can I stay in the same spot without checking out?","Is same bed guaranteed for extension?","Can I keep this bed the whole time?","I rebooked, my bed won't change right?"],
+    "zh": ["续住的话可以继续用同一张床吗？","可以保持同一个床位吗？","多订一天床位不会变吧？","同一个名字续订可以继续睡这张床吗？","房型一样的话床位不变吗？","我续订了，位置会保留吗？","我想一直用同一个床位","床会不会换？","追加预订后还能用同一张床吗？","续住的话不用搬行李吗？","同名字预订就能保留床位吗？","连住的话床位还是一样吧？","我重新订了同样房型","可以继续用这个床吗？","保留床位的条件是什么？","同名同房型就不换吗？","不用退房还能继续住这张床吗？","续住能保证同一床位吗？","我可以一直用这个床吗？","重新预订后床位不变吧？"],
+    "ja": ["延長したら同じベッド使えますか？","同じベッドのままいけますか？","もう一泊予約したらベッド変わらない？","同じ名前で延長したらそのまま使える？","同じ部屋タイプならベッドそのまま？","延長予約したけど場所キープできますか？","同じベッドを使い続けたいです","ベッド変わりますか？","追加予約で同じベッド可能？","延長したら荷物出さなくていい？","同じ名前の予約ならそのまま？","連泊延長でも同じベッドですよね？","同じ部屋タイプで再予約しました","ベッド維持できますか？","同じベッドになる条件は？","名前も部屋タイプも同じならそのまま？","チェックアウトなしで続けて使える？","延長時は同じ場所保証されますか？","このベッドずっと使えますか？","再予約したけどベッド変わらないよね？"],
+    "ru": ["Если продлю, можно оставить ту же кровать?","Можно сохранить ту же кровать?","Если забронирую ещё ночь, кровать не поменяется?","То же имя и тот же тип комнаты — кровать та же?","Если перебронирую, смогу оставить кровать?","Я продлил проживание, нужно ли менять кровать?","Можно продолжать пользоваться этой кроватью?","Кровать поменяется или нет?","Тот же тип комнаты, та же кровать возможна?","При продлении вещи можно не убирать?","Если бронь на то же имя, кровать сохраняется?","Я остаюсь дольше, кровать та же?","Я заново забронировал тот же тип","Можно оставить кровать?","Какие условия для сохранения кровати?","Если имя и тип комнаты те же, всё остаётся?","Можно остаться на той же кровати без выезда?","При продлении та же кровать гарантируется?","Можно пользоваться этой кроватью весь срок?","Я перебронировал, кровать ведь не изменится?"],
+    "es": ["Si extiendo, ¿puedo seguir en la misma cama?","¿Se puede mantener la misma cama?","Si reservo una noche más, ¿no cambia la cama?","¿Mismo nombre y mismo tipo de habitación significa misma cama?","Si vuelvo a reservar, ¿mantengo mi cama?","Extendí mi estadía, ¿tengo que moverme de cama?","Quiero seguir usando la misma cama","¿La cama cambia o no?","¿Mismo tipo de habitación, misma cama?","Si extiendo, ¿no tengo que sacar mis cosas?","Si la reserva está al mismo nombre, ¿se mantiene la cama?","Me quedo más días, la cama sigue igual, ¿no?","Reservé otra vez el mismo tipo","¿Se puede mantener la cama?","¿Cuál es la condición para conservar la cama?","Si el nombre y el tipo son iguales, ¿queda igual?","¿Puedo seguir en la misma cama sin hacer checkout?","¿La misma cama está garantizada al extender?","¿Puedo quedarme en esta cama todo el tiempo?","Rehice la reserva, la cama no cambia, ¿verdad?"]
+  },
+  {
+    "intent_id": "bed_change",
+    "ko": ["침대 바꿀 수 있어요?","베드 변경 가능?","오늘 바로 침대 변경 돼요?","다른 자리로 옮기고 싶어요","침대 바꾸는 방법?","체크인한 날은 변경 안돼요?","내일 베드 바꾸고 싶어요","침대 변경 신청 어디서 해?","몇 시까지 신청해야 해요?","오전 11시 전에 말하면 돼?","베드 이동 가능해?","지금 침대 불편해요 바꿔주세요","체크인 당일 변경 되나요?","침대 다른 곳으로 부탁","자리 변경 요청","언제부터 바꿀 수 있어요?","오늘은 안되고 내일 가능?","침대 변경 규정 뭐예요?","다른 베드 있으면 옮겨줘요?","베드체인지 가능해요"],
+    "en": ["Can I change my bed?","Is bed change possible?","Can I change beds today?","I want to move to another bed","How do I request a bed change?","No bed change on check-in day?","I want to change my bed tomorrow","Where do I apply for bed change?","Until what time should I request it?","Do I need to ask before 11 am?","Can I move beds?","My bed is uncomfortable, can I change?","Is same-day bed change allowed?","Please move me to another bed","Bed change request","From when can I change?","Not today but possible tomorrow?","What is the bed change rule?","If another bed is open, can I move?","bed change possible?"],
+    "zh": ["可以换床位吗？","能换床吗？","今天可以马上换吗？","我想换到别的位置","怎么申请换床？","入住当天不能换吗？","我想明天换床","在哪里申请换床位？","最晚几点前申请？","上午11点前说就可以吗？","可以换到别的床吗？","这张床不舒服，可以换吗？","入住当天可以换吗？","请帮我换个床位","换床申请","什么时候可以换？","今天不行明天可以吗？","换床规则是什么？","如果有空床可以换吗？","bed change可以吗？"],
+    "ja": ["ベッド変更できますか？","ベッドチェンジ可能？","今日すぐベッド変更できますか？","別の席に移りたいです","ベッド変更の方法は？","チェックイン当日は変更できない？","明日ベッドを変えたいです","ベッド変更はどこで申請する？","何時までに申請が必要？","午前11時前に言えばいい？","ベッド移動できますか？","このベッド合わないので変えてください","同日のベッド変更できますか？","他のベッドにお願いします","席変更リクエスト","いつから変えられますか？","今日は無理で明日は可能？","ベッド変更のルールは？","空きベッドあれば移動してくれますか？","ベッドチェンジお願いします"],
+    "ru": ["Можно поменять кровать?","Смена кровати возможна?","Можно поменять кровать сегодня?","Хочу переехать на другое место","Как попросить смену кровати?","В день заезда сменить нельзя?","Хочу поменять кровать завтра","Куда обращаться для смены кровати?","До какого часа подавать заявку?","До 11 утра нужно сказать?","Можно перейти на другую кровать?","Кровать неудобная, можно поменять?","Смена в тот же день возможна?","Пожалуйста, переведите на другую кровать","Запрос на смену места","С какого момента можно менять?","Сегодня нельзя, а завтра можно?","Какие правила смены кровати?","Если есть свободная, можно перейти?","Смена кровати возможна?"],
+    "es": ["¿Puedo cambiar de cama?","¿Es posible cambiar de cama?","¿Puedo cambiar hoy mismo?","Quiero moverme a otra cama","¿Cómo solicito cambio de cama?","¿No se puede cambiar el día de check-in?","Quiero cambiar mañana","¿Dónde pido el cambio de cama?","¿Hasta qué hora debo pedirlo?","¿Antes de las 11 am?","¿Puedo moverme de cama?","Esta cama es incómoda, ¿la cambio?","¿Cambio el mismo día es posible?","Por favor muévanme a otra cama","Solicitud de cambio de lugar","¿Desde cuándo puedo cambiar?","Hoy no pero ¿mañana sí?","¿Cuál es la regla para cambiar de cama?","Si hay otra libre, ¿puedo moverme?","¿Cambio de cama posible?"]
+  },
+  {
     "intent_id": "trash_disposal",
     "ko": ["쓰레기 어디 버려요?", "분리수거 어디서 해?", "음식물 쓰레기 어디에?", "쓰레기통 어디 있어요?", "라면 국물 어디 버려?", "일반쓰레기 버리는 곳?", "재활용 어디다 버려요?", "음식물은 주방에 버리면 돼요?", "쓰레기 처리 어떻게 해?", "분리수거 해야 돼요?", "각 층에 쓰레기통 있어?", "캔이랑 병 어디 버려?", "쓰레기 버리는 방법 알려줘", "쓰래기 어디 버려요", "복도 쓰레기통 맞아요?", "주방에 음식물 버리나요?", "휴지랑 플라스틱 따로 버려?", "쓰레기?", "버릴 곳 어딨어", "분리배출 어디서 하나요?"],
     "en": ["Where do I throw away trash?", "Where is the trash bin?", "Where can I recycle?", "Where do I put food waste?", "How do I dispose of garbage?", "Is there a bin on each floor?", "Where do I throw this away?", "Can I throw food waste in the kitchen?", "Where for regular trash?", "Where for plastic bottles?", "Trash disposal?", "How to separate trash?", "Where to put cans and bottles?", "Is hallway bin okay?", "Where do I dump ramen soup?", "Garbage where?", "Do I need to sort recyclables?", "food waste where", "where bin", "how trash works here"],
@@ -191,14 +227,25 @@ async function run() {
 
   console.log(`[bulk_insert] 총 ${rows.length}개 행 준비`);
 
-  // 인텐트별 기존 질문 조회 후 중복 제거
+  // 인텐트별 기존 질문 조회 후 중복 제거 (페이지네이션으로 1000행 한도 우회)
   const intentIds = [...new Set(DATA.map(d => d.intent_id))];
-  const { data: existing } = await supabase
-    .from('intent_questions')
-    .select('intent_id, question_text')
-    .in('intent_id', intentIds);
+  const existing = [];
+  const PAGE = 1000;
+  let from = 0;
+  while (true) {
+    const { data, error } = await supabase
+      .from('intent_questions')
+      .select('intent_id, question_text')
+      .in('intent_id', intentIds)
+      .range(from, from + PAGE - 1);
+    if (error) throw error;
+    if (!data || data.length === 0) break;
+    existing.push(...data);
+    if (data.length < PAGE) break;
+    from += PAGE;
+  }
 
-  const existingSet = new Set((existing || []).map(r => `${r.intent_id}::${r.question_text}`));
+  const existingSet = new Set(existing.map(r => `${r.intent_id}::${r.question_text}`));
   console.log(`[bulk_insert] 기존 질문 수: ${existingSet.size}개`);
 
   const newRows = rows.filter(r => !existingSet.has(`${r.intent_id}::${r.question_text}`));
