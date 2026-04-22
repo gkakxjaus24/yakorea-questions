@@ -523,8 +523,12 @@
     #name-error.hidden { display: none; }
   `;
 
+  // ── currentLang 초기화 (HTML 템플릿보다 먼저 선언) ──────────────
+  let currentLang = IS_KIOSK
+    ? (sessionStorage.getItem(KIOSK_LANG_KEY) || 'ko')
+    : (new URLSearchParams(window.location.search).get('lang') || 'ko');
+
   // ── HTML ──────────────────────────────────────────────────────
-  // currentLang이 아직 undefined이므로 WIDGET_TEXT에서 직접 조회
   function _ti(key) {
     return (WIDGET_TEXT[currentLang] || WIDGET_TEXT.ko)[key] || '';
   }
@@ -642,9 +646,6 @@
   let socket = null;
   let connected = false;
   let currentStatus = 'auto';
-  let currentLang = IS_KIOSK
-    ? (sessionStorage.getItem(KIOSK_LANG_KEY) || 'ko')
-    : (new URLSearchParams(window.location.search).get('lang') || 'ko');
   let pinyinBuffer = '';
   let romajiBuffer = '';
 
