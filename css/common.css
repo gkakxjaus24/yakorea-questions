@@ -121,7 +121,7 @@ h1, h2, .headline {
   color: #333;
   background-image:
     linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
-    url('../images/flag-kr.png');
+    url('../images/flag-ko.png');
   background-size: cover;
   background-position: center;
 }
