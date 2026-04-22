@@ -2,7 +2,7 @@ const supabase = require('./supabase');
 
 // --- 토크나이저 & 유사도 ---
 
-// 한국어 조사 목록 — 긴 것부터 순서 중요 (짧은 것이 먼저 매칭되면 잘못 제거됨)
+// ── 한국어 조사 목록 — 긴 것부터 순서 중요 ───────────────────────
 const KO_PARTICLES = [
   '에서는','에게는','으로는','이라고','이에요','이어요',
   '에서','에게','으로','이랑','하고','라고','부터','까지',
@@ -10,11 +10,56 @@ const KO_PARTICLES = [
 ];
 
 function stripKoParticle(token) {
-  // 한국어 글자가 없으면 스킵
   if (!/[\uAC00-\uD7A3]/.test(token)) return null;
   for (const p of KO_PARTICLES) {
     if (token.endsWith(p) && token.length > p.length + 1) {
       return token.slice(0, -p.length);
+    }
+  }
+  return null;
+}
+
+// ── 한국어 동사 어미 정규화 ──────────────────────────────────────
+
+// 불규칙 변환 맵 (됩니다→되, 안돼요→안되 등 어간이 달라지는 형태)
+const KO_STEM_MAP = {
+  // 되다
+  '됩니다':'되','됩니까':'되','돼요':'되','되요':'되','됐어요':'되','됐습니다':'되',
+  // 안되다
+  '안됩니다':'안되','안됩니까':'안되','안돼요':'안되','안되요':'안되','안됐어요':'안되',
+  // 하다
+  '합니다':'하','합니까':'하','해요':'하','했어요':'하','할게요':'하','해줘요':'하',
+  // 있다
+  '있습니다':'있','있어요':'있','있나요':'있','있습니까':'있','있을까요':'있',
+  // 없다
+  '없습니다':'없','없어요':'없','없나요':'없','없습니까':'없','없을까요':'없',
+  // 싶다
+  '싶습니다':'싶','싶어요':'싶','싶나요':'싶',
+  // 주다
+  '줍니다':'주','줘요':'주','주세요':'주',
+  // 오다
+  '옵니다':'오','와요':'오','왔어요':'오',
+  // 가다
+  '갑니다':'가','가요':'가','갔어요':'가',
+};
+
+// 규칙형 어미 목록 — 긴 것부터 순서 중요
+const KO_ENDINGS = [
+  '겠습니다','았습니다','었습니다',
+  '겠어요','았어요','었어요',
+  '습니다','습니까',
+  '아요','어요','나요','세요','네요','지요','거요','라요','는가요',
+  '니다',
+];
+
+function stripKoEnding(token) {
+  if (!/[\uAC00-\uD7A3]/.test(token)) return null;
+  // 불규칙 우선
+  if (KO_STEM_MAP[token]) return KO_STEM_MAP[token];
+  // 규칙 어미 제거
+  for (const e of KO_ENDINGS) {
+    if (token.endsWith(e) && token.length > e.length + 1) {
+      return token.slice(0, -e.length);
     }
   }
   return null;
@@ -28,16 +73,28 @@ function tokenize(text) {
   const rest = text
     .replace(/[\u4e00-\u9fff\u3040-\u30ff\u31f0-\u31ff]/g, ' ')
     .toLowerCase()
-    .replace(/[^\p{L}\s]/gu, ' ')   // 유니코드 모든 문자 유지, 구두점만 제거
+    .replace(/[^\p{L}\s]/gu, ' ')
     .split(/\s+/)
     .filter((t) => t.length > 0);
 
-  // 한국어 조사 제거 형태를 원본과 함께 추가 (원본 유지 → 기존 매칭 깨지지 않음)
+  // 각 토큰에 조사 제거 + 어미 정규화 형태를 추가 (원본 항상 유지)
   const expanded = [];
   for (const t of rest) {
     expanded.push(t);
-    const stem = stripKoParticle(t);
-    if (stem) expanded.push(stem);
+
+    // 1. 조사 제거
+    const noParticle = stripKoParticle(t);
+    if (noParticle) expanded.push(noParticle);
+
+    // 2. 어미 정규화 (원본 기준)
+    const noEnding = stripKoEnding(t);
+    if (noEnding) expanded.push(noEnding);
+
+    // 3. 조사 제거 후 어미 정규화 (조합)
+    if (noParticle) {
+      const noEndingFromStem = stripKoEnding(noParticle);
+      if (noEndingFromStem) expanded.push(noEndingFromStem);
+    }
   }
 
   return new Set([...cjk, ...expanded]);
