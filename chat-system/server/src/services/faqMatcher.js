@@ -48,7 +48,8 @@ const KO_ENDINGS = [
   '겠습니다','았습니다','었습니다',
   '겠어요','았어요','었어요',
   '습니다','습니까',
-  '아요','어요','나요','세요','네요','지요','거요','라요','는가요',
+  '까지요','부터요','에서요','인가요','인데요','라고요','거든요',
+  '아요','어요','나요','세요','네요','지요','거요','라요','에요','예요','는가요',
   '니다',
 ];
 
@@ -88,7 +89,12 @@ function tokenize(text) {
 
     // 2. 어미 정규화 (원본 기준)
     const noEnding = stripKoEnding(t);
-    if (noEnding) expanded.push(noEnding);
+    if (noEnding) {
+      expanded.push(noEnding);
+      // 2-1. 어미 제거 후 조사 제거 (예: "몇시부터에요" → "몇시부터" → "몇시")
+      const stemFromNoEnding = stripKoParticle(noEnding);
+      if (stemFromNoEnding) expanded.push(stemFromNoEnding);
+    }
 
     // 3. 조사 제거 후 어미 정규화 (조합)
     if (noParticle) {
