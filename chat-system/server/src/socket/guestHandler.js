@@ -12,11 +12,48 @@ function isNightTimeKST() {
   return kstHour >= 0 && kstHour < 8;
 }
 
-const NIGHT_MESSAGE =
-  '현재 야간 시간(00:00~08:00)입니다. 직원과 매니저가 휴식 중이라 자동응답만 가능합니다.\n' +
-  '급한 문의는 카운터 010-5747-1294로 전화 주세요.\n\n' +
-  '[EN] It is currently night time (00:00~08:00 KST). Only auto-responses are available. ' +
-  'For urgent matters, please call the front desk at 010-5747-1294.';
+// 언어별 야간 안내 메시지
+const NIGHT_MESSAGES = {
+  ko:
+    '현재 야간(00:00~08:00)이라 자동응답만 가능합니다.\n' +
+    '급한 문의는 1층 카운터 전화기로 010-5747-1294에 걸어주세요.\n' +
+    '(카운터 전화만 응답됩니다. 개인 휴대폰은 받지 않습니다.)',
+  en:
+    'Night hours (00:00–08:00 KST) — auto-reply only.\n' +
+    'For urgent matters, call 010-5747-1294 from the 1F front desk phone.\n' +
+    '(Only front desk calls are answered.)',
+  zh:
+    '现在是夜间时段(00:00~08:00 韩国时间),仅可自动回复。\n' +
+    '如有紧急事宜,请使用1楼前台电话拨打 010-5747-1294。\n' +
+    '(仅接听前台电话。个人手机来电不接听。)',
+  ja:
+    '現在夜間(00:00〜08:00 KST)のため、自動応答のみ対応可能です。\n' +
+    '緊急のご用件は、1階フロントの電話から 010-5747-1294 におかけください。\n' +
+    '(フロントからのお電話のみ対応いたします。)',
+  ru:
+    'Ночное время (00:00–08:00 KST) — только автоответ.\n' +
+    'По срочным вопросам звоните на 010-5747-1294 с телефона стойки регистрации (1 этаж).\n' +
+    '(Отвечаем только на звонки со стойки регистрации.)',
+  es:
+    'Horario nocturno (00:00–08:00 KST) — solo respuesta automática.\n' +
+    'Para asuntos urgentes, llame al 010-5747-1294 desde el teléfono de recepción (planta 1).\n' +
+    '(Solo se atienden llamadas desde recepción.)',
+};
+
+// 게스트 메시지에서 언어 감지
+function detectLanguage(text) {
+  if (/[\u3040-\u309f\u30a0-\u30ff]/.test(text)) return 'ja'; // 히라가나/가타카나
+  if (/[\uac00-\ud7a3]/.test(text)) return 'ko';              // 한글
+  if (/[\u4e00-\u9fff]/.test(text)) return 'zh';              // 한자 (일본어는 위에서 걸림)
+  if (/[\u0400-\u04ff]/.test(text)) return 'ru';              // 키릴
+  if (/[ñáéíóúü¿¡]/i.test(text)) return 'es';                  // 스페인어 특수문자
+  return 'en';
+}
+
+function getNightMessage(text) {
+  const lang = detectLanguage(text);
+  return NIGHT_MESSAGES[lang] || NIGHT_MESSAGES.en;
+}
 
 // roomId → roomLabel / guestName 인메모리 맵
 const roomLabelMap = new Map();
@@ -151,12 +188,13 @@ module.exports = function guestHandler(io, socket) {
       } else {
         // 야간(KST 00:00~08:00)은 매니저 연결 불가 — 자동 안내만
         if (isNightTimeKST()) {
+          const nightMsg = getNightMessage(content);
           await supabase.from('messages').insert({
             room_id: roomId,
             sender_type: 'auto',
-            content: NIGHT_MESSAGE,
+            content: nightMsg,
           });
-          socket.emit('auto:response', { content: NIGHT_MESSAGE, confidence: 0 });
+          socket.emit('auto:response', { content: nightMsg, confidence: 0 });
           console.log(`[Guest] night-time auto-reply in room ${roomId}`);
         } else {
           // escalate → 방 상태 waiting 으로 변경
