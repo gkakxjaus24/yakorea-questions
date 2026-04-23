@@ -5,6 +5,19 @@ const telegram = require('../services/telegram');
 const IDLE_TIMEOUT_MS = 10 * 60 * 1000; // 10분
 const idleTimers = new Map(); // roomId -> setTimeout
 
+// 야간 시간대(KST 00:00~08:00) — 매니저/직원 휴식 시간
+function isNightTimeKST() {
+  const kstMs = Date.now() + 9 * 3600 * 1000;
+  const kstHour = new Date(kstMs).getUTCHours();
+  return kstHour >= 0 && kstHour < 8;
+}
+
+const NIGHT_MESSAGE =
+  '현재 야간 시간(00:00~08:00)입니다. 직원과 매니저가 휴식 중이라 자동응답만 가능합니다.\n' +
+  '급한 문의는 카운터 010-5747-1294로 전화 주세요.\n\n' +
+  '[EN] It is currently night time (00:00~08:00 KST). Only auto-responses are available. ' +
+  'For urgent matters, please call the front desk at 010-5747-1294.';
+
 // roomId → roomLabel / guestName 인메모리 맵
 const roomLabelMap = new Map();
 const guestNameMap = new Map();
@@ -136,15 +149,26 @@ module.exports = function guestHandler(io, socket) {
       } else if (result.type === 'candidates') {
         socket.emit('auto:candidates', { candidates: result.candidates });
       } else {
-        // escalate → 방 상태 waiting 으로 변경
-        await supabase
-          .from('chat_rooms')
-          .update({ status: 'waiting', updated_at: new Date().toISOString() })
-          .eq('id', roomId);
-        io.emit('room:activity', { roomId, status: 'waiting', timestamp: new Date().toISOString(), roomLabel });
-        socket.emit('auto:escalate', {});
-        socket.emit('room:status', { status: 'waiting' });
-        telegram.alertEscalation(roomId, roomLabel, guestName);
+        // 야간(KST 00:00~08:00)은 매니저 연결 불가 — 자동 안내만
+        if (isNightTimeKST()) {
+          await supabase.from('messages').insert({
+            room_id: roomId,
+            sender_type: 'auto',
+            content: NIGHT_MESSAGE,
+          });
+          socket.emit('auto:response', { content: NIGHT_MESSAGE, confidence: 0 });
+          console.log(`[Guest] night-time auto-reply in room ${roomId}`);
+        } else {
+          // escalate → 방 상태 waiting 으로 변경
+          await supabase
+            .from('chat_rooms')
+            .update({ status: 'waiting', updated_at: new Date().toISOString() })
+            .eq('id', roomId);
+          io.emit('room:activity', { roomId, status: 'waiting', timestamp: new Date().toISOString(), roomLabel });
+          socket.emit('auto:escalate', {});
+          socket.emit('room:status', { status: 'waiting' });
+          telegram.alertEscalation(roomId, roomLabel, guestName);
+        }
       }
 
       console.log(`[Guest] message in room ${roomId}: ${content} → FAQ: ${result.type}`);
