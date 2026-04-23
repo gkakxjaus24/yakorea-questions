@@ -40,19 +40,8 @@ const NIGHT_MESSAGES = {
     '(Solo se atienden llamadas desde recepción.)',
 };
 
-// 게스트 메시지에서 언어 감지
-function detectLanguage(text) {
-  if (/[\u3040-\u309f\u30a0-\u30ff]/.test(text)) return 'ja'; // 히라가나/가타카나
-  if (/[\uac00-\ud7a3]/.test(text)) return 'ko';              // 한글
-  if (/[\u4e00-\u9fff]/.test(text)) return 'zh';              // 한자 (일본어는 위에서 걸림)
-  if (/[\u0400-\u04ff]/.test(text)) return 'ru';              // 키릴
-  if (/[ñáéíóúü¿¡]/i.test(text)) return 'es';                  // 스페인어 특수문자
-  return 'en';
-}
-
-function getNightMessage(text) {
-  const lang = detectLanguage(text);
-  return NIGHT_MESSAGES[lang] || NIGHT_MESSAGES.en;
+function getNightMessage(lang) {
+  return NIGHT_MESSAGES[lang] || NIGHT_MESSAGES.ko;
 }
 
 // roomId → roomLabel / guestName 인메모리 맵
@@ -135,7 +124,7 @@ module.exports = function guestHandler(io, socket) {
   });
 
   // 손님 메시지 전송
-  socket.on('guest:send_message', async ({ roomId, content }) => {
+  socket.on('guest:send_message', async ({ roomId, content, lang }) => {
     try {
       const { data: msg, error } = await supabase
         .from('messages')
@@ -188,7 +177,7 @@ module.exports = function guestHandler(io, socket) {
       } else {
         // 야간(KST 00:00~08:00)은 매니저 연결 불가 — 자동 안내만
         if (isNightTimeKST()) {
-          const nightMsg = getNightMessage(content);
+          const nightMsg = getNightMessage(lang);
           await supabase.from('messages').insert({
             room_id: roomId,
             sender_type: 'auto',

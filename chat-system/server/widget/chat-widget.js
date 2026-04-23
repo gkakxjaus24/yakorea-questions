@@ -1230,7 +1230,7 @@
     const content = msgInput.value.trim();
     if (!content || !roomId || currentStatus === 'closed') return;
     appendMsg(content, 'guest');
-    socket.emit('guest:send_message', { roomId, content });
+    socket.emit('guest:send_message', { roomId, content, lang: currentLang });
     msgInput.value = '';
     candidatesBox.innerHTML = '';
     escalateBtn.classList.remove('visible');
