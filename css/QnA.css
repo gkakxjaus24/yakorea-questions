@@ -13,11 +13,23 @@
 }
 
 .question {
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
   border: 1px solid black;
   padding: 10px;
   position: relative;
+}
+
+/* 키워드: 검은 볼드 */
+.question .kw {
+  color: #000;
+  font-weight: bold;
+}
+
+/* 나머지 설명 텍스트: 회색 */
+.question .sub {
+  color: #999;
+  font-weight: normal;
 }
 
 .question::after {

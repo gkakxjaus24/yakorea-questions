@@ -24,6 +24,20 @@ async function loadLanguageData() {
   }
 }
 
+function renderQuestionText(item) {
+  if (item.keyword) {
+    const idx = item.q.indexOf(item.keyword);
+    if (idx >= 0) {
+      const before = item.q.slice(0, idx);
+      const after  = item.q.slice(idx + item.keyword.length);
+      return (before ? `<span class="sub">${before}</span>` : '')
+           + `<span class="kw">${item.keyword}</span>`
+           + (after  ? `<span class="sub">${after}</span>`  : '');
+    }
+  }
+  return item.q;
+}
+
 function renderMedia(src, type) {
   if (!src) return '';
   if (type === 'video') {
@@ -64,7 +78,7 @@ async function updateUI() {
     qnaHTML += `<h2 class="category-heading">${category}</h2>`;
     for (const item of grouped[category]) {
       qnaHTML += `
-        <div class="question">${item.q}</div>
+        <div class="question">${renderQuestionText(item)}</div>
         <div class="answer" style="display: none">
           ${item.a}
           ${item.media ? renderMedia(item.media, item.mediaType) : ''}
