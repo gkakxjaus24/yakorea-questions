@@ -256,9 +256,9 @@ async function match(question, lang = 'ko') {
   scored.sort((a, b) => b.score - a.score);
   const top = scored[0];
 
-  // 해당 언어 답변, 없으면 한국어 fallback
+  // 해당 언어 답변, 없으면 영어 fallback
   function getAnswer(intent) {
-    return intent.answers[lang] || intent.answers['ko'] || Object.values(intent.answers)[0] || '';
+    return intent.answers[lang] || intent.answers['en'] || Object.values(intent.answers)[0] || '';
   }
 
   // 해당 언어의 대표 질문 텍스트, 없으면 첫 번째 variant
