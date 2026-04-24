@@ -120,7 +120,7 @@ let _cache = null;
 let _cacheAt = 0;
 const CACHE_TTL = 5 * 60 * 1000;
 
-// 전체 질문 페이지네이션 로드 (Supabase 기본 한도 1000행 우회)
+// 전체 질문 페이지네이션 로드 (language 포함)
 async function fetchAllQuestions() {
   const PAGE = 1000;
   let all = [];
@@ -128,7 +128,7 @@ async function fetchAllQuestions() {
   while (true) {
     const { data, error } = await supabase
       .from('intent_questions')
-      .select('intent_id, question_text')
+      .select('intent_id, question_text, language')
       .range(from, from + PAGE - 1);
     if (error) throw error;
     if (!data || data.length === 0) break;
@@ -146,40 +146,41 @@ async function loadIntents() {
     await Promise.all([
       fetchAllQuestions(),
       Promise.all([
-        supabase.from('intent_answers').select('intent_id, answer_template').eq('language', 'ko'),
+        // 모든 언어 답변 로드 (language 필터 제거)
+        supabase.from('intent_answers').select('intent_id, answer_template, language'),
         supabase.from('settings').select('key, value'),
       ]),
     ]);
 
-  const qErr = null;
   if (aErr || sErr) throw aErr || sErr;
 
   // settings → { key: value } 맵
   const settingsMap = {};
   (settings || []).forEach((s) => (settingsMap[s.key] = s.value));
 
-  // intent별 질문 그룹화
+  // intent별 질문 그룹화 (language 포함)
   const map = {};
-  (questions || []).forEach(({ intent_id, question_text }) => {
-    if (!map[intent_id]) map[intent_id] = { questions: [], answer: null };
-    map[intent_id].questions.push(question_text);
+  (questions || []).forEach(({ intent_id, question_text, language }) => {
+    if (!map[intent_id]) map[intent_id] = { variants: [], answers: {} };
+    map[intent_id].variants.push({ text: question_text, language: language || 'ko' });
   });
 
-  // intent별 답변 + {{변수}} 치환
-  (answers || []).forEach(({ intent_id, answer_template }) => {
+  // intent별 언어별 답변 + {{변수}} 치환
+  (answers || []).forEach(({ intent_id, answer_template, language }) => {
     if (!map[intent_id]) return;
+    const lang = language || 'ko';
     const filled = answer_template.replace(/\{\{(\w+)\}\}/g, (_, key) => settingsMap[key] ?? `{{${key}}}`);
-    map[intent_id].answer = filled;
+    map[intent_id].answers[lang] = filled;
   });
 
-  // 답변 없는 intent 제외 후 배열로
+  // 한국어 답변이라도 있는 intent만 포함, 배열로
   _cache = Object.entries(map)
-    .filter(([, v]) => v.answer && v.questions.length > 0)
+    .filter(([, v]) => Object.keys(v.answers).length > 0 && v.variants.length > 0)
     .map(([id, v]) => ({
       id,
-      answer: v.answer,
-      // 질문별 토큰셋 미리 계산
-      variants: v.questions.map((q) => ({ text: q, tokens: tokenize(q) })),
+      answers: v.answers,
+      // 질문별 토큰셋 + language 미리 계산
+      variants: v.variants.map((q) => ({ text: q.text, language: q.language, tokens: tokenize(q.text) })),
     }));
 
   _cacheAt = Date.now();
@@ -233,7 +234,7 @@ function isEscalationRequest(text) {
 
 // --- 매칭 메인 ---
 
-async function match(question) {
+async function match(question, lang = 'ko') {
   // 에스컬레이션 키워드 선탐지 — FAQ 매칭 전에 처리
   if (isEscalationRequest(question)) return { type: 'escalate' };
 
@@ -255,10 +256,21 @@ async function match(question) {
   scored.sort((a, b) => b.score - a.score);
   const top = scored[0];
 
+  // 해당 언어 답변, 없으면 한국어 fallback
+  function getAnswer(intent) {
+    return intent.answers[lang] || intent.answers['ko'] || Object.values(intent.answers)[0] || '';
+  }
+
+  // 해당 언어의 대표 질문 텍스트, 없으면 첫 번째 variant
+  function getDisplayQuestion(intent) {
+    const v = intent.variants.find((v) => v.language === lang) || intent.variants[0];
+    return v ? v.text : '';
+  }
+
   if (top.score >= 0.8) {
     return {
       type: 'auto',
-      faq: { answer: top.intent.answer },
+      faq: { answer: getAnswer(top.intent) },
       confidence: top.score,
     };
   } else if (top.score >= 0.5) {
@@ -266,8 +278,8 @@ async function match(question) {
       .filter((s) => s.score >= 0.5)
       .slice(0, 3)
       .map((s) => ({
-        question: s.intent.variants[0].text,
-        answer: s.intent.answer,
+        question: getDisplayQuestion(s.intent),
+        answer: getAnswer(s.intent),
         score: s.score,
       }));
     return { type: 'candidates', candidates, confidence: top.score };

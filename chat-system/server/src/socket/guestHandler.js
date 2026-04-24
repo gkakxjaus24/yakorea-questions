@@ -160,8 +160,8 @@ module.exports = function guestHandler(io, socket) {
       // 유휴 타임아웃 리셋
       scheduleIdleClose(io, roomId);
 
-      // FAQ 자동응답
-      const result = await faqMatcher.match(content);
+      // FAQ 자동응답 (게스트가 선택한 언어로 매칭)
+      const result = await faqMatcher.match(content, lang || 'ko');
       if (result.type === 'auto') {
         await supabase.from('messages').insert({
           room_id: roomId,
