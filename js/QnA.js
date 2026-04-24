@@ -7,7 +7,7 @@ function getLanguageFromURL() {
 
 async function loadLanguageData() {
   try {
-    const response = await fetch("data/QnA.json");
+    const response = await fetch("/data/QnA.json");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
     const data = await response.json();
@@ -91,6 +91,11 @@ async function updateUI() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await loadLanguageData();
+  const loaded = await loadLanguageData();
+  if (!loaded || !i18n) {
+    document.querySelector(".container").innerHTML =
+      '<p style="padding:20px;text-align:center;color:#999">데이터를 불러오지 못했습니다. 페이지를 새로고침 해주세요.<br>Could not load data. Please refresh the page.</p>';
+    return;
+  }
   await updateUI();
 });
