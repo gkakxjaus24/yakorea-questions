@@ -43,6 +43,10 @@
   // ── i18n ──────────────────────────────────────────────────────
   const WIDGET_TEXT = {
     ko: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: '채팅 열기',
+      candidatesLabel: '혹시 이런 내용을 찾으시나요?',
+      escalateOffer: '답변을 찾지 못했습니다. 매니저와 연결하시겠어요?',
       statusAuto: '자동응답 중', statusWaiting: '매니저 연결 대기 중',
       statusActive: '매니저 상담 중', statusClosed: '대화가 종료되었습니다',
       placeholder: '메시지를 입력하세요...', welcome: '안녕하세요! 무엇을 도와드릴까요? 😊',
@@ -65,6 +69,10 @@
       bedUnit: '번',
     },
     en: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'Open chat',
+      candidatesLabel: 'Were you looking for one of these?',
+      escalateOffer: "We couldn't find an answer. Connect to a manager?",
       statusAuto: 'Auto-reply', statusWaiting: 'Waiting for manager',
       statusActive: 'Chatting with manager', statusClosed: 'Chat ended',
       placeholder: 'Type a message...', welcome: 'Hello! How can we help you? 😊',
@@ -87,6 +95,10 @@
       bedUnit: '',
     },
     zh: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: '打开聊天',
+      candidatesLabel: '您是否在找这些内容？',
+      escalateOffer: '未能找到答案。要联系客服吗？',
       statusAuto: '自动回复中', statusWaiting: '等待客服',
       statusActive: '客服服务中', statusClosed: '对话已结束',
       placeholder: '请输入消息...', welcome: '您好！有什么可以帮助您？😊',
@@ -109,6 +121,10 @@
       bedUnit: '号',
     },
     ja: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'チャットを開く',
+      candidatesLabel: 'こちらの内容をお探しですか？',
+      escalateOffer: '回答が見つかりませんでした。スタッフにおつなぎしますか？',
       statusAuto: '自動応答中', statusWaiting: 'スタッフ接続待ち',
       statusActive: 'スタッフ対応中', statusClosed: 'チャット終了',
       placeholder: 'メッセージを入力...', welcome: 'こんにちは！何かお手伝いできますか？😊',
@@ -131,6 +147,10 @@
       bedUnit: '番',
     },
     ru: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'Открыть чат',
+      candidatesLabel: 'Возможно, вы искали это?',
+      escalateOffer: 'Ответ не найден. Связаться с менеджером?',
       statusAuto: 'Автоответ', statusWaiting: 'Ожидание менеджера',
       statusActive: 'Чат с менеджером', statusClosed: 'Чат завершён',
       placeholder: 'Введите сообщение...', welcome: 'Здравствуйте! Чем можем помочь? 😊',
@@ -153,6 +173,10 @@
       bedUnit: '',
     },
     es: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'Abrir chat',
+      candidatesLabel: '¿Estaba buscando alguno de estos?',
+      escalateOffer: 'No encontramos una respuesta. ¿Conectar con el gerente?',
       statusAuto: 'Respuesta automática', statusWaiting: 'Esperando al gerente',
       statusActive: 'Chat con el gerente', statusClosed: 'Chat finalizado',
       placeholder: 'Escribe un mensaje...', welcome: '¡Hola! ¿En qué podemos ayudarte? 😊',
@@ -175,6 +199,35 @@
       bedUnit: '',
     },
   };
+
+  // 객실 라벨 포맷터 (언어별 "방 207" 표기)
+  function formatRoomLabel(label, lang) {
+    if (!label) return '';
+    // 도미토리 침대 번호 (예: "B1-3") 처리
+    const [room, bed] = String(label).split('-');
+    const roomFmt = (() => {
+      switch (lang) {
+        case 'en': return `Room ${room}`;
+        case 'zh': return `${room}号房`;
+        case 'ja': return `${room}号室`;
+        case 'ru': return `Комната ${room}`;
+        case 'es': return `Hab. ${room}`;
+        case 'ko':
+        default:   return `${room}호`;
+      }
+    })();
+    if (!bed) return roomFmt;
+    // 침대 번호 부가
+    switch (lang) {
+      case 'en': return `${roomFmt} · Bed ${bed}`;
+      case 'zh': return `${roomFmt} · ${bed}号床`;
+      case 'ja': return `${roomFmt} · ${bed}番ベッド`;
+      case 'ru': return `${roomFmt} · Кровать ${bed}`;
+      case 'es': return `${roomFmt} · Cama ${bed}`;
+      case 'ko':
+      default:   return `${roomFmt} · ${bed}번`;
+    }
+  }
 
   // ── 키보드 레이아웃 ───────────────────────────────────────────
   const KB_LAYOUTS = {
@@ -535,12 +588,12 @@
 
   const container = document.createElement('div');
   container.innerHTML = `
-    <button id="toggle-btn" aria-label="채팅 열기">💬</button>
+    <button id="toggle-btn" aria-label="${_ti('toggleAriaLabel')}">💬</button>
     <div id="chat-box" class="hidden">
       <div id="chat-header">
         <div id="status-dot"></div>
         <div id="title-wrap">
-          <span id="title">야코리아 호스텔 채팅</span>
+          <span id="title">${_ti('brandTitle')}</span>
           <span id="status-text">${_ti('statusAuto')}</span>
         </div>
         <button id="close-btn">${_ti('closeBtnLabel')}</button>
@@ -563,7 +616,7 @@
       </div>` : ''}
       <div id="checkout-gate" class="hidden">
         <p>${_ti('checkoutTitle')}</p>
-        <input id="checkout-date" type="date" />
+        <input id="checkout-date" type="date" lang="${currentLang}" />
         <button id="checkout-submit">${_ti('checkoutNext')}</button>
         <p id="checkout-blocked" class="hidden">${_ti('checkoutBlockedMsg')}</p>
       </div>
@@ -758,15 +811,16 @@
   function showBedGrid(room) {
     // 방 그리드 숨기고 침대 선택만 표시
     roomGrid.style.display = 'none';
-    const bedTitleMap = {
-      ko: `${room.label}호 — 침대 번호를 선택해주세요`,
-      en: `Room ${room.label} — Select your bed number`,
-      zh: `${room.label}号房间 — 请选择床位编号`,
-      ja: `${room.label}号室 — ベッド番号を選択してください`,
-      ru: `Комната ${room.label} — Выберите номер кровати`,
-      es: `Habitación ${room.label} — Selecciona tu número de cama`,
+    const bedTitleSuffix = {
+      ko: ' — 침대 번호를 선택해주세요',
+      en: ' — Select your bed number',
+      zh: ' — 请选择床位编号',
+      ja: ' — ベッド番号を選択してください',
+      ru: ' — Выберите номер кровати',
+      es: ' — Selecciona tu número de cama',
     };
-    roomGateTitle.textContent = bedTitleMap[currentLang] || bedTitleMap.ko;
+    roomGateTitle.textContent = formatRoomLabel(room.label, currentLang)
+      + (bedTitleSuffix[currentLang] || bedTitleSuffix.ko);
     bedBtns.innerHTML = '';
     for (let i = 1; i <= room.beds; i++) {
       const btn = document.createElement('button');
@@ -963,6 +1017,42 @@
     const isClosed = currentStatus === 'closed';
     msgInput.placeholder = isClosed ? t('statusClosed') : t('placeholder');
     if (kbSend) kbSend.textContent = t('kbSend');
+
+    // 헤더 타이틀 — 방번호/이름 있으면 brandTitle · 방 · 이름, 없으면 brandTitle
+    if (titleEl) {
+      const lbl = sessionStorage.getItem(ROOM_KEY);
+      const nm  = sessionStorage.getItem(NAME_KEY);
+      if (IS_QR_MODE && (lbl || nm)) {
+        const parts = [t('brandTitle')];
+        if (lbl) parts.push(formatRoomLabel(lbl, currentLang));
+        if (nm)  parts.push(nm);
+        titleEl.textContent = parts.join(' · ');
+      } else {
+        titleEl.textContent = t('brandTitle');
+      }
+    }
+
+    // 토글 버튼 aria-label
+    if (toggleBtn) toggleBtn.setAttribute('aria-label', t('toggleAriaLabel'));
+
+    // QR 게이트 라벨/플레이스홀더
+    if (IS_QR_MODE) {
+      const checkoutP = checkoutGate?.querySelector('p:first-of-type');
+      if (checkoutP) checkoutP.textContent = t('checkoutTitle');
+      if (checkoutSubmit) checkoutSubmit.textContent = t('checkoutNext');
+      if (checkoutBlocked) checkoutBlocked.textContent = t('checkoutBlockedMsg');
+      if (checkoutDate) checkoutDate.setAttribute('lang', currentLang);
+      if (roomGateTitle && bedBtnsWrap?.classList.contains('hidden')) {
+        // 침대 선택 화면이 아닐 때만 기본 타이틀 갱신
+        roomGateTitle.textContent = t('roomGateTitle');
+      }
+      if (bedBack) bedBack.textContent = t('bedBack');
+      const nameP = nameGate?.querySelector('p:first-of-type');
+      if (nameP) nameP.textContent = t('nameTitle');
+      if (nameSubmit) nameSubmit.textContent = t('nameSubmitBtn');
+      if (nameError) nameError.textContent = t('nameErrorMsg');
+      if (nameInput) nameInput.placeholder = t('namePlaceholder');
+    }
   }
 
   function switchLang(lang) {
@@ -1062,7 +1152,7 @@
     if (!candidates || candidates.length === 0) return;
     const label = document.createElement('div');
     label.style.cssText = 'font-size:12px;color:#64748b;margin-bottom:4px;padding:8px 0 0;';
-    label.textContent = '혹시 이런 내용을 찾으시나요?';
+    label.textContent = t('candidatesLabel');
     candidatesBox.appendChild(label);
     candidates.forEach((c) => {
       const btn = document.createElement('button');
@@ -1083,7 +1173,7 @@
       sessionStorage.removeItem(CHECKOUT_KEY);
       sessionStorage.removeItem(ROOM_KEY);
       sessionStorage.removeItem(NAME_KEY);
-      if (titleEl) titleEl.textContent = '야코리아 호스텔 채팅';
+      if (titleEl) titleEl.textContent = t('brandTitle');
     }
     roomId = null;
     messagesEl.innerHTML = '';
@@ -1128,7 +1218,10 @@
         if (IS_QR_MODE && titleEl) {
           const lbl = sessionStorage.getItem(ROOM_KEY);
           const nm  = sessionStorage.getItem(NAME_KEY);
-          if (lbl || nm) titleEl.textContent = `야코리아 · ${lbl ? lbl+'호' : ''}${lbl && nm ? ' · ' : ''}${nm || ''}`;
+          const parts = [t('brandTitle')];
+          if (lbl) parts.push(formatRoomLabel(lbl, currentLang));
+          if (nm)  parts.push(nm);
+          titleEl.textContent = parts.join(' · ');
         }
         if (isNewRoom && messagesEl.children.length === 0) {
           appendMsg(t('welcome'), 'system');
@@ -1153,7 +1246,7 @@
       socket.on('auto:escalate', () => {
         candidatesBox.innerHTML = '';
         escalateBtn.classList.add('visible');
-        appendMsg('답변을 찾지 못했습니다. 매니저와 연결하시겠어요?', 'system');
+        appendMsg(t('escalateOffer'), 'system');
       });
 
       socket.on('manager:message', ({ content }) => {
