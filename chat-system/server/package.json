@@ -8,13 +8,15 @@
     "test:phase1": "node src/tests/phase1.test.js",
     "test:phase2": "node src/tests/phase2.test.js",
     "test:phase3": "node src/tests/phase3.test.js",
-    "test:phase4": "node src/tests/phase4.test.js"
+    "test:phase4": "node src/tests/phase4.test.js",
+    "test:phase5": "node src/tests/phase5.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.91.1",
     "@supabase/supabase-js": "^2.103.3",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
