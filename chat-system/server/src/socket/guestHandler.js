@@ -1,6 +1,7 @@
 const supabase = require('../services/supabase');
 const faqMatcher = require('../services/faqMatcher');
 const telegram = require('../services/telegram');
+const llmFallback = require('../services/llmFallback');
 
 const IDLE_TIMEOUT_MS = 10 * 60 * 1000; // 10분
 const idleTimers = new Map(); // roomId -> setTimeout
@@ -175,26 +176,59 @@ module.exports = function guestHandler(io, socket) {
       } else if (result.type === 'candidates') {
         socket.emit('auto:candidates', { candidates: result.candidates });
       } else {
-        // 야간(KST 00:00~08:00)은 매니저 연결 불가 — 자동 안내만
-        if (isNightTimeKST()) {
-          const nightMsg = getNightMessage(lang);
-          await supabase.from('messages').insert({
-            room_id: roomId,
-            sender_type: 'auto',
-            content: nightMsg,
+        // --- LLM 폴백 시도 (플래그 ON일 때만) ---
+        // Jaccard가 못 잡은 질문을 Claude Haiku 4.5가 DB 답변만 보고 시도.
+        // 답을 모르면 NO_MATCH → 기존 야간/escalate 흐름으로 fall-through.
+        let llmHandled = false;
+        if (await llmFallback.isEnabled()) {
+          socket.emit('auto:typing', { on: true });
+          const r = await llmFallback.answer({
+            question: content,
+            lang: lang || 'ko',
+            roomId,
           });
-          socket.emit('auto:response', { content: nightMsg, confidence: 0 });
-          console.log(`[Guest] night-time auto-reply in room ${roomId}`);
-        } else {
-          // escalate → 방 상태 waiting 으로 변경
-          await supabase
-            .from('chat_rooms')
-            .update({ status: 'waiting', updated_at: new Date().toISOString() })
-            .eq('id', roomId);
-          io.emit('room:activity', { roomId, status: 'waiting', timestamp: new Date().toISOString(), roomLabel });
-          socket.emit('auto:escalate', {});
-          socket.emit('room:status', { status: 'waiting' });
-          telegram.alertEscalation(roomId, roomLabel, guestName);
+          socket.emit('auto:typing', { on: false });
+
+          if (r.ok) {
+            await supabase.from('messages').insert({
+              room_id: roomId,
+              sender_type: 'auto',
+              content: r.answer,
+            });
+            socket.emit('auto:response', {
+              content: r.answer,
+              confidence: 0.6,
+              source: 'llm',
+            });
+            llmHandled = true;
+            console.log(`[LLM] room ${roomId} answered by Haiku (${r.latencyMs}ms)`);
+          } else {
+            console.log(`[LLM] room ${roomId} skipped/failed: ${r.reason}`);
+          }
+        }
+
+        if (!llmHandled) {
+          // 야간(KST 00:00~08:00)은 매니저 연결 불가 — 자동 안내만
+          if (isNightTimeKST()) {
+            const nightMsg = getNightMessage(lang);
+            await supabase.from('messages').insert({
+              room_id: roomId,
+              sender_type: 'auto',
+              content: nightMsg,
+            });
+            socket.emit('auto:response', { content: nightMsg, confidence: 0 });
+            console.log(`[Guest] night-time auto-reply in room ${roomId}`);
+          } else {
+            // escalate → 방 상태 waiting 으로 변경
+            await supabase
+              .from('chat_rooms')
+              .update({ status: 'waiting', updated_at: new Date().toISOString() })
+              .eq('id', roomId);
+            io.emit('room:activity', { roomId, status: 'waiting', timestamp: new Date().toISOString(), roomLabel });
+            socket.emit('auto:escalate', {});
+            socket.emit('room:status', { status: 'waiting' });
+            telegram.alertEscalation(roomId, roomLabel, guestName);
+          }
         }
       }
 
@@ -208,6 +242,7 @@ module.exports = function guestHandler(io, socket) {
   socket.on('guest:close_room', async ({ roomId }) => {
     try {
       clearIdleTimer(roomId);
+      llmFallback.clearRoomCounter(roomId);
       const roomLabel = roomLabelMap.get(roomId) || '';
       const guestName = guestNameMap.get(roomId) || '';
       await supabase

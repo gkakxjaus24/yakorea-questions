@@ -411,6 +411,22 @@
     .msg.auto    { align-self: flex-start; background: #f1f5f9; color: #334155; border-bottom-left-radius: 4px; }
     .msg.manager { align-self: flex-start; background: #dcfce7; color: #166534; border-bottom-left-radius: 4px; }
     .msg.system  { align-self: center; background: #fef9c3; color: #713f12; font-size: 12px; padding: 4px 10px; border-radius: 20px; }
+    .msg.typing  {
+      align-self: flex-start; background: #f1f5f9;
+      border-bottom-left-radius: 4px;
+      display: flex; gap: 4px; align-items: center;
+      padding: 10px 14px;
+    }
+    .msg.typing span {
+      width: 6px; height: 6px; border-radius: 50%; background: #94a3b8;
+      animation: typing-bounce 1.2s infinite ease-in-out;
+    }
+    .msg.typing span:nth-child(2) { animation-delay: 0.15s; }
+    .msg.typing span:nth-child(3) { animation-delay: 0.30s; }
+    @keyframes typing-bounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30%           { transform: translateY(-4px); opacity: 1; }
+    }
 
     #candidates-box {
       padding: 0 12px;
@@ -1147,6 +1163,22 @@
     return div;
   }
 
+  // ── 입력 중(typing) 인디케이터 ────────────────────────────────
+  let typingEl = null;
+  function showTyping() {
+    if (typingEl) return;
+    typingEl = document.createElement('div');
+    typingEl.className = 'msg typing';
+    typingEl.setAttribute('aria-label', 'typing');
+    typingEl.innerHTML = '<span></span><span></span><span></span>';
+    messagesEl.appendChild(typingEl);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+  function hideTyping() {
+    if (typingEl && typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+    typingEl = null;
+  }
+
   function showCandidates(candidates) {
     candidatesBox.innerHTML = '';
     if (!candidates || candidates.length === 0) return;
@@ -1232,7 +1264,12 @@
         updateStatus(status);
       });
 
+      socket.on('auto:typing', ({ on }) => {
+        if (on) showTyping(); else hideTyping();
+      });
+
       socket.on('auto:response', ({ content }) => {
+        hideTyping();
         candidatesBox.innerHTML = '';
         escalateBtn.classList.remove('visible');
         appendMsg(content, 'auto');
@@ -1244,6 +1281,7 @@
       });
 
       socket.on('auto:escalate', () => {
+        hideTyping();
         candidatesBox.innerHTML = '';
         escalateBtn.classList.add('visible');
         appendMsg(t('escalateOffer'), 'system');

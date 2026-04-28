@@ -288,4 +288,16 @@ async function match(question, lang = 'ko') {
   }
 }
 
-module.exports = { match, invalidateCache };
+// LLM 폴백용 — 특정 언어의 모든 intent 답변을 한 번에 가져옴
+// 답변에는 이미 {{변수}}가 settings로 치환되어 있음 (loadIntents 로직 그대로 사용)
+async function getAllAnswersForLang(lang = 'ko') {
+  const intents = await loadIntents();
+  return intents
+    .map((i) => ({
+      id: i.id,
+      answer: i.answers[lang] || i.answers['en'] || Object.values(i.answers)[0] || '',
+    }))
+    .filter((x) => x.answer);
+}
+
+module.exports = { match, invalidateCache, getAllAnswersForLang };
