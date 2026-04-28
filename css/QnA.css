@@ -2,14 +2,19 @@
   display: flex;
   flex-direction: column;
   font-size: 100%;
+  width: 100%;
+  max-width: 720px;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .category-heading {
-  font-size: 0.85em;
+  font-size: 20px !important;
   font-weight: bold;
   color: #888;
   text-align: left;
-  padding-left: 20px;
+  padding-left: 4px;
+  margin: 16px 0 6px !important;
 }
 
 .question {
@@ -100,6 +105,11 @@
 @media (max-width: 768px) {
   .container {
     font-size: 80% !important;
+    padding: 0 8px;
+  }
+
+  .category-heading {
+    font-size: 14px !important;
   }
 
   .media-container img,
