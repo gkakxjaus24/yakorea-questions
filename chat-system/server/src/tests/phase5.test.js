@@ -12,7 +12,7 @@
 //  4. typing 인디케이터 on/off 이벤트
 //  5. llm_fallback_logs에 로그 기록 확인
 
-require('dotenv').config();
+require('dotenv').config({ override: true });
 const { io: ioClient } = require('socket.io-client');
 const supabase = require('../services/supabase');
 
