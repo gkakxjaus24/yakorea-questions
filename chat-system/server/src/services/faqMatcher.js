@@ -217,8 +217,17 @@ function isEscalationRequest(text) {
   ];
   if (enPhrases.some((p) => en.includes(p))) return true;
 
-  // 일본어
-  if (['スタッフ', '担当者', 'スタッフに'].some((k) => text.includes(k))) return true;
+  // 일본어 (단일 키워드 + staff/connect 조합)
+  const jaSingle = ['担当者', 'スタッフに連絡'];
+  if (jaSingle.some((k) => text.includes(k))) return true;
+  const jaStaff = ['スタッフ', '従業員', '担当', '直接', '人と', '人間'];
+  const jaConnect = [
+    '接続', '連絡', 'つなぐ', 'つない', 'つなげ',
+    '話す', '話し', '話したい',
+    '呼ぶ', '呼んで', '呼び',
+    '会話', '通話', '対応', 'ヘルプ',
+  ];
+  if (jaStaff.some((k) => text.includes(k)) && jaConnect.some((k) => text.includes(k))) return true;
 
   // 중국어
   if (['联系客服', '转人工', '人工客服', '找客服'].some((k) => text.includes(k))) return true;
