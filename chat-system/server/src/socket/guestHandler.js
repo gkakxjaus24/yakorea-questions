@@ -211,8 +211,9 @@ module.exports = function guestHandler(io, socket) {
         // --- LLM 폴백 시도 (플래그 ON일 때만) ---
         // Jaccard가 못 잡은 질문을 Claude Haiku 4.5가 DB 답변만 보고 시도.
         // 답을 모르면 NO_MATCH → 기존 야간/escalate 흐름으로 fall-through.
+        // 단, 명시적 매니저 호출(handoff=true)은 LLM도 건너뛰고 즉시 매니저 연결.
         let llmHandled = false;
-        if (await llmFallback.isEnabled()) {
+        if (!result.handoff && (await llmFallback.isEnabled())) {
           socket.emit('auto:typing', { on: true });
           const r = await llmFallback.answer({
             question: content,

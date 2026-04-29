@@ -203,8 +203,8 @@ function isEscalationRequest(text) {
   if (koSingle.some((k) => t.includes(k))) return true;
 
   // 직원/매니저/사람 + 연결/이야기/통화 조합
-  const koStaff = ['직원', '매니저', '사람', '직접'];
-  const koConnect = ['연결', '이야기', '통화', '상담', '연락', '부탁'];
+  const koStaff = ['직원', '매니저', '사람', '직접', '관리자', '스태프'];
+  const koConnect = ['연결', '이야기', '통화', '상담', '연락', '부탁', '대화', '문의', '바꿔', '바꾸'];
   if (koStaff.some((k) => t.includes(k)) && koConnect.some((k) => t.includes(k))) return true;
 
   // 영어
@@ -236,7 +236,9 @@ function isEscalationRequest(text) {
 
 async function match(question, lang = 'ko') {
   // 에스컬레이션 키워드 선탐지 — FAQ 매칭 전에 처리
-  if (isEscalationRequest(question)) return { type: 'escalate' };
+  // handoff=true 표시: 명시적 매니저 호출이므로 호출자(guestHandler)는
+  // LLM 폴백도 건너뛰고 즉시 escalate 흐름으로 가야 함
+  if (isEscalationRequest(question)) return { type: 'escalate', handoff: true };
 
   const intents = await loadIntents();
   if (intents.length === 0) return { type: 'escalate' };
