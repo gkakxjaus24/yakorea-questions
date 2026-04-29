@@ -1,4 +1,8 @@
 const supabase = require('../services/supabase');
+const translateService = require('../services/translateService');
+const { detectManagerLang } = require('../utils/langDetect');
+
+const MANAGER_LANGS = ['ko', 'en', 'zh'];
 
 module.exports = function managerHandler(io, socket) {
   // 매니저 소켓 등록
@@ -47,13 +51,48 @@ module.exports = function managerHandler(io, socket) {
         .single();
       if (error) throw error;
 
-      // 같은 방의 손님에게 전달
+      // --- Backward 번역 (매니저 → 손님) ---
+      // 조건: 매니저가 중국어로 답했고 + 손님이 비-{ko,en,zh} 언어 사용 + 플래그 ON
+      let translated = null;
+      let originalLang = null;
+      const managerLang = detectManagerLang(content);
+      if (managerLang === 'zh') {
+        // 손님 언어 조회
+        const { data: room } = await supabase
+          .from('chat_rooms')
+          .select('guest_lang')
+          .eq('id', roomId)
+          .maybeSingle();
+        const guestLang = room?.guest_lang;
+        if (guestLang && !MANAGER_LANGS.includes(guestLang) && (await translateService.isEnabled())) {
+          const r = await translateService.translate({
+            text: content,
+            sourceLang: 'zh',
+            targetLang: guestLang,
+            roomId,
+            direction: 'backward',
+          });
+          if (r.ok) {
+            translated = r.translated;
+            originalLang = 'zh';
+            await supabase
+              .from('messages')
+              .update({ content_translated: translated, original_lang: originalLang })
+              .eq('id', msg.id);
+          }
+        }
+      }
+
+      // 같은 방의 손님에게 전달 (번역문 있으면 같이)
       socket.to(roomId).emit('manager:message', {
         content: msg.content,
+        translated,
+        originalLang,
         timestamp: msg.created_at,
       });
 
-      console.log(`[Manager] reply in room ${roomId}: ${content}`);
+      console.log(`[Manager] reply in room ${roomId}: ${content}` +
+        (translated ? ` (translated → ${originalLang ? '?' : ''})` : ''));
     } catch (err) {
       console.error('[manager:send_reply] error:', err.message);
     }

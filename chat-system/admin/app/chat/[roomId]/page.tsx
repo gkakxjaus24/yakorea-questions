@@ -8,6 +8,8 @@ interface Message {
   id?: string;
   sender_type: 'guest' | 'manager' | 'auto' | 'system';
   content: string;
+  content_translated?: string | null;
+  original_lang?: string | null;
   created_at?: string;
 }
 
@@ -75,8 +77,14 @@ export default function ChatRoomPage() {
     const handleHistory = ({ messages: hist }: { messages: Message[] }) => {
       setMessages(hist);
     };
-    const handleGuestMsg = ({ content, timestamp, roomLabel: lbl, guestName: nm }: { content: string; timestamp: string; roomLabel?: string; guestName?: string }) => {
-      setMessages((prev) => [...prev, { sender_type: 'guest', content, created_at: timestamp }]);
+    const handleGuestMsg = ({ content, translated, originalLang, timestamp, roomLabel: lbl, guestName: nm }: { content: string; translated?: string | null; originalLang?: string | null; timestamp: string; roomLabel?: string; guestName?: string }) => {
+      setMessages((prev) => [...prev, {
+        sender_type: 'guest',
+        content,
+        content_translated: translated || null,
+        original_lang: originalLang || null,
+        created_at: timestamp,
+      }]);
       if (lbl) setRoomLabel(lbl);
       if (nm) setGuestName(nm);
       if (document.visibilityState !== 'visible') playBeep(440, 1);
@@ -158,10 +166,18 @@ export default function ChatRoomPage() {
           <div key={i} className={`flex flex-col max-w-[75%] ${msg.sender_type === 'manager' ? 'self-end items-end' : 'self-start items-start'}`}>
             <span className="text-xs text-gray-400 mb-1">
               {msg.sender_type === 'guest' ? '손님' : msg.sender_type === 'manager' ? '매니저' : msg.sender_type === 'auto' ? '자동응답' : '시스템'}
+              {msg.original_lang && (
+                <span className="ml-1 text-gray-300">· {msg.original_lang.toUpperCase()}</span>
+              )}
             </span>
             <p className={`px-4 py-2 rounded-2xl text-sm leading-relaxed ${SENDER_STYLE[msg.sender_type]}`}>
               {msg.content}
             </p>
+            {msg.content_translated && (
+              <p className="mt-1 px-4 py-1.5 text-xs text-gray-500 bg-gray-50 border border-gray-200 rounded-2xl leading-relaxed">
+                <span className="font-semibold text-gray-400">EN ›</span> {msg.content_translated}
+              </p>
+            )}
           </div>
         ))}
         <div ref={bottomRef} />

@@ -2,6 +2,10 @@ const supabase = require('../services/supabase');
 const faqMatcher = require('../services/faqMatcher');
 const telegram = require('../services/telegram');
 const llmFallback = require('../services/llmFallback');
+const translateService = require('../services/translateService');
+
+// 매니저(중국인)가 그대로 읽을 수 있는 언어 — 번역 필요 없음
+const MANAGER_LANGS = ['ko', 'en', 'zh'];
 
 const IDLE_TIMEOUT_MS = 10 * 60 * 1000; // 10분
 const idleTimers = new Map(); // roomId -> setTimeout
@@ -137,23 +141,50 @@ module.exports = function guestHandler(io, socket) {
       const roomLabel = roomLabelMap.get(roomId) || '';
       const guestName = guestNameMap.get(roomId) || '';
 
-      // 같은 방의 매니저에게 전달
+      // --- Forward 번역 (손님 → 매니저) ---
+      // 매니저가 못 읽는 언어로 들어오면 영어로 번역해서 같이 전달
+      let translated = null;
+      let originalLang = null;
+      if (lang && !MANAGER_LANGS.includes(lang) && (await translateService.isEnabled())) {
+        const r = await translateService.translate({
+          text: content,
+          sourceLang: lang,
+          targetLang: 'en',
+          roomId,
+          direction: 'forward',
+        });
+        if (r.ok) {
+          translated = r.translated;
+          originalLang = lang;
+          // DB에도 번역문/원본 언어 기록 (히스토리 재로드 시 매니저가 다시 볼 수 있게)
+          await supabase
+            .from('messages')
+            .update({ content_translated: translated, original_lang: originalLang })
+            .eq('id', msg.id);
+        }
+      }
+
+      // 같은 방의 매니저에게 전달 (번역문 있으면 같이)
       socket.to(roomId).emit('guest:message', {
         content: msg.content,
+        translated,
+        originalLang,
         timestamp: msg.created_at,
       });
 
-      // 방 updated_at 갱신
+      // 방 updated_at + guest_lang 갱신 (매니저 답변 시 타겟 언어로 활용)
+      const roomUpdate = { updated_at: new Date().toISOString() };
+      if (lang) roomUpdate.guest_lang = lang;
       await supabase
         .from('chat_rooms')
-        .update({ updated_at: new Date().toISOString() })
+        .update(roomUpdate)
         .eq('id', roomId);
 
-      // 관리자 목록 페이지 전체에 알림
+      // 관리자 목록 페이지 전체에 알림 (번역문이 있으면 알림에도 영어 표시)
       io.emit('room:activity', {
         roomId,
         guestId: socket.guestId || socket.id,
-        content: msg.content,
+        content: translated || msg.content,
         timestamp: msg.created_at,
         roomLabel, guestName,
       });
@@ -243,6 +274,7 @@ module.exports = function guestHandler(io, socket) {
     try {
       clearIdleTimer(roomId);
       llmFallback.clearRoomCounter(roomId);
+      translateService.clearRoomCounter(roomId);
       const roomLabel = roomLabelMap.get(roomId) || '';
       const guestName = guestNameMap.get(roomId) || '';
       await supabase
