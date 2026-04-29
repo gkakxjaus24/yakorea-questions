@@ -172,13 +172,15 @@ module.exports = function guestHandler(io, socket) {
         timestamp: msg.created_at,
       });
 
-      // 방 updated_at + guest_lang 갱신 (매니저 답변 시 타겟 언어로 활용)
+      // 방 updated_at + guest_lang 갱신 + 현재 status 동시 조회
       const roomUpdate = { updated_at: new Date().toISOString() };
       if (lang) roomUpdate.guest_lang = lang;
-      await supabase
+      const { data: roomAfter } = await supabase
         .from('chat_rooms')
         .update(roomUpdate)
-        .eq('id', roomId);
+        .eq('id', roomId)
+        .select('status')
+        .maybeSingle();
 
       // 관리자 목록 페이지 전체에 알림 (번역문이 있으면 알림에도 영어 표시)
       io.emit('room:activity', {
@@ -191,6 +193,13 @@ module.exports = function guestHandler(io, socket) {
 
       // 유휴 타임아웃 리셋
       scheduleIdleClose(io, roomId);
+
+      // 매니저가 이미 연결된 방(status='active')에서는 FAQ 자동응답 / LLM /
+      // escalate 모두 건너뜀 — 직원이 직접 답장하도록.
+      if (roomAfter?.status === 'active') {
+        console.log(`[Guest] active room ${roomId} — 자동응답 생략 (직원 응대 중)`);
+        return;
+      }
 
       // FAQ 자동응답 (게스트가 선택한 언어로 매칭)
       const result = await faqMatcher.match(content, lang || 'ko');
