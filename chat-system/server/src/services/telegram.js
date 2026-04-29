@@ -1,13 +1,15 @@
 const https = require('https');
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+// 콤마로 여러 chat_id 지원 (사장님 + 직원 + …)
+const CHAT_IDS = (process.env.TELEGRAM_CHAT_ID || '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
 const ADMIN_URL = process.env.ADMIN_URL || 'https://yakorea-chat-admin.vercel.app';
 
-function sendMessage(text) {
-  if (!TOKEN || !CHAT_ID) return; // 환경변수 없으면 조용히 건너뜀
-
-  const body = JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' });
+function sendOne(chatId, text) {
+  const body = JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' });
   const req = https.request(
     {
       hostname: 'api.telegram.org',
@@ -17,13 +19,18 @@ function sendMessage(text) {
     },
     (res) => {
       if (res.statusCode !== 200) {
-        console.error(`[Telegram] 전송 실패: HTTP ${res.statusCode}`);
+        console.error(`[Telegram] chat_id=${chatId} 전송 실패: HTTP ${res.statusCode}`);
       }
     }
   );
-  req.on('error', (e) => console.error('[Telegram] 오류:', e.message));
+  req.on('error', (e) => console.error(`[Telegram] chat_id=${chatId} 오류:`, e.message));
   req.write(body);
   req.end();
+}
+
+function sendMessage(text) {
+  if (!TOKEN || CHAT_IDS.length === 0) return; // 환경변수 없으면 조용히 건너뜀
+  for (const id of CHAT_IDS) sendOne(id, text);
 }
 
 function alertEscalation(roomId, roomLabel, guestName) {
