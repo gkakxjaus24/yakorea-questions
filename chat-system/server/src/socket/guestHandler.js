@@ -203,6 +203,7 @@ module.exports = function guestHandler(io, socket) {
         socket.emit('auto:response', {
           content: result.faq.answer,
           confidence: result.confidence,
+          requiresHandoff: !!result.requiresHandoff,
         });
       } else if (result.type === 'candidates') {
         socket.emit('auto:candidates', { candidates: result.candidates });
