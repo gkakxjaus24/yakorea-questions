@@ -9,7 +9,8 @@
     "test:phase2": "node src/tests/phase2.test.js",
     "test:phase3": "node src/tests/phase3.test.js",
     "test:phase4": "node src/tests/phase4.test.js",
-    "test:phase5": "node src/tests/phase5.test.js"
+    "test:phase5": "node src/tests/phase5.test.js",
+    "test:phase6": "node src/tests/phase6.test.js"
   },
   "keywords": [],
   "author": "",

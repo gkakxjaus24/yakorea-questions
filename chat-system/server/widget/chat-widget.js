@@ -1287,8 +1287,22 @@
         appendMsg(t('escalateOffer'), 'system');
       });
 
-      socket.on('manager:message', ({ content }) => {
-        appendMsg(content, 'manager');
+      socket.on('manager:message', ({ content, translated, originalLang }) => {
+        if (translated) {
+          // 매니저가 중국어로 답한 걸 손님 언어로 자동 번역 — 번역문을 메인으로
+          appendMsg(translated, 'manager');
+          // 중국어 원문은 그 아래 작게 표시 (참고용)
+          const sub = document.createElement('div');
+          sub.className = 'msg-translation-source';
+          sub.textContent = content;
+          sub.style.cssText =
+            'align-self:flex-start;max-width:80%;margin:-4px 0 6px 4px;' +
+            'font-size:11px;color:#94a3b8;line-height:1.4;';
+          messagesEl.appendChild(sub);
+          messagesEl.scrollTop = messagesEl.scrollHeight;
+        } else {
+          appendMsg(content, 'manager');
+        }
       });
 
       socket.on('room:closed', ({ by }) => {
