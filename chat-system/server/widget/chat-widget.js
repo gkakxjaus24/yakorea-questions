@@ -1268,11 +1268,16 @@
         if (on) showTyping(); else hideTyping();
       });
 
-      socket.on('auto:response', ({ content }) => {
+      socket.on('auto:response', ({ content, requiresHandoff }) => {
         hideTyping();
         candidatesBox.innerHTML = '';
-        escalateBtn.classList.remove('visible');
         appendMsg(content, 'auto');
+        // 직원 확인이 필요한 사안은 자동응답 후에도 매니저 연결 버튼 노출
+        if (requiresHandoff) {
+          escalateBtn.classList.add('visible');
+        } else {
+          escalateBtn.classList.remove('visible');
+        }
       });
 
       socket.on('auto:candidates', ({ candidates }) => {

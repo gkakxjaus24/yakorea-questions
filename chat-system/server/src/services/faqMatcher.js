@@ -267,11 +267,22 @@ async function match(question, lang = 'ko') {
     return v ? v.text : '';
   }
 
+  // 자동응답 후에도 매니저 연결 버튼을 같이 노출해야 하는 intent들
+  // (직원이 직접 확인해야 하는 사안 — 자동응답은 안내만 하고 실제 처리는 매니저)
+  const HUMAN_HANDOFF_INTENTS = new Set([
+    'staff_connect',
+    'bed_issue',
+    'noise_complaint',
+    'room_complaint',
+  ]);
+
   if (top.score >= 0.8) {
     return {
       type: 'auto',
       faq: { answer: getAnswer(top.intent) },
       confidence: top.score,
+      intentId: top.intent.id,
+      requiresHandoff: HUMAN_HANDOFF_INTENTS.has(top.intent.id),
     };
   } else if (top.score >= 0.5) {
     const candidates = scored
@@ -281,6 +292,8 @@ async function match(question, lang = 'ko') {
         question: getDisplayQuestion(s.intent),
         answer: getAnswer(s.intent),
         score: s.score,
+        intentId: s.intent.id,
+        requiresHandoff: HUMAN_HANDOFF_INTENTS.has(s.intent.id),
       }));
     return { type: 'candidates', candidates, confidence: top.score };
   } else {
