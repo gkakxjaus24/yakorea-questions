@@ -52,7 +52,9 @@ module.exports = function managerHandler(io, socket) {
       if (error) throw error;
 
       // --- Backward 번역 (매니저 → 손님) ---
-      // 조건: 매니저가 중국어로 답했고 + 손님이 비-{ko,en,zh} 언어 사용 + 플래그 ON
+      // 조건: 매니저가 중국어로 답했고 + 손님 언어가 중국어가 아님 + 플래그 ON
+      // (손님이 선택한 언어가 어떤 것이든 — ko/en/ja/ru/es — 모두 번역.
+      //  중국어 그대로 노출되면 손님이 못 읽기 때문.)
       let translated = null;
       let originalLang = null;
       const managerLang = detectManagerLang(content);
@@ -64,7 +66,7 @@ module.exports = function managerHandler(io, socket) {
           .eq('id', roomId)
           .maybeSingle();
         const guestLang = room?.guest_lang;
-        if (guestLang && !MANAGER_LANGS.includes(guestLang) && (await translateService.isEnabled())) {
+        if (guestLang && guestLang !== 'zh' && (await translateService.isEnabled())) {
           const r = await translateService.translate({
             text: content,
             sourceLang: 'zh',

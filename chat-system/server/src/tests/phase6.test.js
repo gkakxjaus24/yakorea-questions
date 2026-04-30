@@ -183,16 +183,34 @@ async function testBackwardManagerChineseToJapanese() {
 }
 
 async function testBackwardManagerChineseToKorean() {
-  console.log('\n[Test 6] Backward — 매니저 중국어 + 한국어 손님: 번역 안 함');
+  console.log('\n[Test 6] Backward — 매니저 중국어 + 한국어 손님: 한국어 번역 도착');
+  if (!process.env.ANTHROPIC_API_KEY) {
+    console.log('  ⚠ ANTHROPIC_API_KEY 없음 — 스킵'); return;
+  }
   await setFlag('true');
   const { guest, mgr, roomId } = await setupRoomWithGuestLang('ko', '안녕하세요');
+
+  const p = waitFor(guest, 'manager:message', 15000);
+  mgr.emit('manager:send_reply', { roomId, content: '入住时间是下午3点。' });
+  const msg = await p.catch(() => null);
+
+  assert('손님 수신 OK', !!msg);
+  assert('한국어 손님도 매니저 중국어 답변을 한국어로 번역', !!(msg && msg.translated && msg.translated.length > 3));
+  if (msg?.translated) console.log(`    번역문(KO): "${msg.translated}"`);
+  guest.disconnect(); mgr.disconnect();
+}
+
+async function testBackwardManagerChineseToChinese() {
+  console.log('\n[Test 7] Backward — 매니저 중국어 + 중국어 손님: 번역 안 함 (같은 언어)');
+  await setFlag('true');
+  const { guest, mgr, roomId } = await setupRoomWithGuestLang('zh', '你好');
 
   const p = waitFor(guest, 'manager:message', 8000);
   mgr.emit('manager:send_reply', { roomId, content: '入住时间是下午3点。' });
   const msg = await p.catch(() => null);
 
   assert('손님 수신 OK', !!msg);
-  assert('한국어 손님은 매니저 중국어를 그대로 봐도 OK (번역 안 함)', msg && !msg.translated);
+  assert('중국어 손님은 중국어 그대로 (번역 안 함)', msg && !msg.translated);
   guest.disconnect(); mgr.disconnect();
 }
 
@@ -208,6 +226,7 @@ async function run() {
     await testBackwardManagerEnglish();
     await testBackwardManagerChineseToJapanese();
     await testBackwardManagerChineseToKorean();
+    await testBackwardManagerChineseToChinese();
   } catch (err) {
     console.error('테스트 실행 오류:', err.message);
     console.error(err.stack);
