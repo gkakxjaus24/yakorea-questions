@@ -1,11 +1,6 @@
-/* ✅ 키오스크 채팅 위젯(우측 400px 고정 패널)과 겹치지 않도록 우측 여백 확보 */
+/* ✅ 키오스크 채팅 위젯(하단 40vh 드로어)과 겹치지 않도록 하단 여백 확보 */
 body {
-  padding-right: 410px;
-}
-@media (max-width: 900px) {
-  body {
-    padding-right: 0;
-  }
+  padding-bottom: 42vh;
 }
 
 .container {

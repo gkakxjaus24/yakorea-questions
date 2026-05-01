@@ -754,21 +754,33 @@
     #name-error.hidden { display: none; }
 
     ${IS_KIOSK ? `
-    /* ── 키오스크 우측 고정 패널 모드 ────────────────────────── */
+    /* ── 키오스크 하단 드로어 모드 (세로 모니터 최적화) ───────── */
     #toggle-btn { display: none !important; }
     #chat-box {
-      position: fixed; top: 0; right: 0; bottom: 0; left: auto;
-      width: 400px; height: 100vh; max-height: 100vh;
-      border-radius: 0; box-shadow: -2px 0 12px rgba(0,0,0,0.12);
+      position: fixed; left: 0; right: 0; bottom: 0; top: auto;
+      width: 100%; height: 40vh; max-height: 40vh;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
       transform: none !important;
     }
     #chat-box.hidden {
       opacity: 1; pointer-events: auto; transform: none;
     }
-    #chat-box.kb-open { height: 100vh; bottom: 0; }
-    @media (max-width: 900px) {
-      #chat-box { width: 100%; }
+    #chat-box.kb-open { height: 40vh; bottom: 0; }
+
+    /* 키오스크 전용 — 키보드 키 크게, 폭 충분히 활용 */
+    #virtual-kb { padding: 8px 8px 6px; }
+    .kb-key {
+      min-width: 50px !important; height: 65px !important;
+      max-width: none !important; font-size: 24px !important;
+      padding: 0 8px !important;
     }
+    #kb-space { height: 56px !important; font-size: 16px !important; }
+    #kb-back  { height: 56px !important; width: 70px !important; font-size: 22px !important; }
+    #kb-send  { height: 56px !important; width: 90px !important; font-size: 16px !important; }
+    .vk-cand-char { font-size: 20px !important; padding: 6px 12px !important; }
+    #lang-bar { padding: 8px 12px; }
+    .lang-btn { padding: 6px 14px; font-size: 14px; }
     ` : ''}
   `;
 
