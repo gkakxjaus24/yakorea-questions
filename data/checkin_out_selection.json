@@ -18,5 +18,15 @@
     "title": "请问需要什么帮助？",
     "checkinButton": "办理入住",
     "checkoutButton": "办理退房"
+  },
+  "ru": {
+    "title": "Чем я могу вам помочь?",
+    "checkinButton": "Заезд",
+    "checkoutButton": "Выезд"
+  },
+  "es": {
+    "title": "¿Cómo puedo ayudarte?",
+    "checkinButton": "Registrarse",
+    "checkoutButton": "Salida"
   }
 }

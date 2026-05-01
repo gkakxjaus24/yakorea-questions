@@ -65,6 +65,12 @@ document.getElementById("btn-japanese").addEventListener("click", () => {
 document.getElementById("btn-english").addEventListener("click", () => {
     window.location.href = getTargetPage("en");
 });
+document.getElementById("btn-russian").addEventListener("click", () => {
+    window.location.href = getTargetPage("ru");
+});
+document.getElementById("btn-spanish").addEventListener("click", () => {
+    window.location.href = getTargetPage("es");
+});
 
 /* =========================================================
    3. 오후 3시에 체크인 시작 안내 음성 1회 자동 재생

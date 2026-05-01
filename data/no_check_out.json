@@ -34,5 +34,23 @@
     "nextPage": "reservation_number.html?lang=zh",
     "earlyButtonText": "我来得有点早，现在可以办理入住吗？",
     "earlyNextPage": "cleaning_time.html?lang=zh"
+  },
+  "ru": {
+    "title": "НЕ НУЖНО ОФОРМЛЯТЬ ВЫЕЗД 😄✋",
+    "mainNotice": "Процедура выезда не требуется. <br>Просто возьмите свои вещи и уходите ✋",
+    "bagStorage": "ХРАНЕНИЕ БАГАЖА: Вы можете оставить свои сумки под столом перед стойкой регистрации<br>(Камеры видеонаблюдения следят📷👀)",
+    "buttonText": "Я должен был приехать вчера, но приехал с опозданием",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "Я приехал раньше. Я могу заселиться сейчас?",
+    "earlyNextPage": "cleaning_time.html?lang=en"
+  },
+  "es": {
+    "title": "¡NO NECESITAS HACER CHECK-OUT 😄✋",
+    "mainNotice": "No Se Requiere Procedimiento de Check-out. <br>Solo Toma Tus Pertenencias y Vete ✋",
+    "bagStorage": "ALMACENAMIENTO DE EQUIPAJE: Puedes Dejar Tus Bolsas Debajo de la Mesa Frente a la Recepción<br>(Las cámaras de vigilancia están vigilando 📷👀)",
+    "buttonText": "Se suponía que debería haber llegado ayer, pero llegué tarde",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "Llegué temprano. ¿Puedo hacer check-in ahora?",
+    "earlyNextPage": "cleaning_time.html?lang=en"
   }
 }

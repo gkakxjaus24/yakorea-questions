@@ -22,5 +22,17 @@
     "noticeText": "没有空房。已满员🛏️❌<br><br><br><br>如果您如果您需要帮助，请点击屏幕下方的“帮助”按钮。",
     "buttonText": "自助入住",
     "nextPage": "reservation_number.html?lang=zh"
+  },
+  "ru": {
+    "title": "СТОЙКА РЕГИСТРАЦИИ ЗАКРЫТА 🕰️❌",
+    "noticeText": "НОМЕРОВ НЕТ. МЫ ПОЛНОСТЬЮ ЗАБРОНИРОВАНЫ🛏️❌<br><br><br><br>Если вам нужна помощь, нажмите кнопку Help внизу экрана.",
+    "buttonText": "САМОСТОЯТЕЛЬНАЯ РЕГИСТРАЦИЯ",
+    "nextPage": "reservation_number.html?lang=en"
+  },
+  "es": {
+    "title": "LA RECEPCIÓN ESTÁ CERRADA 🕰️❌",
+    "noticeText": "SIN HABITACIONES DISPONIBLES. ESTAMOS LLENOS🛏️❌<br><br><br><br>Si necesita ayuda, presione el botón Ayuda en la parte inferior de la pantalla.",
+    "buttonText": "AUTO CHECK-IN",
+    "nextPage": "reservation_number.html?lang=en"
   }
 }

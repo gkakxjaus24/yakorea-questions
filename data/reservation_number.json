@@ -146,5 +146,77 @@
       "line2": "チェックイン日を再確認してください。",
       "line3": "同日予約の場合、システムがまだ更新されていない可能性があります。画面右下のメッセージボタンをタップして「人に連絡（Talk to person）」と入力してください。"
     }
+  },
+  "ru": {
+    "duplicateName": "Более одного бронирования с одинаковым именем. Пожалуйста, введите номер своего бронирования",
+    "reservationNotFound": "Бронирование не найдено. Пожалуйста, введите номер бронирования или имя еще раз",
+    "loadError": "Не удалось загрузить данные бронирования. Пожалуйста, попробуйте позже.",
+    "bedNumber": "Номер кровати",
+    "roomAndLockerPassword": "Пароль комнаты / Шкафчика",
+    "tableHeaders": {
+      "name": "Имя",
+      "roomNumber": "Номер комнаты",
+      "roomPassword": "Пароль комнаты",
+      "lockerPassword": "Пароль шкафчика",
+      "roomAndLockerPassword": "Пароль комнаты / Шкафчика",
+      "checkoutDate": "Дата выезда",
+      "specialMemo": "Специальная заметка",
+      "checkInMethod": "Способ заезда"
+    },
+    "ui": {
+      "title": "Самостоятельный заезд💻👆",
+      "nextButton": "Поиск",
+      "inputGuide": "",
+      "inputPlaceholder": "Имя или номер бронирования"
+    },
+    "checkIn": {
+      "slipperRoom": "Пожалуйста, наденьте тапочки для комнаты {room} и перейдите в свою комнату.",
+      "slipperBed": "Пожалуйста, наденьте тапочки для кровати {room} и перейдите в свою комнату.",
+      "routeBackStair": "Комната {room} находится наверху по лестнице позади стойки регистрации.",
+      "routeFrontPass": "Комната {room} доступна, пройдя между стойкой регистрации и кухней.",
+      "amenity": "Если вам нужны полотенца, зубная паста или зубная щетка, возьмите их с правой стороны стойки регистрации."
+    },
+    "searchFailHelp": {
+      "title": "Если мы не можем найти ваше бронирование, пожалуйста, проверьте следующее",
+      "line1": "Возможно, вы забронировали Yakorea Hostel [Gangnam]. (Это расположение Dongdaemun.)",
+      "line2": "Пожалуйста, еще раз проверьте дату заезда.",
+      "line3": "Если это бронирование в день заезда, система может быть еще не обновлена. Пожалуйста, нажмите кнопку сообщения в нижнем правом углу и введите 'Talk to person'."
+    }
+  },
+  "es": {
+    "duplicateName": "Más de una reserva tiene el mismo nombre. Por favor, ingrese su número de reserva",
+    "reservationNotFound": "Reserva no encontrada. Por favor, ingrese su número de reserva o nombre nuevamente",
+    "loadError": "Error al cargar los datos de la reserva. Por favor, intente más tarde.",
+    "bedNumber": "Número de cama",
+    "roomAndLockerPassword": "Contraseña de Habitación / Casillero",
+    "tableHeaders": {
+      "name": "Nombre",
+      "roomNumber": "Nº de Habitación",
+      "roomPassword": "Contraseña de Habitación",
+      "lockerPassword": "Contraseña de Casillero",
+      "roomAndLockerPassword": "Contraseña de Habitación / Casillero",
+      "checkoutDate": "Fecha de Salida",
+      "specialMemo": "Nota Especial",
+      "checkInMethod": "Método de Check-in"
+    },
+    "ui": {
+      "title": "Check-in Automático💻👆",
+      "nextButton": "Buscar",
+      "inputGuide": "",
+      "inputPlaceholder": "Nombre o número de reserva"
+    },
+    "checkIn": {
+      "slipperRoom": "Por favor, use las pantuflas de la habitación {room} y diríjase a su habitación.",
+      "slipperBed": "Por favor, use las pantuflas de la cama {room} y diríjase a su habitación.",
+      "routeBackStair": "La habitación {room} se encuentra en el piso de arriba por las escaleras detrás del mostrador.",
+      "routeFrontPass": "La habitación {room} se puede acceder pasando entre el mostrador y la cocina.",
+      "amenity": "Si necesita toallas, pasta de dientes o cepillo de dientes, por favor tómelos del lado derecho del mostrador."
+    },
+    "searchFailHelp": {
+      "title": "Si no encontramos su reserva, por favor verifique lo siguiente",
+      "line1": "Es posible que haya reservado Yakorea Hostel [Gangnam]. (Esta es la ubicación de Dongdaemun.)",
+      "line2": "Por favor, verifique su fecha de check-in nuevamente.",
+      "line3": "Si esta es una reserva del mismo día, el sistema podría no estar actualizado aún. Por favor, toque el botón de mensaje en la esquina inferior derecha y escriba 'Talk to person'."
+    }
   }
 }

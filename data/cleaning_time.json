@@ -18,6 +18,15 @@
     "title": "清洁时间 🛏️🧹",
     "mainNotice": "下午3点开始才能办理入住，提前入住不可以哦。<br />(系统会在3点准时自动开放，人工无法操作)<br /><br />如果您感到疲劳，可以穿上我们准备的拖鞋，在厨房沙发上稍作休息 :)🪑👌",
     "bagStorage": "行李寄存：请将行李放在前台前的桌子上（监控录像中 📷👀）"
+  },
+  "ru": {
+    "title": "Время уборки 🛏️🧹",
+    "mainNotice": "Заселение начинается в 3:00 PM. К сожалению, раннее заселение невозможно.<br />(Система открывается автоматически в 3:00 PM.)<br /><br />Если вы устали, пожалуйста, наденьте дополнительные тапочки и расслабьтесь на диване на кухне :)🪑👌",
+    "bagStorage": "Хранение багажа: Оставьте свой багаж на столе перед стойкой (видеокамера наблюдает 📷👀)"
+  },
+  "es": {
+    "title": "Hora de Limpieza 🛏️🧹",
+    "mainNotice": "El check-in comienza a las 3:00 PM. Lo sentimos, el check-in temprano no es posible.<br />(El sistema se abre automáticamente a las 3:00 PM.)<br /><br />Si estás cansado, por favor usa pantuflas adicionales y relájate en el sofá de la cocina :)🪑👌",
+    "bagStorage": "Almacenamiento de equipaje: Deja tu bolsa en la mesa frente al mostrador (las cámaras de seguridad están vigilando 📷👀)"
   }
-
 }

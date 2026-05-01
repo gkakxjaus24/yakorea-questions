@@ -18,5 +18,15 @@
     "title": "自助入住💻👆",
     "buttonText": "自助入住",
     "nextPage": "reservation_number.html?lang=zh"
+  },
+  "ru": {
+    "title": "САМОСТОЯТЕЛЬНЫЙ ЗАЕЗД💻👆",
+    "buttonText": "САМОСТОЯТЕЛЬНЫЙ ЗАЕЗД",
+    "nextPage": "reservation_number.html?lang=en"
+  },
+  "es": {
+    "title": "AUTO CHECK-IN💻👆",
+    "buttonText": "AUTO CHECK-IN",
+    "nextPage": "reservation_number.html?lang=en"
   }
 }

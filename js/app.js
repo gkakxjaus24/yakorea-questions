@@ -52,6 +52,8 @@ function createLanguageButtons() {
     { code: "en", label: "English" },
     { code: "zh", label: "中文" },
     { code: "ja", label: "日本語" },
+    { code: "ru", label: "Русский" },
+    { code: "es", label: "Español" },
   ];
 
   languages.forEach((lang) => {
