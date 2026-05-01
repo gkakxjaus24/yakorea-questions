@@ -590,6 +590,24 @@
     #name-submit:hover { background: #1d4ed8; }
     #name-error { font-size: 13px; color: #ef4444; }
     #name-error.hidden { display: none; }
+
+    ${IS_KIOSK ? `
+    /* ── 키오스크 우측 고정 패널 모드 ────────────────────────── */
+    #toggle-btn { display: none !important; }
+    #chat-box {
+      position: fixed; top: 0; right: 0; bottom: 0; left: auto;
+      width: 400px; height: 100vh; max-height: 100vh;
+      border-radius: 0; box-shadow: -2px 0 12px rgba(0,0,0,0.12);
+      transform: none !important;
+    }
+    #chat-box.hidden {
+      opacity: 1; pointer-events: auto; transform: none;
+    }
+    #chat-box.kb-open { height: 100vh; bottom: 0; }
+    @media (max-width: 900px) {
+      #chat-box { width: 100%; }
+    }
+    ` : ''}
   `;
 
   // ── currentLang 초기화 (HTML 템플릿보다 먼저 선언) ──────────────
@@ -605,7 +623,7 @@
   const container = document.createElement('div');
   container.innerHTML = `
     <button id="toggle-btn" aria-label="${_ti('toggleAriaLabel')}">💬</button>
-    <div id="chat-box" class="hidden">
+    <div id="chat-box" class="${IS_KIOSK ? '' : 'hidden'}">
       <div id="chat-header">
         <div id="status-dot"></div>
         <div id="title-wrap">
@@ -710,7 +728,7 @@
   const kbBack          = IS_KIOSK ? shadow.getElementById('kb-back') : null;
   const kbSend          = IS_KIOSK ? shadow.getElementById('kb-send') : null;
 
-  let isOpen = false;
+  let isOpen = IS_KIOSK; // 키오스크는 시작부터 펼침
   let roomId = sessionStorage.getItem(STORAGE_KEY) || null;
   let socket = null;
   let connected = false;

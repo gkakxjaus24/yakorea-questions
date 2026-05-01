@@ -1,3 +1,13 @@
+/* ✅ 키오스크 채팅 위젯(우측 400px 고정 패널)과 겹치지 않도록 우측 여백 확보 */
+body {
+  padding-right: 410px;
+}
+@media (max-width: 900px) {
+  body {
+    padding-right: 0;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
