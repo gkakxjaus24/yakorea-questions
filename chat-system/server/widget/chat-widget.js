@@ -1236,10 +1236,15 @@
       if (vkCandidates) vkCandidates.innerHTML = '';
     }
     if (currentLang === 'ko') {
-      // 조합 중인 한글 음절을 확정하고 컨테이너 비우기
-      hangulCommit();
-      if (msgInput) msgInput.value = hangulCommitted;
-      hangulCommitted = '';
+      // 이중 호출 방어: 조합 중도 아니고 prefix도 비어있으면 no-op
+      // (sendMessage가 내부적으로 flushBuffers를 다시 부를 때 msgInput을 지우는 버그 방지)
+      if (hangul.cho < 0 && hangul.jung < 0 && !hangulCommitted) {
+        // 할 일 없음
+      } else {
+        hangulCommit();
+        if (msgInput) msgInput.value = hangulCommitted;
+        hangulCommitted = '';
+      }
     }
   }
 
@@ -1367,7 +1372,7 @@
 
     kbSend.addEventListener('pointerdown', (e) => {
       e.preventDefault();
-      flushBuffers();
+      // sendMessage가 내부적으로 flushBuffers를 호출하므로 여기서 중복 호출 안 함
       sendMessage();
     });
 
