@@ -234,7 +234,11 @@ export default function AdminPage() {
                         )}
                         <div>
                           <p className={`font-medium ${hasUnread ? 'text-gray-900' : 'text-gray-800'} flex items-center gap-2 flex-wrap`}>
-                            {room.room_label ? (
+                            {room.room_label === 'PRE_CHECKIN' ? (
+                              <span className="bg-amber-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">
+                                체크인 전
+                              </span>
+                            ) : room.room_label ? (
                               <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-bold">
                                 {room.room_label}호
                               </span>

@@ -67,6 +67,11 @@
       nameErrorMsg: '이름을 입력해주세요',
       namePlaceholder: '홍길동',
       bedUnit: '번',
+      // 키오스크 게이트
+      kioskStageTitle: '어떻게 도와드릴까요?',
+      kioskStagePreCheckin: '체크인 전 (아직 방이 배정되지 않았어요)',
+      kioskStagePostCheckin: '방번호 입력',
+      nameKbHint: '이름은 영어로만 입력해 주세요',
     },
     en: {
       brandTitle: 'Yakorea Hostel',
@@ -93,6 +98,11 @@
       nameErrorMsg: 'Please enter your name',
       namePlaceholder: 'Your name',
       bedUnit: '',
+      // Kiosk gate
+      kioskStageTitle: 'How can we help you?',
+      kioskStagePreCheckin: 'Before check-in (no room assigned yet)',
+      kioskStagePostCheckin: 'Enter room number',
+      nameKbHint: 'Please enter your name in English only',
     },
     zh: {
       brandTitle: 'Yakorea Hostel',
@@ -119,6 +129,11 @@
       nameErrorMsg: '请输入您的姓名',
       namePlaceholder: '您的姓名',
       bedUnit: '号',
+      // 自助终端入口
+      kioskStageTitle: '请问需要什么帮助？',
+      kioskStagePreCheckin: '入住前（尚未分配房间）',
+      kioskStagePostCheckin: '输入房间号',
+      nameKbHint: '请用英文输入姓名',
     },
     ja: {
       brandTitle: 'Yakorea Hostel',
@@ -145,6 +160,11 @@
       nameErrorMsg: 'お名前を入力してください',
       namePlaceholder: 'お名前',
       bedUnit: '番',
+      // キオスクゲート
+      kioskStageTitle: 'ご用件をお選びください',
+      kioskStagePreCheckin: 'チェックイン前（部屋未割り当て）',
+      kioskStagePostCheckin: '部屋番号を入力',
+      nameKbHint: 'お名前は英語のみで入力してください',
     },
     ru: {
       brandTitle: 'Yakorea Hostel',
@@ -171,6 +191,11 @@
       nameErrorMsg: 'Пожалуйста, введите ваше имя',
       namePlaceholder: 'Ваше имя',
       bedUnit: '',
+      // Киоск
+      kioskStageTitle: 'Чем мы можем помочь?',
+      kioskStagePreCheckin: 'До заселения (комната ещё не назначена)',
+      kioskStagePostCheckin: 'Ввести номер комнаты',
+      nameKbHint: 'Введите имя только на английском',
     },
     es: {
       brandTitle: 'Yakorea Hostel',
@@ -197,6 +222,11 @@
       nameErrorMsg: 'Por favor ingresa tu nombre',
       namePlaceholder: 'Tu nombre',
       bedUnit: '',
+      // Kiosco
+      kioskStageTitle: '¿En qué podemos ayudarte?',
+      kioskStagePreCheckin: 'Antes del check-in (sin habitación asignada)',
+      kioskStagePostCheckin: 'Ingresar número de habitación',
+      nameKbHint: 'Por favor escribe tu nombre solo en inglés',
     },
   };
 
@@ -752,6 +782,31 @@
     #name-submit:hover { background: #1d4ed8; }
     #name-error { font-size: 13px; color: #ef4444; }
     #name-error.hidden { display: none; }
+    #name-kb-hint {
+      font-size: 12px; color: #64748b; text-align: center;
+      margin-top: -4px;
+    }
+    #name-kb-hint.hidden { display: none; }
+
+    /* 키오스크 stage-gate (체크인 전 / 방번호 선택) */
+    #kiosk-stage-gate {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 20px; gap: 14px;
+    }
+    #kiosk-stage-gate.hidden { display: none; }
+    #kiosk-stage-gate p {
+      font-size: 16px; font-weight: 600; color: #334155;
+      text-align: center; margin-bottom: 4px;
+    }
+    .stage-btn {
+      width: 100%; max-width: 320px; padding: 16px 18px;
+      border-radius: 12px; border: 2px solid #2563eb;
+      background: white; color: #1e3a8a; font-size: 15px;
+      font-weight: 600; cursor: pointer; line-height: 1.3;
+      transition: background 0.15s;
+    }
+    .stage-btn:hover { background: #eff6ff; }
 
     ${IS_KIOSK ? `
     /* ── 키오스크 하단 드로어 모드 (세로 모니터 최적화) ───────── */
@@ -823,6 +878,11 @@
         <button class="lang-btn" data-lang="ja">日本語</button>
         <button class="lang-btn" data-lang="ru">RU</button>
         <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <div id="kiosk-stage-gate" class="hidden">
+        <p id="kiosk-stage-title">${_ti('kioskStageTitle')}</p>
+        <button id="stage-pre-checkin" class="stage-btn">🛬 ${_ti('kioskStagePreCheckin')}</button>
+        <button id="stage-post-checkin" class="stage-btn">🏠 ${_ti('kioskStagePostCheckin')}</button>
       </div>` : ''}
       <div id="checkout-gate" class="hidden">
         <p>${_ti('checkoutTitle')}</p>
@@ -830,7 +890,7 @@
         <button id="checkout-submit">${_ti('checkoutNext')}</button>
         <p id="checkout-blocked" class="hidden">${_ti('checkoutBlockedMsg')}</p>
       </div>
-      ${IS_QR_MODE ? `
+      ${(IS_QR_MODE || IS_KIOSK) ? `
       <div id="room-gate" class="hidden">
         <p id="room-gate-title">${_ti('roomGateTitle')}</p>
         <div id="room-grid"></div>
@@ -840,7 +900,8 @@
         </div>
       </div>
       <div id="name-gate" class="hidden">
-        <p>${_ti('nameTitle')}</p>
+        <p id="name-gate-title">${_ti('nameTitle')}</p>
+        <p id="name-kb-hint" class="${IS_KIOSK ? '' : 'hidden'}">${_ti('nameKbHint')}</p>
         <input id="name-input" type="text" placeholder="${_ti('namePlaceholder')}" maxlength="20" />
         <button id="name-submit">${_ti('nameSubmitBtn')}</button>
         <p id="name-error" class="hidden">${_ti('nameErrorMsg')}</p>
@@ -883,16 +944,25 @@
   const checkoutDate    = shadow.getElementById('checkout-date');
   const checkoutSubmit  = shadow.getElementById('checkout-submit');
   const checkoutBlocked = shadow.getElementById('checkout-blocked');
-  const roomGate        = IS_QR_MODE ? shadow.getElementById('room-gate') : null;
-  const roomGrid        = IS_QR_MODE ? shadow.getElementById('room-grid') : null;
-  const roomGateTitle   = IS_QR_MODE ? shadow.getElementById('room-gate-title') : null;
-  const bedBtnsWrap     = IS_QR_MODE ? shadow.getElementById('bed-btns-wrap') : null;
-  const bedBtns         = IS_QR_MODE ? shadow.getElementById('bed-btns') : null;
-  const bedBack         = IS_QR_MODE ? shadow.getElementById('bed-back') : null;
-  const nameGate        = IS_QR_MODE ? shadow.getElementById('name-gate') : null;
-  const nameInput       = IS_QR_MODE ? shadow.getElementById('name-input') : null;
-  const nameSubmit      = IS_QR_MODE ? shadow.getElementById('name-submit') : null;
-  const nameError       = IS_QR_MODE ? shadow.getElementById('name-error') : null;
+  const _GATES_ENABLED  = IS_QR_MODE || IS_KIOSK;
+  const roomGate        = _GATES_ENABLED ? shadow.getElementById('room-gate') : null;
+  const roomGrid        = _GATES_ENABLED ? shadow.getElementById('room-grid') : null;
+  const roomGateTitle   = _GATES_ENABLED ? shadow.getElementById('room-gate-title') : null;
+  const bedBtnsWrap     = _GATES_ENABLED ? shadow.getElementById('bed-btns-wrap') : null;
+  const bedBtns         = _GATES_ENABLED ? shadow.getElementById('bed-btns') : null;
+  const bedBack         = _GATES_ENABLED ? shadow.getElementById('bed-back') : null;
+  const nameGate        = _GATES_ENABLED ? shadow.getElementById('name-gate') : null;
+  const nameInput       = _GATES_ENABLED ? shadow.getElementById('name-input') : null;
+  const nameSubmit      = _GATES_ENABLED ? shadow.getElementById('name-submit') : null;
+  const nameError       = _GATES_ENABLED ? shadow.getElementById('name-error') : null;
+  const nameGateTitle   = _GATES_ENABLED ? shadow.getElementById('name-gate-title') : null;
+  const nameKbHint      = _GATES_ENABLED ? shadow.getElementById('name-kb-hint') : null;
+  // 키오스크 게이트 전용
+  const langBar         = IS_KIOSK ? shadow.getElementById('lang-bar') : null;
+  const kioskStageGate  = IS_KIOSK ? shadow.getElementById('kiosk-stage-gate') : null;
+  const kioskStageTitle = IS_KIOSK ? shadow.getElementById('kiosk-stage-title') : null;
+  const stagePreBtn     = IS_KIOSK ? shadow.getElementById('stage-pre-checkin') : null;
+  const stagePostBtn    = IS_KIOSK ? shadow.getElementById('stage-post-checkin') : null;
   const titleEl         = shadow.getElementById('title');
   const inputArea       = shadow.getElementById('input-area');
   const closeConfirmEl  = shadow.getElementById('close-confirm');
@@ -905,6 +975,9 @@
   const kbSend          = IS_KIOSK ? shadow.getElementById('kb-send') : null;
 
   let isOpen = false; // 키오스크에서도 토글 버튼 클릭 시 펼침
+  // 키오스크 게이트 상태
+  let nameGateActive = false;
+  let savedChatLang = null;
   let roomId = sessionStorage.getItem(STORAGE_KEY) || null;
   let socket = null;
   let connected = false;
@@ -972,7 +1045,39 @@
     checkoutDate.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleCheckoutSubmit(); });
   }
 
-  // ── 방 번호 게이트 (QR 모드 전용) ────────────────────────────
+  // ── 키오스크 stage-gate (체크인 전 / 방번호 입력) ───────────
+  function showKioskStageGate() {
+    if (!kioskStageGate) return;
+    hideChat();
+    kioskStageGate.classList.remove('hidden');
+    if (roomGate) roomGate.classList.add('hidden');
+    if (nameGate) nameGate.classList.add('hidden');
+    if (kioskStageTitle) kioskStageTitle.textContent = t('kioskStageTitle');
+    if (stagePreBtn) stagePreBtn.textContent = '🛬 ' + t('kioskStagePreCheckin');
+    if (stagePostBtn) stagePostBtn.textContent = '🏠 ' + t('kioskStagePostCheckin');
+    // 게이트 단계에서는 가상 키보드 숨김
+    if (virtualKb) virtualKb.classList.add('hidden');
+    if (chatBox) chatBox.classList.remove('kb-open');
+  }
+  function hideKioskStageGate() {
+    if (kioskStageGate) kioskStageGate.classList.add('hidden');
+  }
+  if (stagePreBtn) {
+    stagePreBtn.addEventListener('click', () => {
+      // 체크인 전: roomLabel sentinel = 'PRE_CHECKIN'
+      sessionStorage.setItem(ROOM_KEY, 'PRE_CHECKIN');
+      hideKioskStageGate();
+      showNameGate('PRE_CHECKIN');
+    });
+  }
+  if (stagePostBtn) {
+    stagePostBtn.addEventListener('click', () => {
+      hideKioskStageGate();
+      showRoomGate();
+    });
+  }
+
+  // ── 방 번호 게이트 (QR 모드 + 키오스크 공유) ────────────────
   function hideChat() {
     messagesEl.style.display = 'none';
     candidatesBox.style.display = 'none';
@@ -1062,13 +1167,34 @@
     showNameGate(label);
   }
 
-  // ── 이름 입력 게이트 (QR 모드 전용) ────────────────────────
+  // ── 이름 입력 게이트 (QR 모드 + 키오스크 공유) ────────────
   function showNameGate(roomLabel) {
     hideChat();
-    if (nameGate) {
-      nameGate.classList.remove('hidden');
-      nameInput.value = sessionStorage.getItem(NAME_KEY) || '';
-      nameError.classList.add('hidden');
+    if (!nameGate) return;
+    nameGate.classList.remove('hidden');
+    nameInput.value = sessionStorage.getItem(NAME_KEY) || '';
+    nameError.classList.add('hidden');
+    if (nameGateTitle) nameGateTitle.textContent = t('nameTitle');
+
+    if (IS_KIOSK) {
+      // 영어 키보드 강제 + 언어 탭 숨김
+      nameGateActive = true;
+      savedChatLang = currentLang;
+      if (langBar) langBar.style.display = 'none';
+      if (nameKbHint) {
+        nameKbHint.textContent = t('nameKbHint');
+        nameKbHint.classList.remove('hidden');
+      }
+      // 가상 키보드 영어로 강제 표시
+      if (virtualKb) {
+        virtualKb.classList.remove('hidden');
+        if (chatBox) chatBox.classList.add('kb-open');
+      }
+      enShiftOn = false; // 시작은 소문자
+      renderKeyboard('en');
+      // 모바일 OS 키보드 차단 (가상 키보드만 사용)
+      nameInput.setAttribute('inputmode', 'none');
+    } else {
       nameInput.focus();
     }
   }
@@ -1085,6 +1211,20 @@
     }
     sessionStorage.setItem(NAME_KEY, name);
     hideNameGate();
+
+    if (IS_KIOSK) {
+      // 언어 탭 복귀 + 원래 채팅 언어로 키보드 복구
+      nameGateActive = false;
+      if (langBar) langBar.style.display = '';
+      if (nameKbHint) nameKbHint.classList.add('hidden');
+      if (savedChatLang) {
+        currentLang = savedChatLang;
+        savedChatLang = null;
+      }
+      // 채팅 언어 키보드 다시 그리기
+      switchLang(currentLang);
+    }
+
     showChat();
     if (!connected) connectSocket();
     else if (!roomId) socket.emit('guest:join', {
@@ -1141,7 +1281,13 @@
     });
   }
 
+  // 가상 키보드 타겟 입력란 — 키오스크 이름 게이트일 때만 nameInput, 그 외는 msgInput
+  function getKeyboardTarget() {
+    return (IS_KIOSK && nameGateActive && nameInput) ? nameInput : msgInput;
+  }
+
   function handleKeyPress(key, lang) {
+    const target = getKeyboardTarget();
     if (lang === 'ko') {
       hangulInput(key);
     } else if (lang === 'en') {
@@ -1149,26 +1295,26 @@
         enShiftOn = !enShiftOn;
         renderKeyboard('en');
       } else {
-        msgInput.value += enShiftOn ? key.toUpperCase() : key;
+        target.value += enShiftOn ? key.toUpperCase() : key;
       }
     } else if (lang === 'ru') {
-      msgInput.value += key.toLowerCase();
+      target.value += key.toLowerCase();
     } else if (lang === 'es') {
       // QWERTY row: lowercase; special chars: already lowercase/correct
-      msgInput.value += /^[A-Z]$/.test(key) ? key.toLowerCase() : key;
+      target.value += /^[A-Z]$/.test(key) ? key.toLowerCase() : key;
     } else if (lang === 'zh') {
       if (/^[A-Z]$/.test(key)) {
         pinyinBuffer += key.toLowerCase();
         updateZhCandidates();
       } else {
-        msgInput.value += key;
+        target.value += key;
       }
     } else if (lang === 'ja') {
       if (/^[A-Z]$/.test(key)) {
         romajiBuffer += key.toLowerCase();
         updateJaCandidates();
       } else {
-        msgInput.value += key;
+        target.value += key;
       }
     }
   }
@@ -1351,12 +1497,22 @@
   if (IS_KIOSK) {
     kbSpace.addEventListener('pointerdown', (e) => {
       e.preventDefault();
+      const target = getKeyboardTarget();
+      if (target === nameInput) {
+        target.value += ' ';
+        return;
+      }
       flushBuffers();
-      msgInput.value += ' ';
+      target.value += ' ';
     });
 
     kbBack.addEventListener('pointerdown', (e) => {
       e.preventDefault();
+      const target = getKeyboardTarget();
+      if (target === nameInput) {
+        target.value = target.value.slice(0, -1);
+        return;
+      }
       if (currentLang === 'zh' && pinyinBuffer) {
         pinyinBuffer = pinyinBuffer.slice(0, -1);
         updateZhCandidates();
@@ -1372,7 +1528,11 @@
 
     kbSend.addEventListener('pointerdown', (e) => {
       e.preventDefault();
-      // sendMessage가 내부적으로 flushBuffers를 호출하므로 여기서 중복 호출 안 함
+      // 이름 게이트에서는 이름 제출, 그 외는 메시지 전송
+      if (IS_KIOSK && nameGateActive) {
+        handleNameSubmit();
+        return;
+      }
       sendMessage();
     });
 
@@ -1452,6 +1612,15 @@
       sessionStorage.removeItem(ROOM_KEY);
       sessionStorage.removeItem(NAME_KEY);
       if (titleEl) titleEl.textContent = t('brandTitle');
+    }
+    if (IS_KIOSK) {
+      // 키오스크는 ✕ 닫을 때마다 게이트 상태 초기화 — 다음 손님이 새로 시작
+      sessionStorage.removeItem(ROOM_KEY);
+      sessionStorage.removeItem(NAME_KEY);
+      nameGateActive = false;
+      savedChatLang = null;
+      if (langBar) langBar.style.display = '';
+      if (nameKbHint) nameKbHint.classList.add('hidden');
     }
     roomId = null;
     messagesEl.innerHTML = '';
@@ -1614,6 +1783,16 @@
         showChat();
       } else if (IS_KIOSK) {
         switchLang(currentLang);
+        // 키오스크 게이트: 방 라벨/이름이 모두 있어야 채팅 진입
+        const savedRoom = sessionStorage.getItem(ROOM_KEY);
+        const savedName = sessionStorage.getItem(NAME_KEY);
+        if (!savedRoom) { showKioskStageGate(); return; }
+        if (!savedName) { showNameGate(savedRoom); return; }
+        // 둘 다 있으면 채팅 진입
+        hideKioskStageGate();
+        if (roomGate) roomGate.classList.add('hidden');
+        if (nameGate) nameGate.classList.add('hidden');
+        showChat();
       }
       if (!connected) connectSocket();
       else if (!roomId) socket.emit('guest:join', {
@@ -1667,5 +1846,14 @@
     updateStatus('closed');
     sessionStorage.removeItem(STORAGE_KEY);
     roomId = null;
+    // 키오스크: 다음 손님을 위해 게이트 상태도 초기화
+    if (IS_KIOSK) {
+      sessionStorage.removeItem(ROOM_KEY);
+      sessionStorage.removeItem(NAME_KEY);
+      nameGateActive = false;
+      savedChatLang = null;
+      if (langBar) langBar.style.display = '';
+      if (nameKbHint) nameKbHint.classList.add('hidden');
+    }
   });
 })();
