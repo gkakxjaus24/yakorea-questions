@@ -240,7 +240,7 @@
     en: [
       ['q','w','e','r','t','y','u','i','o','p'],
       ['a','s','d','f','g','h','j','k','l'],
-      ['z','x','c','v','b','n','m'],
+      ['⇧','z','x','c','v','b','n','m'],
     ],
     ru: [
       ['Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Х','Ъ'],
@@ -900,6 +900,8 @@
   // 한글 조합 버퍼: cho/jung은 -1=비어있음, jong=0=종성없음
   let hangul = { cho: -1, jung: -1, jong: 0 };
   let hangulCommitted = '';
+  // 영어 Shift 토글 (대문자 모드)
+  let enShiftOn = false;
 
   // ── i18n 헬퍼 ────────────────────────────────────────────────
   function t(key) {
@@ -1104,7 +1106,17 @@
       row.forEach(key => {
         const btn = document.createElement('button');
         btn.className = 'kb-key';
-        btn.textContent = key;
+        // 영어: Shift 키는 상태에 따라 시각적 활성화, 일반 글자는 대/소문자 표시
+        if (lang === 'en') {
+          if (key === '⇧') {
+            btn.textContent = '⇧';
+            if (enShiftOn) btn.style.background = '#bfdbfe';
+          } else {
+            btn.textContent = enShiftOn ? key.toUpperCase() : key;
+          }
+        } else {
+          btn.textContent = key;
+        }
         btn.addEventListener('pointerdown', (e) => {
           e.preventDefault();
           handleKeyPress(key, lang);
@@ -1119,7 +1131,12 @@
     if (lang === 'ko') {
       hangulInput(key);
     } else if (lang === 'en') {
-      msgInput.value += key;
+      if (key === '⇧') {
+        enShiftOn = !enShiftOn;
+        renderKeyboard('en');
+      } else {
+        msgInput.value += enShiftOn ? key.toUpperCase() : key;
+      }
     } else if (lang === 'ru') {
       msgInput.value += key.toLowerCase();
     } else if (lang === 'es') {
