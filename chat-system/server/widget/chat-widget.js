@@ -755,7 +755,6 @@
 
     ${IS_KIOSK ? `
     /* ── 키오스크 하단 드로어 모드 (세로 모니터 최적화) ───────── */
-    #toggle-btn { display: none !important; }
     #chat-box {
       position: fixed; left: 0; right: 0; bottom: 0; top: auto;
       width: 100%; height: 40vh; max-height: 40vh;
@@ -797,7 +796,7 @@
   const container = document.createElement('div');
   container.innerHTML = `
     <button id="toggle-btn" aria-label="${_ti('toggleAriaLabel')}">💬</button>
-    <div id="chat-box" class="${IS_KIOSK ? '' : 'hidden'}">
+    <div id="chat-box" class="hidden">
       <div id="chat-header">
         <div id="status-dot"></div>
         <div id="title-wrap">
@@ -902,7 +901,7 @@
   const kbBack          = IS_KIOSK ? shadow.getElementById('kb-back') : null;
   const kbSend          = IS_KIOSK ? shadow.getElementById('kb-send') : null;
 
-  let isOpen = IS_KIOSK; // 키오스크는 시작부터 펼침
+  let isOpen = false; // 키오스크에서도 토글 버튼 클릭 시 펼침
   let roomId = sessionStorage.getItem(STORAGE_KEY) || null;
   let socket = null;
   let connected = false;
@@ -1584,6 +1583,10 @@
     isOpen = !isOpen;
     chatBox.classList.toggle('hidden', !isOpen);
     toggleBtn.textContent = isOpen ? '✕' : '💬';
+    // 키오스크 하단 드로어 펼쳐졌을 때 토글 버튼이 가려지지 않게 위로 이동
+    if (IS_KIOSK) {
+      toggleBtn.style.bottom = isOpen ? 'calc(40vh + 16px)' : '24px';
+    }
     if (!isOpen) hideCloseConfirm();
 
     if (isOpen) {
