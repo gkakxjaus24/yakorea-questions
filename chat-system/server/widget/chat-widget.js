@@ -38,7 +38,7 @@
     { label:'307' }, { label:'308' }, { label:'309' },
     { label:'401' }, { label:'402' }, { label:'403' },
   ];
-  const VIRTUAL_KB_LANGS = ['zh', 'ja', 'ru', 'es'];
+  const VIRTUAL_KB_LANGS = ['ko', 'en', 'zh', 'ja', 'ru', 'es'];
 
   // ── i18n ──────────────────────────────────────────────────────
   const WIDGET_TEXT = {
@@ -231,6 +231,17 @@
 
   // ── 키보드 레이아웃 ───────────────────────────────────────────
   const KB_LAYOUTS = {
+    ko: [
+      ['ㅂ','ㅈ','ㄷ','ㄱ','ㅅ','ㅛ','ㅕ','ㅑ','ㅐ','ㅔ'],
+      ['ㅁ','ㄴ','ㅇ','ㄹ','ㅎ','ㅗ','ㅓ','ㅏ','ㅣ'],
+      ['ㅋ','ㅌ','ㅊ','ㅍ','ㅠ','ㅜ','ㅡ'],
+      ['ㅃ','ㅉ','ㄸ','ㄲ','ㅆ','ㅒ','ㅖ'],
+    ],
+    en: [
+      ['q','w','e','r','t','y','u','i','o','p'],
+      ['a','s','d','f','g','h','j','k','l'],
+      ['z','x','c','v','b','n','m'],
+    ],
     ru: [
       ['Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Х','Ъ'],
       ['Ф','Ы','В','А','П','Р','О','Л','Д','Ж','Э'],
@@ -253,6 +264,33 @@
       ['Z','X','C','V','B','N','M'],
     ],
   };
+
+  // ── 한글 자모 데이터 (Unicode 한글 음절 = 0xAC00 + (cho*21+jung)*28 + jong) ──
+  const HANGUL_CHO = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+  const HANGUL_JUNG = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ'];
+  const HANGUL_JONG = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+  const VOWEL_COMBO = {
+    'ㅗㅏ':'ㅘ','ㅗㅐ':'ㅙ','ㅗㅣ':'ㅚ',
+    'ㅜㅓ':'ㅝ','ㅜㅔ':'ㅞ','ㅜㅣ':'ㅟ',
+    'ㅡㅣ':'ㅢ',
+  };
+  const JONG_COMBO = {
+    'ㄱㅅ':'ㄳ','ㄴㅈ':'ㄵ','ㄴㅎ':'ㄶ',
+    'ㄹㄱ':'ㄺ','ㄹㅁ':'ㄻ','ㄹㅂ':'ㄼ',
+    'ㄹㅅ':'ㄽ','ㄹㅌ':'ㄾ','ㄹㅍ':'ㄿ','ㄹㅎ':'ㅀ',
+    'ㅂㅅ':'ㅄ',
+  };
+  const JONG_SPLIT = {
+    'ㄳ':['ㄱ','ㅅ'],'ㄵ':['ㄴ','ㅈ'],'ㄶ':['ㄴ','ㅎ'],
+    'ㄺ':['ㄹ','ㄱ'],'ㄻ':['ㄹ','ㅁ'],'ㄼ':['ㄹ','ㅂ'],
+    'ㄽ':['ㄹ','ㅅ'],'ㄾ':['ㄹ','ㅌ'],'ㄿ':['ㄹ','ㅍ'],'ㅀ':['ㄹ','ㅎ'],
+    'ㅄ':['ㅂ','ㅅ'],
+  };
+  const VOWEL_SPLIT = (() => {
+    const m = {};
+    for (const [k, v] of Object.entries(VOWEL_COMBO)) m[v] = [k[0], k[1]];
+    return m;
+  })();
 
   // ── 로마자→히라가나 변환표 ────────────────────────────────────
   const ROMAJI_TABLE = {
@@ -305,6 +343,130 @@
       if (!matched) { result += str[i]; i++; }
     }
     return result;
+  }
+
+  // ── 한글 조합 함수 (must be after let hangul declaration; they're closures) ──
+  // Note: refer to module-scope `hangul` and `hangulCommitted` declared later
+  function hangulCompose() {
+    if (hangul.cho < 0) return '';
+    if (hangul.jung < 0) return HANGUL_CHO[hangul.cho];
+    return String.fromCharCode(0xAC00 + (hangul.cho * 21 + hangul.jung) * 28 + hangul.jong);
+  }
+  function hangulRender() {
+    if (msgInput) msgInput.value = hangulCommitted + hangulCompose();
+  }
+  function hangulCommit() {
+    hangulCommitted += hangulCompose();
+    hangul = { cho: -1, jung: -1, jong: 0 };
+  }
+  function hangulInput(jamo) {
+    const choIdx = HANGUL_CHO.indexOf(jamo);
+    const jungIdx = HANGUL_JUNG.indexOf(jamo);
+    if (jungIdx >= 0) {
+      // 모음
+      if (hangul.cho < 0) {
+        hangulCommit();
+        hangulCommitted += jamo;
+        hangulRender();
+        return;
+      }
+      if (hangul.jung < 0) {
+        hangul.jung = jungIdx;
+        hangulRender();
+        return;
+      }
+      if (hangul.jong === 0) {
+        const combo = VOWEL_COMBO[HANGUL_JUNG[hangul.jung] + jamo];
+        if (combo) {
+          hangul.jung = HANGUL_JUNG.indexOf(combo);
+          hangulRender();
+          return;
+        }
+        hangulCommit();
+        hangulCommitted += jamo;
+        hangulRender();
+        return;
+      }
+      // jong 있음 → jong을 다음 음절 cho로 이동
+      const prevJong = HANGUL_JONG[hangul.jong];
+      const split = JONG_SPLIT[prevJong];
+      if (split) {
+        hangul.jong = HANGUL_JONG.indexOf(split[0]);
+        const newCho = HANGUL_CHO.indexOf(split[1]);
+        hangulCommit();
+        hangul = { cho: newCho, jung: jungIdx, jong: 0 };
+      } else {
+        const newCho = HANGUL_CHO.indexOf(prevJong);
+        hangul.jong = 0;
+        hangulCommit();
+        hangul = { cho: newCho >= 0 ? newCho : -1, jung: jungIdx, jong: 0 };
+      }
+      hangulRender();
+      return;
+    }
+    if (choIdx >= 0) {
+      // 자음
+      if (hangul.cho < 0) {
+        hangul.cho = choIdx;
+        hangulRender();
+        return;
+      }
+      if (hangul.jung < 0) {
+        hangulCommit();
+        hangul.cho = choIdx;
+        hangulRender();
+        return;
+      }
+      // cho+jung 있음 → jong에 시도
+      const jongIdx = HANGUL_JONG.indexOf(jamo);
+      if (hangul.jong === 0) {
+        if (jongIdx > 0) {
+          hangul.jong = jongIdx;
+          hangulRender();
+          return;
+        }
+        hangulCommit();
+        hangul.cho = choIdx;
+        hangulRender();
+        return;
+      }
+      // jong 이미 있음 → 겹받침 시도
+      const combo = JONG_COMBO[HANGUL_JONG[hangul.jong] + jamo];
+      if (combo) {
+        hangul.jong = HANGUL_JONG.indexOf(combo);
+        hangulRender();
+        return;
+      }
+      hangulCommit();
+      hangul.cho = choIdx;
+      hangulRender();
+    }
+  }
+  function hangulFlush() {
+    hangulCommit();
+    if (msgInput) {
+      hangulCommitted = '';
+    }
+  }
+  function hangulBackspace() {
+    if (hangul.jong > 0) {
+      const cur = HANGUL_JONG[hangul.jong];
+      const split = JONG_SPLIT[cur];
+      hangul.jong = split ? HANGUL_JONG.indexOf(split[0]) : 0;
+    } else if (hangul.jung >= 0) {
+      const cur = HANGUL_JUNG[hangul.jung];
+      const split = VOWEL_SPLIT[cur];
+      hangul.jung = split ? HANGUL_JUNG.indexOf(split[0]) : -1;
+    } else if (hangul.cho >= 0) {
+      hangul.cho = -1;
+    } else {
+      hangulCommitted = hangulCommitted.slice(0, -1);
+    }
+    hangulRender();
+  }
+  function hangulReset() {
+    hangul = { cho: -1, jung: -1, jong: 0 };
+    hangulCommitted = '';
   }
 
   const STATUS_COLOR = {
@@ -735,6 +897,9 @@
   let currentStatus = 'auto';
   let pinyinBuffer = '';
   let romajiBuffer = '';
+  // 한글 조합 버퍼: cho/jung은 -1=비어있음, jong=0=종성없음
+  let hangul = { cho: -1, jung: -1, jong: 0 };
+  let hangulCommitted = '';
 
   // ── i18n 헬퍼 ────────────────────────────────────────────────
   function t(key) {
@@ -951,7 +1116,11 @@
   }
 
   function handleKeyPress(key, lang) {
-    if (lang === 'ru') {
+    if (lang === 'ko') {
+      hangulInput(key);
+    } else if (lang === 'en') {
+      msgInput.value += key;
+    } else if (lang === 'ru') {
       msgInput.value += key.toLowerCase();
     } else if (lang === 'es') {
       // QWERTY row: lowercase; special chars: already lowercase/correct
@@ -1035,6 +1204,12 @@
       romajiBuffer = '';
       if (vkCandidates) vkCandidates.innerHTML = '';
     }
+    if (currentLang === 'ko') {
+      // 조합 중인 한글 음절을 확정하고 컨테이너 비우기
+      hangulCommit();
+      if (msgInput) msgInput.value = hangulCommitted;
+      hangulCommitted = '';
+    }
   }
 
   function applyLangToUI() {
@@ -1090,6 +1265,14 @@
   }
 
   function switchLang(lang) {
+    // ko에서 다른 언어로 떠날 때 마지막 음절 확정 후 hangul 상태 비우기
+    if (currentLang === 'ko' && lang !== 'ko' && msgInput) {
+      hangulCommit();
+      msgInput.value = hangulCommitted;
+      hangulCommitted = '';
+      hangul = { cho: -1, jung: -1, jong: 0 };
+    }
+
     currentLang = lang;
     sessionStorage.setItem(KIOSK_LANG_KEY, lang);
 
@@ -1099,6 +1282,13 @@
 
     pinyinBuffer = '';
     romajiBuffer = '';
+    // ko로 들어올 때 input 텍스트를 hangulCommitted에 동기화
+    if (lang === 'ko' && msgInput) {
+      hangulCommitted = msgInput.value;
+      hangul = { cho: -1, jung: -1, jong: 0 };
+    } else {
+      hangulReset();
+    }
     if (vkCandidates) vkCandidates.innerHTML = '';
 
     applyLangToUI();
@@ -1137,6 +1327,8 @@
       } else if (currentLang === 'ja' && romajiBuffer) {
         romajiBuffer = romajiBuffer.slice(0, -1);
         updateJaCandidates();
+      } else if (currentLang === 'ko') {
+        hangulBackspace();
       } else {
         msgInput.value = msgInput.value.slice(0, -1);
       }
