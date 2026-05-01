@@ -760,10 +760,13 @@
       width: 100%; height: 40vh; max-height: 40vh;
       border-radius: 16px 16px 0 0;
       box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
-      transform: none !important;
+      transform: none;
+      transition: opacity 0.2s, transform 0.25s ease;
     }
+    /* 닫혔을 때 — 화면 아래로 슬라이드 다운 */
     #chat-box.hidden {
-      opacity: 1; pointer-events: auto; transform: none;
+      opacity: 0; pointer-events: none;
+      transform: translateY(100%) !important;
     }
     #chat-box.kb-open { height: 40vh; bottom: 0; }
 
