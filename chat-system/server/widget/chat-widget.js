@@ -842,9 +842,14 @@
   `;
 
   // ── currentLang 초기화 (HTML 템플릿보다 먼저 선언) ──────────────
+  const _urlLang = new URLSearchParams(window.location.search).get('lang');
+  // 키오스크에서 URL ?lang= 이 있으면 → 그 언어 고정 (lang-bar 숨김)
+  // 없으면 → sessionStorage 저장값 또는 'ko'
   let currentLang = IS_KIOSK
-    ? (sessionStorage.getItem(KIOSK_LANG_KEY) || 'ko')
-    : (new URLSearchParams(window.location.search).get('lang') || 'ko');
+    ? (_urlLang || sessionStorage.getItem(KIOSK_LANG_KEY) || 'ko')
+    : (_urlLang || 'ko');
+  // URL lang 파라미터로 언어가 고정된 경우 lang-bar를 영구 숨김
+  const KIOSK_LANG_FIXED = IS_KIOSK && !!_urlLang;
 
   // ── HTML ──────────────────────────────────────────────────────
   function _ti(key) {
@@ -959,6 +964,8 @@
   const nameKbHint      = _GATES_ENABLED ? shadow.getElementById('name-kb-hint') : null;
   // 키오스크 게이트 전용
   const langBar         = IS_KIOSK ? shadow.getElementById('lang-bar') : null;
+  // URL ?lang= 으로 언어가 고정된 경우 lang-bar 즉시 숨김
+  if (KIOSK_LANG_FIXED && langBar) langBar.style.display = 'none';
   const kioskStageGate  = IS_KIOSK ? shadow.getElementById('kiosk-stage-gate') : null;
   const kioskStageTitle = IS_KIOSK ? shadow.getElementById('kiosk-stage-title') : null;
   const stagePreBtn     = IS_KIOSK ? shadow.getElementById('stage-pre-checkin') : null;
@@ -1215,7 +1222,7 @@
     if (IS_KIOSK) {
       // 언어 탭 복귀 + 원래 채팅 언어로 키보드 복구
       nameGateActive = false;
-      if (langBar) langBar.style.display = '';
+      if (langBar && !KIOSK_LANG_FIXED) langBar.style.display = '';
       if (nameKbHint) nameKbHint.classList.add('hidden');
       if (savedChatLang) {
         currentLang = savedChatLang;
@@ -1619,7 +1626,7 @@
       sessionStorage.removeItem(NAME_KEY);
       nameGateActive = false;
       savedChatLang = null;
-      if (langBar) langBar.style.display = '';
+      if (langBar && !KIOSK_LANG_FIXED) langBar.style.display = '';
       if (nameKbHint) nameKbHint.classList.add('hidden');
     }
     roomId = null;
@@ -1852,7 +1859,7 @@
       sessionStorage.removeItem(NAME_KEY);
       nameGateActive = false;
       savedChatLang = null;
-      if (langBar) langBar.style.display = '';
+      if (langBar && !KIOSK_LANG_FIXED) langBar.style.display = '';
       if (nameKbHint) nameKbHint.classList.add('hidden');
     }
   });
