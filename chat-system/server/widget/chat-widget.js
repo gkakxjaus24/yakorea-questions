@@ -68,9 +68,9 @@
       namePlaceholder: '홍길동',
       bedUnit: '번',
       // 키오스크 게이트
-      kioskStageTitle: '어떻게 도와드릴까요?',
-      kioskStagePreCheckin: '체크인 전 (아직 방이 배정되지 않았어요)',
+      kioskStageTitle: '채팅 시작 전 방번호를 입력해주세요',
       kioskStagePostCheckin: '방번호 입력',
+      kioskStagePreCheckin: '저는 아직 체크인 하지 않아서 배정된 방이 없어요',
       nameKbHint: '이름은 영어로만 입력해 주세요',
     },
     en: {
@@ -99,9 +99,9 @@
       namePlaceholder: 'Your name',
       bedUnit: '',
       // Kiosk gate
-      kioskStageTitle: 'How can we help you?',
-      kioskStagePreCheckin: 'Before check-in (no room assigned yet)',
-      kioskStagePostCheckin: 'Enter room number',
+      kioskStageTitle: 'Please enter your room number to start chatting',
+      kioskStagePostCheckin: 'Enter Room Number',
+      kioskStagePreCheckin: "I haven't checked in yet and don't have a room assigned",
       nameKbHint: 'Please enter your name in English only',
     },
     zh: {
@@ -130,9 +130,9 @@
       namePlaceholder: '您的姓名',
       bedUnit: '号',
       // 自助终端入口
-      kioskStageTitle: '请问需要什么帮助？',
-      kioskStagePreCheckin: '入住前（尚未分配房间）',
+      kioskStageTitle: '开始聊天前，请输入您的房间号',
       kioskStagePostCheckin: '输入房间号',
+      kioskStagePreCheckin: '我还没有办理入住，尚未分配到房间',
       nameKbHint: '请用英文输入姓名',
     },
     ja: {
@@ -161,9 +161,9 @@
       namePlaceholder: 'お名前',
       bedUnit: '番',
       // キオスクゲート
-      kioskStageTitle: 'ご用件をお選びください',
-      kioskStagePreCheckin: 'チェックイン前（部屋未割り当て）',
+      kioskStageTitle: 'チャット開始前に部屋番号を入力してください',
       kioskStagePostCheckin: '部屋番号を入力',
+      kioskStagePreCheckin: 'まだチェックインしておらず、部屋が割り当てられていません',
       nameKbHint: 'お名前は英語のみで入力してください',
     },
     ru: {
@@ -192,9 +192,9 @@
       namePlaceholder: 'Ваше имя',
       bedUnit: '',
       // Киоск
-      kioskStageTitle: 'Чем мы можем помочь?',
-      kioskStagePreCheckin: 'До заселения (комната ещё не назначена)',
+      kioskStageTitle: 'Перед началом чата введите номер вашей комнаты',
       kioskStagePostCheckin: 'Ввести номер комнаты',
+      kioskStagePreCheckin: 'Я ещё не заселился и мне не назначена комната',
       nameKbHint: 'Введите имя только на английском',
     },
     es: {
@@ -223,9 +223,9 @@
       namePlaceholder: 'Tu nombre',
       bedUnit: '',
       // Kiosco
-      kioskStageTitle: '¿En qué podemos ayudarte?',
-      kioskStagePreCheckin: 'Antes del check-in (sin habitación asignada)',
+      kioskStageTitle: 'Antes de chatear, ingresa tu número de habitación',
       kioskStagePostCheckin: 'Ingresar número de habitación',
+      kioskStagePreCheckin: 'Todavía no me he registrado y no tengo habitación asignada',
       nameKbHint: 'Por favor escribe tu nombre solo en inglés',
     },
   };
@@ -800,13 +800,20 @@
       text-align: center; margin-bottom: 4px;
     }
     .stage-btn {
-      width: 100%; max-width: 320px; padding: 16px 18px;
-      border-radius: 12px; border: 2px solid #2563eb;
-      background: white; color: #1e3a8a; font-size: 15px;
-      font-weight: 600; cursor: pointer; line-height: 1.3;
-      transition: background 0.15s;
+      width: 100%; max-width: 340px; padding: 14px 18px;
+      border-radius: 12px; font-size: 14px; font-weight: 600;
+      cursor: pointer; line-height: 1.4; transition: background 0.15s;
     }
-    .stage-btn:hover { background: #eff6ff; }
+    .stage-btn-primary {
+      border: 2px solid #2563eb; background: #2563eb;
+      color: white; font-size: 16px;
+    }
+    .stage-btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; }
+    .stage-btn-secondary {
+      border: 1px solid #94a3b8; background: white;
+      color: #475569; font-size: 13px; font-weight: 500;
+    }
+    .stage-btn-secondary:hover { background: #f8fafc; }
 
     ${IS_KIOSK ? `
     /* ── 키오스크 하단 드로어 모드 (세로 모니터 최적화) ───────── */
@@ -886,8 +893,8 @@
       </div>
       <div id="kiosk-stage-gate" class="hidden">
         <p id="kiosk-stage-title">${_ti('kioskStageTitle')}</p>
-        <button id="stage-pre-checkin" class="stage-btn">🛬 ${_ti('kioskStagePreCheckin')}</button>
-        <button id="stage-post-checkin" class="stage-btn">🏠 ${_ti('kioskStagePostCheckin')}</button>
+        <button id="stage-post-checkin" class="stage-btn stage-btn-primary">🏠 ${_ti('kioskStagePostCheckin')}</button>
+        <button id="stage-pre-checkin" class="stage-btn stage-btn-secondary">${_ti('kioskStagePreCheckin')}</button>
       </div>` : ''}
       <div id="checkout-gate" class="hidden">
         <p>${_ti('checkoutTitle')}</p>
