@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const supabase = require('../services/supabase');
-const { roomLabelMap, guestNameMap } = require('../socket/guestHandler');
+const { roomLabelMap, guestNameMap, sourceMap } = require('../socket/guestHandler');
 
 const router = Router();
 
@@ -21,6 +21,7 @@ router.get('/rooms', async (req, res) => {
     ...r,
     room_label: roomLabelMap.get(r.id) || '',
     guest_name: guestNameMap.get(r.id) || '',
+    source: sourceMap.get(r.id) || '',
   }));
   res.json(result);
 });

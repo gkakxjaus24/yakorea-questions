@@ -1245,6 +1245,7 @@
       guestId: getGuestId(),
       roomLabel: sessionStorage.getItem(ROOM_KEY) || '',
       guestName: name,
+      source: IS_KIOSK ? 'kiosk' : 'qr',
     });
   }
 
@@ -1667,6 +1668,7 @@
           guestId: getGuestId(),
           roomLabel: sessionStorage.getItem(ROOM_KEY) || '',
           guestName: sessionStorage.getItem(NAME_KEY) || '',
+          source: IS_KIOSK ? 'kiosk' : 'qr',
         });
       });
 
@@ -1813,6 +1815,7 @@
         guestId: getGuestId(),
         roomLabel: sessionStorage.getItem(ROOM_KEY) || '',
         guestName: sessionStorage.getItem(NAME_KEY) || '',
+        source: IS_KIOSK ? 'kiosk' : 'qr',
       });
       if (!VIRTUAL_KB_LANGS.includes(currentLang)) msgInput.focus();
     }

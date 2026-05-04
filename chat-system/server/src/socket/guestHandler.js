@@ -49,9 +49,10 @@ function getNightMessage(lang) {
   return NIGHT_MESSAGES[lang] || NIGHT_MESSAGES.ko;
 }
 
-// roomId → roomLabel / guestName 인메모리 맵
+// roomId → roomLabel / guestName / source 인메모리 맵
 const roomLabelMap = new Map();
 const guestNameMap = new Map();
+const sourceMap = new Map(); // 'kiosk' | 'qr'
 
 function clearIdleTimer(roomId) {
   const t = idleTimers.get(roomId);
@@ -86,7 +87,7 @@ function scheduleIdleClose(io, roomId) {
 
 module.exports = function guestHandler(io, socket) {
   // 손님 입장 — roomId 없으면 신규 방 생성
-  socket.on('guest:join', async ({ roomId, guestId, roomLabel, guestName }) => {
+  socket.on('guest:join', async ({ roomId, guestId, roomLabel, guestName, source }) => {
     try {
       let room;
 
@@ -120,6 +121,7 @@ module.exports = function guestHandler(io, socket) {
 
       if (roomLabel) roomLabelMap.set(room.id, roomLabel);
       if (guestName) guestNameMap.set(room.id, guestName);
+      if (source) sourceMap.set(room.id, source);
 
       socket.emit('room:created', { roomId: room.id, status: room.status });
       console.log(`[Guest] ${socket.id} joined room ${room.id} (status: ${room.status}, label: ${roomLabel || '-'}, name: ${guestName || '-'})`);
@@ -188,7 +190,7 @@ module.exports = function guestHandler(io, socket) {
         guestId: socket.guestId || socket.id,
         content: translated || msg.content,
         timestamp: msg.created_at,
-        roomLabel, guestName,
+        roomLabel, guestName, source,
       });
 
       // 유휴 타임아웃 리셋
@@ -305,3 +307,4 @@ module.exports = function guestHandler(io, socket) {
 
 module.exports.roomLabelMap = roomLabelMap;
 module.exports.guestNameMap = guestNameMap;
+module.exports.sourceMap = sourceMap;

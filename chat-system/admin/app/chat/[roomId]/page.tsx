@@ -48,6 +48,7 @@ export default function ChatRoomPage() {
   const [isClosed, setIsClosed] = useState(false);
   const [roomLabel, setRoomLabel] = useState('');
   const [guestName, setGuestName] = useState('');
+  const [source, setSource] = useState('');
   const bottomRef = useRef<HTMLDivElement>(null);
 
   // Effect 1: 방 입장 + roomLabel 로드
@@ -65,6 +66,7 @@ export default function ChatRoomPage() {
         const found = rooms.find(r => r.id === roomId);
         if (found?.room_label) setRoomLabel(found.room_label);
         if (found?.guest_name) setGuestName(found.guest_name);
+        if ((found as any)?.source) setSource((found as any).source);
       })
       .catch(() => {});
   }, [roomId]);
@@ -135,6 +137,15 @@ export default function ChatRoomPage() {
         <div>
           <h2 className="font-bold text-gray-800 flex items-center gap-2 flex-wrap">
             채팅방
+            {source === 'kiosk' ? (
+              <span className="bg-purple-100 text-purple-700 text-xs px-1.5 py-0.5 rounded font-medium">
+                🖥️ 키오스크
+              </span>
+            ) : source === 'qr' ? (
+              <span className="bg-gray-100 text-gray-500 text-xs px-1.5 py-0.5 rounded font-medium">
+                📱 QR
+              </span>
+            ) : null}
             {roomLabel === 'PRE_CHECKIN' ? (
               <span className="bg-amber-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">
                 체크인 전

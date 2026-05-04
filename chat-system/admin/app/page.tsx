@@ -12,6 +12,7 @@ interface Room {
   updated_at: string;
   room_label?: string;
   guest_name?: string;
+  source?: string; // 'kiosk' | 'qr'
 }
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
@@ -128,7 +129,7 @@ export default function AdminPage() {
           return sortByRecent(
             prev.map((r) =>
               r.id === data.roomId
-                ? { ...r, updated_at: data.timestamp, status: data.status || r.status, room_label: (data as any).roomLabel || r.room_label, guest_name: (data as any).guestName || r.guest_name }
+                ? { ...r, updated_at: data.timestamp, status: data.status || r.status, room_label: (data as any).roomLabel || r.room_label, guest_name: (data as any).guestName || r.guest_name, source: (data as any).source || r.source }
                 : r
             )
           );
@@ -143,6 +144,7 @@ export default function AdminPage() {
             updated_at: data.timestamp,
             room_label: (data as any).roomLabel || '',
             guest_name: (data as any).guestName || '',
+            source: (data as any).source || '',
           },
           ...prev,
         ]);
@@ -234,6 +236,15 @@ export default function AdminPage() {
                         )}
                         <div>
                           <p className={`font-medium ${hasUnread ? 'text-gray-900' : 'text-gray-800'} flex items-center gap-2 flex-wrap`}>
+                            {room.source === 'kiosk' ? (
+                              <span className="bg-purple-100 text-purple-700 text-xs px-1.5 py-0.5 rounded font-medium">
+                                🖥️ 키오스크
+                              </span>
+                            ) : room.source === 'qr' ? (
+                              <span className="bg-gray-100 text-gray-500 text-xs px-1.5 py-0.5 rounded font-medium">
+                                📱 QR
+                              </span>
+                            ) : null}
                             {room.room_label === 'PRE_CHECKIN' ? (
                               <span className="bg-amber-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">
                                 체크인 전
