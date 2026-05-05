@@ -515,17 +515,17 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
 
     #toggle-btn {
-      position: fixed; bottom: 40px; right: 40px; z-index: 9999;
-      width: 112px; height: 112px; border-radius: 50%;
+      position: fixed; bottom: ${IS_KIOSK ? '40px' : '24px'}; right: ${IS_KIOSK ? '40px' : '24px'}; z-index: 9999;
+      width: ${IS_KIOSK ? '112px' : '56px'}; height: ${IS_KIOSK ? '112px' : '56px'}; border-radius: 50%;
       background: #2563eb; color: white; border: none;
-      font-size: 48px; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      font-size: ${IS_KIOSK ? '48px' : '24px'}; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.25);
       display: flex; align-items: center; justify-content: center;
       transition: background 0.2s;
     }
     #toggle-btn:hover { background: #1d4ed8; }
 
     #chat-box {
-      position: fixed; bottom: 168px; right: 40px; z-index: 9998;
+      position: fixed; bottom: ${IS_KIOSK ? '168px' : '90px'}; right: ${IS_KIOSK ? '40px' : '24px'}; z-index: 9998;
       width: 340px; height: 480px;
       background: white; border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.18);
