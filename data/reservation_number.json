@@ -218,5 +218,43 @@
       "line2": "Por favor, verifique su fecha de check-in nuevamente.",
       "line3": "Si es una reserva del mismo día, el sistema puede no haberse actualizado aún. Toque el botón de mensajes abajo a la derecha y escriba 'Talk to person'."
     }
+  },
+  "mn": {
+    "duplicateName": "Ижил нэртэй хэд хэдэн захиалга байна. Захиалгын дугаараа оруулна уу",
+    "reservationNotFound": "Захиалга олдсонгүй. Захиалгын дугаар эсвэл нэрээ дахин оруулна уу",
+    "loadError": "Захиалгын мэдээлэл ачааллахад алдаа гарлаа. Дараа дахин оролдоно уу.",
+    "bedNumber": "Орны дугаар",
+    "roomAndLockerPassword": "Өрөө / Шүүгээний нууц үг",
+    "tableHeaders": {
+      "name": "Нэр",
+      "roomNumber": "Өрөөний дугаар",
+      "roomPassword": "Өрөөний нууц үг",
+      "lockerPassword": "Шүүгээний нууц үг",
+      "roomAndLockerPassword": "Өрөө / Шүүгээний нууц үг",
+      "roomLabel": "Өрөө",
+      "lockerLabel": "Шүүгээ",
+      "checkoutDate": "Гарах огноо",
+      "specialMemo": "Тусгай тэмдэглэл",
+      "checkInMethod": "Бүртгүүлэх арга"
+    },
+    "ui": {
+      "title": "Өөрөө Бүртгүүлэх 💻👆",
+      "nextButton": "Хайх",
+      "inputGuide": "",
+      "inputPlaceholder": "Нэр эсвэл захиалгын дугаар"
+    },
+    "checkIn": {
+      "slipperRoom": "{room} өрөөний шаахайг өмсөөд өрөөндөө ор.",
+      "slipperBed": "{room} орны шаахайг өмсөөд өрөөндөө ор.",
+      "routeBackStair": "{room} өрөөнд хүрэхийн тулд лобби ард байрлах шатаар гарна уу.",
+      "routeFrontPass": "{room} өрөөнд хүрэхийн тулд лобби болон гал тогооны хоорондуур дайран өнгөрнө уу.",
+      "amenity": "Алчуур, шүдний оо эсвэл шүдний сойз хэрэгтэй бол лоббийн баруун талаас аваарай."
+    },
+    "searchFailHelp": {
+      "title": "Захиалга олдохгүй тохиолдолд дараахыг шалгана уу",
+      "line1": "Та Yakorea Hostel [Gangnam]-д захиалга хийсэн байж болзошгүй. (Энд бол Dongdaemun салбар.)",
+      "line2": "Бүртгүүлэх огноогоо дахин шалгана уу.",
+      "line3": "Өнөөдрийн захиалга бол систем шинэчлэгдэхгүй байж болзошгүй. Дэлгэцийн баруун доод хэсгийн мессеж товч дараад 'Talk to person' гэж бичнэ үү."
+    }
   }
 }

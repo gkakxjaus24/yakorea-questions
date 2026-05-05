@@ -28,5 +28,10 @@
     "title": "¿En qué puedo ayudarle?",
     "checkinButton": "Check-in",
     "checkoutButton": "Check-out"
+  },
+  "mn": {
+    "title": "Би чам хэрхэн туслах вэ?",
+    "checkinButton": "Орох",
+    "checkoutButton": "Гарах"
   }
 }

@@ -28,5 +28,10 @@
     "title": "AUTO CHECK-IN 💻👆",
     "buttonText": "AUTO CHECK-IN",
     "nextPage": "reservation_number.html?lang=es"
+  },
+  "mn": {
+    "title": "ӨӨРӨӨ БҮРТГҮҮЛЭХ 💻👆",
+    "buttonText": "ӨӨРӨӨ БҮРТГҮҮЛЭХ",
+    "nextPage": "reservation_number.html?lang=mn"
   }
 }

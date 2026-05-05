@@ -52,5 +52,14 @@
     "nextPage": "reservation_number.html?lang=es",
     "earlyButtonText": "Llegué pronto. ¿Puedo hacer el check-in ahora?",
     "earlyNextPage": "cleaning_time.html?lang=es"
+  },
+  "mn": {
+    "title": "ШАЛГАЛТААС ГАРАХ ШААРДЛАГАГҮЙ 😄✋",
+    "mainNotice": "Шалгалтаас гарах процедур шаардлагагүй. <br>Зүгээр л ажил ahлагдаа аваад яваарай ✋",
+    "bagStorage": "ЦАНТЫН ХРАНИЛИЩЕ: Та ноорог цантаа прием дэлгүүрийн урдаа байшингийн доор орхиж болно<br>(CCTV хяналттай байна📷👀)",
+    "buttonText": "Би өчигдөр ирэх ёстой байсан, гэхдээ дээлүүдээ ирлээ",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "Би эрт ирсэн. Би одоо check-in хийж болох уу?",
+    "earlyNextPage": "cleaning_time.html?lang=en"
   }
 }

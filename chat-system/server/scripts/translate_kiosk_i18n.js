@@ -1,10 +1,10 @@
-// 키오스크 다국어 JSON 파일에 ru/es 키 자동 추가 (Claude Haiku 4.5 번역)
+// 키오스크 다국어 JSON 파일에 ru/es/mn 키 자동 추가 (Claude Haiku 4.5 번역)
 //
 // 대상: C:/Project_Claude/data/*.json — 각 파일은 { ko, en, zh, ja } 구조.
-// 영어(en)를 소스로 ru, es 번역 객체를 생성하여 추가 후 같은 파일에 저장.
+// 영어(en)를 소스로 ru, es, mn 번역 객체를 생성하여 추가 후 같은 파일에 저장.
 //
 // 안전:
-//  - 이미 ru/es 키가 있으면 스킵 (덮어쓰지 않음)
+//  - 이미 언어 키가 있으면 스킵 (덮어쓰지 않음)
 //  - 번역 실패 시 해당 언어 스킵, 다음 파일로 진행
 //  - 호스텔 도메인 힌트 시스템 프롬프트에 포함
 
@@ -31,6 +31,7 @@ const FILES = [
 const LANG_NAME = {
   ru: 'Russian (Русский)',
   es: 'Spanish (Español)',
+  mn: 'Mongolian (Монгол хэл, Cyrillic script)',
 };
 
 function buildSystemPrompt(targetLang) {
@@ -85,7 +86,7 @@ async function translateObject(sourceObj, targetLang) {
     }
 
     let changed = false;
-    for (const lang of ['ru', 'es']) {
+    for (const lang of ['ru', 'es', 'mn']) {
       if (data[lang]) {
         console.log(`  - ${fname}/${lang}: 이미 존재, 건너뜀`);
         continue;

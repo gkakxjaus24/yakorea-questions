@@ -28,6 +28,10 @@
     "title": "Hora de limpieza 🛏️🧹",
     "mainNotice": "El check-in comienza a las 15:00. Lo sentimos, el check-in anticipado no es posible.<br />(El sistema se abre automáticamente a las 15:00.)<br /><br />Si está cansado, use las zapatillas extra y descanse en el sofá de la cocina :)🪑👌",
     "bagStorage": "Almacenamiento de equipaje: Deje su bolsa en la mesa frente al mostrador (hay cámaras de seguridad 📷👀)"
+  },
+  "mn": {
+    "title": "Цэвэрлэх цаг 🛏️🧹",
+    "mainNotice": "Байрруулах нь 3:00 PM-ээс эхэлнэ. Уучлаарай, эрт байрруулах боломжгүй.<br />(Систем 3:00 PM-ээс автоматаар нээгдэнэ.)<br /><br />Хэрэв та ядарсан бол нэмэлт эсэргүүцэл өмсөж, гал тогооны хаврын sofaonд сүүлийн байрыг авна уу :)🪑👌",
+    "bagStorage": "Цүнхний хадгалалт: Цүнхээ тойргийн урд талын ширээн дээр үлдээнэ үү (CCTV-ийг ажиглаж байна 📷👀)"
   }
-
 }
