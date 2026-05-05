@@ -142,6 +142,7 @@ module.exports = function guestHandler(io, socket) {
 
       const roomLabel = roomLabelMap.get(roomId) || '';
       const guestName = guestNameMap.get(roomId) || '';
+      const source = sourceMap.get(roomId) || '';
 
       // --- Forward 번역 (손님 → 매니저) ---
       // 매니저가 못 읽는 언어로 들어오면 영어로 번역해서 같이 전달
