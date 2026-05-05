@@ -1,21 +1,30 @@
 {
-  "name": "yakorea-chat-server",
-  "version": "2.0.0",
-  "description": "야코리아 채팅 시스템 서버 V2 — Express + Socket.IO + Supabase",
-  "main": "src/index.js",
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "test:phase1": "node src/tests/phase1.test.js",
+    "test:phase2": "node src/tests/phase2.test.js",
+    "test:phase3": "node src/tests/phase3.test.js",
+    "test:phase4": "node src/tests/phase4.test.js",
+    "test:phase5": "node src/tests/phase5.test.js",
+    "test:phase6": "node src/tests/phase6.test.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "@supabase/supabase-js": "^2.43.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.18.3",
-    "jsonwebtoken": "^9.0.2",
-    "socket.io": "^4.7.5"
+    "@anthropic-ai/sdk": "^0.91.1",
+    "@supabase/supabase-js": "^2.103.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "socket.io-client": "^4.8.3"
   }
 }
