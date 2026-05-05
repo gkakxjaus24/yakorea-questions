@@ -33,5 +33,10 @@
     "title": "Би чам хэрхэн туслах вэ?",
     "checkinButton": "Орох",
     "checkoutButton": "Гарах"
+  },
+  "vi": {
+    "title": "Tôi có thể giúp bạn như thế nào?",
+    "checkinButton": "Nhận phòng",
+    "checkoutButton": "Trả phòng"
   }
 }

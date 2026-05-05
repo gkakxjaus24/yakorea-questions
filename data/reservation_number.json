@@ -256,5 +256,41 @@
       "line2": "Бүртгүүлэх огноогоо дахин шалгана уу.",
       "line3": "Өнөөдрийн захиалга бол систем шинэчлэгдэхгүй байж болзошгүй. Дэлгэцийн баруун доод хэсгийн мессеж товч дараад 'Talk to person' гэж бичнэ үү."
     }
+  },
+  "vi": {
+    "duplicateName": "Có nhiều hơn một đặt phòng cùng tên. Vui lòng nhập số đặt phòng của bạn",
+    "reservationNotFound": "Không tìm thấy đặt phòng. Vui lòng nhập lại số đặt phòng hoặc tên của bạn",
+    "loadError": "Không thể tải dữ liệu đặt phòng. Vui lòng thử lại sau.",
+    "bedNumber": "Số giường",
+    "roomAndLockerPassword": "Mật khẩu Phòng / Tủ khóa",
+    "tableHeaders": {
+      "name": "Tên",
+      "roomNumber": "Số phòng",
+      "roomPassword": "Mật khẩu Phòng",
+      "lockerPassword": "Mật khẩu Tủ khóa",
+      "roomAndLockerPassword": "Mật khẩu Phòng / Tủ khóa",
+      "checkoutDate": "Ngày trả phòng",
+      "specialMemo": "Ghi chú đặc biệt",
+      "checkInMethod": "Phương thức nhận phòng"
+    },
+    "ui": {
+      "title": "Tự động nhận phòng💻👆",
+      "nextButton": "Tìm kiếm",
+      "inputGuide": "",
+      "inputPlaceholder": "Tên hoặc số đặt phòng"
+    },
+    "checkIn": {
+      "slipperRoom": "Vui lòng đi dép cho phòng {room} và vào phòng của bạn.",
+      "slipperBed": "Vui lòng đi dép cho giường {room} và vào phòng của bạn.",
+      "routeBackStair": "Phòng {room} ở trên cầu thang phía sau quầy tiếp tân.",
+      "routeFrontPass": "Phòng {room} có thể được tiếp cận bằng cách đi qua giữa quầy tiếp tân và nhà bếp.",
+      "amenity": "Nếu bạn cần khăn, kem đánh răng hoặc bàn chải đánh răng, vui lòng lấy từ bên phải quầy tiếp tân."
+    },
+    "searchFailHelp": {
+      "title": "Nếu chúng tôi không tìm thấy đặt phòng của bạn, vui lòng kiểm tra những điều sau",
+      "line1": "Bạn có thể đã đặt Yakorea Hostel [Gangnam]. (Đây là vị trí Dongdaemun.)",
+      "line2": "Vui lòng kiểm tra lại ngày nhận phòng của bạn.",
+      "line3": "Nếu đây là đặt phòng cùng ngày, hệ thống có thể chưa cập nhật. Vui lòng nhấn nút tin nhắn ở dưới cùng bên phải và gõ 'Talk to person'."
+    }
   }
 }

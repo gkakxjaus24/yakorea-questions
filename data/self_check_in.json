@@ -33,5 +33,10 @@
     "title": "ӨӨРӨӨ БҮРТГҮҮЛЭХ 💻👆",
     "buttonText": "ӨӨРӨӨ БҮРТГҮҮЛЭХ",
     "nextPage": "reservation_number.html?lang=mn"
+  },
+  "vi": {
+    "title": "TỰ NHẬN PHÒNG💻👆",
+    "buttonText": "TỰ NHẬN PHÒNG",
+    "nextPage": "reservation_number.html?lang=en"
   }
 }

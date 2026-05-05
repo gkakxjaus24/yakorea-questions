@@ -33,5 +33,10 @@
     "title": "Цэвэрлэх цаг 🛏️🧹",
     "mainNotice": "Байрруулах нь 3:00 PM-ээс эхэлнэ. Уучлаарай, эрт байрруулах боломжгүй.<br />(Систем 3:00 PM-ээс автоматаар нээгдэнэ.)<br /><br />Хэрэв та ядарсан бол нэмэлт эсэргүүцэл өмсөж, гал тогооны хаврын sofaonд сүүлийн байрыг авна уу :)🪑👌",
     "bagStorage": "Цүнхний хадгалалт: Цүнхээ тойргийн урд талын ширээн дээр үлдээнэ үү (CCTV-ийг ажиглаж байна 📷👀)"
+  },
+  "vi": {
+    "title": "Thời Gian Dọn Phòng 🛏️🧹",
+    "mainNotice": "Check-in bắt đầu lúc 3:00 PM. Xin lỗi, check-in sớm không thể thực hiện được.<br />(Hệ thống mở tự động lúc 3:00 PM.)<br /><br />Nếu bạn mệt mỏi, vui lòng mang thêm dép và thư giãn trên ghế sofa ở nhà bếp :)🪑👌",
+    "bagStorage": "Lưu trữ hành lý: Để hành lý của bạn trên bàn ở phía trước quầy (Camera an ninh đang giám sát 📷👀)"
   }
 }

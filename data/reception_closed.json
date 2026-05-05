@@ -40,5 +40,11 @@
     "noticeText": "ЧӨЛ ӨРӨӨ БАЙХГҮЙ. БИД ДҮҮРЭН БАЙНА 🛏️❌<br><br><br><br>Тусламж хэрэгтэй бол дэлгэцийн доод хэсгийн Тусламж товч дарна уу.",
     "buttonText": "ӨӨРӨӨ БҮРТГҮҮЛЭХ",
     "nextPage": "reservation_number.html?lang=mn"
+  },
+  "vi": {
+    "title": "QUẦY LỄ TÂN ĐÓNG CỬA 🕰️❌",
+    "noticeText": "KHÔNG CÓ PHÒNG TRỐNG. CHÚNG TÔI ĐÃ FULL🛏️❌<br><br><br><br>Nếu bạn cần trợ giúp, vui lòng nhấn nút Trợ giúp ở cuối màn hình.",
+    "buttonText": "TỰ CHECK-IN",
+    "nextPage": "reservation_number.html?lang=en"
   }
 }

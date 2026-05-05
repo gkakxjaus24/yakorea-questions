@@ -61,5 +61,14 @@
     "nextPage": "reservation_number.html?lang=en",
     "earlyButtonText": "Би эрт ирсэн. Би одоо check-in хийж болох уу?",
     "earlyNextPage": "cleaning_time.html?lang=en"
+  },
+  "vi": {
+    "title": "KHÔNG CẦN THANH TÓA 😄✋",
+    "mainNotice": "Không Cần Thủ Tục Trả Phòng. <br>Chỉ Cần Lấy Đồ Đạc Của Bạn Rồi Rời Đi ✋",
+    "bagStorage": "LƯU TRỮ HÀNH LÝ: Bạn Có Thể Để Hành Lý Dưới Bàn Phía Trước Quầy Lễ Tân<br>(CCTV Đang Giám Sát📷👀)",
+    "buttonText": "Tôi Dự Định Đến Hôm Qua, Nhưng Tôi Đã Đến Muộn",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "Tôi Đã Đến Sớm. Tôi Có Thể Nhận Phòng Bây Giờ Được Không?",
+    "earlyNextPage": "cleaning_time.html?lang=en"
   }
 }

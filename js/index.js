@@ -74,6 +74,9 @@ document.getElementById("btn-spanish").addEventListener("click", () => {
 document.getElementById("btn-mongolian").addEventListener("click", () => {
     window.location.href = getTargetPage("mn");
 });
+document.getElementById("btn-vietnamese").addEventListener("click", () => {
+    window.location.href = getTargetPage("vi");
+});
 
 /* =========================================================
    3. 오후 3시에 체크인 시작 안내 음성 1회 자동 재생
