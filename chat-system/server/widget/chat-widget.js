@@ -1459,6 +1459,13 @@
       if (nameError) nameError.textContent = t('nameErrorMsg');
       if (nameInput) nameInput.placeholder = t('namePlaceholder');
     }
+
+    // 키오스크 stage 게이트 라벨 갱신
+    if (IS_KIOSK) {
+      if (kioskStageTitle) kioskStageTitle.textContent = t('kioskStageTitle');
+      if (stagePreBtn) stagePreBtn.textContent = '🛬 ' + t('kioskStagePreCheckin');
+      if (stagePostBtn) stagePostBtn.textContent = '🏠 ' + t('kioskStagePostCheckin');
+    }
   }
 
   function switchLang(lang) {
@@ -1872,5 +1879,10 @@
       if (langBar && !KIOSK_LANG_FIXED) langBar.style.display = '';
       if (nameKbHint) nameKbHint.classList.add('hidden');
     }
+    // X 버튼과 동일하게 채팅창 닫기
+    isOpen = false;
+    chatBox.classList.add('hidden');
+    toggleBtn.textContent = '💬';
+    if (IS_KIOSK) toggleBtn.style.bottom = '24px';
   });
 })();

@@ -51,35 +51,8 @@
   </audio>
 
 
-  <!-- 야코리아 채팅 위젯 (테스트/운영 조건부 로딩) -->
-  <script>
-    // 1. 주소창 뒷부분에 특수 단어가 있는지 확인
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('chat') === 'new') {
-      localStorage.setItem('use_new_chat', 'true'); // 새 채팅 켜기 기억
-    } else if (urlParams.get('chat') === 'old') {
-      localStorage.removeItem('use_new_chat');      // 새 채팅 끄기 기억
-    }
-
-    // 2. 브라우저가 기억하고 있는 상태 확인
-    const useNewChat = localStorage.getItem('use_new_chat') === 'true';
-
-    if (useNewChat) {
-      // [테스트 모드] 새로운 야코리아 채팅 시스템 불러오기
-      const newChatScript = document.createElement('script');
-      // 앞선 대화에서 확인한 사용자님의 최신 채팅 서버 주소
-      newChatScript.src = "https://projectclaude-production-5351.up.railway.app/widget/chat-widget.js";
-      document.body.appendChild(newChatScript);
-      console.log('✅ 테스트 모드: 새로 개발한 채팅 로드됨');
-    } else {
-      // [운영 모드] 원래 사용중이던 기존 Tidio 불러오기
-      const tidioScript = document.createElement('script');
-      tidioScript.src = "//code.tidio.co/hpgcwfwwn4j31bkmo50bp6q28d70y2d2.js";
-      tidioScript.async = true;
-      document.body.appendChild(tidioScript);
-      console.log('✅ 운영 모드: 기존 Tidio 로드됨');
-    }
-  </script>
+  <!-- 야코리아 채팅 위젯 -->
+  <script src="https://projectclaude-production-5351.up.railway.app/widget/chat-widget.js"></script>
 
 </body>
 
