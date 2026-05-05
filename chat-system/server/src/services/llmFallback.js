@@ -59,6 +59,7 @@ const LANG_NAME = {
   ja: '日本語',
   ru: 'Русский',
   es: 'Español',
+  mn: 'Монгол хэл',
 };
 
 function buildSystemPrompt(answers, lang) {

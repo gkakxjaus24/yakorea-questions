@@ -43,6 +43,10 @@ const NIGHT_MESSAGES = {
     'Horario nocturno (00:00–08:00 KST) — solo respuesta automática.\n' +
     'Para asuntos urgentes, llame al 010-5747-1294 desde el teléfono de recepción (planta 1).\n' +
     '(Solo se atienden llamadas desde recepción.)',
+  mn:
+    'Шөнийн цаг (00:00–08:00 KST) — зөвхөн автомат хариулт.\n' +
+    'Яаралтай асуудлын хувьд 1 давхрын лобби дахь утаснаас 010-5747-1294 дугаарт залгана уу.\n' +
+    '(Зөвхөн лобби утасны дуудлагад хариулна.)',
 };
 
 function getNightMessage(lang) {
