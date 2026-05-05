@@ -36,21 +36,21 @@
     "earlyNextPage": "cleaning_time.html?lang=zh"
   },
   "ru": {
-    "title": "НЕ НУЖНО ОФОРМЛЯТЬ ВЫЕЗД 😄✋",
-    "mainNotice": "Процедура выезда не требуется. <br>Просто возьмите свои вещи и уходите ✋",
-    "bagStorage": "ХРАНЕНИЕ БАГАЖА: Вы можете оставить свои сумки под столом перед стойкой регистрации<br>(Камеры видеонаблюдения следят📷👀)",
-    "buttonText": "Я должен был приехать вчера, но приехал с опозданием",
-    "nextPage": "reservation_number.html?lang=en",
-    "earlyButtonText": "Я приехал раньше. Я могу заселиться сейчас?",
-    "earlyNextPage": "cleaning_time.html?lang=en"
+    "title": "ВЫЕЗД НЕ ТРЕБУЕТСЯ 😄✋",
+    "mainNotice": "Процедура выезда не нужна.<br>Просто возьмите вещи и уходите ✋",
+    "bagStorage": "Хранение багажа: Оставьте сумки под столом у стойки.<br>(Ведётся видеонаблюдение 📷👀)",
+    "buttonText": "Я должен был приехать вчера, но опоздал и прибыл сейчас",
+    "nextPage": "reservation_number.html?lang=ru",
+    "earlyButtonText": "Я прибыл рано. Можно заселиться сейчас?",
+    "earlyNextPage": "cleaning_time.html?lang=ru"
   },
   "es": {
-    "title": "¡NO NECESITAS HACER CHECK-OUT 😄✋",
-    "mainNotice": "No Se Requiere Procedimiento de Check-out. <br>Solo Toma Tus Pertenencias y Vete ✋",
-    "bagStorage": "ALMACENAMIENTO DE EQUIPAJE: Puedes Dejar Tus Bolsas Debajo de la Mesa Frente a la Recepción<br>(Las cámaras de vigilancia están vigilando 📷👀)",
-    "buttonText": "Se suponía que debería haber llegado ayer, pero llegué tarde",
-    "nextPage": "reservation_number.html?lang=en",
-    "earlyButtonText": "Llegué temprano. ¿Puedo hacer check-in ahora?",
-    "earlyNextPage": "cleaning_time.html?lang=en"
+    "title": "NO ES NECESARIO EL CHECK-OUT 😄✋",
+    "mainNotice": "No se necesita proceso de salida.<br>Solo tome sus pertenencias y salga ✋",
+    "bagStorage": "Almacenamiento: Deje sus maletas bajo la mesa frente al mostrador.<br>(Hay cámaras de seguridad 📷👀)",
+    "buttonText": "Debía llegar ayer, pero llegué tarde",
+    "nextPage": "reservation_number.html?lang=es",
+    "earlyButtonText": "Llegué pronto. ¿Puedo hacer el check-in ahora?",
+    "earlyNextPage": "cleaning_time.html?lang=es"
   }
 }

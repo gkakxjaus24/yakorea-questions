@@ -20,13 +20,13 @@
     "nextPage": "reservation_number.html?lang=zh"
   },
   "ru": {
-    "title": "САМОСТОЯТЕЛЬНЫЙ ЗАЕЗД💻👆",
+    "title": "САМОСТОЯТЕЛЬНЫЙ ЗАЕЗД 💻👆",
     "buttonText": "САМОСТОЯТЕЛЬНЫЙ ЗАЕЗД",
-    "nextPage": "reservation_number.html?lang=en"
+    "nextPage": "reservation_number.html?lang=ru"
   },
   "es": {
-    "title": "AUTO CHECK-IN💻👆",
+    "title": "AUTO CHECK-IN 💻👆",
     "buttonText": "AUTO CHECK-IN",
-    "nextPage": "reservation_number.html?lang=en"
+    "nextPage": "reservation_number.html?lang=es"
   }
 }

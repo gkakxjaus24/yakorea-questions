@@ -20,13 +20,13 @@
     "checkoutButton": "办理退房"
   },
   "ru": {
-    "title": "Чем я могу вам помочь?",
+    "title": "Чем могу помочь?",
     "checkinButton": "Заезд",
     "checkoutButton": "Выезд"
   },
   "es": {
-    "title": "¿Cómo puedo ayudarte?",
-    "checkinButton": "Registrarse",
-    "checkoutButton": "Salida"
+    "title": "¿En qué puedo ayudarle?",
+    "checkinButton": "Check-in",
+    "checkoutButton": "Check-out"
   }
 }

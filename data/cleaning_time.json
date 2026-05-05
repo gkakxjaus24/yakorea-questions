@@ -21,12 +21,13 @@
   },
   "ru": {
     "title": "Время уборки 🛏️🧹",
-    "mainNotice": "Заселение начинается в 3:00 PM. К сожалению, раннее заселение невозможно.<br />(Система открывается автоматически в 3:00 PM.)<br /><br />Если вы устали, пожалуйста, наденьте дополнительные тапочки и расслабьтесь на диване на кухне :)🪑👌",
-    "bagStorage": "Хранение багажа: Оставьте свой багаж на столе перед стойкой (видеокамера наблюдает 📷👀)"
+    "mainNotice": "Заезд начинается в 15:00. К сожалению, ранний заезд невозможен.<br />(Система заезда открывается автоматически в 15:00.)<br /><br />Если вы устали, наденьте запасные тапочки и отдохните на кухонном диване :)🪑👌",
+    "bagStorage": "Хранение багажа: Оставьте сумку на столе у стойки ресепшн (ведётся видеонаблюдение 📷👀)"
   },
   "es": {
-    "title": "Hora de Limpieza 🛏️🧹",
-    "mainNotice": "El check-in comienza a las 3:00 PM. Lo sentimos, el check-in temprano no es posible.<br />(El sistema se abre automáticamente a las 3:00 PM.)<br /><br />Si estás cansado, por favor usa pantuflas adicionales y relájate en el sofá de la cocina :)🪑👌",
-    "bagStorage": "Almacenamiento de equipaje: Deja tu bolsa en la mesa frente al mostrador (las cámaras de seguridad están vigilando 📷👀)"
+    "title": "Hora de limpieza 🛏️🧹",
+    "mainNotice": "El check-in comienza a las 15:00. Lo sentimos, el check-in anticipado no es posible.<br />(El sistema se abre automáticamente a las 15:00.)<br /><br />Si está cansado, use las zapatillas extra y descanse en el sofá de la cocina :)🪑👌",
+    "bagStorage": "Almacenamiento de equipaje: Deje su bolsa en la mesa frente al mostrador (hay cámaras de seguridad 📷👀)"
   }
+
 }
