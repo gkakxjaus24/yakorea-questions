@@ -146,5 +146,77 @@
       "line2": "チェックイン日を再確認してください。",
       "line3": "同日予約の場合、システムがまだ更新されていない可能性があります。画面右下のメッセージボタンをタップして「人に連絡（Talk to person）」と入力してください。"
     }
+  },
+  "ru": {
+    "duplicateName": "Найдено несколько бронирований с одинаковым именем. Введите номер бронирования",
+    "reservationNotFound": "Бронирование не найдено. Введите номер бронирования или имя ещё раз",
+    "loadError": "Не удалось загрузить данные бронирования. Попробуйте позже.",
+    "bedNumber": "Номер кровати",
+    "roomAndLockerPassword": "Пароль от комнаты / шкафчика",
+    "tableHeaders": {
+      "name": "Имя",
+      "roomNumber": "Номер комнаты",
+      "roomPassword": "Пароль от комнаты",
+      "lockerPassword": "Пароль от шкафчика",
+      "roomAndLockerPassword": "Пароль от комнаты / шкафчика",
+      "checkoutDate": "Дата выезда",
+      "specialMemo": "Особые заметки",
+      "checkInMethod": "Способ заезда"
+    },
+    "ui": {
+      "title": "Самостоятельный заезд 💻👆",
+      "nextButton": "Поиск",
+      "inputGuide": "",
+      "inputPlaceholder": "Имя или номер бронирования"
+    },
+    "checkIn": {
+      "slipperRoom": "Наденьте тапочки для комнаты {room} и пройдите в комнату.",
+      "slipperBed": "Наденьте тапочки для кровати {room} и пройдите в комнату.",
+      "routeBackStair": "Комната {room} — поднимитесь по лестнице за стойкой ресепшн.",
+      "routeFrontPass": "Комната {room} — пройдите между стойкой и кухней.",
+      "amenity": "Если нужны полотенца, зубная паста или щётка — возьмите их справа от стойки."
+    },
+    "searchFailHelp": {
+      "title": "Если бронирование не найдено, проверьте следующее",
+      "line1": "Возможно, вы забронировали Yakorea Hostel [Gangnam]. (Это Dongdaemun.)",
+      "line2": "Пожалуйста, проверьте дату заезда ещё раз.",
+      "line3": "Если вы забронировали в тот же день, система могла ещё не обновиться. Нажмите кнопку сообщений справа внизу и введите 'Talk to person'."
+    }
+  },
+  "es": {
+    "duplicateName": "Hay más de una reserva con el mismo nombre. Por favor, ingrese su número de reserva",
+    "reservationNotFound": "Reserva no encontrada. Ingrese su número de reserva o nombre de nuevo",
+    "loadError": "No se pudo cargar los datos de la reserva. Por favor, inténtelo más tarde.",
+    "bedNumber": "Número de cama",
+    "roomAndLockerPassword": "Contraseña de habitación / casillero",
+    "tableHeaders": {
+      "name": "Nombre",
+      "roomNumber": "Nº de habitación",
+      "roomPassword": "Contraseña de habitación",
+      "lockerPassword": "Contraseña del casillero",
+      "roomAndLockerPassword": "Contraseña de habitación / casillero",
+      "checkoutDate": "Fecha de salida",
+      "specialMemo": "Nota especial",
+      "checkInMethod": "Método de check-in"
+    },
+    "ui": {
+      "title": "Auto Check-in 💻👆",
+      "nextButton": "Buscar",
+      "inputGuide": "",
+      "inputPlaceholder": "Nombre o número de reserva"
+    },
+    "checkIn": {
+      "slipperRoom": "Póngase las zapatillas de la habitación {room} y diríjase a su habitación.",
+      "slipperBed": "Póngase las zapatillas de la cama {room} y diríjase a su habitación.",
+      "routeBackStair": "La habitación {room} está arriba, suba por las escaleras detrás del mostrador.",
+      "routeFrontPass": "La habitación {room} se accede pasando entre el mostrador y la cocina.",
+      "amenity": "Si necesita toallas, pasta de dientes o cepillo, tómelos del lado derecho del mostrador."
+    },
+    "searchFailHelp": {
+      "title": "Si no encontramos su reserva, verifique lo siguiente",
+      "line1": "Es posible que haya reservado en Yakorea Hostel [Gangnam]. (Este es el local Dongdaemun.)",
+      "line2": "Por favor, verifique su fecha de check-in nuevamente.",
+      "line3": "Si es una reserva del mismo día, el sistema puede no haberse actualizado aún. Toque el botón de mensajes abajo a la derecha y escriba 'Talk to person'."
+    }
   }
 }
