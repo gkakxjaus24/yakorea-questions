@@ -228,6 +228,37 @@
       kioskStagePreCheckin: 'Todavía no me he registrado y no tengo habitación asignada',
       nameKbHint: 'Por favor escribe tu nombre solo en inglés',
     },
+    mn: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'Чат нээх',
+      candidatesLabel: 'Та энэ агуулгыг хайж байсан уу?',
+      escalateOffer: 'Хариулт олдсонгүй. Менежертэй холбогдох уу?',
+      statusAuto: 'Автомат хариулт', statusWaiting: 'Менежер хүлээж байна',
+      statusActive: 'Менежертэй чатлаж байна', statusClosed: 'Чат дуусгавар болов',
+      placeholder: 'Мессеж бичнэ үү...', welcome: 'Сайн байна уу! Танд яаж тусалж чадах вэ? 😊',
+      escalateBtn: '👤 Менежертэй холбогдох', closeConfirm: 'Чатыг дуусгах уу?',
+      closedMsg: 'Чат дуусгавар болов.', closedByManager: 'Менежер чатыг дуусгав.',
+      closedByIdle: 'Идэвхгүй байсан учир чат автоматаар дуусгавар болов.',
+      escalateRequest: 'Менежертэй холбогдож байна. Түр хүлээнэ үү.',
+      kbSend: 'Илгээх', closeBtnLabel: 'Чат дуусгах',
+      closeConfirmYes: 'Тийм', closeConfirmNo: 'Үгүй',
+      // QR гарц
+      checkoutTitle: 'Гарах огноогоо оруулна уу',
+      checkoutNext: 'Дараах →',
+      checkoutBlockedMsg: 'Гарах огноо өнгөрсний дараа чат ашиглах боломжгүй.',
+      roomGateTitle: 'Өрөөний дугаараа сонгоно уу',
+      bedBack: '← Өрөөний сонголт руу буцах',
+      nameTitle: 'Нэрээ оруулна уу',
+      nameSubmitBtn: 'Чат эхлүүлэх',
+      nameErrorMsg: 'Нэрээ оруулна уу',
+      namePlaceholder: 'Таны нэр',
+      bedUnit: '',
+      // Киоск гарц
+      kioskStageTitle: 'Чат эхлэхийн өмнө өрөөний дугаараа оруулна уу',
+      kioskStagePostCheckin: 'Өрөөний дугаар оруулах',
+      kioskStagePreCheckin: 'Би одоогоор бүртгүүлээгүй тул өрөө олгогдоогүй байна',
+      nameKbHint: 'Нэрээ зөвхөн англи үсгээр бичнэ үү',
+    },
   };
 
   // 객실 라벨 포맷터 (언어별 "방 207" 표기)
@@ -242,6 +273,7 @@
         case 'ja': return `${room}号室`;
         case 'ru': return `Комната ${room}`;
         case 'es': return `Hab. ${room}`;
+        case 'mn': return `Өрөө ${room}`;
         case 'ko':
         default:   return `${room}호`;
       }
@@ -254,6 +286,7 @@
       case 'ja': return `${roomFmt} · ${bed}番ベッド`;
       case 'ru': return `${roomFmt} · Кровать ${bed}`;
       case 'es': return `${roomFmt} · Cama ${bed}`;
+      case 'mn': return `${roomFmt} · Ор ${bed}`;
       case 'ko':
       default:   return `${roomFmt} · ${bed}번`;
     }
@@ -890,6 +923,7 @@
         <button class="lang-btn" data-lang="ja">日本語</button>
         <button class="lang-btn" data-lang="ru">RU</button>
         <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="mn">МН</button>
       </div>
       <div id="kiosk-stage-gate" class="hidden">
         <p id="kiosk-stage-title">${_ti('kioskStageTitle')}</p>
