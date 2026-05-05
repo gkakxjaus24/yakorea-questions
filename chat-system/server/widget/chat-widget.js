@@ -259,6 +259,37 @@
       kioskStagePreCheckin: 'Би одоогоор бүртгүүлээгүй тул өрөө олгогдоогүй байна',
       nameKbHint: 'Нэрээ зөвхөн англи үсгээр бичнэ үү',
     },
+    vi: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'Mở chat',
+      candidatesLabel: 'Bạn đang tìm kiếm nội dung này phải không?',
+      escalateOffer: 'Không tìm thấy câu trả lời. Bạn có muốn kết nối với quản lý không?',
+      statusAuto: 'Trả lời tự động', statusWaiting: 'Đang chờ quản lý',
+      statusActive: 'Đang chat với quản lý', statusClosed: 'Cuộc chat đã kết thúc',
+      placeholder: 'Nhập tin nhắn...', welcome: 'Xin chào! Tôi có thể giúp gì cho bạn? 😊',
+      escalateBtn: '👤 Kết nối với quản lý', closeConfirm: 'Bạn có muốn kết thúc chat không?',
+      closedMsg: 'Cuộc chat đã kết thúc.', closedByManager: 'Quản lý đã kết thúc cuộc chat.',
+      closedByIdle: 'Cuộc chat đã tự động kết thúc do không có hoạt động.',
+      escalateRequest: 'Đang kết nối với quản lý. Vui lòng chờ.',
+      kbSend: 'Gửi', closeBtnLabel: 'Kết thúc chat',
+      closeConfirmYes: 'Có', closeConfirmNo: 'Không',
+      // QR 게이트
+      checkoutTitle: 'Nhập ngày trả phòng của bạn',
+      checkoutNext: 'Tiếp theo →',
+      checkoutBlockedMsg: 'Không thể sử dụng chat sau ngày trả phòng.',
+      roomGateTitle: 'Chọn số phòng của bạn',
+      bedBack: '← Quay lại chọn phòng',
+      nameTitle: 'Nhập tên của bạn',
+      nameSubmitBtn: 'Bắt đầu chat',
+      nameErrorMsg: 'Vui lòng nhập tên của bạn',
+      namePlaceholder: 'Tên của bạn',
+      bedUnit: '',
+      // 키오스크 게이트
+      kioskStageTitle: 'Vui lòng nhập số phòng trước khi bắt đầu chat',
+      kioskStagePostCheckin: 'Nhập số phòng',
+      kioskStagePreCheckin: 'Tôi chưa nhận phòng nên chưa được phân phòng',
+      nameKbHint: 'Vui lòng nhập tên chỉ bằng chữ cái tiếng Anh',
+    },
   };
 
   // 객실 라벨 포맷터 (언어별 "방 207" 표기)
@@ -274,6 +305,7 @@
         case 'ru': return `Комната ${room}`;
         case 'es': return `Hab. ${room}`;
         case 'mn': return `Өрөө ${room}`;
+        case 'vi': return `Phòng ${room}`;
         case 'ko':
         default:   return `${room}호`;
       }
@@ -287,6 +319,7 @@
       case 'ru': return `${roomFmt} · Кровать ${bed}`;
       case 'es': return `${roomFmt} · Cama ${bed}`;
       case 'mn': return `${roomFmt} · Ор ${bed}`;
+      case 'vi': return `${roomFmt} · Giường ${bed}`;
       case 'ko':
       default:   return `${roomFmt} · ${bed}번`;
     }
@@ -924,6 +957,7 @@
         <button class="lang-btn" data-lang="ru">RU</button>
         <button class="lang-btn" data-lang="es">ES</button>
         <button class="lang-btn" data-lang="mn">МН</button>
+        <button class="lang-btn" data-lang="vi">VI</button>
       </div>
       <div id="kiosk-stage-gate" class="hidden">
         <p id="kiosk-stage-title">${_ti('kioskStageTitle')}</p>

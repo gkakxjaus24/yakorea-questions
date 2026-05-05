@@ -79,6 +79,7 @@ const LANG_NAME = {
   ru: 'Russian',
   es: 'Spanish',
   mn: 'Mongolian',
+  vi: 'Vietnamese',
 };
 
 // --- 시스템 프롬프트 ---

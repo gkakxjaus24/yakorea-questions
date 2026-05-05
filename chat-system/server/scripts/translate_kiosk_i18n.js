@@ -32,6 +32,7 @@ const LANG_NAME = {
   ru: 'Russian (Русский)',
   es: 'Spanish (Español)',
   mn: 'Mongolian (Монгол хэл, Cyrillic script)',
+  vi: 'Vietnamese (Tiếng Việt, Latin script with diacritics)',
 };
 
 function buildSystemPrompt(targetLang) {
@@ -86,7 +87,7 @@ async function translateObject(sourceObj, targetLang) {
     }
 
     let changed = false;
-    for (const lang of ['ru', 'es', 'mn']) {
+    for (const lang of ['ru', 'es', 'mn', 'vi']) {
       if (data[lang]) {
         console.log(`  - ${fname}/${lang}: 이미 존재, 건너뜀`);
         continue;

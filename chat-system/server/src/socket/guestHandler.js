@@ -47,6 +47,10 @@ const NIGHT_MESSAGES = {
     'Шөнийн цаг (00:00–08:00 KST) — зөвхөн автомат хариулт.\n' +
     'Яаралтай асуудлын хувьд 1 давхрын лобби дахь утаснаас 010-5747-1294 дугаарт залгана уу.\n' +
     '(Зөвхөн лобби утасны дуудлагад хариулна.)',
+  vi:
+    'Thời gian ban đêm (00:00–08:00 KST) — chỉ trả lời tự động.\n' +
+    'Trường hợp khẩn cấp, vui lòng gọi 010-5747-1294 từ điện thoại lễ tân tầng 1.\n' +
+    '(Chỉ nghe máy khi gọi từ điện thoại lễ tân.)',
 };
 
 function getNightMessage(lang) {

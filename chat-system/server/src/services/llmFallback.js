@@ -60,6 +60,7 @@ const LANG_NAME = {
   ru: 'Русский',
   es: 'Español',
   mn: 'Монгол хэл',
+  vi: 'Tiếng Việt',
 };
 
 function buildSystemPrompt(answers, lang) {
