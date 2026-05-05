@@ -515,17 +515,17 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
 
     #toggle-btn {
-      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
-      width: 56px; height: 56px; border-radius: 50%;
+      position: fixed; bottom: 40px; right: 40px; z-index: 9999;
+      width: 112px; height: 112px; border-radius: 50%;
       background: #2563eb; color: white; border: none;
-      font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 48px; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.25);
       display: flex; align-items: center; justify-content: center;
       transition: background 0.2s;
     }
     #toggle-btn:hover { background: #1d4ed8; }
 
     #chat-box {
-      position: fixed; bottom: 92px; right: 24px; z-index: 9998;
+      position: fixed; bottom: 168px; right: 40px; z-index: 9998;
       width: 340px; height: 480px;
       background: white; border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.18);
@@ -695,19 +695,19 @@
     #kb-send:active { background: #1d4ed8; }
 
     #input-area {
-      padding: 10px 12px; border-top: 1px solid #e2e8f0;
-      display: flex; gap: 8px; flex-shrink: 0;
+      padding: 12px 16px; border-top: 1px solid #e2e8f0;
+      display: flex; gap: 10px; flex-shrink: 0;
     }
     #msg-input {
-      flex: 1; padding: 8px 12px; border: 1px solid #e2e8f0;
-      border-radius: 20px; font-size: 14px; outline: none;
+      flex: 1; padding: 14px 18px; border: 1px solid #e2e8f0;
+      border-radius: 28px; font-size: 18px; outline: none;
     }
     #msg-input:focus { border-color: #2563eb; }
     #msg-input:disabled { background: #f3f4f6; cursor: not-allowed; }
     #send-btn {
-      width: 36px; height: 36px; border-radius: 50%;
+      width: 52px; height: 52px; border-radius: 50%;
       background: #2563eb; color: white; border: none;
-      font-size: 16px; cursor: pointer; display: flex;
+      font-size: 22px; cursor: pointer; display: flex;
       align-items: center; justify-content: center;
     }
     #send-btn:hover { background: #1d4ed8; }
@@ -1460,11 +1460,23 @@
       if (nameInput) nameInput.placeholder = t('namePlaceholder');
     }
 
-    // 키오스크 stage 게이트 라벨 갱신
+    // 키오스크 stage/방번호/이름 게이트 라벨 갱신
     if (IS_KIOSK) {
+      // stage 게이트
       if (kioskStageTitle) kioskStageTitle.textContent = t('kioskStageTitle');
       if (stagePreBtn) stagePreBtn.textContent = '🛬 ' + t('kioskStagePreCheckin');
       if (stagePostBtn) stagePostBtn.textContent = '🏠 ' + t('kioskStagePostCheckin');
+      // 방 번호 게이트
+      if (roomGateTitle && bedBtnsWrap?.classList.contains('hidden')) {
+        roomGateTitle.textContent = t('roomGateTitle');
+      }
+      if (bedBack) bedBack.textContent = t('bedBack');
+      // 이름 게이트
+      if (nameGateTitle) nameGateTitle.textContent = t('nameTitle');
+      if (nameKbHint) nameKbHint.textContent = t('nameKbHint');
+      if (nameSubmit) nameSubmit.textContent = t('nameSubmitBtn');
+      if (nameError) nameError.textContent = t('nameErrorMsg');
+      if (nameInput) nameInput.placeholder = t('namePlaceholder');
     }
   }
 
@@ -1785,7 +1797,7 @@
     toggleBtn.textContent = isOpen ? '✕' : '💬';
     // 키오스크 하단 드로어 펼쳐졌을 때 토글 버튼이 가려지지 않게 위로 이동
     if (IS_KIOSK) {
-      toggleBtn.style.bottom = isOpen ? 'calc(40vh + 16px)' : '24px';
+      toggleBtn.style.bottom = isOpen ? 'calc(40vh + 16px)' : '40px';
     }
     if (!isOpen) hideCloseConfirm();
 
@@ -1883,6 +1895,6 @@
     isOpen = false;
     chatBox.classList.add('hidden');
     toggleBtn.textContent = '💬';
-    if (IS_KIOSK) toggleBtn.style.bottom = '24px';
+    if (IS_KIOSK) toggleBtn.style.bottom = '40px';
   });
 })();
