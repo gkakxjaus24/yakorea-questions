@@ -114,12 +114,8 @@
       },
       {
         "q": "다른 도움이 더 필요해요(직원 연결)",
-        "a": "다음 메세지창을 이용해서 문자주세요. 문자에 답이 없다면 전화({{phone}})주세요",
-        "category": "기타 요청 및 문의",
-        "media": "../images/contact_us.jpg",
-        "mediaType": "image",
-        "dynamicPhone": true
-        
+        "a": "화면 오른쪽 아래 채팅 아이콘 💬 을 눌러 매니저에게 연결해주세요.",
+        "category": "기타 요청 및 문의"
       }
     ]
   
@@ -238,13 +234,10 @@
       "category": "Entry & Unmanned Operation"
     },
     {
-      "q": "I need more help (Message our staff)",
-      "a": "Please use the message box at the bottom right of the screen to send us a message. If no one answers, call us ({{phone}})",
-      "category": "Other Requests & Help",
-      "media": "../images/contact_us.jpg",
-      "mediaType": "image",
-      "dynamicPhone": true
-      
+      "q": "I need more help (Contact staff)",
+      "a": "Please tap the chat icon 💬 at the bottom right of the screen to connect with our staff.",
+      "category": "Other Requests & Help"
+
     }
   ]
 },
@@ -364,11 +357,8 @@
     },
     {
       "q": "もっと助けが必要です",
-      "a": "画面の右下にあるメッセージ欄からご連絡ください。返信がない場合は電話({{phone}})してください",
-      "category": "その他の問い合わせ",
-      "media": "../images/contact_us.jpg",
-      "mediaType": "image",
-      "dynamicPhone": true
+      "a": "画面右下のチャットアイコン 💬 を押してスタッフにご連絡ください。",
+      "category": "その他の問い合わせ"
     }
   ]
 },
@@ -492,11 +482,8 @@
     },
     {
       "q": "我需要更多帮助",
-      "a": "请使用屏幕右下角的留言窗口发送信息。如果没有回复，请拨打电话({{phone}})",
-      "category": "其他问题与帮助",
-      "media": "../images/contact_us.jpg",
-      "mediaType": "image",
-      "dynamicPhone": true
+      "a": "请点击屏幕右下角的聊天图标 💬 与工作人员联系。",
+      "category": "其他问题与帮助"
     }
   ]
 },
@@ -615,11 +602,8 @@
     },
     {
       "q": "Мне нужна дополнительная помощь.",
-      "a": "Напишите нам через окно сообщений в правом нижнем углу. Если нет ответа — звоните ({{phone}})",
-      "category": "Прочие запросы",
-      "media": "../images/contact_us.jpg",
-      "mediaType": "image",
-      "dynamicPhone": true
+      "a": "Нажмите на значок чата 💬 в правом нижнем углу экрана, чтобы связаться с персоналом.",
+      "category": "Прочие запросы"
     }
   ]
 },
@@ -738,11 +722,8 @@
     },
     {
       "q": "Necesito más ayuda.",
-      "a": "Use el cuadro de mensajes en la parte inferior derecha de la pantalla. Si no hay respuesta, llame ({{phone}})",
-      "category": "Otras solicitudes",
-      "media": "../images/contact_us.jpg",
-      "mediaType": "image",
-      "dynamicPhone": true
+      "a": "Toca el ícono de chat 💬 en la parte inferior derecha de la pantalla para conectarte con el personal.",
+      "category": "Otras solicitudes"
     }
   ]
 }
