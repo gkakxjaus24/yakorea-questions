@@ -957,5 +957,142 @@
         "category": "Бусад Асуудал & Туслалцаа"
       }
     ]
+  },
+  "vi": {
+    "title": "TRỢ GIÚP & CÂU HỎI🙋‍♂️❓",
+    "qna": [
+      {
+        "q": "Có phòng vệ sinh công cộng không?",
+        "keyword": "phòng vệ sinh công cộng",
+        "a": "Xin lỗi, chúng tôi không có phòng tắm công cộng.",
+        "category": "Tiện nghi & Dịch vụ"
+      },
+      {
+        "q": "Cửa chính đóng lúc mấy giờ?",
+        "keyword": "Cửa chính",
+        "a": "Cửa chính mở 24 giờ.",
+        "category": "Vào cửa & Hoạt động không có nhân viên"
+      },
+      {
+        "q": "Tôi có thể lấy nước uống ở đâu?",
+        "keyword": "nước uống",
+        "a": "Sử dụng máy lọc nước trên bàn bếp. Để có nước nóng, hãy dùng bình đun nước điện.",
+        "category": "Tiện nghi & Dịch vụ"
+      },
+      {
+        "q": "Tôi cần thêm khăn tắm.",
+        "keyword": "khăn tắm",
+        "a": "Vui lòng trả khăn đã sử dụng vào giỏ khăn ở tầng 2 (hoặc giỏ ở trước phòng tắm đối với các phòng hầm). Sau đó lấy khăn sạch từ giỏ ở bên phải quầy tiếp tân.",
+        "category": "Tiện nghi & Dịch vụ"
+      },
+      {
+        "q": "Dép của tôi bị mất.",
+        "keyword": "Dép",
+        "a": "Có thể khách khác đã lấy nhầm dép. Vui lòng sử dụng 'Dép dự phòng' trong giá để dép.",
+        "category": "Tiện nghi & Dịch vụ"
+      },
+      {
+        "q": "Bữa sáng phục vụ lúc mấy giờ?",
+        "keyword": "Bữa sáng",
+        "a": "Bữa sáng tự lấy trong bếp từ 7 giờ sáng đến 10 giờ sáng.",
+        "category": "Tiện nghi & Dịch vụ"
+      },
+      {
+        "q": "Tôi có thể mượn bộ chuyển đổi điện và sạc điện thoại không?",
+        "keyword": "bộ chuyển đổi điện",
+        "a": "Lấy từ hộp trên quầy tiếp tân. Vui lòng chắc chắn trả lại khi bạn checkout.",
+        "category": "Tiện nghi & Dịch vụ"
+      },
+      {
+        "q": "Tôi muốn giặt quần áo.",
+        "keyword": "giặt quần áo",
+        "a": "Giặt quần áo giá 5.000 KRW mỗi túi tại quầy tiếp tân (bao gồm giặt và sấy). Bỏ tiền mặt vào phong bì, đặt vào túi giặt cùng với quần áo của bạn, và để bên cạnh quầy tiếp tân. Quần áo của bạn sẽ hoàn tất trong vòng 24 giờ, và chúng tôi sẽ để bên cạnh quầy tiếp tân khi sẵn sàng.",
+        "category": "Giặt đồ & Tủ lạnh"
+      },
+      {
+        "q": "Tôi có thể sử dụng khu vực chung lúc nào?",
+        "keyword": "khu vực chung",
+        "a": "Khu vực chung mở 24 giờ. Nhưng vui lòng giữ yên tĩnh sau 23 giờ và sáng sớm vì có phòng khách trên tầng 1.",
+        "category": "Vào cửa & Hoạt động không có nhân viên"
+      },
+      {
+        "q": "Tôi muốn cất giữ hành lý của tôi.",
+        "keyword": "hành lý",
+        "a": "Bạn có thể cất giữ hành lý trước khi nhận phòng hoặc sau khi checkout ở trước quầy tiếp tân.",
+        "category": "Hành lý & Cân"
+      },
+      {
+        "q": "Có cân để cân hành lý của tôi không?",
+        "keyword": "cân",
+        "a": "Có một cân di động trên bàn ở trước quầy tiếp tân.",
+        "category": "Hành lý & Cân"
+      },
+      {
+        "q": "Tôi có thể cất giữ hành lý lâu dài không?",
+        "keyword": "lâu dài",
+        "a": "Hành lý có thể được cất giữ miễn phí trong tối đa một tuần. Để lại trước quầy tiếp tân kèm theo tên, thông tin liên hệ, ngày checkout và ngày trở lại. Sau một tuần, phí 1.000 KRW mỗi ngày sẽ áp dụng.",
+        "category": "Hành lý & Cân"
+      },
+      {
+        "q": "Nếu tôi kéo dài lưu trú, tôi có thể giữ đồ đạc của tôi trên giường không?",
+        "keyword": "giường",
+        "a": "Vâng, nếu bạn đặt phòng dưới cùng tên và cùng loại phòng, bạn có thể tiếp tục sử dụng cùng một giường mà không cần di chuyển đồ đạc của bạn.",
+        "category": "Phòng & Liên quan đến giường"
+      },
+      {
+        "q": "Tôi bị mất thứ gì đó.",
+        "keyword": "bị mất",
+        "a": "Vui lòng cung cấp chi tiết: 1. Tên, 2. Kích thước, 3. Hình dáng, 4. Màu sắc, 5. Ngày, 6. Giờ, 7. Vị trí. Chúng tôi sẽ kiểm tra camera. Chúng tôi không chịu trách nhiệm đối với các vật bị mất trong phòng ký túc xá vì mỗi giường có một tủ khóa cá nhân.",
+        "category": "Yêu cầu & Trợ giúp khác"
+      },
+      {
+        "q": "Có người hoặc vật gì đó trên giường của tôi.",
+        "keyword": "giường của tôi",
+        "a": "Có thể khách khác đã nhầm số giường. Vui lòng gửi tin nhắn cho chúng tôi qua kiosk. Nhân viên chúng tôi sẽ giúp bạn sớm.",
+        "category": "Phòng & Liên quan đến giường"
+      },
+      {
+        "q": "Wi-Fi ở đâu?",
+        "keyword": "Wi-Fi",
+        "a": "ID Wi-Fi và mật khẩu nằm trên công tắc đèn hoặc gần cửa trong mỗi phòng.",
+        "category": "Tiện nghi & Dịch vụ"
+      },
+      {
+        "q": "Tôi muốn in tài liệu.",
+        "keyword": "in",
+        "a": "Vui lòng gửi tệp của bạn đến dongdaemun2@gmail.com và gửi tin nhắn cho chúng tôi qua màn hình kiosk (góc dưới bên phải). Chúng tôi sẽ in trong vòng 1 giờ. (Tiêu đề: In yêu cầu / Bao gồm tên và số phòng của bạn) Tối đa 20 trang đen trắng hoặc 10 trang màu là miễn phí. In ảnh và hình ảnh không khả dụng.",
+        "category": "Tiện nghi & Dịch vụ"
+      },
+      {
+        "q": "Có người lấy thức ăn của tôi từ tủ lạnh.",
+        "keyword": "tủ lạnh",
+        "a": "Vui lòng kiểm tra lại thông báo trong tủ lạnh. Bất kỳ thức ăn nào không có nhãn 'ngày checkout' đều là tự do cho bất kỳ ai lấy!",
+        "category": "Giặt đồ & Tủ lạnh"
+      },
+      {
+        "q": "Tôi có thể thay đổi số giường không?",
+        "keyword": "số giường",
+        "a": "Để lại một tờ ghi chú ở quầy tiếp tân. Bạn có thể thay đổi giường từ ngày hôm sau. Vui lòng rời khỏi giường hiện tại của bạn trước 11 giờ sáng, và chuyển đến giường mới sau 15 giờ khi làm vệ sinh xong.",
+        "category": "Phòng & Liên quan đến giường"
+      },
+      {
+        "q": "Chính sách hoàn tiền là gì?",
+        "keyword": "hoàn tiền",
+        "a": "Vui lòng kiểm tra chính sách hoàn tiền của trang web đặt phòng của bạn. Chúng tôi không hoàn tiền cho những thay đổi lịch trình cá nhân.",
+        "category": "Yêu cầu & Trợ giúp khác"
+      },
+      {
+        "q": "Tại sao không có người ở quầy tiếp tân?",
+        "keyword": "không có người",
+        "a": "Khách sạn của chúng tôi không có nhân viên. Điều này giúp chúng tôi tiết kiệm chi phí, vì vậy chúng tôi có thể cung cấp giá rẻ hơn. Nhưng nếu bạn cần trợ giúp, vui lòng gọi cho chúng tôi bất kỳ lúc nào.",
+        "category": "Vào cửa & Hoạt động không có nhân viên"
+      },
+      {
+        "q": "Tôi cần trợ giúp thêm (Liên hệ nhân viên)",
+        "keyword": "trợ giúp",
+        "a": "Vui lòng nhấp vào biểu tượng trò chuyện 💬 ở góc dưới bên phải của màn hình để kết nối với nhân viên của chúng tôi.",
+        "category": "Yêu cầu & Trợ giúp khác"
+      }
+    ]
   }
 }
