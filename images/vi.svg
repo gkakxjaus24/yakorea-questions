@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#DA251D"/>
+  <!-- 5-pointed star centered at (450,300), outer r=120, inner r=46 -->
+  <polygon fill="#FFFF00"
+    points="450,180 477,263 564,263 494,314 520,397 450,346 380,397 406,314 336,263 423,263"/>
+</svg>
