@@ -1088,7 +1088,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([loadExcelData(), loadPasswordData()]);
 
   document.getElementById("searchButton").addEventListener("click", () => {
-    closeOSK();
+    if (typeof window.closeOSK === "function") window.closeOSK();
     checkReservation();
   });
   document.getElementById("reservationInput").addEventListener("keypress", (e) => {
@@ -1252,6 +1252,8 @@ document.addEventListener("click", (e) => {
     osk.setAttribute("aria-hidden", "true");
     activeInput = null;
   }
+  // 외부 스코프(예: 검색 버튼 클릭 핸들러)에서도 OSK를 닫을 수 있도록 노출
+  window.closeOSK = closeOSK;
 
   /**
    * 텍스트 삽입 (커서 위치 고려)
