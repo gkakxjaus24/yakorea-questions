@@ -1087,7 +1087,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   updateUITexts();
   await Promise.all([loadExcelData(), loadPasswordData()]);
 
-  document.getElementById("searchButton").addEventListener("click", checkReservation);
+  document.getElementById("searchButton").addEventListener("click", () => {
+    closeOSK();
+    checkReservation();
+  });
   document.getElementById("reservationInput").addEventListener("keypress", (e) => {
     if (e.key === "Enter") checkReservation();
   });
@@ -1374,13 +1377,15 @@ document.addEventListener("click", (e) => {
   });
 
   // 외부 클릭 시 키보드 닫기
+  // (검색 버튼은 제외 - 검색 버튼 자체 click 핸들러에서 closeOSK + checkReservation 처리)
   document.addEventListener("mousedown", (e) => {
     if (osk.classList.contains("hidden")) return;
 
     const withinOSK = osk.contains(e.target);
     const withinInput = activeInput && activeInput.contains(e.target);
+    const withinSearchBtn = document.getElementById("searchButton")?.contains(e.target);
 
-    if (!withinOSK && !withinInput) {
+    if (!withinOSK && !withinInput && !withinSearchBtn) {
       closeOSK();
     }
   });
