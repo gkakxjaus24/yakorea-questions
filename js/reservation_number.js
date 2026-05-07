@@ -567,6 +567,42 @@ function getConfirmButtonText(stepKey, isDorm = false) {
       memo: "确认特别备注",
       method: "确认入住方式",
       done: "确认完成"
+    },
+    ru: {
+      name: "Проверить имя",
+      room: isDorm ? "Проверить комнату / кровать" : "Проверить номер комнаты",
+      password: "Проверить пароль",
+      checkout: "Проверить дату выезда",
+      memo: "Проверить особые заметки",
+      method: "Проверить инструкции по заезду",
+      done: "Готово"
+    },
+    es: {
+      name: "Verificar nombre",
+      room: isDorm ? "Verificar habitación / cama" : "Verificar número de habitación",
+      password: "Verificar contraseña",
+      checkout: "Verificar fecha de salida",
+      memo: "Verificar nota especial",
+      method: "Verificar instrucciones de check-in",
+      done: "Listo"
+    },
+    mn: {
+      name: "Нэр шалгах",
+      room: isDorm ? "Өрөө / Орны дугаар шалгах" : "Өрөөний дугаар шалгах",
+      password: "Нууц үг шалгах",
+      checkout: "Гарах огноо шалгах",
+      memo: "Тусгай тэмдэглэл шалгах",
+      method: "Бүртгүүлэх заавар шалгах",
+      done: "Дууссан"
+    },
+    vi: {
+      name: "Kiểm tra tên",
+      room: isDorm ? "Kiểm tra phòng / giường" : "Kiểm tra số phòng",
+      password: "Kiểm tra mật khẩu",
+      checkout: "Kiểm tra ngày trả phòng",
+      memo: "Kiểm tra ghi chú đặc biệt",
+      method: "Kiểm tra hướng dẫn nhận phòng",
+      done: "Hoàn thành"
     }
   };
 
