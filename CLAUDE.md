@@ -18,3 +18,10 @@
 ### 배포 흐름
 - **채팅 위젯 수정** (chat-system/): 키오스크 PC 또는 노트북에서 수정 → `git push` → 상대 컴퓨터에서 `git pull` → **노트북에서 Railway 배포**
 - **키오스크 페이지 수정** (pages/, js/, css/, data/): 키오스크 PC에서 수정 → `git push` → 노트북에서 `git pull` (필요 시)
+
+## Git 브랜치 규칙
+
+- **사용 브랜치: `master` 단독 사용**
+- `main` 브랜치는 2026-05-07에 삭제됨 → 태그 `archive/main-2026-05-07`로 보관
+- 양쪽 PC 모두 `master` 브랜치만 사용할 것
+- push/pull 시 항상 `master` 기준으로 동작하는지 확인
