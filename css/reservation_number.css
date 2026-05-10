@@ -403,6 +403,12 @@
     flex: 4;
 }
 
+.osk-key.osk-shift-active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
 /* 입력창 포커스 시 키보드 부드럽게 나타나게 하기 위해 opacity 추가 가능 */
 .osk:not(.hidden) {
     display: block;

@@ -1161,6 +1161,7 @@ document.addEventListener("click", (e) => {
   };
 
   let currentLang = "en"; // "en" (영문) 또는 "ko" (국문)
+  let shiftActive = false; // 한글 shift(쌍자음/특수모음) 활성 여부
 
   // 상단바에 들어갈 영문 키보드 배열
   const layoutEn = [
@@ -1170,10 +1171,18 @@ document.addEventListener("click", (e) => {
     ["Z", "X", "C", "V", "B", "N", "M"]
   ];
 
-  // 한글(자음/모음) 키보드 레이아웃
+  // 한글(자음/모음) 키보드 레이아웃 - 기본
   const layoutKo = [
     ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
     ["ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ", "ㅛ", "ㅕ", "ㅑ", "ㅐ", "ㅔ"],
+    ["ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ", "ㅗ", "ㅓ", "ㅏ", "ㅣ"],
+    ["ㅋ", "ㅌ", "ㅊ", "ㅍ", "ㅠ", "ㅜ", "ㅡ"]
+  ];
+
+  // 한글 Shift 레이아웃 - 쌍자음/특수모음 (2번째 줄만 변경)
+  const layoutKoShift = [
+    ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+    ["ㅃ", "ㅉ", "ㄸ", "ㄲ", "ㅆ", "ㅛ", "ㅕ", "ㅑ", "ㅒ", "ㅖ"],
     ["ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ", "ㅗ", "ㅓ", "ㅏ", "ㅣ"],
     ["ㅋ", "ㅌ", "ㅊ", "ㅍ", "ㅠ", "ㅜ", "ㅡ"]
   ];
@@ -1184,7 +1193,9 @@ document.addEventListener("click", (e) => {
   function renderKeys() {
     oskKeys.innerHTML = "";
 
-    const activeLayout = currentLang === "ko" ? layoutKo : layoutEn;
+    const activeLayout = currentLang === "ko"
+      ? (shiftActive ? layoutKoShift : layoutKo)
+      : layoutEn;
 
     activeLayout.forEach(row => {
       const rowEl = document.createElement("div");
@@ -1200,9 +1211,18 @@ document.addEventListener("click", (e) => {
       oskKeys.appendChild(rowEl);
     });
 
-    // 마지막 줄: 한/영 토글 버튼, Space와 Done 버튼 배치
+    // 마지막 줄: 한글 모드면 Shift 추가, 한/영 토글, Space, Done
     const bottomRow = document.createElement("div");
     bottomRow.className = "osk-row";
+
+    if (currentLang === "ko") {
+      const shiftBtn = document.createElement("button");
+      shiftBtn.type = "button";
+      shiftBtn.className = "osk-key wide" + (shiftActive ? " osk-shift-active" : "");
+      shiftBtn.textContent = "⇧";
+      shiftBtn.dataset.action = "shift";
+      bottomRow.appendChild(shiftBtn);
+    }
 
     const langToggleBtn = document.createElement("button");
     langToggleBtn.type = "button";
@@ -1367,14 +1387,26 @@ document.addEventListener("click", (e) => {
       return;
     }
 
+    if (action === "shift") {
+      shiftActive = !shiftActive;
+      renderKeys();
+      return;
+    }
+
     if (action === "toggleLang") {
       currentLang = currentLang === "en" ? "ko" : "en";
+      shiftActive = false; // 언어 전환 시 shift 초기화
       renderKeys();
       return;
     }
 
     if (key !== undefined) {
       insertText(key);
+      // 한글 shift 모드에서 글자 입력 후 자동 해제
+      if (currentLang === "ko" && shiftActive) {
+        shiftActive = false;
+        renderKeys();
+      }
     }
   });
 
