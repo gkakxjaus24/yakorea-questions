@@ -1153,12 +1153,23 @@ document.addEventListener("click", (e) => {
 
   if (!osk || !oskKeys) return;
 
-  // OSK에 표시될 텍스트
-  const OSK_TEXT = {
-    title: "Virtual Keyboard",
-    done: "Done",
-    clear: "Clear"
+  // OSK에 표시될 텍스트 (키보드 언어별)
+  const OSK_LABELS = {
+    en: { title: "Virtual Keyboard", done: "Done", clear: "Clear", space: "Space" },
+    ko: { title: "가상 키보드",      done: "완료",  clear: "지우기", space: "공백"  }
   };
+
+  function getOskLabel(key) {
+    return (OSK_LABELS[currentLang] || OSK_LABELS.en)[key];
+  }
+
+  function updateOskHeader() {
+    if (oskTitle) oskTitle.textContent = getOskLabel("title");
+    const clearBtn = osk?.querySelector("[data-action='clear']");
+    const doneBtn  = osk?.querySelector(".osk-bar [data-action='done']");
+    if (clearBtn) clearBtn.textContent = getOskLabel("clear");
+    if (doneBtn)  doneBtn.textContent  = getOskLabel("done");
+  }
 
   let currentLang = "en"; // "en" (영문) 또는 "ko" (국문)
   let shiftActive = false; // 한글 shift(쌍자음/특수모음) 활성 여부
@@ -1234,20 +1245,15 @@ document.addEventListener("click", (e) => {
     const spaceBtn = document.createElement("button");
     spaceBtn.type = "button";
     spaceBtn.className = "osk-key wider";
-    spaceBtn.textContent = "Space";
+    spaceBtn.textContent = getOskLabel("space");
     spaceBtn.dataset.key = " ";
     bottomRow.appendChild(spaceBtn);
 
-    const doneBtn = document.createElement("button");
-    doneBtn.type = "button";
-    doneBtn.className = "osk-key wide osk-btn-primary";
-    doneBtn.textContent = OSK_TEXT.done;
-    doneBtn.dataset.action = "done";
-    bottomRow.appendChild(doneBtn);
+    // 하단 Done 버튼 제거 — 상단 바의 Done 버튼으로 통일
 
     oskKeys.appendChild(bottomRow);
 
-    if (oskTitle) oskTitle.textContent = OSK_TEXT.title;
+    updateOskHeader();
   }
 
   /**
