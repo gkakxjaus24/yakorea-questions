@@ -1097,8 +1097,9 @@
   let hangulCommitted = '';
   // 영어 Shift 토글 (대문자 모드)
   let enShiftOn = false;
-  // 이미지 업로드 — 대화당 1장 제한
-  let imageUploadedThisSession = false;
+  // 이미지 업로드 — 대화당 최대 5장 제한
+  const MAX_IMAGES_PER_SESSION = 5;
+  let imagesUploadedThisSession = 0;
 
   // ── i18n 헬퍼 ────────────────────────────────────────────────
   function t(key) {
@@ -1687,7 +1688,7 @@
     msgInput.disabled = isClosed;
     sendBtn.disabled = isClosed;
     msgInput.placeholder = isClosed ? t('statusClosed') : t('placeholder');
-    if (imgUploadBtn) imgUploadBtn.disabled = isClosed || imageUploadedThisSession;
+    if (imgUploadBtn) imgUploadBtn.disabled = isClosed || imagesUploadedThisSession >= MAX_IMAGES_PER_SESSION;
   }
 
   // ── 메시지 렌더링 ──────────────────────────────────────────────
@@ -1775,8 +1776,11 @@
     romajiBuffer = '';
     if (vkCandidates) vkCandidates.innerHTML = '';
     // 이미지 업로드 제한 초기화
-    imageUploadedThisSession = false;
-    if (imgUploadBtn) imgUploadBtn.disabled = false;
+    imagesUploadedThisSession = 0;
+    if (imgUploadBtn) {
+      imgUploadBtn.disabled = false;
+      imgUploadBtn.title = 'Send image';
+    }
   }
 
   // ── Socket.IO 로드 & 연결 ──────────────────────────────────────
@@ -1976,7 +1980,7 @@
 
   // ── 이미지 업로드 ──────────────────────────────────────────────
   async function handleImageUpload(file) {
-    if (imageUploadedThisSession) return;
+    if (imagesUploadedThisSession >= MAX_IMAGES_PER_SESSION) return;
     if (!roomId || currentStatus === 'closed') return;
 
     if (file.size > 5 * 1024 * 1024) {
@@ -2020,9 +2024,11 @@
         messageType: 'image',
       });
 
-      imageUploadedThisSession = true;
-      imgUploadBtn.disabled = true;
-      imgUploadBtn.title = '대화당 1장만 전송 가능합니다';
+      imagesUploadedThisSession++;
+      if (imagesUploadedThisSession >= MAX_IMAGES_PER_SESSION) {
+        imgUploadBtn.disabled = true;
+        imgUploadBtn.title = '대화당 최대 5장까지 전송 가능합니다';
+      }
 
     } catch (err) {
       console.error('[image upload]', err);
@@ -2034,7 +2040,7 @@
 
   if (imgUploadBtn && imgFileInput) {
     imgUploadBtn.addEventListener('click', () => {
-      if (!imageUploadedThisSession && currentStatus !== 'closed') {
+      if (imagesUploadedThisSession < MAX_IMAGES_PER_SESSION && currentStatus !== 'closed') {
         imgFileInput.click();
       }
     });
