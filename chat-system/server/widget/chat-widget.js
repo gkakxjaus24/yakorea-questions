@@ -780,14 +780,15 @@
     #send-btn:disabled { background: #9ca3af; cursor: not-allowed; }
 
     #img-upload-btn {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: #f1f5f9; border: 1px solid #e2e8f0;
-      font-size: 20px; cursor: pointer; display: flex;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: transparent; border: none;
+      font-size: 17px; cursor: pointer; display: flex;
       align-items: center; justify-content: center;
-      flex-shrink: 0; color: #64748b; transition: background 0.15s;
+      flex-shrink: 0; align-self: center; opacity: 0.45;
+      filter: grayscale(1); transition: opacity 0.15s;
     }
-    #img-upload-btn:hover { background: #e2e8f0; }
-    #img-upload-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    #img-upload-btn:hover { opacity: 0.8; }
+    #img-upload-btn:disabled { opacity: 0.2; cursor: not-allowed; }
 
     .msg-image {
       max-width: 200px; max-height: 200px;
