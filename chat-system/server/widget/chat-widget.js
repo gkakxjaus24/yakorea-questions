@@ -615,8 +615,8 @@
     #status-text { font-size: 11px; font-weight: normal; opacity: 0.9; }
     #close-btn {
       background: transparent; border: 1px solid rgba(255,255,255,0.55);
-      color: white; font-size: 12px; font-weight: 600;
-      cursor: pointer; padding: 4px 10px; border-radius: 6px;
+      color: white; font-size: ${IS_KIOSK ? '18px' : '12px'}; font-weight: 600;
+      cursor: pointer; padding: ${IS_KIOSK ? '10px 20px' : '4px 10px'}; border-radius: 6px;
       white-space: nowrap; flex-shrink: 0;
     }
     #close-btn:hover { background: rgba(255,255,255,0.18); }
@@ -1863,8 +1863,9 @@
     isOpen = !isOpen;
     chatBox.classList.toggle('hidden', !isOpen);
     toggleBtn.textContent = isOpen ? '✕' : '💬';
-    // 키오스크 하단 드로어 펼쳐졌을 때 토글 버튼이 가려지지 않게 위로 이동
+    // 키오스크 모드: 채팅 열릴 때 토글(✕) 버튼 숨김 — 닫기는 대화종료 버튼으로만
     if (IS_KIOSK) {
+      toggleBtn.style.display = isOpen ? 'none' : 'flex';
       toggleBtn.style.bottom = isOpen ? 'calc(40vh + 16px)' : '40px';
     }
     if (!isOpen) hideCloseConfirm();
@@ -1959,10 +1960,13 @@
       if (langBar && !KIOSK_LANG_FIXED) langBar.style.display = '';
       if (nameKbHint) nameKbHint.classList.add('hidden');
     }
-    // X 버튼과 동일하게 채팅창 닫기
+    // 채팅창 닫기 + 키오스크 모드에서 토글 버튼 다시 표시
     isOpen = false;
     chatBox.classList.add('hidden');
     toggleBtn.textContent = '💬';
-    if (IS_KIOSK) toggleBtn.style.bottom = '40px';
+    if (IS_KIOSK) {
+      toggleBtn.style.display = 'flex';
+      toggleBtn.style.bottom = '40px';
+    }
   });
 })();
