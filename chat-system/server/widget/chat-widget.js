@@ -1996,27 +1996,22 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
 
     try {
-      // 1. Railway에서 서명된 업로드 URL 발급
-      const urlResp = await fetch(`${SERVER_URL}/api/chat/upload-url`, {
+      // Railway로 직접 전송 → Railway가 Supabase Storage에 업로드
+      const resp = await fetch(`${SERVER_URL}/api/chat/upload-image`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ roomId, mimeType: file.type }),
-      });
-      if (!urlResp.ok) throw new Error('URL 발급 실패');
-      const { signedUrl, publicUrl } = await urlResp.json();
-
-      // 2. Supabase Storage에 직접 업로드 (Railway 미경유)
-      const uploadResp = await fetch(signedUrl, {
-        method: 'PUT',
-        headers: { 'Content-Type': file.type },
+        headers: { 'Content-Type': file.type, 'x-room-id': roomId },
         body: file,
       });
-      if (!uploadResp.ok) throw new Error('업로드 실패');
+      if (!resp.ok) {
+        const errData = await resp.json().catch(() => ({}));
+        throw new Error(errData.error || `HTTP ${resp.status}`);
+      }
+      const { publicUrl } = await resp.json();
 
       progressEl.remove();
       appendImageMsg(publicUrl, 'guest');
 
-      // 3. 소켓으로 이미지 URL 전송
+      // 소켓으로 이미지 URL 전송
       socket.emit('guest:send_message', {
         roomId,
         content: publicUrl,
@@ -2029,8 +2024,9 @@
       imgUploadBtn.title = '대화당 1장만 전송 가능합니다';
 
     } catch (err) {
+      console.error('[image upload]', err);
       progressEl.remove();
-      appendMsg('이미지 전송에 실패했습니다. 다시 시도해주세요.', 'system');
+      appendMsg('이미지 전송에 실패했습니다. (' + err.message + ')', 'system');
       imgUploadBtn.disabled = false;
     }
   }
