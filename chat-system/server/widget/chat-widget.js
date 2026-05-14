@@ -1021,8 +1021,9 @@
         </div>
       </div>` : ''}
       <div id="input-area">
+        ${!IS_KIOSK ? `
         <input id="img-file-input" type="file" accept="image/jpeg,image/png" style="display:none" />
-        <button id="img-upload-btn" title="Send image">📷</button>
+        <button id="img-upload-btn" title="Send image">📷</button>` : ''}
         <input id="msg-input" type="text" placeholder="${_ti('placeholder')}" />
         <button id="send-btn">➤</button>
       </div>
@@ -1078,8 +1079,8 @@
   const kbSpace         = IS_KIOSK ? shadow.getElementById('kb-space') : null;
   const kbBack          = IS_KIOSK ? shadow.getElementById('kb-back') : null;
   const kbSend          = IS_KIOSK ? shadow.getElementById('kb-send') : null;
-  const imgFileInput    = shadow.getElementById('img-file-input');
-  const imgUploadBtn    = shadow.getElementById('img-upload-btn');
+  const imgFileInput    = !IS_KIOSK ? shadow.getElementById('img-file-input') : null;
+  const imgUploadBtn    = !IS_KIOSK ? shadow.getElementById('img-upload-btn') : null;
 
   let isOpen = false; // 키오스크에서도 토글 버튼 클릭 시 펼침
   // 키오스크 게이트 상태
