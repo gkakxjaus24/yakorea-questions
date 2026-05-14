@@ -779,6 +779,27 @@
     #send-btn:hover { background: #1d4ed8; }
     #send-btn:disabled { background: #9ca3af; cursor: not-allowed; }
 
+    #img-upload-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #f1f5f9; border: 1px solid #e2e8f0;
+      font-size: 20px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      flex-shrink: 0; color: #64748b; transition: background 0.15s;
+    }
+    #img-upload-btn:hover { background: #e2e8f0; }
+    #img-upload-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .msg-image {
+      max-width: 200px; max-height: 200px;
+      border-radius: 10px; display: block;
+      cursor: pointer; object-fit: cover;
+    }
+
+    .upload-progress {
+      align-self: flex-end; font-size: 12px;
+      color: #94a3b8; padding: 4px 8px;
+    }
+
     #checkout-gate {
       flex: 1; display: flex; flex-direction: column;
       align-items: center; justify-content: center;
@@ -1000,6 +1021,8 @@
         </div>
       </div>` : ''}
       <div id="input-area">
+        <input id="img-file-input" type="file" accept="image/jpeg,image/png" style="display:none" />
+        <button id="img-upload-btn" title="Send image">📷</button>
         <input id="msg-input" type="text" placeholder="${_ti('placeholder')}" />
         <button id="send-btn">➤</button>
       </div>
@@ -1055,6 +1078,8 @@
   const kbSpace         = IS_KIOSK ? shadow.getElementById('kb-space') : null;
   const kbBack          = IS_KIOSK ? shadow.getElementById('kb-back') : null;
   const kbSend          = IS_KIOSK ? shadow.getElementById('kb-send') : null;
+  const imgFileInput    = shadow.getElementById('img-file-input');
+  const imgUploadBtn    = shadow.getElementById('img-upload-btn');
 
   let isOpen = false; // 키오스크에서도 토글 버튼 클릭 시 펼침
   // 키오스크 게이트 상태
@@ -1071,6 +1096,8 @@
   let hangulCommitted = '';
   // 영어 Shift 토글 (대문자 모드)
   let enShiftOn = false;
+  // 이미지 업로드 — 대화당 1장 제한
+  let imageUploadedThisSession = false;
 
   // ── i18n 헬퍼 ────────────────────────────────────────────────
   function t(key) {
@@ -1659,6 +1686,7 @@
     msgInput.disabled = isClosed;
     sendBtn.disabled = isClosed;
     msgInput.placeholder = isClosed ? t('statusClosed') : t('placeholder');
+    if (imgUploadBtn) imgUploadBtn.disabled = isClosed || imageUploadedThisSession;
   }
 
   // ── 메시지 렌더링 ──────────────────────────────────────────────
@@ -1669,6 +1697,19 @@
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return div;
+  }
+
+  function appendImageMsg(url, senderType) {
+    const div = document.createElement('div');
+    div.className = `msg ${senderType}`;
+    const img = document.createElement('img');
+    img.className = 'msg-image';
+    img.src = url;
+    img.alt = 'image';
+    img.addEventListener('click', () => window.open(url, '_blank'));
+    div.appendChild(img);
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
   // ── 입력 중(typing) 인디케이터 ────────────────────────────────
@@ -1732,6 +1773,9 @@
     pinyinBuffer = '';
     romajiBuffer = '';
     if (vkCandidates) vkCandidates.innerHTML = '';
+    // 이미지 업로드 제한 초기화
+    imageUploadedThisSession = false;
+    if (imgUploadBtn) imgUploadBtn.disabled = false;
   }
 
   // ── Socket.IO 로드 & 연결 ──────────────────────────────────────
@@ -1810,7 +1854,11 @@
         appendMsg(t('escalateOffer'), 'system');
       });
 
-      socket.on('manager:message', ({ content, translated, originalLang }) => {
+      socket.on('manager:message', ({ content, messageType, translated, originalLang }) => {
+        if (messageType === 'image') {
+          appendImageMsg(content, 'manager');
+          return;
+        }
         if (translated) {
           // 매니저가 중국어로 답한 걸 손님 언어로 자동 번역 — 번역문을 메인으로
           appendMsg(translated, 'manager');
@@ -1924,6 +1972,81 @@
   msgInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') sendMessage();
   });
+
+  // ── 이미지 업로드 ──────────────────────────────────────────────
+  async function handleImageUpload(file) {
+    if (imageUploadedThisSession) return;
+    if (!roomId || currentStatus === 'closed') return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      appendMsg('이미지는 5MB 이하만 전송 가능합니다.', 'system');
+      return;
+    }
+    if (!['image/jpeg', 'image/png'].includes(file.type)) {
+      appendMsg('JPG 또는 PNG 이미지만 전송 가능합니다.', 'system');
+      return;
+    }
+
+    imgUploadBtn.disabled = true;
+
+    const progressEl = document.createElement('div');
+    progressEl.className = 'upload-progress';
+    progressEl.textContent = '업로드 중…';
+    messagesEl.appendChild(progressEl);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+
+    try {
+      // 1. Railway에서 서명된 업로드 URL 발급
+      const urlResp = await fetch(`${SERVER_URL}/api/chat/upload-url`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ roomId, mimeType: file.type }),
+      });
+      if (!urlResp.ok) throw new Error('URL 발급 실패');
+      const { signedUrl, publicUrl } = await urlResp.json();
+
+      // 2. Supabase Storage에 직접 업로드 (Railway 미경유)
+      const uploadResp = await fetch(signedUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': file.type },
+        body: file,
+      });
+      if (!uploadResp.ok) throw new Error('업로드 실패');
+
+      progressEl.remove();
+      appendImageMsg(publicUrl, 'guest');
+
+      // 3. 소켓으로 이미지 URL 전송
+      socket.emit('guest:send_message', {
+        roomId,
+        content: publicUrl,
+        lang: currentLang,
+        messageType: 'image',
+      });
+
+      imageUploadedThisSession = true;
+      imgUploadBtn.disabled = true;
+      imgUploadBtn.title = '대화당 1장만 전송 가능합니다';
+
+    } catch (err) {
+      progressEl.remove();
+      appendMsg('이미지 전송에 실패했습니다. 다시 시도해주세요.', 'system');
+      imgUploadBtn.disabled = false;
+    }
+  }
+
+  if (imgUploadBtn && imgFileInput) {
+    imgUploadBtn.addEventListener('click', () => {
+      if (!imageUploadedThisSession && currentStatus !== 'closed') {
+        imgFileInput.click();
+      }
+    });
+    imgFileInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (file) handleImageUpload(file);
+      imgFileInput.value = '';
+    });
+  }
 
   escalateBtn.addEventListener('click', () => {
     escalateBtn.classList.remove('visible');

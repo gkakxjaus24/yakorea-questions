@@ -8,6 +8,7 @@ interface Message {
   id?: string;
   sender_type: 'guest' | 'manager' | 'auto' | 'system';
   content: string;
+  message_type?: string | null;
   content_translated?: string | null;
   original_lang?: string | null;
   created_at?: string;
@@ -79,10 +80,11 @@ export default function ChatRoomPage() {
     const handleHistory = ({ messages: hist }: { messages: Message[] }) => {
       setMessages(hist);
     };
-    const handleGuestMsg = ({ content, translated, originalLang, timestamp, roomLabel: lbl, guestName: nm }: { content: string; translated?: string | null; originalLang?: string | null; timestamp: string; roomLabel?: string; guestName?: string }) => {
+    const handleGuestMsg = ({ content, messageType, translated, originalLang, timestamp, roomLabel: lbl, guestName: nm }: { content: string; messageType?: string; translated?: string | null; originalLang?: string | null; timestamp: string; roomLabel?: string; guestName?: string }) => {
       setMessages((prev) => [...prev, {
         sender_type: 'guest',
         content,
+        message_type: messageType || 'text',
         content_translated: translated || null,
         original_lang: originalLang || null,
         created_at: timestamp,
@@ -185,9 +187,19 @@ export default function ChatRoomPage() {
                 <span className="ml-1 text-gray-300">· {msg.original_lang.toUpperCase()}</span>
               )}
             </span>
-            <p className={`px-4 py-2 rounded-2xl text-sm leading-relaxed ${SENDER_STYLE[msg.sender_type]}`}>
-              {msg.content}
-            </p>
+            {msg.message_type === 'image' ? (
+              <a href={msg.content} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={msg.content}
+                  alt="guest image"
+                  className="max-w-[200px] max-h-[200px] rounded-2xl object-cover cursor-pointer"
+                />
+              </a>
+            ) : (
+              <p className={`px-4 py-2 rounded-2xl text-sm leading-relaxed ${SENDER_STYLE[msg.sender_type]}`}>
+                {msg.content}
+              </p>
+            )}
             {msg.content_translated && (
               <p className="mt-1 px-4 py-1.5 text-xs text-gray-500 bg-gray-50 border border-gray-200 rounded-2xl leading-relaxed">
                 <span className="font-semibold text-gray-400">EN ›</span> {msg.content_translated}

@@ -139,11 +139,12 @@ module.exports = function guestHandler(io, socket) {
   });
 
   // 손님 메시지 전송
-  socket.on('guest:send_message', async ({ roomId, content, lang }) => {
+  socket.on('guest:send_message', async ({ roomId, content, lang, messageType }) => {
     try {
+      const msgType = messageType || 'text';
       const { data: msg, error } = await supabase
         .from('messages')
-        .insert({ room_id: roomId, sender_type: 'guest', content })
+        .insert({ room_id: roomId, sender_type: 'guest', content, message_type: msgType })
         .select()
         .single();
       if (error) throw error;
@@ -178,6 +179,7 @@ module.exports = function guestHandler(io, socket) {
       // 같은 방의 매니저에게 전달 (번역문 있으면 같이)
       socket.to(roomId).emit('guest:message', {
         content: msg.content,
+        messageType: msgType,
         translated,
         originalLang,
         timestamp: msg.created_at,
@@ -209,6 +211,12 @@ module.exports = function guestHandler(io, socket) {
       // escalate 모두 건너뜀 — 직원이 직접 답장하도록.
       if (roomAfter?.status === 'active') {
         console.log(`[Guest] active room ${roomId} — 자동응답 생략 (직원 응대 중)`);
+        return;
+      }
+
+      // 이미지 메시지는 FAQ/LLM/escalate 처리 건너뜀
+      if (msgType === 'image') {
+        console.log(`[Guest] image message in room ${roomId} — 자동응답 생략`);
         return;
       }
 

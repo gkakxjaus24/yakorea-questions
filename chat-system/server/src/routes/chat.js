@@ -55,4 +55,43 @@ router.get('/rooms/:id/messages', async (req, res) => {
   res.json(data);
 });
 
+// POST /api/chat/upload-url
+// Body: { roomId, fileName, mimeType }
+// Returns: { signedUrl, publicUrl }
+router.post('/upload-url', async (req, res) => {
+  const { roomId, mimeType } = req.body;
+
+  if (!roomId || !mimeType) {
+    return res.status(400).json({ error: 'roomId and mimeType are required' });
+  }
+  if (!['image/jpeg', 'image/png'].includes(mimeType)) {
+    return res.status(400).json({ error: 'Only image/jpeg and image/png are allowed' });
+  }
+
+  // 방이 존재하고 닫히지 않은 상태인지 확인
+  const { data: room } = await supabase
+    .from('chat_rooms')
+    .select('status')
+    .eq('id', roomId)
+    .maybeSingle();
+  if (!room || room.status === 'closed') {
+    return res.status(403).json({ error: 'Room not found or closed' });
+  }
+
+  const ext = mimeType === 'image/jpeg' ? 'jpg' : 'png';
+  const path = `${roomId}/${Date.now()}.${ext}`;
+
+  const { data, error } = await supabase.storage
+    .from('chat-images')
+    .createSignedUploadUrl(path);
+
+  if (error) return res.status(500).json({ error: error.message });
+
+  const { data: { publicUrl } } = supabase.storage
+    .from('chat-images')
+    .getPublicUrl(path);
+
+  res.json({ signedUrl: data.signedUrl, publicUrl });
+});
+
 module.exports = router;
