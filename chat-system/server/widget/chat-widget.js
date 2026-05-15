@@ -1432,6 +1432,39 @@
     }
   }
 
+  function splitPinyin(buffer) {
+    const dict = window.PINYIN_DICT || {};
+    const syllables = [];
+    let i = 0;
+    while (i < buffer.length) {
+      let matched = false;
+      for (let len = Math.min(6, buffer.length - i); len >= 1; len--) {
+        const chunk = buffer.slice(i, i + len);
+        if (dict[chunk]) {
+          syllables.push(chunk);
+          i += len;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) return null;
+    }
+    return syllables;
+  }
+
+  function appendCandidateButton(text) {
+    const btn = document.createElement('button');
+    btn.className = 'vk-cand-char';
+    btn.textContent = text;
+    btn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      msgInput.value += text;
+      pinyinBuffer = '';
+      updateZhCandidates();
+    });
+    vkCandidates.appendChild(btn);
+  }
+
   function updateZhCandidates() {
     if (!vkCandidates) return;
     vkCandidates.innerHTML = '';
@@ -1442,21 +1475,23 @@
     preview.textContent = pinyinBuffer;
     vkCandidates.appendChild(preview);
 
-    const candidates = window.PINYIN_DICT && window.PINYIN_DICT[pinyinBuffer.toLowerCase()];
-    if (candidates) {
-      candidates.slice(0, 8).forEach(char => {
-        const btn = document.createElement('button');
-        btn.className = 'vk-cand-char';
-        btn.textContent = char;
-        btn.addEventListener('pointerdown', (e) => {
-          e.preventDefault();
-          msgInput.value += char;
-          pinyinBuffer = '';
-          updateZhCandidates();
-        });
-        vkCandidates.appendChild(btn);
-      });
+    const buf = pinyinBuffer.toLowerCase();
+    const dict = window.PINYIN_DICT || {};
+
+    // 1) 단음절 정확 매치 → top-8 후보
+    if (dict[buf]) {
+      dict[buf].slice(0, 8).forEach(char => appendCandidateButton(char));
+      return;
     }
+
+    // 2) 다음절 분리 시도 → 각 음절 top-1 조합을 단일 후보로 표시
+    const syllables = splitPinyin(buf);
+    if (syllables && syllables.length > 1) {
+      const phrase = syllables.map(s => dict[s][0]).join('');
+      appendCandidateButton(phrase);
+    }
+
+    // 3) 분리 실패: preview만 표시 (후보 없음)
   }
 
   function updateJaCandidates() {
@@ -1484,8 +1519,18 @@
 
   function flushBuffers() {
     if (currentLang === 'zh' && pinyinBuffer) {
-      const candidates = window.PINYIN_DICT && window.PINYIN_DICT[pinyinBuffer.toLowerCase()];
-      msgInput.value += (candidates && candidates[0]) || pinyinBuffer;
+      const buf = pinyinBuffer.toLowerCase();
+      const dict = window.PINYIN_DICT || {};
+      if (dict[buf]) {
+        msgInput.value += dict[buf][0];
+      } else {
+        const syllables = splitPinyin(buf);
+        if (syllables) {
+          msgInput.value += syllables.map(s => dict[s][0]).join('');
+        } else {
+          msgInput.value += pinyinBuffer;
+        }
+      }
       pinyinBuffer = '';
       if (vkCandidates) vkCandidates.innerHTML = '';
     }
