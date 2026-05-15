@@ -1094,5 +1094,279 @@
         "category": "Yêu cầu & Trợ giúp khác"
       }
     ]
+  },
+  "fr": {
+    "title": "Questions Fréquemment Posées🙋‍♂️❓",
+    "qna": [
+      {
+        "q": "Y a-t-il une salle de bain commune?",
+        "keyword": "salle de bain commune",
+        "a": "Désolé, il n'y a pas de salle de bain commune.",
+        "category": "Équipements et Fournitures"
+      },
+      {
+        "q": "À quelle heure la porte d'entrée ferme-t-elle?",
+        "keyword": "porte d'entrée",
+        "a": "La porte d'entrée est ouverte 24 heures.",
+        "category": "Accès / Fonctionnement / Libre-service"
+      },
+      {
+        "q": "Où puis-je obtenir de l'eau potable?",
+        "keyword": "eau potable",
+        "a": "Veuillez utiliser le purificateur d'eau sur la table de la cuisine. (Pour l'eau chaude, veuillez utiliser la bouilloire électrique.)",
+        "category": "Équipements et Fournitures"
+      },
+      {
+        "q": "J'ai besoin de plus de serviettes.",
+        "keyword": "serviettes",
+        "a": "Veuillez \"vous assurer\" de retourner les serviettes usagées au panier à serviettes au 2e étage. (Pour les chambres au sous-sol, utilisez le panier devant la salle de douche.) Puis prenez une nouvelle serviette du panier à serviettes à droite du comptoir.",
+        "category": "Équipements et Fournitures"
+      },
+      {
+        "q": "Mes pantoufles ont disparu.",
+        "keyword": "pantoufles",
+        "a": "Il semble qu'un autre client les ait prises par erreur en raison du numéro de pantoufle. Nous avons préparé des pantoufles supplémentaires dans l'armoire à chaussures pour ce type de situation. Veuillez les utiliser.",
+        "category": "Équipements et Fournitures"
+      },
+      {
+        "q": "À quelle heure puis-je prendre le petit-déjeuner?",
+        "keyword": "petit-déjeuner",
+        "a": "Le petit-déjeuner est en libre-service à la cuisine de 7h00 à 10h00.",
+        "category": "Équipements et Fournitures"
+      },
+      {
+        "q": "Puis-je emprunter un adaptateur secteur et un chargeur de téléphone?",
+        "keyword": "adaptateur secteur",
+        "a": "Veuillez les prendre de la boîte sur le comptoir. Veuillez \"vous assurer\" de les retourner lors du départ.",
+        "category": "Équipements et Fournitures"
+      },
+      {
+        "q": "Je veux faire la lessive.",
+        "keyword": "lessive",
+        "a": "La lessive coûte 5 000 KRW par sac de lessive au comptoir. (Lavage et séchage inclus.) Mettez votre argent et la lessive dans le sac de lessive à droite du comptoir et laissez-le à côté du comptoir. Ce sera terminé dans les 24 heures, et une fois fait, nous le laisserons à côté du comptoir.",
+        "category": "Utilisation de la Lessive et du Réfrigérateur"
+      },
+      {
+        "q": "Jusqu'à quelle heure puis-je utiliser l'espace commun?",
+        "keyword": "espace commun",
+        "a": "Vous pouvez utiliser l'espace commun 24 heures par jour. Mais il y a aussi des chambres d'hôtes au 1er étage, veuillez être silencieux après 23h00 et tôt le matin.",
+        "category": "Accès / Fonctionnement / Libre-service"
+      },
+      {
+        "q": "Je veux ranger mes bagages.",
+        "keyword": "bagages",
+        "a": "Vous pouvez laisser vos bagages devant le comptoir avant l'enregistrement et après le départ.",
+        "category": "Rangement des Bagages et Utilisation de la Balance"
+      },
+      {
+        "q": "Y a-t-il une balance pour peser mes bagages?",
+        "keyword": "balance",
+        "a": "Il y a une balance portative sur la table devant le comptoir.",
+        "category": "Rangement des Bagages et Utilisation de la Balance"
+      },
+      {
+        "q": "Puis-je ranger mes bagages pendant longtemps?",
+        "keyword": "longtemps",
+        "a": "Vous pouvez ranger vos bagages gratuitement pendant une semaine. Veuillez les laisser devant le comptoir et joindre votre nom, vos coordonnées, votre date de départ et votre date de retour. Après une semaine, c'est 1 000 KRW par jour.",
+        "category": "Rangement des Bagages et Utilisation de la Balance"
+      },
+      {
+        "q": "Si je reste plus de nuits, puis-je continuer à utiliser le même lit sans déplacer mes bagages?",
+        "keyword": "même lit",
+        "a": "Oui, si votre réservation est sous le même nom et pour le même type de chambre, vous pouvez continuer à utiliser le même lit sans déplacer vos bagages.",
+        "category": "Chambres et Lits"
+      },
+      {
+        "q": "J'ai perdu quelque chose.",
+        "keyword": "perdu quelque chose",
+        "a": "Veuillez envoyer les informations suivantes sur l'objet perdu à dongdaemun2@gmail.com: 1. Nom 2. Taille 3. Forme 4. Couleur 5. Date 6. Heure 7. Lieu. Nous vérifierons les enregistrements CCTV. Les chambres de dortoir disposent de casiers personnels, nous ne sommes donc pas responsables des objets perdus.",
+        "category": "Autres Demandes et Demandes de Renseignements"
+      },
+      {
+        "q": "Il y a une autre personne ou les affaires de quelqu'un d'autre sur mon lit.",
+        "keyword": "mon lit",
+        "a": "Il semble qu'un autre client utilise votre lit par erreur en raison du numéro de lit. Veuillez appuyer sur le bouton de chat ci-dessous et contacter le responsable.",
+        "category": "Chambres et Lits"
+      },
+      {
+        "q": "Où se trouvent les informations Wi-Fi?",
+        "keyword": "Wi-Fi",
+        "a": "L'identifiant et le mot de passe Wi-Fi sont affichés sur l'interrupteur lumineux de chaque chambre.",
+        "category": "Équipements et Fournitures"
+      },
+      {
+        "q": "Je veux imprimer quelque chose.",
+        "keyword": "imprimer",
+        "a": "Veuillez envoyer le fichier à dongdaemun2@gmail.com, puis nous contacter via le bouton de chat ci-dessous. (Objet: Demande d'Impression, Nom, Numéro de Chambre) Documents: jusqu'à 20 pages en noir et blanc et 10 pages en couleur sont gratuites. Les photos ou les images ne peuvent pas être imprimées.",
+        "category": "Équipements et Fournitures"
+      },
+      {
+        "q": "Quelqu'un a mangé ma nourriture dans le réfrigérateur.",
+        "keyword": "réfrigérateur",
+        "a": "Veuillez vérifier à nouveau l'avis du réfrigérateur. Toute nourriture sans \"date de départ\" écrite dessus peut être mangée par n'importe qui!!",
+        "category": "Utilisation de la Lessive et du Réfrigérateur"
+      },
+      {
+        "q": "Je veux changer mon numéro de lit.",
+        "keyword": "numéro de lit",
+        "a": "Veuillez appuyer sur le bouton de chat ci-dessous et contacter le responsable. Nous vous indiquerons la date à laquelle vous pouvez changer de lit. (Le jour de l'enregistrement, l'attribution des lits est déjà terminée, vous ne pouvez donc pas changer de lit.) Veuillez libérer votre lit d'origine avant 11h00 le jour où vous changez de lit. Vous pouvez passer au nouveau lit après 15h00, quand le nettoyage est terminé.",
+        "category": "Chambres et Lits"
+      },
+      {
+        "q": "Politique de remboursement",
+        "keyword": "Remboursement",
+        "a": "Veuillez vérifier la politique de remboursement de votre site de réservation. Les remboursements ne sont pas possibles pour les changements de programme personnels.",
+        "category": "Autres Demandes et Demandes de Renseignements"
+      },
+      {
+        "q": "Pourquoi n'y a-t-il généralement pas de personnel au comptoir?",
+        "keyword": "pas de personnel",
+        "a": "Notre auberge fonctionne comme une auberge en libre-service. En économisant les coûts de main-d'œuvre, nous pouvons vous offrir un prix plus abordable. Si vous avez des questions, veuillez utiliser le bouton de chat ci-dessous.",
+        "category": "Accès / Fonctionnement / Libre-service"
+      },
+      {
+        "q": "J'ai besoin de plus d'aide.",
+        "keyword": "aide",
+        "a": "Veuillez appuyer sur le bouton de chat en bas à droite de l'écran et contacter le responsable.",
+        "category": "Autres Demandes et Demandes de Renseignements"
+      }
+    ]
+  },
+  "de": {
+    "title": "Häufig gestellte Fragen🙋‍♂️❓",
+    "qna": [
+      {
+        "q": "Gibt es ein gemeinsames Badezimmer?",
+        "keyword": "shared bathroom",
+        "a": "Entschuldigung, es gibt kein gemeinsames Badezimmer.",
+        "category": "Amenities and Supplies"
+      },
+      {
+        "q": "Wann schließt die Eingangstür?",
+        "keyword": "entrance door",
+        "a": "Die Eingangstür ist 24 Stunden offen.",
+        "category": "Access / Operation / Self-service"
+      },
+      {
+        "q": "Wo kann ich Trinkwasser bekommen?",
+        "keyword": "drinking water",
+        "a": "Bitte nutzen Sie den Wasserfilter auf dem Küchentisch. (Für heißes Wasser nutzen Sie bitte den Wasserkocher.)",
+        "category": "Amenities and Supplies"
+      },
+      {
+        "q": "Ich brauche mehr Handtücher.",
+        "keyword": "towels",
+        "a": "Bitte \"achten Sie darauf\", gebrauchte Handtücher in den Handtuchkorb im 2. Stock zurückzugeben. (Für Kellerräume nutzen Sie bitte den Korb vor dem Duschraum.) Nehmen Sie dann ein neues Handtuch aus dem Handtuchkorb auf der rechten Seite des Schalters.",
+        "category": "Amenities and Supplies"
+      },
+      {
+        "q": "Meine Pantoffeln sind verschwunden.",
+        "keyword": "slippers",
+        "a": "Es sieht so aus, als hätte ein anderer Gast sie versehentlich mitgenommen wegen der Pantoffelnummer. Wir haben Ersatzpantoffeln im Schuhschrank für solche Situationen vorbereitet. Bitte nutzen Sie diese.",
+        "category": "Amenities and Supplies"
+      },
+      {
+        "q": "Wann kann ich frühstücken?",
+        "keyword": "breakfast",
+        "a": "Das Frühstück ist Selbstbedienung in der Küche von 7:00 Uhr bis 10:00 Uhr.",
+        "category": "Amenities and Supplies"
+      },
+      {
+        "q": "Kann ich einen Stromadapter und ein Telefonladegerät ausleihen?",
+        "keyword": "power adapter",
+        "a": "Bitte nehmen Sie diese aus der Box am Schalter. Bitte \"achten Sie darauf\", sie bei der Abreise zurückzugeben.",
+        "category": "Amenities and Supplies"
+      },
+      {
+        "q": "Ich möchte Wäsche waschen.",
+        "keyword": "laundry",
+        "a": "Wäsche kostet 5.000 KRW pro Wäschesack an der Rezeption. (Waschen und Trocknen inklusive.) Legen Sie Ihr Bargeld und die Wäsche in den Wäschesack auf der rechten Seite des Schalters und lassen Sie ihn neben der Rezeption. Es wird innerhalb von 24 Stunden fertig, und wenn es fertig ist, lassen wir es neben der Rezeption.",
+        "category": "Laundry and Refrigerator Use"
+      },
+      {
+        "q": "Bis zu welcher Zeit kann ich den gemeinsamen Bereich nutzen?",
+        "keyword": "common area",
+        "a": "Sie können den gemeinsamen Bereich 24 Stunden am Tag nutzen. Aber es gibt auch Gästezimmer im 1. Stock, daher bitte ich Sie, nach 23:00 Uhr und am frühen Morgen leise zu sein.",
+        "category": "Access / Operation / Self-service"
+      },
+      {
+        "q": "Ich möchte mein Gepäck lagern.",
+        "keyword": "luggage",
+        "a": "Sie können Ihr Gepäck vor dem Check-in und nach dem Check-out vor der Rezeption abstellen.",
+        "category": "Luggage Storage and Scale Use"
+      },
+      {
+        "q": "Gibt es eine Waage zum Wiegen meines Gepäcks?",
+        "keyword": "scale",
+        "a": "Es gibt eine tragbare Waage auf dem Tisch vor der Rezeption.",
+        "category": "Luggage Storage and Scale Use"
+      },
+      {
+        "q": "Kann ich mein Gepäck lange lagern?",
+        "keyword": "long time",
+        "a": "Sie können Ihr Gepäck kostenlos bis zu eine Woche lagern. Bitte lassen Sie es vor der Rezeption und befestigen Sie Ihren Namen, Kontaktinformationen, Abreisedatum und Rückgabedatum. Nach einer Woche kostet es 1.000 KRW pro Tag.",
+        "category": "Luggage Storage and Scale Use"
+      },
+      {
+        "q": "Wenn ich weitere Nächte bleibe, kann ich das gleiche Bett nutzen, ohne mein Gepäck zu bewegen?",
+        "keyword": "same bed",
+        "a": "Ja, wenn Ihre Reservierung auf denselben Namen und denselben Zimmertyp läuft, können Sie das gleiche Bett nutzen, ohne Ihr Gepäck zu bewegen.",
+        "category": "Rooms and Beds"
+      },
+      {
+        "q": "Ich habe etwas verloren.",
+        "keyword": "lost something",
+        "a": "Bitte senden Sie die folgenden Informationen über das verlorene Objekt an dongdaemun2@gmail.com: 1. Name 2. Größe 3. Form 4. Farbe 5. Datum 6. Uhrzeit 7. Ort. Wir werden die Überwachungskamera überprüfen. Schlafsäle haben persönliche Spinde, daher sind wir nicht verantwortlich für verlorene Gegenstände.",
+        "category": "Other Requests and Inquiries"
+      },
+      {
+        "q": "Es ist eine andere Person oder fremde Sachen auf meinem Bett.",
+        "keyword": "my bed",
+        "a": "Es sieht so aus, als würde ein anderer Gast Ihr Bett versehentlich nutzen wegen der Bettnummer. Bitte tippen Sie auf die Chat-Schaltfläche unten und kontaktieren Sie den Manager.",
+        "category": "Rooms and Beds"
+      },
+      {
+        "q": "Wo sind die Wi-Fi-Informationen?",
+        "keyword": "Wi-Fi",
+        "a": "Die Wi-Fi-ID und das Passwort sind am Lichtschalter in jedem Zimmer angebracht.",
+        "category": "Amenities and Supplies"
+      },
+      {
+        "q": "Ich möchte etwas drucken.",
+        "keyword": "print",
+        "a": "Bitte senden Sie die Datei an dongdaemun2@gmail.com und kontaktieren Sie uns dann über die Chat-Schaltfläche unten. (Betreff: Print Request, Name, Zimmernummer) Dokumente: bis zu 20 Seiten in Schwarzweiß und 10 Farbseiten sind kostenlos. Fotos oder Bilder können nicht gedruckt werden.",
+        "category": "Amenities and Supplies"
+      },
+      {
+        "q": "Jemand hat mein Essen im Kühlschrank gegessen.",
+        "keyword": "refrigerator",
+        "a": "Bitte lesen Sie den Kühlschrankhinweis noch einmal. Alle Lebensmittel ohne \"Abreisedatum\" können von jedem gegessen werden!!",
+        "category": "Laundry and Refrigerator Use"
+      },
+      {
+        "q": "Ich möchte meine Bettnummer ändern.",
+        "keyword": "bed number",
+        "a": "Bitte tippen Sie auf die Chat-Schaltfläche unten und kontaktieren Sie den Manager. Wir werden Ihnen das Datum mitteilen, an dem Sie Ihr Bett wechseln können. (Am Ankunftstag ist die Bettzuweisung bereits abgeschlossen, daher können Sie Ihr Bett nicht wechseln.) Bitte räumen Sie Ihr ursprüngliches Bett bis 11:00 Uhr am Tag des Bettenwechsels. Sie können nach 15:00 Uhr ins neue Bett wechseln, wenn die Reinigung fertig ist.",
+        "category": "Rooms and Beds"
+      },
+      {
+        "q": "Rückgaberichtlinie",
+        "keyword": "Refund",
+        "a": "Bitte überprüfen Sie die Rückgaberichtlinie Ihrer Buchungsseite. Rückgaben sind nicht möglich für persönliche Zeitplanänderungen.",
+        "category": "Other Requests and Inquiries"
+      },
+      {
+        "q": "Warum gibt es normalerweise kein Personal an der Rezeption?",
+        "keyword": "no staff",
+        "a": "Unser Hostel wird als Selbstbedienungs-Hostel betrieben. Durch Einsparung von Arbeitskosten können wir Ihnen einen günstigeren Preis anbieten. Wenn Sie Fragen haben, nutzen Sie bitte die Chat-Schaltfläche unten.",
+        "category": "Access / Operation / Self-service"
+      },
+      {
+        "q": "Ich brauche mehr Hilfe.",
+        "keyword": "help",
+        "a": "Bitte tippen Sie auf die Chat-Schaltfläche unten rechts auf dem Bildschirm und kontaktieren Sie den Manager.",
+        "category": "Other Requests and Inquiries"
+      }
+    ]
   }
 }
