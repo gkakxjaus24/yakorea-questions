@@ -34,7 +34,15 @@ const widgetPath1 = path.join(__dirname, '../../widget');
 const widgetPath2 = path.join(__dirname, '../widget');
 const widgetDir = fs.existsSync(widgetPath1) ? widgetPath1 : widgetPath2;
 console.log(`[Widget] serving from: ${widgetDir} (exists: ${fs.existsSync(widgetDir)})`);
-app.use('/widget', express.static(widgetDir));
+app.use('/widget', express.static(widgetDir, {
+  setHeaders: (res, filePath) => {
+    // 위젯 JS/CSS는 브라우저가 매번 서버에 변경 확인 (304/200)
+    // → 손님 폰에서 옛 버전 캐시 문제 방지
+    if (filePath.endsWith('.js') || filePath.endsWith('.css')) {
+      res.setHeader('Cache-Control', 'no-cache');
+    }
+  },
+}));
 
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
