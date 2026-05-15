@@ -38,5 +38,15 @@
     "title": "Tôi có thể giúp bạn như thế nào?",
     "checkinButton": "Nhận phòng",
     "checkoutButton": "Trả phòng"
+  },
+  "fr": {
+    "title": "Comment puis-je vous aider ?",
+    "checkinButton": "Arrivée",
+    "checkoutButton": "Départ"
+  },
+  "de": {
+    "title": "Wie kann ich dir helfen?",
+    "checkinButton": "Einchecken",
+    "checkoutButton": "Auschecken"
   }
 }

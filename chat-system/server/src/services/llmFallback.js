@@ -61,6 +61,8 @@ const LANG_NAME = {
   es: 'Español',
   mn: 'Монгол хэл',
   vi: 'Tiếng Việt',
+  fr: 'Français',
+  de: 'Deutsch',
 };
 
 function buildSystemPrompt(answers, lang) {

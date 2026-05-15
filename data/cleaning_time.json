@@ -38,5 +38,15 @@
     "title": "Thời Gian Dọn Phòng 🛏️🧹",
     "mainNotice": "Check-in bắt đầu lúc 3:00 PM. Xin lỗi, check-in sớm không thể thực hiện được.<br />(Hệ thống mở tự động lúc 3:00 PM.)<br /><br />Nếu bạn mệt mỏi, vui lòng mang thêm dép và thư giãn trên ghế sofa ở nhà bếp :)🪑👌",
     "bagStorage": "Lưu trữ hành lý: Để hành lý của bạn trên bàn ở phía trước quầy (Camera an ninh đang giám sát 📷👀)"
+  },
+  "fr": {
+    "title": "Heure du nettoyage 🛏️🧹",
+    "mainNotice": "L'enregistrement commence à 3:00 PM. Désolé, l'enregistrement anticipé n'est pas possible.<br />(Le système s'ouvre automatiquement à 3:00 PM.)<br /><br />Si vous êtes fatigué, veuillez enfiler des pantoufles supplémentaires et détendez-vous sur le canapé de la cuisine :)🪑👌",
+    "bagStorage": "Rangement des bagages : Laissez votre sac sur la table devant le comptoir (la vidéosurveillance surveille 📷👀)"
+  },
+  "de": {
+    "title": "Reinigungszeit 🛏️🧹",
+    "mainNotice": "Der Check-in beginnt um 15:00 Uhr. Leider ist ein früher Check-in nicht möglich.<br />(Das System öffnet sich automatisch um 15:00 Uhr.)<br /><br />Wenn Sie müde sind, tragen Sie bitte zusätzliche Hausschuhe und entspannen Sie sich auf dem Sofa in der Küche :)🪑👌",
+    "bagStorage": "Gepäckaufbewahrung: Stellen Sie Ihre Tasche auf den Tisch vor der Rezeption (CCTV überwacht 📷👀)"
   }
 }

@@ -46,5 +46,17 @@
     "noticeText": "KHÔNG CÓ PHÒNG TRỐNG. CHÚNG TÔI ĐÃ FULL🛏️❌<br><br><br><br>Nếu bạn cần trợ giúp, vui lòng nhấn nút Trợ giúp ở cuối màn hình.",
     "buttonText": "TỰ CHECK-IN",
     "nextPage": "reservation_number.html?lang=en"
+  },
+  "fr": {
+    "title": "LA RÉCEPTION EST FERMÉE 🕰️❌",
+    "noticeText": "AUCUNE CHAMBRE DISPONIBLE. NOUS SOMMES COMPLETS🛏️❌<br><br><br><br>Si vous avez besoin d'aide, veuillez appuyer sur le bouton Aide en bas de l'écran.",
+    "buttonText": "AUTO-ENREGISTREMENT",
+    "nextPage": "reservation_number.html?lang=en"
+  },
+  "de": {
+    "title": "REZEPTION IST GESCHLOSSEN 🕰️❌",
+    "noticeText": "KEINE ZIMMER VERFÜGBAR. WIR SIND VOLLSTÄNDIG BELEGT🛏️❌<br><br><br><br>Wenn Sie Hilfe benötigen, drücken Sie bitte die Hilfe-Schaltfläche am unteren Bildschirmrand.",
+    "buttonText": "SELBSTSTÄNDIGER CHECK-IN",
+    "nextPage": "reservation_number.html?lang=en"
   }
 }

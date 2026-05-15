@@ -963,5 +963,245 @@
         "category": "Yêu cầu & Trợ giúp khác"
       }
     ]
+  },
+  "fr": {
+    "title": "AIDE & QUESTIONS🙋‍♂️❓",
+    "qna": [
+      {
+        "q": "Y a-t-il des toilettes publiques ?",
+        "a": "Désolé, mais il n'y a pas de salle de bain publique.",
+        "category": "Équipements & Commodités"
+      },
+      {
+        "q": "À quelle heure la porte d'entrée ferme-t-elle ?",
+        "a": "La porte d'entrée est ouverte 24 heures sur 24.",
+        "category": "Entrée & Fonctionnement sans personnel"
+      },
+      {
+        "q": "Où puis-je obtenir de l'eau potable ?",
+        "a": "Utilisez le purificateur d'eau sur la table de la cuisine. Pour l'eau chaude, utilisez la bouilloire électrique.",
+        "category": "Équipements & Commodités"
+      },
+      {
+        "q": "J'ai besoin de plus de serviettes.",
+        "a": "Veuillez retourner les serviettes utilisées au panier à serviettes au 2e étage (ou le panier devant la douche pour les chambres du sous-sol). Prenez ensuite de nouvelles serviettes du panier à droite du comptoir.",
+        "category": "Équipements & Commodités"
+      },
+      {
+        "q": "Mes pantoufles ont disparu.",
+        "a": "Un autre client a peut-être pris les mauvaises pantoufles. Veuillez utiliser les « Pantoufles supplémentaires » dans le porte-chaussures.",
+        "category": "Équipements & Commodités"
+      },
+      {
+        "q": "À quelle heure puis-je prendre le petit déjeuner ?",
+        "a": "Le petit déjeuner en libre-service à la cuisine est disponible de 7 h à 10 h.",
+        "category": "Équipements & Commodités"
+      },
+      {
+        "q": "Puis-je emprunter un convertisseur de courant et un chargeur de téléphone ?",
+        "a": "Prenez-les dans la boîte sur le comptoir. Veuillez vous assurer de les retourner lors de votre départ.",
+        "category": "Équipements & Commodités"
+      },
+      {
+        "q": "Je veux faire la lessive.",
+        "a": "La lessive coûte 5 000 KRW par sac au comptoir (lavage et séchage inclus). Mettez le liquide dans une enveloppe, mettez-la dans le sac de linge avec vos vêtements et laissez-le près du comptoir. Votre linge sera prêt dans les 24 heures, et nous le placerons près du comptoir quand il sera prêt.",
+        "category": "Lessive & Réfrigérateur"
+      },
+      {
+        "q": "Quand puis-je utiliser l'espace commun ?",
+        "a": "L'espace commun est ouvert 24 heures sur 24. Mais veuillez rester silencieux après 23 h et tôt le matin car il y a des chambres d'hôtes au 1er étage.",
+        "category": "Entrée & Fonctionnement sans personnel"
+      },
+      {
+        "q": "Je veux entreposer mon sac.",
+        "a": "Vous pouvez ranger votre sac devant le comptoir avant l'enregistrement ou après le départ.",
+        "category": "Bagages & Balance"
+      },
+      {
+        "q": "Y a-t-il une balance pour peser mon sac ?",
+        "a": "Il y a une balance portable sur la table devant le comptoir.",
+        "category": "Bagages & Balance"
+      },
+      {
+        "q": "Puis-je entreposer mon sac longtemps ?",
+        "a": "Les sacs peuvent être entreposés gratuitement jusqu'à une semaine. Laissez-le devant le comptoir avec votre nom, vos coordonnées, votre date de départ et votre date de retour. Après une semaine, des frais de 1 000 KRW par jour s'appliquent.",
+        "category": "Bagages & Balance"
+      },
+      {
+        "q": "Si je prolonge mon séjour, puis-je garder mes affaires dans mon lit ?",
+        "a": "Oui, si vous avez fait une réservation sous le même nom et le même type de chambre, vous pouvez continuer à utiliser le même lit sans déplacer vos affaires.",
+        "category": "Chambre & Lit associés"
+      },
+      {
+        "q": "J'ai perdu quelque chose.",
+        "a": "Veuillez fournir les détails : 1. Nom, 2. Taille, 3. Forme, 4. Couleur, 5. Date, 6. Heure, 7. Lieu. Nous vérifierons les caméras de surveillance. Nous ne sommes pas responsables des articles perdus dans les dortoirs car chaque lit dispose d'un casier personnel.",
+        "category": "Autres demandes & Aide"
+      },
+      {
+        "q": "Il y a quelqu'un ou quelque chose sur mon lit.",
+        "a": "Un autre client a peut-être confondu le numéro du lit. Veuillez nous envoyer un message à l'aide du kiosk. Notre personnel vous aidera bientôt.",
+        "category": "Chambre & Lit associés"
+      },
+      {
+        "q": "Où est le Wi-Fi ?",
+        "a": "L'identifiant et le mot de passe du Wi-Fi sont au-dessus de l'interrupteur lumineux ou près de la porte dans chaque chambre.",
+        "category": "Équipements & Commodités"
+      },
+      {
+        "q": "Je veux imprimer quelque chose.",
+        "a": "Veuillez envoyer votre fichier à dongdaemun2@gmail.com et nous envoyer un message via l'écran du kiosk (coin inférieur droit). Nous l'imprimerons dans l'heure. (Objet : Demande d'impression / Incluez votre nom et numéro de chambre) Jusqu'à 20 pages en noir et blanc ou 10 pages en couleur sont gratuites. L'impression de photos et d'images n'est pas disponible.",
+        "category": "Équipements & Commodités"
+      },
+      {
+        "q": "Quelqu'un a pris ma nourriture du réfrigérateur.",
+        "a": "Veuillez vérifier à nouveau l'avis du réfrigérateur. Tout aliment sans étiquette « date de départ » est libre pour quiconque !",
+        "category": "Lessive & Réfrigérateur"
+      },
+      {
+        "q": "Puis-je changer mon numéro de lit ?",
+        "a": "Laissez une note au comptoir. Vous pouvez changer de lit à partir du lendemain. Veuillez libérer votre lit actuel à 11 h et vous déplacer vers le nouveau lit après 15 h quand le nettoyage sera terminé.",
+        "category": "Chambre & Lit associés"
+      },
+      {
+        "q": "Quelle est la politique de remboursement ?",
+        "a": "Veuillez vérifier la politique de remboursement de votre site de réservation. Nous n'offrons pas de remboursements pour les changements d'horaire personnels.",
+        "category": "Autres demandes & Aide"
+      },
+      {
+        "q": "J'ai oublié le mot de passe de la chambre",
+        "a": "Veuillez cliquer sur le site Web suivant et entrez votre nom ou numéro de réservation. -> <a href=\"http://localhost:8000/pages/reservation_number.html\" target=\"_blank\">Page d'entrée du numéro de réservation</a>",
+        "category": "Chambre & Lit associés"
+      },
+      {
+        "q": "Pourquoi n'y a-t-il personne au comptoir ?",
+        "a": "Notre auberge est sans personnel. Cela nous aide à économiser les coûts, afin que nous puissions offrir des prix plus bas. Mais si vous avez besoin d'aide, appelez-nous à tout moment.",
+        "category": "Entrée & Fonctionnement sans personnel"
+      },
+      {
+        "q": "J'ai besoin de plus d'aide (Contacter le personnel)",
+        "a": "Veuillez appuyer sur l'icône de chat 💬 en bas à droite de l'écran pour vous connecter à notre personnel.",
+        "category": "Autres demandes & Aide"
+      }
+    ]
+  },
+  "de": {
+    "title": "HILFE & FRAGEN🙋‍♂️❓",
+    "qna": [
+      {
+        "q": "Gibt es ein öffentliches Badezimmer?",
+        "a": "Entschuldigung, aber es gibt kein öffentliches Badezimmer.",
+        "category": "Einrichtungen & Ausstattung"
+      },
+      {
+        "q": "Wann schließt die Eingangstür?",
+        "a": "Die Eingangstür ist 24 Stunden offen.",
+        "category": "Eingang & Unbemannte Bedienung"
+      },
+      {
+        "q": "Wo bekomme ich Trinkwasser?",
+        "a": "Nutzen Sie den Wassertrinker auf dem Küchentisch. Für heißes Wasser nutzen Sie den Wasserkocher.",
+        "category": "Einrichtungen & Ausstattung"
+      },
+      {
+        "q": "Ich brauche mehr Handtücher.",
+        "a": "Bitte geben Sie benutzte Handtücher in den Handtuchkorb im 2. Stock (oder den Korb vor dem Duschraum für Zimmer im Untergeschoss) zurück. Nehmen Sie dann neue Handtücher aus dem Korb auf der rechten Seite des Tresens.",
+        "category": "Einrichtungen & Ausstattung"
+      },
+      {
+        "q": "Meine Hausschuhe sind verschwunden.",
+        "a": "Ein anderer Gast hat möglicherweise die falschen Hausschuhe mitgenommen. Bitte nutzen Sie die 'Ersatz-Hausschuhe' im Schuhregal.",
+        "category": "Einrichtungen & Ausstattung"
+      },
+      {
+        "q": "Wann kann ich frühstücken?",
+        "a": "Frühstück ist von 7 bis 10 Uhr zur Selbstbedienung in der Küche verfügbar.",
+        "category": "Einrichtungen & Ausstattung"
+      },
+      {
+        "q": "Kann ich einen Stromadapter und Telefonladegerät ausleihen?",
+        "a": "Nehmen Sie diese aus der Box auf dem Tresen. Bitte stellen Sie sicher, dass Sie diese bei der Abreise zurückgeben.",
+        "category": "Einrichtungen & Ausstattung"
+      },
+      {
+        "q": "Ich möchte Wäsche waschen.",
+        "a": "Wäsche kostet 5.000 KRW pro Tasche am Tresen (inklusive Waschen und Trocknen). Legen Sie das Bargeld in einen Umschlag, packen Sie es mit Ihrer Kleidung in die Wäschetasche und stellen Sie diese neben den Tresen. Ihre Wäsche wird innerhalb von 24 Stunden fertig und wird dann neben dem Tresen platziert.",
+        "category": "Wäsche & Kühlschrank"
+      },
+      {
+        "q": "Wann kann ich den Gemeinschaftsbereich nutzen?",
+        "a": "Der Gemeinschaftsbereich ist 24 Stunden offen. Bitte seien Sie nach 23 Uhr und am frühen Morgen leise, da sich Gästezimmer im 1. Stock befinden.",
+        "category": "Eingang & Unbemannte Bedienung"
+      },
+      {
+        "q": "Ich möchte mein Gepäck aufbewahren.",
+        "a": "Sie können Ihr Gepäck vor dem Einchecken oder nach dem Auschecken vor dem Tresen aufbewahren.",
+        "category": "Gepäck & Waage"
+      },
+      {
+        "q": "Gibt es eine Waage zum Wiegen meines Gepäcks?",
+        "a": "Es gibt eine tragbare Waage auf dem Tisch vor dem Tresen.",
+        "category": "Gepäck & Waage"
+      },
+      {
+        "q": "Kann ich mein Gepäck längere Zeit lagern?",
+        "a": "Gepäck kann bis zu einer Woche kostenlos gelagert werden. Hinterlassen Sie es vor dem Tresen mit Ihrem Namen, Kontaktinformationen, Auscheckedatum und Rückkehrdatum. Nach einer Woche gilt eine Gebühr von 1.000 KRW pro Tag.",
+        "category": "Gepäck & Waage"
+      },
+      {
+        "q": "Wenn ich meinen Aufenthalt verlängere, kann ich meine Sachen im Bett liegen lassen?",
+        "a": "Ja, wenn Sie eine Reservierung unter gleichem Namen und gleichem Raumtyp erstellt haben, können Sie das gleiche Bett weiterhin nutzen, ohne Ihre Sachen zu bewegen.",
+        "category": "Zimmer & Bett-Verwandte Angelegenheiten"
+      },
+      {
+        "q": "Ich habe etwas verloren.",
+        "a": "Bitte geben Sie Details an: 1. Name, 2. Größe, 3. Form, 4. Farbe, 5. Datum, 6. Uhrzeit, 7. Ort. Wir prüfen die Überwachungskameras. Wir sind nicht verantwortlich für verlorene Gegenstände in Schlafsälen, da jedes Bett ein persönliches Schließfach hat.",
+        "category": "Sonstige Anfragen & Hilfe"
+      },
+      {
+        "q": "Es ist jemand oder etwas auf meinem Bett.",
+        "a": "Ein anderer Gast hat möglicherweise die Bettnummer verwechselt. Bitte senden Sie uns eine Nachricht über den Kiosk. Unser Personal wird Ihnen bald helfen.",
+        "category": "Zimmer & Bett-Verwandte Angelegenheiten"
+      },
+      {
+        "q": "Wo ist das Wi-Fi?",
+        "a": "Die Wi-Fi-ID und das Passwort befinden sich über dem Lichtschalter oder in der Nähe der Tür in jedem Zimmer.",
+        "category": "Einrichtungen & Ausstattung"
+      },
+      {
+        "q": "Ich möchte etwas ausdrucken.",
+        "a": "Bitte senden Sie Ihre Datei an dongdaemun2@gmail.com und schreiben Sie uns über den Kioskbildschirm (untere rechte Ecke). Wir drucken es innerhalb von 1 Stunde aus. (Betreff: Print request / Geben Sie Ihren Namen und Zimmernummer ein) Bis zu 20 Schwarzweißseiten oder 10 Farbseiten sind kostenlos. Fotos und Bilddruck sind nicht verfügbar.",
+        "category": "Einrichtungen & Ausstattung"
+      },
+      {
+        "q": "Jemand hat mein Essen aus dem Kühlschrank genommen.",
+        "a": "Bitte lesen Sie den Kühlschrankhinweis noch einmal. Alle Lebensmittel ohne Etikett \"Auscheckedatum\" können von jedem genommen werden!",
+        "category": "Wäsche & Kühlschrank"
+      },
+      {
+        "q": "Kann ich mein Bett wechseln?",
+        "a": "Hinterlassen Sie eine Notiz am Tresen. Sie können das Bett ab dem nächsten Tag wechseln. Bitte räumen Sie Ihr aktuelles Bett bis 11 Uhr, und ziehen Sie nach 15 Uhr in das neue Bett um, wenn die Reinigung abgeschlossen ist.",
+        "category": "Zimmer & Bett-Verwandte Angelegenheiten"
+      },
+      {
+        "q": "Welche Rückgabebedingungen gibt es?",
+        "a": "Bitte überprüfen Sie die Rückgaberichtlinie Ihrer Buchungsseite. Wir bieten keine Rückerstattungen für persönliche Terminänderungen.",
+        "category": "Sonstige Anfragen & Hilfe"
+      },
+      {
+        "q": "Ich habe das Raumpasswort vergessen",
+        "a": "Bitte klicken Sie auf die folgende Website und geben Sie Ihren Namen oder Reservierungsnummer ein. -> <a href=\"http://localhost:8000/pages/reservation_number.html\" target=\"_blank\">Seite zur Reservierungsnummern-Eingabe</a>",
+        "category": "Zimmer & Bett-Verwandte Angelegenheiten"
+      },
+      {
+        "q": "Warum ist niemand am Tresen?",
+        "a": "Unser Hostel ist unbemannt. Dies hilft uns, Kosten zu sparen, damit wir günstigere Preise anbieten können. Wenn Sie Hilfe benötigen, rufen Sie uns jederzeit an.",
+        "category": "Eingang & Unbemannte Bedienung"
+      },
+      {
+        "q": "Ich brauche mehr Hilfe (Personal kontaktieren)",
+        "a": "Bitte tippen Sie auf das Chat-Symbol 💬 in der unteren rechten Ecke des Bildschirms, um sich mit unserem Personal zu verbinden.",
+        "category": "Sonstige Anfragen & Hilfe"
+      }
+    ]
   }
 }

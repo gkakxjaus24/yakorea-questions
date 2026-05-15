@@ -38,5 +38,15 @@
     "title": "TỰ NHẬN PHÒNG💻👆",
     "buttonText": "TỰ NHẬN PHÒNG",
     "nextPage": "reservation_number.html?lang=en"
+  },
+  "fr": {
+    "title": "AUTO CHECK-IN💻👆",
+    "buttonText": "AUTO CHECK-IN",
+    "nextPage": "reservation_number.html?lang=en"
+  },
+  "de": {
+    "title": "SELBSTCHECK-IN💻👆",
+    "buttonText": "SELBSTCHECK-IN",
+    "nextPage": "reservation_number.html?lang=en"
   }
 }

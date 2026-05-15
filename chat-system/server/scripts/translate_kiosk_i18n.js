@@ -17,22 +17,32 @@ const KEY = process.env.ANTHROPIC_API_KEY;
 if (!KEY) { console.error('ANTHROPIC_API_KEY 없음'); process.exit(1); }
 const client = new Anthropic({ apiKey: KEY });
 
-const DATA_DIR = path.resolve(__dirname, '../../../data');
-const FILES = [
-  'QnA.json',
-  'checkin_out_selection.json',
-  'cleaning_time.json',
-  'no_check_out.json',
-  'reception_closed.json',
-  'reservation_number.json',
-  'self_check_in.json',
-];
+// DATA_DIR / FILES 모두 env로 오버라이드 가능 — 같은 스크립트로 yakorea-questions 등 다른 폴더 번역에 재사용.
+//   예: $env:I18N_DATA_DIR="C:/.../yakorea-questions/data"; $env:I18N_FILES="QnA.json"; node ...
+const DATA_DIR = process.env.I18N_DATA_DIR
+  ? path.resolve(process.env.I18N_DATA_DIR)
+  : path.resolve(__dirname, '../../../data');
+const FILES = process.env.I18N_FILES
+  ? process.env.I18N_FILES.split(',').map(s => s.trim()).filter(Boolean)
+  : [
+      'QnA.json',
+      'checkin_out_selection.json',
+      'cleaning_time.json',
+      'no_check_out.json',
+      'reception_closed.json',
+      'reservation_number.json',
+      'self_check_in.json',
+    ];
+console.log(`[i18n] DATA_DIR=${DATA_DIR}`);
+console.log(`[i18n] FILES=${FILES.join(', ')}`);
 
 const LANG_NAME = {
   ru: 'Russian (Русский)',
   es: 'Spanish (Español)',
   mn: 'Mongolian (Монгол хэл, Cyrillic script)',
   vi: 'Vietnamese (Tiếng Việt, Latin script with diacritics)',
+  fr: 'French (Français)',
+  de: 'German (Deutsch)',
 };
 
 function buildSystemPrompt(targetLang) {
@@ -87,7 +97,7 @@ async function translateObject(sourceObj, targetLang) {
     }
 
     let changed = false;
-    for (const lang of ['ru', 'es', 'mn', 'vi']) {
+    for (const lang of ['ru', 'es', 'mn', 'vi', 'fr', 'de']) {
       if (data[lang]) {
         console.log(`  - ${fname}/${lang}: 이미 존재, 건너뜀`);
         continue;

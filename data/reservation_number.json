@@ -292,5 +292,77 @@
       "line2": "Vui lòng kiểm tra lại ngày nhận phòng của bạn.",
       "line3": "Nếu đây là đặt phòng cùng ngày, hệ thống có thể chưa cập nhật. Vui lòng nhấn nút tin nhắn ở dưới cùng bên phải và gõ 'Talk to person'."
     }
+  },
+  "fr": {
+    "duplicateName": "Plusieurs réservations portent le même nom. Veuillez entrer votre numéro de réservation",
+    "reservationNotFound": "Réservation introuvable. Veuillez entrer à nouveau votre numéro de réservation ou votre nom",
+    "loadError": "Échec du chargement des données de réservation. Veuillez réessayer plus tard.",
+    "bedNumber": "Numéro de lit",
+    "roomAndLockerPassword": "Mot de passe chambre / Casier",
+    "tableHeaders": {
+      "name": "Nom",
+      "roomNumber": "N° de chambre",
+      "roomPassword": "Mot de passe chambre",
+      "lockerPassword": "Mot de passe casier",
+      "roomAndLockerPassword": "Mot de passe chambre / Casier",
+      "checkoutDate": "Date de départ",
+      "specialMemo": "Mémo spécial",
+      "checkInMethod": "Méthode d'enregistrement"
+    },
+    "ui": {
+      "title": "Enregistrement automatique💻👆",
+      "nextButton": "Rechercher",
+      "inputGuide": "",
+      "inputPlaceholder": "Nom ou numéro de réservation"
+    },
+    "checkIn": {
+      "slipperRoom": "Veuillez porter les pantoufles de la chambre {room} et vous rendre à votre chambre.",
+      "slipperBed": "Veuillez porter les pantoufles du lit {room} et vous rendre à votre chambre.",
+      "routeBackStair": "La chambre {room} se trouve à l'étage par les escaliers derrière le comptoir.",
+      "routeFrontPass": "La chambre {room} est accessible en passant entre le comptoir et la cuisine.",
+      "amenity": "Si vous avez besoin de serviettes, de dentifrice ou d'une brosse à dents, veuillez les prendre sur le côté droit du comptoir."
+    },
+    "searchFailHelp": {
+      "title": "Si nous ne trouvons pas votre réservation, veuillez vérifier les éléments suivants",
+      "line1": "Vous avez peut-être réservé Yakorea Hostel [Gangnam]. (Ceci est le lieu de Dongdaemun.)",
+      "line2": "Veuillez vérifier à nouveau votre date d'enregistrement.",
+      "line3": "S'il s'agit d'une réservation du même jour, le système peut ne pas être à jour. Veuillez appuyer sur le bouton de message en bas à droite et tapez « Talk to person »."
+    }
+  },
+  "de": {
+    "duplicateName": "Mehr als eine Reservierung hat denselben Namen. Bitte geben Sie Ihre Reservierungsnummer ein",
+    "reservationNotFound": "Reservierung nicht gefunden. Bitte geben Sie Ihre Reservierungsnummer oder Ihren Namen erneut ein",
+    "loadError": "Reservierungsdaten konnten nicht geladen werden. Bitte versuchen Sie es später erneut.",
+    "bedNumber": "Bettnummer",
+    "roomAndLockerPassword": "Zimmer- / Spindpasswort",
+    "tableHeaders": {
+      "name": "Name",
+      "roomNumber": "Zimmernummer",
+      "roomPassword": "Zimmerpasswort",
+      "lockerPassword": "Spindpasswort",
+      "roomAndLockerPassword": "Zimmer- / Spindpasswort",
+      "checkoutDate": "Abreisedatum",
+      "specialMemo": "Spezielle Notiz",
+      "checkInMethod": "Check-in-Methode"
+    },
+    "ui": {
+      "title": "Selbst-Check-in💻👆",
+      "nextButton": "Suchen",
+      "inputGuide": "",
+      "inputPlaceholder": "Name oder Reservierungsnummer"
+    },
+    "checkIn": {
+      "slipperRoom": "Bitte tragen Sie die Hausschuhe für Zimmer {room} und begeben Sie sich zu Ihrem Zimmer.",
+      "slipperBed": "Bitte tragen Sie die Hausschuhe für Bett {room} und begeben Sie sich zu Ihrem Zimmer.",
+      "routeBackStair": "Zimmer {room} befindet sich oben über die Treppe hinter der Rezeption.",
+      "routeFrontPass": "Zimmer {room} ist erreichbar, indem Sie zwischen der Rezeption und der Küche durchgehen.",
+      "amenity": "Wenn Sie Handtücher, Zahnpasta oder eine Zahnbürste benötigen, nehmen Sie diese bitte von der rechten Seite der Rezeption."
+    },
+    "searchFailHelp": {
+      "title": "Wenn wir Ihre Reservierung nicht finden können, überprüfen Sie bitte Folgendes",
+      "line1": "Sie haben möglicherweise Yakorea Hostel [Gangnam] gebucht. (Dies ist der Standort Dongdaemun.)",
+      "line2": "Bitte überprüfen Sie Ihr Check-in-Datum erneut.",
+      "line3": "Falls dies eine Reservierung am selben Tag ist, wurde das System möglicherweise noch nicht aktualisiert. Bitte tippen Sie auf die Nachrichtenschaltfläche unten rechts und geben Sie 'Mit Person sprechen' ein."
+    }
   }
 }

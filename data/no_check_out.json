@@ -70,5 +70,23 @@
     "nextPage": "reservation_number.html?lang=en",
     "earlyButtonText": "Tôi Đã Đến Sớm. Tôi Có Thể Nhận Phòng Bây Giờ Được Không?",
     "earlyNextPage": "cleaning_time.html?lang=en"
+  },
+  "fr": {
+    "title": "PAS BESOIN DE FAIRE LE CHECK-OUT 😄✋",
+    "mainNotice": "Aucune Procédure de Check-out Requise. <br>Prenez Simplement Vos Affaires et Partez ✋",
+    "bagStorage": "RANGEMENT DES BAGAGES : Vous Pouvez Laisser Vos Bagages Sous la Table Devant la Réception<br>(Une Caméra de Surveillance vous Regarde📷👀)",
+    "buttonText": "J'étais censé arriver hier, mais je suis arrivé en retard",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "Je suis arrivé tôt. Puis-je m'enregistrer maintenant ?",
+    "earlyNextPage": "cleaning_time.html?lang=en"
+  },
+  "de": {
+    "title": "KEINE ABMELDUNG ERFORDERLICH 😄✋",
+    "mainNotice": "Keine Abmeldungsprozedur erforderlich. <br>Nimm einfach deine Sachen und geh ✋",
+    "bagStorage": "GEPÄCKLAGERUNG: Du kannst deine Taschen unter dem Tisch vor der Rezeption lagern<br>(CCTV überwacht📷👀)",
+    "buttonText": "Ich sollte gestern ankommen, bin aber zu spät angekommen",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "Ich bin früh angekommen. Kann ich jetzt einchecken?",
+    "earlyNextPage": "cleaning_time.html?lang=en"
   }
 }

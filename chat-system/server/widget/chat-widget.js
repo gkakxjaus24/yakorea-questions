@@ -290,6 +290,68 @@
       kioskStagePreCheckin: 'Tôi chưa nhận phòng nên chưa được phân phòng',
       nameKbHint: 'Vui lòng nhập tên chỉ bằng chữ cái tiếng Anh',
     },
+    fr: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'Ouvrir le chat',
+      candidatesLabel: 'Cherchez-vous l\'un de ces éléments?',
+      escalateOffer: 'Aucune réponse trouvée. Voulez-vous être connecté à un responsable?',
+      statusAuto: 'Réponse automatique', statusWaiting: 'En attente du responsable',
+      statusActive: 'Chat avec le responsable', statusClosed: 'Chat terminé',
+      placeholder: 'Saisir un message...', welcome: 'Bonjour ! Comment pouvons-nous vous aider ? 😊',
+      escalateBtn: '👤 Contacter un responsable', closeConfirm: 'Terminer cette conversation ?',
+      closedMsg: 'Conversation terminée.', closedByManager: 'Le responsable a terminé le chat.',
+      closedByIdle: 'Chat terminé en raison d\'inactivité.',
+      escalateRequest: 'Connexion au responsable en cours. Veuillez patienter.',
+      kbSend: 'Envoyer', closeBtnLabel: 'Terminer le chat',
+      closeConfirmYes: 'Oui', closeConfirmNo: 'Non',
+      // QR 게이트
+      checkoutTitle: 'Saisissez votre date de départ',
+      checkoutNext: 'Suivant →',
+      checkoutBlockedMsg: 'Le chat n\'est pas disponible après votre date de départ.',
+      roomGateTitle: 'Sélectionnez votre numéro de chambre',
+      bedBack: '← Retour à la sélection de chambre',
+      nameTitle: 'Saisissez votre nom',
+      nameSubmitBtn: 'Démarrer le chat',
+      nameErrorMsg: 'Veuillez saisir votre nom',
+      namePlaceholder: 'Votre nom',
+      bedUnit: '',
+      // 키오스크 게이트
+      kioskStageTitle: 'Veuillez saisir votre numéro de chambre avant de démarrer le chat',
+      kioskStagePostCheckin: 'Saisir le numéro de chambre',
+      kioskStagePreCheckin: 'Je ne suis pas encore enregistré, aucune chambre ne m\'a été attribuée',
+      nameKbHint: 'Veuillez saisir votre nom uniquement en lettres anglaises',
+    },
+    de: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'Chat öffnen',
+      candidatesLabel: 'Suchen Sie nach einem dieser Themen?',
+      escalateOffer: 'Keine Antwort gefunden. Möchten Sie mit einem Mitarbeiter verbunden werden?',
+      statusAuto: 'Automatische Antwort', statusWaiting: 'Warten auf Mitarbeiter',
+      statusActive: 'Chat mit Mitarbeiter', statusClosed: 'Chat beendet',
+      placeholder: 'Nachricht eingeben...', welcome: 'Hallo! Wie können wir Ihnen helfen? 😊',
+      escalateBtn: '👤 Mit Mitarbeiter verbinden', closeConfirm: 'Dieses Gespräch beenden?',
+      closedMsg: 'Gespräch beendet.', closedByManager: 'Der Mitarbeiter hat den Chat beendet.',
+      closedByIdle: 'Chat aufgrund von Inaktivität beendet.',
+      escalateRequest: 'Verbindung mit Mitarbeiter wird hergestellt. Bitte warten.',
+      kbSend: 'Senden', closeBtnLabel: 'Chat beenden',
+      closeConfirmYes: 'Ja', closeConfirmNo: 'Nein',
+      // QR 게이트
+      checkoutTitle: 'Geben Sie Ihr Abreisedatum ein',
+      checkoutNext: 'Weiter →',
+      checkoutBlockedMsg: 'Chat ist nach Ihrem Abreisedatum nicht verfügbar.',
+      roomGateTitle: 'Wählen Sie Ihre Zimmernummer',
+      bedBack: '← Zurück zur Zimmerauswahl',
+      nameTitle: 'Geben Sie Ihren Namen ein',
+      nameSubmitBtn: 'Chat starten',
+      nameErrorMsg: 'Bitte geben Sie Ihren Namen ein',
+      namePlaceholder: 'Ihr Name',
+      bedUnit: '',
+      // 키오스크 게이트
+      kioskStageTitle: 'Bitte geben Sie Ihre Zimmernummer ein, bevor Sie den Chat starten',
+      kioskStagePostCheckin: 'Zimmernummer eingeben',
+      kioskStagePreCheckin: 'Ich bin noch nicht eingecheckt und habe noch kein Zimmer',
+      nameKbHint: 'Bitte geben Sie Ihren Namen nur mit englischen Buchstaben ein',
+    },
   };
 
   // 객실 라벨 포맷터 (언어별 "방 207" 표기)
@@ -306,6 +368,8 @@
         case 'es': return `Hab. ${room}`;
         case 'mn': return `Өрөө ${room}`;
         case 'vi': return `Phòng ${room}`;
+        case 'fr': return `Chambre ${room}`;
+        case 'de': return `Zimmer ${room}`;
         case 'ko':
         default:   return `${room}호`;
       }
@@ -320,6 +384,8 @@
       case 'es': return `${roomFmt} · Cama ${bed}`;
       case 'mn': return `${roomFmt} · Ор ${bed}`;
       case 'vi': return `${roomFmt} · Giường ${bed}`;
+      case 'fr': return `${roomFmt} · Lit ${bed}`;
+      case 'de': return `${roomFmt} · Bett ${bed}`;
       case 'ko':
       default:   return `${roomFmt} · ${bed}번`;
     }
