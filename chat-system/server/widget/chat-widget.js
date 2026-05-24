@@ -2051,6 +2051,19 @@
         hideNameGate();
         showChat();
       } else if (IS_KIOSK) {
+        // 새 손님이 채팅을 새로 열 때(진행 중 대화 없음) → 언어 선택 초기 상태로 복귀
+        // 직전 손님이 고른 언어/이름게이트 잔여 상태가 남아 중국어 등으로 고정되거나
+        // 언어 탭(lang-bar)이 숨겨진 채 시작되는 문제 방지
+        if (!roomId) {
+          nameGateActive = false;
+          savedChatLang = null;
+          if (nameKbHint) nameKbHint.classList.add('hidden');
+          if (!KIOSK_LANG_FIXED) {
+            if (langBar) langBar.style.display = '';
+            currentLang = 'ko';
+            sessionStorage.removeItem(KIOSK_LANG_KEY);
+          }
+        }
         switchLang(currentLang);
         // 키오스크 게이트: 방 라벨/이름이 모두 있어야 채팅 진입
         const savedRoom = sessionStorage.getItem(ROOM_KEY);
