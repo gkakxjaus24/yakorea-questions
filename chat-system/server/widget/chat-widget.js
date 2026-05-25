@@ -1003,14 +1003,20 @@
   `;
 
   // ── currentLang 초기화 (HTML 템플릿보다 먼저 선언) ──────────────
-  const _urlLang = new URLSearchParams(window.location.search).get('lang');
-  // 키오스크에서 URL ?lang= 이 있으면 → 그 언어 고정 (lang-bar 숨김)
-  // 없으면 → sessionStorage 저장값 또는 'ko'
+  // 채팅 위젯이 지원하는 언어 (lang-bar 탭과 동일)
+  const SUPPORTED_LANGS = ['ko', 'en', 'zh', 'ja', 'ru', 'es', 'mn', 'vi', 'fr', 'de'];
+  const _rawUrlLang = new URLSearchParams(window.location.search).get('lang');
+  // 페이지 ?lang= 이 위젯 지원 언어일 때만 사용 (fr/de 등은 무시 → ko로)
+  const _urlLang = SUPPORTED_LANGS.includes(_rawUrlLang) ? _rawUrlLang : null;
+  // 키오스크 새 손님이 채팅을 열 때의 기본 언어: 페이지 언어 우선, 없으면 ko
+  const KIOSK_DEFAULT_LANG = _urlLang || 'ko';
+  // 초기 언어: 페이지 ?lang → 직전 저장값 → ko
   let currentLang = IS_KIOSK
     ? (_urlLang || sessionStorage.getItem(KIOSK_LANG_KEY) || 'ko')
     : (_urlLang || 'ko');
-  // URL lang 파라미터로 언어가 고정된 경우 lang-bar를 영구 숨김
-  const KIOSK_LANG_FIXED = IS_KIOSK && !!_urlLang;
+  // 채팅 언어 탭(lang-bar)은 키오스크에서 항상 노출한다.
+  // 페이지가 특정 언어로 열렸더라도, 손님이 채팅에서 자기 언어를 직접 고를 수 있어야 함.
+  const KIOSK_LANG_FIXED = false;
 
   // ── HTML ──────────────────────────────────────────────────────
   function _ti(key) {
@@ -1046,6 +1052,8 @@
         <button class="lang-btn" data-lang="es">ES</button>
         <button class="lang-btn" data-lang="mn">МН</button>
         <button class="lang-btn" data-lang="vi">VI</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="de">DE</button>
       </div>
       <div id="kiosk-stage-gate" class="hidden">
         <p id="kiosk-stage-title">${_ti('kioskStageTitle')}</p>
@@ -2058,11 +2066,10 @@
           nameGateActive = false;
           savedChatLang = null;
           if (nameKbHint) nameKbHint.classList.add('hidden');
-          if (!KIOSK_LANG_FIXED) {
-            if (langBar) langBar.style.display = '';
-            currentLang = 'ko';
-            sessionStorage.removeItem(KIOSK_LANG_KEY);
-          }
+          if (langBar) langBar.style.display = '';
+          // 기본 언어(페이지 언어 우선, 없으면 ko)로 리셋 — 직전 손님 언어 잔존 방지
+          currentLang = KIOSK_DEFAULT_LANG;
+          sessionStorage.removeItem(KIOSK_LANG_KEY);
         }
         switchLang(currentLang);
         // 키오스크 게이트: 방 라벨/이름이 모두 있어야 채팅 진입
