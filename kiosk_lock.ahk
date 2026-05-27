@@ -59,6 +59,18 @@ SetTimer(Watchdog, 3000)   ; 3초마다 Chrome 살아있는지 확인
 ^+i::return          ; 개발자도구
 ^+j::return          ; 개발자도구 콘솔
 ^+c::return          ; 개발자도구 검사
+^F4::return          ; Ctrl+F4 (탭 닫기 → Chrome 종료 방지)
+; 기능키 F1~F12 전부 차단 (F1=도움말 열기 등 외부 페이지 이동 방지)
+F1::return
+F2::return
+F3::return           ; 찾기
+F4::return
+F5::return           ; 새로고침
+F6::return           ; 주소창 포커스
+F7::return
+F8::return
+F9::return
+F10::return
 F11::return          ; 전체화면 토글
 F12::return          ; 개발자도구
 !Tab::return         ; Alt+Tab (창 전환)
