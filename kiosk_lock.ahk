@@ -33,14 +33,21 @@ Watchdog(*) {
 LaunchChrome()
 SetTimer(Watchdog, 3000)   ; 3초마다 Chrome 살아있는지 확인
 
-; ── 직원 전용 비밀 종료: Ctrl + Alt + 0 ──────────────────────────────
-^!0:: {
+; ── 직원 전용 비밀 종료: A + F + E 세 키를 동시에 누름 ────────────────
+; 키를 가로채지 않고 물리 상태만 주기적으로 확인하므로 평소 타이핑에 영향 없음
+ExitKiosk() {
     global ExitRequested
     ExitRequested := true
     SetTimer(Watchdog, 0)               ; 워치독 중지(다시 안 띄움)
     RunWait('taskkill /F /IM chrome.exe', , "Hide")
     ExitApp                              ; 스크립트 종료 → 모든 키 차단 해제
 }
+
+CheckExitCombo(*) {
+    if (GetKeyState("a", "P") && GetKeyState("f", "P") && GetKeyState("e", "P"))
+        ExitKiosk()
+}
+SetTimer(CheckExitCombo, 120)   ; 0.12초마다 A+F+E 동시 눌림 확인
 
 ; ── 탈출/시스템 키 차단 (눌러도 아무 동작 안 함) ─────────────────────
 !F4::return          ; Alt+F4 (창 닫기)
