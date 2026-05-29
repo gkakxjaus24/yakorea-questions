@@ -12,8 +12,8 @@
   font-size: 20px !important;
   font-weight: bold;
   color: #888;
-  text-align: left;
-  padding-left: 4px;
+  text-align: start;        /* left → start: RTL에서 자동으로 오른쪽 정렬 */
+  padding-inline-start: 4px; /* padding-left → 논리적 속성 */
   margin: 16px 0 6px !important;
 }
 
@@ -22,6 +22,7 @@
   cursor: pointer;
   border: 1px solid #ddd;
   padding: 10px;
+  padding-inline-end: 32px; /* 화살표 공간 확보 — RTL에서는 왼쪽, LTR에서는 오른쪽 */
   position: relative;
 }
 
@@ -40,7 +41,7 @@
 .question::after {
   content: "▼";
   position: absolute;
-  right: 10px;
+  inset-inline-end: 10px;   /* right → 논리적 속성: RTL에서 왼쪽, LTR에서 오른쪽 */
   top: 50%;
   transform: translateY(-50%);
   transition: transform 0.3s ease;
