@@ -1088,6 +1088,9 @@
   const _urlLang = SUPPORTED_LANGS.includes(_rawUrlLang) ? _rawUrlLang : null;
   // 키오스크 새 손님이 채팅을 열 때의 기본 언어: 페이지 언어 우선, 없으면 ko
   const KIOSK_DEFAULT_LANG = _urlLang || 'ko';
+  // 토글 버튼 위치는 sessionStorage 언어가 아닌 현재 페이지 URL 언어 기준으로 초기화.
+  // 아랍어 페이지 → 홈으로 돌아오면 sessionStorage에 ar이 남아 버튼이 왼쪽으로 가는 문제 방지.
+  host.dir = RTL_LANGS.includes(_urlLang || '') ? 'rtl' : 'ltr';
   // 초기 언어: 페이지 ?lang → 직전 저장값 → ko
   let currentLang = IS_KIOSK
     ? (_urlLang || sessionStorage.getItem(KIOSK_LANG_KEY) || 'ko')
