@@ -58,5 +58,17 @@
     "noticeText": "KEINE ZIMMER VERFÜGBAR. WIR SIND VOLLSTÄNDIG BELEGT🛏️❌<br><br><br><br>Wenn Sie Hilfe benötigen, drücken Sie bitte die Hilfe-Schaltfläche am unteren Bildschirmrand.",
     "buttonText": "SELBSTSTÄNDIGER CHECK-IN",
     "nextPage": "reservation_number.html?lang=en"
+  },
+  "ar": {
+    "title": "الاستقبال مغلق 🕰️❌",
+    "noticeText": "لا توجد غرف متاحة. نحن ممتلئون 🛏️❌<br><br><br><br>إذا كنت بحاجة إلى مساعدة، يرجى الضغط على زر المساعدة في أسفل الشاشة.",
+    "buttonText": "تسجيل الدخول الذاتي",
+    "nextPage": "reservation_number.html?lang=en"
+  },
+  "tr": {
+    "title": "ÖN MASA KAPALI 🕰️❌",
+    "noticeText": "ODA YOK. DOLUSUZ 🛏️❌<br><br><br><br>Yardıma ihtiyacınız varsa, lütfen ekranın altındaki Yardım düğmesine basınız.",
+    "buttonText": "KENDİ KONTROL GİRİŞİ",
+    "nextPage": "reservation_number.html?lang=en"
   }
 }

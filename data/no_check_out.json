@@ -88,5 +88,23 @@
     "nextPage": "reservation_number.html?lang=en",
     "earlyButtonText": "Ich bin früh angekommen. Kann ich jetzt einchecken?",
     "earlyNextPage": "cleaning_time.html?lang=en"
+  },
+  "ar": {
+    "title": "لا تحتاج إلى تسجيل المغادرة 😄✋",
+    "mainNotice": "لا حاجة لإجراء تسجيل المغادرة. <br>فقط خذ متعلقاتك وغادر ✋",
+    "bagStorage": "تخزين الحقائب: يمكنك ترك حقائبك تحت الطاولة أمام مكتب الاستقبال<br>(كاميرات المراقبة تراقب📷👀)",
+    "buttonText": "كان يجب أن أصل أمس، لكنني وصلت متأخراً",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "وصلت مبكراً. هل يمكنني تسجيل الدخول الآن؟",
+    "earlyNextPage": "cleaning_time.html?lang=en"
+  },
+  "tr": {
+    "title": "ÇIKMAYA GEREK YOK 😄✋",
+    "mainNotice": "Çıkış Prosedürü Gerekli Değildir. <br>Sadece Eşyalarınızı Alın ve Ayrılın ✋",
+    "bagStorage": "ÇANTA SAKLAMA: Çantalarınızı Ön Masanın Altına Bırakabilirsiniz<br>(CCTV izliyor📷👀)",
+    "buttonText": "Dün gelmem gerekiyordu, ama geç saatte geldim",
+    "nextPage": "reservation_number.html?lang=en",
+    "earlyButtonText": "Erken geldim. Şu anda giriş yapabilir miyim?",
+    "earlyNextPage": "cleaning_time.html?lang=en"
   }
 }

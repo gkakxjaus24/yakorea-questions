@@ -48,5 +48,15 @@
     "title": "Reinigungszeit 🛏️🧹",
     "mainNotice": "Der Check-in beginnt um 15:00 Uhr. Leider ist ein früher Check-in nicht möglich.<br />(Das System öffnet sich automatisch um 15:00 Uhr.)<br /><br />Wenn Sie müde sind, tragen Sie bitte zusätzliche Hausschuhe und entspannen Sie sich auf dem Sofa in der Küche :)🪑👌",
     "bagStorage": "Gepäckaufbewahrung: Stellen Sie Ihre Tasche auf den Tisch vor der Rezeption (CCTV überwacht 📷👀)"
+  },
+  "ar": {
+    "title": "وقت التنظيف 🛏️🧹",
+    "mainNotice": "يبدأ تسجيل الوصول في الساعة 3:00 PM. عذراً، تسجيل الوصول المبكر غير ممكن.<br />(يفتح النظام تلقائياً في الساعة 3:00 PM.)<br /><br />إذا كنت متعباً، يرجى ارتداء نعال إضافية والاسترخاء على أريكة المطبخ :)🪑👌",
+    "bagStorage": "تخزين الحقائب: اترك حقيبتك على الطاولة أمام العداد (كاميرات المراقبة تراقب 📷👀)"
+  },
+  "tr": {
+    "title": "Temizlik Saati 🛏️🧹",
+    "mainNotice": "Giriş saat 3:00 PM'den başlar. Maalesef erken giriş mümkün değildir.<br />(Sistem saat 3:00 PM'de otomatik olarak açılır.)<br /><br />Eğer yorgunsanız, lütfen ekstra terlik giyiniz ve mutfak kanebesinde dinlenin :)🪑👌",
+    "bagStorage": "Çanta deposu: Çantanızı masanın üstüne kasa önünde bırakın (CCTV izliyor 📷👀)"
   }
 }

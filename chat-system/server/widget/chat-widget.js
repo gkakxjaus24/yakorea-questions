@@ -352,6 +352,68 @@
       kioskStagePreCheckin: 'Ich bin noch nicht eingecheckt und habe noch kein Zimmer',
       nameKbHint: 'Bitte geben Sie Ihren Namen nur mit englischen Buchstaben ein',
     },
+    ar: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'فتح الدردشة',
+      candidatesLabel: 'هل كنت تبحث عن أحد هذه؟',
+      escalateOffer: 'لم نتمكن من العثور على إجابة. هل تريد التواصل مع المدير؟',
+      statusAuto: 'رد آلي', statusWaiting: 'في انتظار المدير',
+      statusActive: 'دردشة مع المدير', statusClosed: 'انتهت الدردشة',
+      placeholder: 'اكتب رسالة...', welcome: 'مرحباً! كيف يمكننا مساعدتك؟ 😊',
+      escalateBtn: '👤 التواصل مع المدير', closeConfirm: 'هل تريد إنهاء هذه المحادثة؟',
+      closedMsg: 'انتهت المحادثة.', closedByManager: 'أنهى المدير الدردشة.',
+      closedByIdle: 'انتهت الدردشة بسبب عدم النشاط.',
+      escalateRequest: 'جاري الاتصال بالمدير. يرجى الانتظار.',
+      kbSend: 'إرسال', closeBtnLabel: 'إنهاء الدردشة',
+      closeConfirmYes: 'نعم', closeConfirmNo: 'إلغاء',
+      // QR 게이트
+      checkoutTitle: 'أدخل تاريخ المغادرة',
+      checkoutNext: 'التالي ←',
+      checkoutBlockedMsg: 'الدردشة غير متاحة بعد تاريخ المغادرة.',
+      roomGateTitle: 'اختر رقم غرفتك',
+      bedBack: '← العودة إلى اختيار الغرفة',
+      nameTitle: 'أدخل اسمك',
+      nameSubmitBtn: 'ابدأ الدردشة',
+      nameErrorMsg: 'يرجى إدخال اسمك',
+      namePlaceholder: 'اسمك',
+      bedUnit: '',
+      // 키오스크 게이트
+      kioskStageTitle: 'يرجى إدخال رقم غرفتك قبل بدء الدردشة',
+      kioskStagePostCheckin: 'أدخل رقم الغرفة',
+      kioskStagePreCheckin: 'لم أسجل الدخول بعد ولم يتم تعيين غرفة لي',
+      nameKbHint: 'يرجى إدخال اسمك بالأحرف الإنجليزية فقط',
+    },
+    tr: {
+      brandTitle: 'Yakorea Hostel',
+      toggleAriaLabel: 'Sohbeti aç',
+      candidatesLabel: 'Bunlardan birini mi arıyordunuz?',
+      escalateOffer: 'Cevap bulunamadı. Bir yöneticiye bağlanmak ister misiniz?',
+      statusAuto: 'Otomatik yanıt', statusWaiting: 'Yönetici bekleniyor',
+      statusActive: 'Yönetici ile sohbet', statusClosed: 'Sohbet sona erdi',
+      placeholder: 'Bir mesaj yazın...', welcome: 'Merhaba! Size nasıl yardımcı olabiliriz? 😊',
+      escalateBtn: '👤 Yöneticiye bağlan', closeConfirm: 'Bu sohbeti sonlandırmak istiyor musunuz?',
+      closedMsg: 'Sohbet sona erdi.', closedByManager: 'Yönetici sohbeti sonlandırdı.',
+      closedByIdle: 'Etkinlik olmadığı için sohbet sonlandırıldı.',
+      escalateRequest: 'Yöneticiye bağlanıyor. Lütfen bekleyin.',
+      kbSend: 'Gönder', closeBtnLabel: 'Sohbeti bitir',
+      closeConfirmYes: 'Evet', closeConfirmNo: 'İptal',
+      // QR 게이트
+      checkoutTitle: 'Çıkış tarihinizi girin',
+      checkoutNext: 'İleri →',
+      checkoutBlockedMsg: 'Çıkış tarihinizden sonra sohbet kullanılamaz.',
+      roomGateTitle: 'Oda numaranızı seçin',
+      bedBack: '← Oda seçimine geri dön',
+      nameTitle: 'Adınızı girin',
+      nameSubmitBtn: 'Sohbeti başlat',
+      nameErrorMsg: 'Lütfen adınızı girin',
+      namePlaceholder: 'Adınız',
+      bedUnit: '',
+      // 키오스크 게이트
+      kioskStageTitle: 'Sohbeti başlatmadan önce lütfen oda numaranızı girin',
+      kioskStagePostCheckin: 'Oda numarasını girin',
+      kioskStagePreCheckin: 'Henüz giriş yapmadım ve bana bir oda atanmadı',
+      nameKbHint: 'Lütfen adınızı yalnızca İngilizce harflerle girin',
+    },
   };
 
   // 객실 라벨 포맷터 (언어별 "방 207" 표기)
@@ -370,6 +432,8 @@
         case 'vi': return `Phòng ${room}`;
         case 'fr': return `Chambre ${room}`;
         case 'de': return `Zimmer ${room}`;
+        case 'ar': return `غرفة ${room}`;
+        case 'tr': return `Oda ${room}`;
         case 'ko':
         default:   return `${room}호`;
       }
@@ -386,6 +450,8 @@
       case 'vi': return `${roomFmt} · Giường ${bed}`;
       case 'fr': return `${roomFmt} · Lit ${bed}`;
       case 'de': return `${roomFmt} · Bett ${bed}`;
+      case 'ar': return `${roomFmt} · سرير ${bed}`;
+      case 'tr': return `${roomFmt} · Yatak ${bed}`;
       case 'ko':
       default:   return `${roomFmt} · ${bed}번`;
     }
@@ -735,6 +801,16 @@
     .msg.auto    { align-self: flex-start; background: #f1f5f9; color: #334155; border-bottom-left-radius: 4px; }
     .msg.manager { align-self: flex-start; background: #dcfce7; color: #166534; border-bottom-left-radius: 4px; }
     .msg.system  { align-self: center; background: #fef9c3; color: #713f12; font-size: 12px; padding: 4px 10px; border-radius: 20px; }
+
+    /* ── RTL 언어(아랍어 등) 대응 ─────────────────────────────────
+       Shadow DOM 호스트의 dir="rtl" 속성을 switchLang에서 설정 → 아래 룰이 활성화.
+       말풍선 정렬 반전 + 토글/채팅창 위치 왼쪽 이동. */
+    :host([dir="rtl"]) .msg.guest   { align-self: flex-start; border-bottom-right-radius: 12px; border-bottom-left-radius: 4px; }
+    :host([dir="rtl"]) .msg.auto,
+    :host([dir="rtl"]) .msg.manager { align-self: flex-end;   border-bottom-left-radius: 12px;  border-bottom-right-radius: 4px; }
+    :host([dir="rtl"]) .msg.typing  { align-self: flex-end;   border-bottom-left-radius: 12px;  border-bottom-right-radius: 4px; }
+    :host([dir="rtl"]) #toggle-btn  { right: auto; left: ${IS_KIOSK ? '40px' : '24px'}; }
+    :host([dir="rtl"]) #chat-box    { right: auto; left: ${IS_KIOSK ? '40px' : '24px'}; }
     .msg.typing  {
       align-self: flex-start; background: #f1f5f9;
       border-bottom-left-radius: 4px;
@@ -1004,7 +1080,9 @@
 
   // ── currentLang 초기화 (HTML 템플릿보다 먼저 선언) ──────────────
   // 채팅 위젯이 지원하는 언어 (lang-bar 탭과 동일)
-  const SUPPORTED_LANGS = ['ko', 'en', 'zh', 'ja', 'ru', 'es', 'mn', 'vi', 'fr', 'de'];
+  const SUPPORTED_LANGS = ['ko', 'en', 'zh', 'ja', 'ru', 'es', 'mn', 'vi', 'fr', 'de', 'ar', 'tr'];
+  // 오른쪽→왼쪽 방향으로 표시해야 하는 언어
+  const RTL_LANGS = ['ar'];
   const _rawUrlLang = new URLSearchParams(window.location.search).get('lang');
   // 페이지 ?lang= 이 위젯 지원 언어일 때만 사용 (fr/de 등은 무시 → ko로)
   const _urlLang = SUPPORTED_LANGS.includes(_rawUrlLang) ? _rawUrlLang : null;
@@ -1054,6 +1132,8 @@
         <button class="lang-btn" data-lang="vi">VI</button>
         <button class="lang-btn" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="tr">TR</button>
       </div>
       <div id="kiosk-stage-gate" class="hidden">
         <p id="kiosk-stage-title">${_ti('kioskStageTitle')}</p>
@@ -1708,6 +1788,9 @@
 
     currentLang = lang;
     sessionStorage.setItem(KIOSK_LANG_KEY, lang);
+
+    // RTL 언어(아랍어 등) 방향 전환 — Shadow DOM 호스트의 dir 속성으로 CSS가 분기
+    shadow.host.dir = RTL_LANGS.includes(lang) ? 'rtl' : 'ltr';
 
     shadow.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);

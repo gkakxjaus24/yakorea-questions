@@ -48,5 +48,15 @@
     "title": "SELBSTCHECK-IN💻👆",
     "buttonText": "SELBSTCHECK-IN",
     "nextPage": "reservation_number.html?lang=en"
+  },
+  "ar": {
+    "title": "تسجيل الدخول الذاتي💻👆",
+    "buttonText": "تسجيل الدخول الذاتي",
+    "nextPage": "reservation_number.html?lang=en"
+  },
+  "tr": {
+    "title": "KENDİ BAŞINA GIRIŞ💻👆",
+    "buttonText": "KENDİ BAŞINA GIRIŞ",
+    "nextPage": "reservation_number.html?lang=en"
   }
 }

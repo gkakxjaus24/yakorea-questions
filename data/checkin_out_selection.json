@@ -48,5 +48,15 @@
     "title": "Wie kann ich dir helfen?",
     "checkinButton": "Einchecken",
     "checkoutButton": "Auschecken"
+  },
+  "ar": {
+    "title": "كيف يمكنني مساعدتك؟",
+    "checkinButton": "تسجيل الدخول",
+    "checkoutButton": "تسجيل الخروج"
+  },
+  "tr": {
+    "title": "Sana nasıl yardımcı olabilirim?",
+    "checkinButton": "Giriş Yap",
+    "checkoutButton": "Çıkış Yap"
   }
 }

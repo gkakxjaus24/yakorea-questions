@@ -364,5 +364,77 @@
       "line2": "Bitte überprüfen Sie Ihr Check-in-Datum erneut.",
       "line3": "Falls dies eine Reservierung am selben Tag ist, wurde das System möglicherweise noch nicht aktualisiert. Bitte tippen Sie auf die Nachrichtenschaltfläche unten rechts und geben Sie 'Mit Person sprechen' ein."
     }
+  },
+  "ar": {
+    "duplicateName": "أكثر من حجز واحد بنفس الاسم. يرجى إدخال رقم حجزك",
+    "reservationNotFound": "لم يتم العثور على الحجز. يرجى إدخال رقم حجزك أو اسمك مرة أخرى",
+    "loadError": "فشل تحميل بيانات الحجز. يرجى المحاولة لاحقاً.",
+    "bedNumber": "رقم السرير",
+    "roomAndLockerPassword": "كلمة مرور الغرفة / خزانة",
+    "tableHeaders": {
+      "name": "الاسم",
+      "roomNumber": "رقم الغرفة",
+      "roomPassword": "كلمة مرور الغرفة",
+      "lockerPassword": "كلمة مرور الخزانة",
+      "roomAndLockerPassword": "كلمة مرور الغرفة / خزانة",
+      "checkoutDate": "تاريخ المغادرة",
+      "specialMemo": "ملاحظة خاصة",
+      "checkInMethod": "طريقة تسجيل الدخول"
+    },
+    "ui": {
+      "title": "تسجيل الدخول الذاتي💻👆",
+      "nextButton": "بحث",
+      "inputGuide": "",
+      "inputPlaceholder": "الاسم أو رقم الحجز"
+    },
+    "checkIn": {
+      "slipperRoom": "يرجى ارتداء النعال الخاصة بالغرفة {room} والتوجه إلى غرفتك.",
+      "slipperBed": "يرجى ارتداء النعال الخاصة بالسرير {room} والتوجه إلى غرفتك.",
+      "routeBackStair": "يمكن الوصول إلى الغرفة {room} عبر السلالم خلف المكتب.",
+      "routeFrontPass": "يمكن الوصول إلى الغرفة {room} بالمرور بين المكتب والمطبخ.",
+      "amenity": "إذا كنت بحاجة إلى مناشف أو معجون أسنان أو فرشاة أسنان، يرجى أخذها من الجانب الأيمن للمكتب."
+    },
+    "searchFailHelp": {
+      "title": "إذا لم نتمكن من العثور على حجزك، يرجى التحقق من الآتي",
+      "line1": "قد تكون قد حجزت في Yakorea Hostel [Gangnam]. (هذا موقع Dongdaemun.)",
+      "line2": "يرجى التحقق من تاريخ تسجيل الدخول الخاص بك مرة أخرى.",
+      "line3": "إذا كان هذا حجز في نفس اليوم، قد لا يكون النظام محدثاً بعد. يرجى النقر على زر الرسالة في أسفل اليمين واكتب 'التحدث إلى شخص'."
+    }
+  },
+  "tr": {
+    "duplicateName": "Aynı adla birden fazla rezervasyon var. Lütfen rezervasyon numaranızı girin",
+    "reservationNotFound": "Rezervasyon bulunamadı. Lütfen rezervasyon numaranızı veya adınızı tekrar girin",
+    "loadError": "Rezervasyon verileri yüklenemedi. Lütfen daha sonra tekrar deneyin.",
+    "bedNumber": "Yatak numarası",
+    "roomAndLockerPassword": "Oda / Kasa Şifresi",
+    "tableHeaders": {
+      "name": "Ad",
+      "roomNumber": "Oda No.",
+      "roomPassword": "Oda Şifresi",
+      "lockerPassword": "Kasa Şifresi",
+      "roomAndLockerPassword": "Oda / Kasa Şifresi",
+      "checkoutDate": "Çıkış Tarihi",
+      "specialMemo": "Özel Not",
+      "checkInMethod": "Giriş Yöntemi"
+    },
+    "ui": {
+      "title": "Kendi Kendine Giriş💻👆",
+      "nextButton": "Ara",
+      "inputGuide": "",
+      "inputPlaceholder": "Ad veya rezervasyon numarası"
+    },
+    "checkIn": {
+      "slipperRoom": "Lütfen {room} odası için terliği giyiniz ve odanıza gidiniz.",
+      "slipperBed": "Lütfen {room} yatağı için terliği giyiniz ve odanıza gidiniz.",
+      "routeBackStair": "{room} odası kasanın arkasındaki merdivenlerden yukarıda yer almaktadır.",
+      "routeFrontPass": "{room} odası, kasnın ve mutfağın arasından geçilerek ulaşılabilir.",
+      "amenity": "Havlu, diş macunu veya diş fırçasına ihtiyaç duyarsanız, lütfen kasanın sağ tarafından alınız."
+    },
+    "searchFailHelp": {
+      "title": "Rezervasyonunuz bulunamazsa, lütfen aşağıdakileri kontrol ediniz",
+      "line1": "Yakorea Hostel [Gangnam]'da rezervasyon yapmış olabilirsiniz. (Burası Dongdaemun şubesidir.)",
+      "line2": "Lütfen giriş tarihinizi tekrar kontrol ediniz.",
+      "line3": "Aynı gün rezervasyonu ise sistem henüz güncellenmiş olmayabilir. Lütfen sağ alt köşedeki mesaj düğmesine dokunun ve 'Bir kişiyle konuş' yazınız."
+    }
   }
 }

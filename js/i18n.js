@@ -38,6 +38,9 @@ async function loadI18n(url) {
     const data = await res.json();
     const langCode = getLanguageFromURL();
     document.documentElement.lang = langCode;
+    // RTL 언어 자동 처리 — 아랍어 등은 우→좌 흐름
+    const RTL_LANGS = ['ar', 'he', 'fa', 'ur'];
+    document.documentElement.dir = RTL_LANGS.includes(langCode) ? 'rtl' : 'ltr';
     const result = data[langCode] || data.ko;
     if (!result) throw new Error(`언어 코드 "${langCode}" 없음, "ko" fallback도 없음`);
     return result;

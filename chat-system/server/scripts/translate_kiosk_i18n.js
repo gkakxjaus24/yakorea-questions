@@ -43,6 +43,8 @@ const LANG_NAME = {
   vi: 'Vietnamese (Tiếng Việt, Latin script with diacritics)',
   fr: 'French (Français)',
   de: 'German (Deutsch)',
+  ar: 'Arabic (العربية, RTL script)',
+  tr: 'Turkish (Türkçe)',
 };
 
 function buildSystemPrompt(targetLang) {
@@ -97,7 +99,7 @@ async function translateObject(sourceObj, targetLang) {
     }
 
     let changed = false;
-    for (const lang of ['ru', 'es', 'mn', 'vi', 'fr', 'de']) {
+    for (const lang of ['ru', 'es', 'mn', 'vi', 'fr', 'de', 'ar', 'tr']) {
       if (data[lang]) {
         console.log(`  - ${fname}/${lang}: 이미 존재, 건너뜀`);
         continue;

@@ -63,6 +63,8 @@ const LANG_NAME = {
   vi: 'Tiếng Việt',
   fr: 'Français',
   de: 'Deutsch',
+  ar: 'العربية',
+  tr: 'Türkçe',
 };
 
 function buildSystemPrompt(answers, lang) {

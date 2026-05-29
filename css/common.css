@@ -333,6 +333,14 @@ body h2 {
     background-image: url('../images/de.svg');
 }
 
+#btn-arabic::before {
+    background-image: url('../images/ar.webp');
+}
+
+#btn-turkish::before {
+    background-image: url('../images/tr.webp');
+}
+
 .language-section {
     display: flex;
     flex-direction: column;
@@ -349,8 +357,8 @@ body h2 {
 
 .language-buttons-secondary {
     display: grid;
-    grid-template-columns: repeat(6, 120px);
-    grid-template-rows: 76px;
+    grid-template-columns: repeat(4, 120px);
+    grid-template-rows: repeat(2, 76px);
     gap: 16px;
 }
 
