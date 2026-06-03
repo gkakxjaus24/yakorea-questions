@@ -976,7 +976,7 @@ function renderReservationDetails(matchingReservation, roomNumber, isDorm) {
   if (isDorm) {
     const entries = roomNumber.split(",").map(s => s.trim());
     const baseRoom = entries[0].split("-")[0];
-    const bedNumbers = entries.map(e => e.split("-")[1]);
+    const bedNumbers = entries.map(e => String(parseInt(e.split("-")[1], 10)));
     roomDisplay = `${baseRoom} (${i18n.bedNumber} ${bedNumbers.join(", ")})`;
   }
 
