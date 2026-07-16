@@ -940,7 +940,7 @@
       },
       {
         "q": "Буцаан олговрын бодлого юу вэ?",
-        "keyword": "",
+        "keyword": "Буцаан олговрын бодлого",
         "a": "Та сууцаа авсан вэб сайтын буцаан олговрын бодлогыг шалгана уу. Бид хувийн цаг хугацааны өөрчлөлтийн хувьд буцаан олговор үзүүлэхгүй.",
         "category": "Бусад Асуудал & Туслалцаа"
       },
@@ -1214,7 +1214,7 @@
       },
       {
         "q": "Politique de remboursement",
-        "keyword": "Remboursement",
+        "keyword": "Politique de remboursement",
         "a": "Veuillez vérifier la politique de remboursement de votre site de réservation. Les remboursements ne sont pas possibles pour les changements de programme personnels.",
         "category": "Autres Demandes et Demandes de Renseignements"
       },
@@ -1237,37 +1237,37 @@
     "qna": [
       {
         "q": "Gibt es ein gemeinsames Badezimmer?",
-        "keyword": "shared bathroom",
+        "keyword": "gemeinsames Badezimmer",
         "a": "Entschuldigung, es gibt kein gemeinsames Badezimmer.",
         "category": "Amenities and Supplies"
       },
       {
         "q": "Wann schließt die Eingangstür?",
-        "keyword": "entrance door",
+        "keyword": "Eingangstür",
         "a": "Die Eingangstür ist 24 Stunden offen.",
         "category": "Access / Operation / Self-service"
       },
       {
         "q": "Wo kann ich Trinkwasser bekommen?",
-        "keyword": "drinking water",
+        "keyword": "Trinkwasser",
         "a": "Bitte nutzen Sie den Wasserfilter auf dem Küchentisch. (Für heißes Wasser nutzen Sie bitte den Wasserkocher.)",
         "category": "Amenities and Supplies"
       },
       {
         "q": "Ich brauche mehr Handtücher.",
-        "keyword": "towels",
+        "keyword": "Handtücher",
         "a": "Bitte \"achten Sie darauf\", gebrauchte Handtücher in den Handtuchkorb im 2. Stock zurückzugeben. (Für Kellerräume nutzen Sie bitte den Korb vor dem Duschraum.) Nehmen Sie dann ein neues Handtuch aus dem Handtuchkorb auf der rechten Seite des Schalters.",
         "category": "Amenities and Supplies"
       },
       {
         "q": "Meine Pantoffeln sind verschwunden.",
-        "keyword": "slippers",
+        "keyword": "Pantoffeln",
         "a": "Es sieht so aus, als hätte ein anderer Gast sie versehentlich mitgenommen wegen der Pantoffelnummer. Wir haben Ersatzpantoffeln im Schuhschrank für solche Situationen vorbereitet. Bitte nutzen Sie diese.",
         "category": "Amenities and Supplies"
       },
       {
         "q": "Wann kann ich frühstücken?",
-        "keyword": "breakfast",
+        "keyword": "frühstücken",
         "a": "Das Frühstück ist Selbstbedienung in der Küche von 7:00 Uhr bis 10:00 Uhr.",
         "category": "Amenities and Supplies"
       },
@@ -1279,13 +1279,13 @@
       },
       {
         "q": "Ich möchte Wäsche waschen.",
-        "keyword": "laundry",
+        "keyword": "Wäsche waschen",
         "a": "Wäsche kostet 5.000 KRW pro Wäschesack an der Rezeption. (Waschen und Trocknen inklusive.) Legen Sie Ihr Bargeld und die Wäsche in den Wäschesack auf der rechten Seite des Schalters und lassen Sie ihn neben der Rezeption. Es wird innerhalb von 24 Stunden fertig, und wenn es fertig ist, lassen wir es neben der Rezeption.",
         "category": "Laundry and Refrigerator Use"
       },
       {
         "q": "Bis zu welcher Zeit kann ich den gemeinsamen Bereich nutzen?",
-        "keyword": "common area",
+        "keyword": "gemeinsamen Bereich",
         "a": "Sie können den gemeinsamen Bereich 24 Stunden am Tag nutzen. Aber es gibt auch Gästezimmer im 1. Stock, daher bitte ich Sie, nach 23:00 Uhr und am frühen Morgen leise zu sein.",
         "category": "Access / Operation / Self-service"
       },
@@ -1297,7 +1297,7 @@
       },
       {
         "q": "Gibt es eine Waage zum Wiegen meines Gepäcks?",
-        "keyword": "scale",
+        "keyword": "Waage",
         "a": "Es gibt eine tragbare Waage auf dem Tisch vor der Rezeption.",
         "category": "Luggage Storage and Scale Use"
       },
@@ -1309,7 +1309,7 @@
       },
       {
         "q": "Wenn ich weitere Nächte bleibe, kann ich das gleiche Bett nutzen, ohne mein Gepäck zu bewegen?",
-        "keyword": "same bed",
+        "keyword": "gleiche Bett",
         "a": "Ja, wenn Ihre Reservierung auf denselben Namen und denselben Zimmertyp läuft, können Sie das gleiche Bett nutzen, ohne Ihr Gepäck zu bewegen.",
         "category": "Rooms and Beds"
       },
@@ -1333,7 +1333,7 @@
       },
       {
         "q": "Ich möchte etwas drucken.",
-        "keyword": "print",
+        "keyword": "drucken",
         "a": "Bitte senden Sie die Datei an dongdaemun2@gmail.com und kontaktieren Sie uns dann über die Chat-Schaltfläche unten. (Betreff: Print Request, Name, Zimmernummer) Dokumente: bis zu 20 Seiten in Schwarzweiß und 10 Farbseiten sind kostenlos. Fotos oder Bilder können nicht gedruckt werden.",
         "category": "Amenities and Supplies"
       },
@@ -1345,25 +1345,25 @@
       },
       {
         "q": "Ich möchte meine Bettnummer ändern.",
-        "keyword": "bed number",
+        "keyword": "Bettnummer",
         "a": "Bitte tippen Sie auf die Chat-Schaltfläche unten und kontaktieren Sie den Manager. Wir werden Ihnen das Datum mitteilen, an dem Sie Ihr Bett wechseln können. (Am Ankunftstag ist die Bettzuweisung bereits abgeschlossen, daher können Sie Ihr Bett nicht wechseln.) Bitte räumen Sie Ihr ursprüngliches Bett bis 11:00 Uhr am Tag des Bettenwechsels. Sie können nach 15:00 Uhr ins neue Bett wechseln, wenn die Reinigung fertig ist.",
         "category": "Rooms and Beds"
       },
       {
         "q": "Rückgaberichtlinie",
-        "keyword": "Refund",
+        "keyword": "Rückgaberichtlinie",
         "a": "Bitte überprüfen Sie die Rückgaberichtlinie Ihrer Buchungsseite. Rückgaben sind nicht möglich für persönliche Zeitplanänderungen.",
         "category": "Other Requests and Inquiries"
       },
       {
         "q": "Warum gibt es normalerweise kein Personal an der Rezeption?",
-        "keyword": "no staff",
+        "keyword": "kein Personal",
         "a": "Unser Hostel wird als Selbstbedienungs-Hostel betrieben. Durch Einsparung von Arbeitskosten können wir Ihnen einen günstigeren Preis anbieten. Wenn Sie Fragen haben, nutzen Sie bitte die Chat-Schaltfläche unten.",
         "category": "Access / Operation / Self-service"
       },
       {
         "q": "Ich brauche mehr Hilfe.",
-        "keyword": "help",
+        "keyword": "Hilfe",
         "a": "Bitte tippen Sie auf die Chat-Schaltfläche unten rechts auf dem Bildschirm und kontaktieren Sie den Manager.",
         "category": "Other Requests and Inquiries"
       }
@@ -1374,37 +1374,37 @@
     "qna": [
       {
         "q": "هل هناك حمام مشترك؟",
-        "keyword": "shared bathroom",
+        "keyword": "حمام مشترك",
         "a": "عذراً، لا يوجد حمام مشترك.",
         "category": "المرافق والإمدادات"
       },
       {
         "q": "متى يغلق باب المدخل؟",
-        "keyword": "entrance door",
+        "keyword": "باب المدخل",
         "a": "باب المدخل مفتوح 24 ساعة.",
         "category": "الوصول / التشغيل / الخدمة الذاتية"
       },
       {
         "q": "أين يمكنني الحصول على ماء الشرب؟",
-        "keyword": "drinking water",
+        "keyword": "ماء الشرب",
         "a": "يرجى استخدام منقي المياه على طاولة المطبخ. (للماء الساخن، يرجى استخدام غلاية كهربائية.)",
         "category": "المرافق والإمدادات"
       },
       {
         "q": "أنا بحاجة إلى مزيد من المناشف.",
-        "keyword": "towels",
+        "keyword": "المناشف",
         "a": "يرجى \"التأكد من\" إعادة المناشف المستخدمة إلى سلة المناشف في الطابق الثاني. (للغرف الموجودة في الطابق السفلي، استخدم السلة أمام حمام الاستحمام.) ثم خذ منشفة جديدة من سلة المناشف على الجانب الأيمن من العداد.",
         "category": "المرافق والإمدادات"
       },
       {
         "q": "نعالي مفقودة.",
-        "keyword": "slippers",
+        "keyword": "نعالي",
         "a": "يبدو أن نزيلاً آخر أخذها بالخطأ بسبب رقم النعل. لقد أعددنا نعالاً إضافية في خزانة الأحذية لمثل هذه الحالات. يرجى استخدامها.",
         "category": "المرافق والإمدادات"
       },
       {
         "q": "متى يمكنني تناول الإفطار؟",
-        "keyword": "breakfast",
+        "keyword": "الإفطار",
         "a": "الإفطار خدمة ذاتية في المطبخ من الساعة 7:00 صباحاً إلى 10:00 صباحاً.",
         "category": "المرافق والإمدادات"
       },
@@ -1416,13 +1416,13 @@
       },
       {
         "q": "أريد أن أغسل ملابسي.",
-        "keyword": "laundry",
+        "keyword": "أغسل ملابسي",
         "a": "تكاليف الغسيل 5,000 KRW لكل كيس غسيل على العداد. (الغسيل والتجفيف مشموليان.) ضع النقود وملابسك في كيس الغسيل على الجانب الأيمن من العداد واتركه بجانب العداد. سيكون جاهزاً خلال 24 ساعة، وعندما ينتهي، سنتركه بجانب العداد.",
         "category": "استخدام الغسيل والثلاجة"
       },
       {
         "q": "إلى متى يمكنني استخدام المنطقة المشتركة؟",
-        "keyword": "common area",
+        "keyword": "المنطقة المشتركة",
         "a": "يمكنك استخدام المنطقة المشتركة 24 ساعة يومياً. لكن هناك أيضاً غرف نزلاء في الطابق الأول، لذا يرجى الهدوء بعد الساعة 11:00 مساءً وفي الصباح الباكر.",
         "category": "الوصول / التشغيل / الخدمة الذاتية"
       },
@@ -1434,7 +1434,7 @@
       },
       {
         "q": "هل هناك ميزان لوزن أمتعتي؟",
-        "keyword": "scale",
+        "keyword": "ميزان",
         "a": "هناك ميزان محمول على الطاولة أمام العداد.",
         "category": "تخزين الأمتعة واستخدام الميزان"
       },
@@ -1446,7 +1446,7 @@
       },
       {
         "q": "إذا بقيت ليالي إضافية، هل يمكنني الاستمرار في استخدام نفس السرير دون تحريك أمتعتي؟",
-        "keyword": "same bed",
+        "keyword": "نفس السرير",
         "a": "نعم، إذا كان حجزك باسم واحد ولنفس نوع الغرفة، يمكنك الاستمرار في استخدام نفس السرير دون تحريك أمتعتك.",
         "category": "الغرف والأسرة"
       },
@@ -1470,7 +1470,7 @@
       },
       {
         "q": "أريد طباعة شيء ما.",
-        "keyword": "print",
+        "keyword": "طباعة",
         "a": "يرجى إرسال الملف إلى dongdaemun2@gmail.com ثم الاتصال بنا من خلال زر الدردشة أدناه. (الموضوع: طلب الطباعة، الاسم، رقم الغرفة) المستندات: حتى 20 صفحة بالأبيض والأسود و 10 صفحات ملونة مجانية. لا يمكن طباعة الصور أو الرسومات.",
         "category": "المرافق والإمدادات"
       },
@@ -1482,25 +1482,25 @@
       },
       {
         "q": "أريد تغيير رقم سريري.",
-        "keyword": "bed number",
+        "keyword": "رقم سريري",
         "a": "يرجى النقر على زر الدردشة أدناه والاتصال بمدير الفندق. سنخبرك بالتاريخ الذي يمكنك فيه تغيير سريرك. (في يوم تسجيل الوصول، يكون توزيع الأسرة قد اكتمل بالفعل، لذا لا يمكنك تغيير سريرك.) يرجى إخلاء سريرك الأصلي بحلول الساعة 11:00 صباحاً في اليوم الذي تغير فيه الأسرة. يمكنك الانتقال إلى السرير الجديد بعد الساعة 3:00 مساءً، عندما ينتهي التنظيف.",
         "category": "الغرف والأسرة"
       },
       {
         "q": "سياسة الاسترداد",
-        "keyword": "Refund",
+        "keyword": "سياسة الاسترداد",
         "a": "يرجى التحقق من سياسة الاسترداد الخاصة بموقع الحجز الخاص بك. لا يمكن استرداد الأموال للتغييرات الشخصية في الجدول الزمني.",
         "category": "الطلبات والاستفسارات الأخرى"
       },
       {
         "q": "لماذا لا يوجد عادة موظفون على العداد؟",
-        "keyword": "no staff",
+        "keyword": "موظفون",
         "a": "فندقنا يعمل كفندق خدمة ذاتية. من خلال توفير تكاليف العمالة، يمكننا تقديم سعر أكثر بأسعار معقولة. إذا كان لديك أي أسئلة، يرجى استخدام زر الدردشة أدناه.",
         "category": "الوصول / التشغيل / الخدمة الذاتية"
       },
       {
         "q": "أحتاج إلى مزيد من المساعدة.",
-        "keyword": "help",
+        "keyword": "المساعدة",
         "a": "يرجى النقر على زر الدردشة في أسفل يمين الشاشة والاتصال بمدير الفندق.",
         "category": "الطلبات والاستفسارات الأخرى"
       }
@@ -1511,37 +1511,37 @@
     "qna": [
       {
         "q": "Ortak banyo var mı?",
-        "keyword": "shared bathroom",
+        "keyword": "Ortak banyo",
         "a": "Üzgünüz, ortak banyo yoktur.",
         "category": "Amenities and Supplies"
       },
       {
         "q": "Giriş kapısı saat kaçta kapanır?",
-        "keyword": "entrance door",
+        "keyword": "Giriş kapısı",
         "a": "Giriş kapısı 24 saat açıktır.",
         "category": "Access / Operation / Self-service"
       },
       {
         "q": "İçme suyu nereden alabilirim?",
-        "keyword": "drinking water",
+        "keyword": "İçme suyu",
         "a": "Lütfen mutfak masasındaki su arıtıcısını kullanınız. (Sıcak su için lütfen elektrik ketilini kullanınız.)",
         "category": "Amenities and Supplies"
       },
       {
         "q": "Daha fazla havlu lazım.",
-        "keyword": "towels",
+        "keyword": "havlu",
         "a": "Lütfen kullanılan havluları 2. kattaki havlu sepetine \"geri koyduğunuzdan emin olunuz\". (Bodrum katı odalar için duş odasının önündeki sepeti kullanınız.) Ardından tezgahın sağ tarafındaki havlu sepetinden yeni bir havlu alınız.",
         "category": "Amenities and Supplies"
       },
       {
         "q": "Terliklerim kayboldu.",
-        "keyword": "slippers",
+        "keyword": "Terliklerim",
         "a": "Başka bir konuk terlik numarasından dolayı yanlışlıkla onları almış görünüyor. Bu gibi durumlar için ayakkabı dolabında Ekstra Terlikleri hazırladık. Lütfen onları kullanınız.",
         "category": "Amenities and Supplies"
       },
       {
         "q": "Kahvaltı saat kaçta?",
-        "keyword": "breakfast",
+        "keyword": "Kahvaltı",
         "a": "Kahvaltı sabah 7:00'den 10:00'a kadar mutfakta kendi servisizdir.",
         "category": "Amenities and Supplies"
       },
@@ -1553,13 +1553,13 @@
       },
       {
         "q": "Çamaşır yıkamak istiyorum.",
-        "keyword": "laundry",
+        "keyword": "Çamaşır yıkamak",
         "a": "Çamaşır yıkama tezgahta çamaşır torbası başına 5.000 KRW'dir. (Yıkama ve kurutma dahil.) Nakit paranızı ve çamaşırları tezgahın sağ tarafındaki çamaşır torbasına koyup tezgahın yanına bırakınız. 24 saat içinde tamamlanacak ve hazır olunca tezgahın yanına bırakacağız.",
         "category": "Laundry and Refrigerator Use"
       },
       {
         "q": "Ortak alanı ne kadar süre kullanabilirim?",
-        "keyword": "common area",
+        "keyword": "Ortak alanı",
         "a": "Ortak alanı günde 24 saat kullanabilirsiniz. Fakat 1. katta konuk odaları da olduğu için lütfen saat 23:00 sonrası ve sabah erken saatlerde sessiz kalınız.",
         "category": "Access / Operation / Self-service"
       },
@@ -1571,7 +1571,7 @@
       },
       {
         "q": "Bagajımı tartmak için bir ölçek var mı?",
-        "keyword": "scale",
+        "keyword": "ölçek",
         "a": "Tezgahın önündeki masada taşınabilir bir ölçek vardır.",
         "category": "Luggage Storage and Scale Use"
       },
@@ -1582,8 +1582,8 @@
         "category": "Luggage Storage and Scale Use"
       },
       {
-        "q": "Daha fazla gece konakla[r]sam, bagajımı taşımadan aynı yatağı kullanmaya devam edebilir miyim?",
-        "keyword": "same bed",
+        "q": "Daha fazla gece konaklarsam, bagajımı taşımadan aynı yatağı kullanmaya devam edebilir miyim?",
+        "keyword": "aynı yatağı",
         "a": "Evet, rezervasyonunuz aynı ad altında ve aynı oda tipinde ise, bagajınızı taşımadan aynı yatağı kullanmaya devam edebilirsiniz.",
         "category": "Rooms and Beds"
       },
@@ -1607,7 +1607,7 @@
       },
       {
         "q": "Birşey yazdırmak istiyorum.",
-        "keyword": "print",
+        "keyword": "yazdırmak",
         "a": "Lütfen dosyayı dongdaemun2@gmail.com'a gönderin ve ardından aşağıdaki sohbet düğmesiyle iletişime geçin. (Konu: Yazdırma İsteği, Ad, Oda Numarası) Belgeler: 20 siyah-beyaz sayfa ve 10 renkli sayfa kadar ücretsizdir. Fotoğraf veya resimler yazdırılamaz.",
         "category": "Amenities and Supplies"
       },
@@ -1619,25 +1619,25 @@
       },
       {
         "q": "Yatak numaramı değiştirmek istiyorum.",
-        "keyword": "bed number",
+        "keyword": "Yatak numaramı",
         "a": "Lütfen aşağıdaki sohbet düğmesine dokunun ve yöneticiyle iletişime geçin. Yatak değiştirebileceğiniz tarihi size söyleriz. (Giriş günü, yatak atama zaten tamamlanmıştır, bu yüzden yatağı değiştiremezsiniz.) Lütfen yatak değiştirdiğiniz gün saat 11:00'a kadar orijinal yatağınızı boşaltın. Temizlik tamamlandıktan sonra saat 15:00'te yeni yatağa geçebilirsiniz.",
         "category": "Rooms and Beds"
       },
       {
         "q": "Para iadesi politikası",
-        "keyword": "Refund",
+        "keyword": "Para iadesi politikası",
         "a": "Lütfen rezervasyon sitesinin para iadesi politikasını kontrol edin. Kişisel program değişiklikleri için para iadesi mümkün değildir.",
         "category": "Other Requests and Inquiries"
       },
       {
         "q": "Neden tezgahta genellikle personel yoktur?",
-        "keyword": "no staff",
+        "keyword": "personel yoktur",
         "a": "Oteller otel kendinden hizmeti bir hostelin olarak işletilmektedir. İşçilik maliyetlerini azaltarak sizlere daha uygun fiyat sunabiliyoruz. Herhangi bir sorunuz varsa lütfen aşağıdaki sohbet düğmesini kullanınız.",
         "category": "Access / Operation / Self-service"
       },
       {
         "q": "Daha fazla yardıma ihtiyacım var.",
-        "keyword": "help",
+        "keyword": "yardıma",
         "a": "Lütfen ekranın sağ altındaki sohbet düğmesine dokunun ve yöneticiyle iletişime geçin.",
         "category": "Other Requests and Inquiries"
       }
