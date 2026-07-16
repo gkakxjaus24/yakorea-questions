@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- === THREE VERTICAL STRIPES === -->
+  <rect width="300" height="600" fill="#C4272F"/>
+  <rect x="300" width="300" height="600" fill="#015197"/>
+  <rect x="600" width="300" height="600" fill="#C4272F"/>
+
+  <!-- === SOYOMBO (centered at x=150 in left stripe) === -->
+  <g fill="#F9CF02">
+
+    <!-- FLAMES (three teardrop shapes, tips pointing up) -->
+    <!-- Center flame (tallest) -->
+    <path d="M 150,62 C 145,80 142,97 150,115 C 158,97 155,80 150,62 Z"/>
+    <!-- Left flame -->
+    <path d="M 124,74 C 120,90 117,104 124,120 C 131,104 128,90 124,74 Z"/>
+    <!-- Right flame -->
+    <path d="M 176,74 C 180,90 183,104 176,120 C 169,104 172,90 176,74 Z"/>
+
+    <!-- SUN (circle) -->
+    <circle cx="150" cy="148" r="22"/>
+
+    <!-- MOON (crescent, bowl opening upward) -->
+    <path d="M 106,176 A 44,22 0 0 0 194,176 L 188,176 A 38,16 0 0 1 112,176 Z"/>
+
+    <!-- TWO DOWNWARD TRIANGLES (earth) -->
+    <polygon points="106,188 194,188 150,204"/>
+    <polygon points="109,205 191,205 150,219"/>
+
+    <!-- BODY: TOP DOUBLE BAR -->
+    <rect x="90" y="225" width="120" height="12"/>
+    <rect x="90" y="242" width="120" height="12"/>
+
+    <!-- OUTER PILLARS -->
+    <rect x="90" y="255" width="23" height="188"/>
+    <rect x="187" y="255" width="23" height="188"/>
+
+    <!-- INNER TOP DOUBLE BAR (between pillars) -->
+    <rect x="113" y="255" width="74" height="12"/>
+    <rect x="113" y="272" width="74" height="12"/>
+
+    <!-- INNER BOTTOM DOUBLE BAR (between pillars) -->
+    <rect x="113" y="419" width="74" height="12"/>
+    <rect x="113" y="431" width="74" height="12"/>
+
+    <!-- BODY: BOTTOM DOUBLE BAR -->
+    <rect x="90" y="443" width="120" height="12"/>
+    <rect x="90" y="460" width="120" height="12"/>
+
+    <!-- BOTTOM DOWNWARD CHEVRON -->
+    <polygon points="90,474 150,500 210,474"/>
+
+  </g>
+
+  <!-- TAIJITU (yin-yang) centered at (150, 340), r=28 -->
+  <!-- Gold background circle -->
+  <circle cx="150" cy="340" r="28" fill="#F9CF02"/>
+  <!-- Red yin half: S-curve path -->
+  <path d="M 150,312 A 14,14 0 0 0 150,340 A 14,14 0 0 1 150,368 A 28,28 0 0 1 150,312 Z" fill="#C4272F"/>
+  <!-- Yin dot (red in gold half) -->
+  <circle cx="136" cy="326" r="5" fill="#C4272F"/>
+  <!-- Yang dot (gold in red half) -->
+  <circle cx="164" cy="354" r="5" fill="#F9CF02"/>
+</svg>

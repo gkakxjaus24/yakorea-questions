@@ -143,3 +143,57 @@ h1, h2, .headline {
   background-size: cover;
   background-position: center;
 }
+
+.lang-mn {
+  color: #8b0000;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-mn.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.lang-vi {
+  color: #8b0000;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-vi.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.lang-fr {
+  color: #1a237e;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-fr.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.lang-de {
+  color: #1a1a1a;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-de.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.lang-tr {
+  color: #8b0000;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-tr.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.lang-ar {
+  color: #014421;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-ar.webp');
+  background-size: cover;
+  background-position: center;
+}
