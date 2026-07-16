@@ -39,8 +39,8 @@
         "category": "생활 편의 시설 및 비품 관련"
       },
       {
-        "q": "변압기와 핸드폰 충전기를 빌려주세요.",
-        "keyword": "변압기",
+        "q": "변압기·충전기 빌리기",
+        "keyword": "변압기·충전기",
         "a": "카운터 위에 있는 박스에서 가져가세요. 체크아웃 할 때 \"반드시\" 반납해주세요",
         "category": "생활 편의 시설 및 비품 관련"
       },
@@ -57,8 +57,8 @@
         "category": "출입/운영 방식/무인 관련"
       },
       {
-        "q": "제 가방을 보관하고 싶어요.",
-        "keyword": "가방",
+        "q": "가방 보관하고 싶어요",
+        "keyword": "가방 보관",
         "a": "체크인 전/후 카운터 앞에 짐 보관 가능합니다.",
         "category": "짐 보관 및 저울 이용"
       },
@@ -69,8 +69,8 @@
         "category": "짐 보관 및 저울 이용"
       },
       {
-        "q": "가방을 장기로 보관 할 수 있나요?",
-        "keyword": "장기",
+        "q": "장기 보관 가능한가요?",
+        "keyword": "장기 보관",
         "a": "가방은 일주일 까지 무료 보관 가능합니다. 카운터 앞에 두고 이름, 연락처, 체크아웃 날짜, 돌아오는 날짜를 붙여 주세요. 일주일 부터 하루에 천원을 내야 해요.",
         "category": "짐 보관 및 저울 이용"
       },
@@ -81,14 +81,14 @@
         "category": "객실 및 침대 관련"
       },
       {
-        "q": "물건을 잃어버렸어요",
-        "keyword": "물건",
+        "q": "분실물 문의",
+        "keyword": "분실물",
         "a": "잃어버린 물건 1.이름 2.크기 3.모양 4.색깔 5.날짜 6.시간 7.장소를 이메일(dongdaemun2@gmail.com)로 보내주세요. CCTV 확인해 볼게요. 도미토리 방은 개인 사물함이 있기 때문에 저희가 잃어버린 물건의 책임은 없어요.",
         "category": "기타 요청 및 문의"
       },
       {
-        "q": "제 침대에 다른 사람 또는 물건이 있어요",
-        "keyword": "침대",
+        "q": "침대 중복 배정된 것 같아요",
+        "keyword": "침대 중복",
         "a": "다른 손님이 침대번호를 착각하고 사용하고 있나보네요. 아래 채팅 버튼을 눌러 매니저에게 문의해주세요.",
         "category": "객실 및 침대 관련"
       },
@@ -105,8 +105,8 @@
         "category": "생활 편의 시설 및 비품 관련"
       },
       {
-        "q": "누가 냉장고에 내 음식을 먹었어요",
-        "keyword": "냉장고",
+        "q": "냉장고 음식이 없어졌어요",
+        "keyword": "냉장고 음식",
         "a": "냉장고 안내문을 다시 확인해주세요. 음식에 '체크아웃 날짜'가 없는 음식은 누구나 먹을 수 있어요!!",
         "category": "세탁 및 냉장고 이용"
       },
@@ -176,8 +176,8 @@
         "category": "Amenities and Supplies"
       },
       {
-        "q": "Can I borrow a power adapter and a phone charger?",
-        "keyword": "power adapter",
+        "q": "Adapter & charger rental",
+        "keyword": "Adapter & charger",
         "a": "Please take them from the box on the counter. Please \"make sure\" to return them when you check out.",
         "category": "Amenities and Supplies"
       },
@@ -194,8 +194,8 @@
         "category": "Access / Operation / Self-service"
       },
       {
-        "q": "I want to store my luggage.",
-        "keyword": "luggage",
+        "q": "Luggage storage, please",
+        "keyword": "Luggage storage",
         "a": "You can leave your luggage in front of the counter before check-in and after check-out.",
         "category": "Luggage Storage and Scale Use"
       },
@@ -206,8 +206,8 @@
         "category": "Luggage Storage and Scale Use"
       },
       {
-        "q": "Can I store my luggage for a long time?",
-        "keyword": "long time",
+        "q": "Long-term storage available?",
+        "keyword": "Long-term storage",
         "a": "You can store your luggage for free for up to one week. Please leave it in front of the counter and attach your name, contact information, check-out date, and return date. After one week, it is 1,000 KRW per day.",
         "category": "Luggage Storage and Scale Use"
       },
@@ -218,14 +218,14 @@
         "category": "Rooms and Beds"
       },
       {
-        "q": "I lost something.",
-        "keyword": "lost something",
+        "q": "Lost item inquiry",
+        "keyword": "Lost item",
         "a": "Please send the following information about the lost item to dongdaemun2@gmail.com: 1. Name 2. Size 3. Shape 4. Color 5. Date 6. Time 7. Place. We will check the CCTV. Dormitory rooms have personal lockers, so we are not responsible for lost items.",
         "category": "Other Requests and Inquiries"
       },
       {
-        "q": "There is another person or someone else's stuff on my bed.",
-        "keyword": "my bed",
+        "q": "Bed mix-up, someone's in my spot",
+        "keyword": "Bed mix-up",
         "a": "It looks like another guest is using your bed by mistake because of the bed number. Please tap the chat button below and contact the manager.",
         "category": "Rooms and Beds"
       },
@@ -242,8 +242,8 @@
         "category": "Amenities and Supplies"
       },
       {
-        "q": "Someone ate my food in the refrigerator.",
-        "keyword": "refrigerator",
+        "q": "Fridge food missing",
+        "keyword": "Fridge food",
         "a": "Please check the refrigerator notice again. Any food without a 'check-out date' written on it can be eaten by anyone!!",
         "category": "Laundry and Refrigerator Use"
       },
@@ -313,8 +313,8 @@
         "category": "生活便利设施及用品"
       },
       {
-        "q": "请借我变压器和手机充电器。",
-        "keyword": "变压器",
+        "q": "变压器·充电器 借用",
+        "keyword": "变压器·充电器",
         "a": "请从前台上的盒子里拿取。退房时请\"务必\"归还。",
         "category": "生活便利设施及用品"
       },
@@ -331,8 +331,8 @@
         "category": "出入 / 运营方式 / 无人值守"
       },
       {
-        "q": "我想寄存行李。",
-        "keyword": "行李",
+        "q": "行李寄存",
+        "keyword": "行李寄存",
         "a": "入住前和退房后都可以把行李寄存在前台前面。",
         "category": "行李寄存及称重"
       },
@@ -343,8 +343,8 @@
         "category": "行李寄存及称重"
       },
       {
-        "q": "可以长期寄存行李吗？",
-        "keyword": "长期",
+        "q": "长期寄存可以吗？",
+        "keyword": "长期寄存",
         "a": "行李可免费寄存一周。请放在前台前面，并贴上姓名、联系方式、退房日期和返回日期。一周后每天需要支付1,000 KRW。",
         "category": "行李寄存及称重"
       },
@@ -355,14 +355,14 @@
         "category": "房间及床位"
       },
       {
-        "q": "我丢东西了。",
-        "keyword": "丢东西",
+        "q": "失物招领",
+        "keyword": "失物招领",
         "a": "请把丢失物品的信息发送到 dongdaemun2@gmail.com：1.姓名 2.大小 3.形状 4.颜色 5.日期 6.时间 7.地点。我们会查看监控。宿舍房间有个人储物柜，所以我们不对丢失物品负责。",
         "category": "其他请求及咨询"
       },
       {
-        "q": "我的床上有别人或者别人的东西。",
-        "keyword": "床",
+        "q": "床位重复分配了",
+        "keyword": "床位重复",
         "a": "看起来是其他客人把床号看错后用了您的床。请点击下方聊天按钮联系经理。",
         "category": "房间及床位"
       },
@@ -379,8 +379,8 @@
         "category": "生活便利设施及用品"
       },
       {
-        "q": "有人吃了我放在冰箱里的食物。",
-        "keyword": "冰箱",
+        "q": "冰箱食物不见了",
+        "keyword": "冰箱食物",
         "a": "请再次查看冰箱上的说明。没有写「退房日期」的食物，任何人都可以吃！！",
         "category": "洗衣及冰箱使用"
       },
@@ -450,8 +450,8 @@
         "category": "生活設備・備品"
       },
       {
-        "q": "変圧器と携帯電話の充電器を貸してください。",
-        "keyword": "変圧器",
+        "q": "変圧器・充電器を借りたい",
+        "keyword": "変圧器・充電器",
         "a": "カウンターの上にある箱から取ってください。チェックアウトのときに\"必ず\"返却してください。",
         "category": "生活設備・備品"
       },
@@ -468,8 +468,8 @@
         "category": "出入 / 運営方式 / 無人運営"
       },
       {
-        "q": "荷物を預けたいです。",
-        "keyword": "荷物",
+        "q": "荷物預かり希望",
+        "keyword": "荷物預かり",
         "a": "チェックイン前・チェックアウト後ともに、カウンター前で荷物を預けることができます。",
         "category": "荷物預かり・はかり利用"
       },
@@ -480,8 +480,8 @@
         "category": "荷物預かり・はかり利用"
       },
       {
-        "q": "荷物を長期間預けることはできますか？",
-        "keyword": "長期間",
+        "q": "長期預かり可能ですか？",
+        "keyword": "長期預かり",
         "a": "荷物は1週間まで無料でお預かりできます。カウンター前に置いて、名前、連絡先、チェックアウト日、戻る日を書いて貼ってください。1週間を過ぎると1日 1,000 KRW かかります。",
         "category": "荷物預かり・はかり利用"
       },
@@ -492,14 +492,14 @@
         "category": "客室・ベッド"
       },
       {
-        "q": "物をなくしました。",
-        "keyword": "物",
+        "q": "忘れ物について",
+        "keyword": "忘れ物",
         "a": "なくした物について、1.名前 2.大きさ 3.形 4.色 5.日付 6.時間 7.場所 を dongdaemun2@gmail.com までメールで送ってください。CCTVを確認します。ドミトリーには個人ロッカーがあるため、なくし物について当ホステルは責任を負いません。",
         "category": "その他のリクエスト・お問い合わせ"
       },
       {
-        "q": "自分のベッドに他の人、または他の人の物があります。",
-        "keyword": "ベッド",
+        "q": "ベッド重複の可能性があります",
+        "keyword": "ベッド重複",
         "a": "他のお客様がベッド番号を間違えて使っているようです。下のチャットボタンを押して、マネージャーにお問い合わせください。",
         "category": "客室・ベッド"
       },
@@ -516,8 +516,8 @@
         "category": "生活設備・備品"
       },
       {
-        "q": "誰かが冷蔵庫の私の食べ物を食べました。",
-        "keyword": "冷蔵庫",
+        "q": "冷蔵庫の食べ物がなくなりました",
+        "keyword": "冷蔵庫の食べ物",
         "a": "冷蔵庫の案内をもう一度確認してください。食べ物に「チェックアウト日」が書いていない場合は、誰でも食べることができます！！",
         "category": "洗濯・冷蔵庫の利用"
       },
@@ -587,8 +587,8 @@
         "category": "Удобства и принадлежности"
       },
       {
-        "q": "Можно взять переходник и зарядку для телефона?",
-        "keyword": "переходник",
+        "q": "Адаптер и зарядка напрокат",
+        "keyword": "Адаптер и зарядка",
         "a": "Пожалуйста, возьмите их из коробки на стойке. Пожалуйста, \"обязательно\" верните их при выезде.",
         "category": "Удобства и принадлежности"
       },
@@ -605,8 +605,8 @@
         "category": "Вход / Работа / Самообслуживание"
       },
       {
-        "q": "Я хочу оставить багаж.",
-        "keyword": "багаж",
+        "q": "Хранение багажа",
+        "keyword": "Хранение багажа",
         "a": "Вы можете оставить багаж перед стойкой до заселения и после выезда.",
         "category": "Хранение багажа и весы"
       },
@@ -617,8 +617,8 @@
         "category": "Хранение багажа и весы"
       },
       {
-        "q": "Можно ли оставить багаж на долгое время?",
-        "keyword": "долгое время",
+        "q": "Долгосрочное хранение возможно?",
+        "keyword": "Долгосрочное хранение",
         "a": "Багаж можно хранить бесплатно до одной недели. Пожалуйста, оставьте его перед стойкой и прикрепите имя, контактные данные, дату выезда и дату возвращения. После одной недели стоимость составляет 1,000 KRW в день.",
         "category": "Хранение багажа и весы"
       },
@@ -629,14 +629,14 @@
         "category": "Комнаты и кровати"
       },
       {
-        "q": "Я потерял вещь.",
-        "keyword": "потерял вещь",
+        "q": "Пропажа вещей",
+        "keyword": "Пропажа вещей",
         "a": "Пожалуйста, отправьте информацию о потерянной вещи на dongdaemun2@gmail.com: 1. Имя 2. Размер 3. Форма 4. Цвет 5. Дата 6. Время 7. Место. Мы проверим CCTV. В общих комнатах есть личные шкафчики, поэтому мы не несем ответственность за потерянные вещи.",
         "category": "Другие запросы и вопросы"
       },
       {
-        "q": "На моей кровати есть другой человек или чужие вещи.",
-        "keyword": "кровати",
+        "q": "Путаница с кроватью — кто-то на моём месте",
+        "keyword": "Путаница с кроватью",
         "a": "Похоже, другой гость по ошибке использует вашу кровать, перепутав номер кровати. Пожалуйста, нажмите кнопку чата ниже и свяжитесь с менеджером.",
         "category": "Комнаты и кровати"
       },
@@ -653,8 +653,8 @@
         "category": "Удобства и принадлежности"
       },
       {
-        "q": "Кто-то съел мою еду из холодильника.",
-        "keyword": "холодильника",
+        "q": "Еда из холодильника пропала",
+        "keyword": "Еда из холодильника",
         "a": "Пожалуйста, еще раз прочитайте объявление на холодильнике. Любую еду без указанной 'даты выезда' может есть кто угодно!!",
         "category": "Прачечная и холодильник"
       },
@@ -724,8 +724,8 @@
         "category": "Servicios y artículos"
       },
       {
-        "q": "¿Me puede prestar un adaptador y un cargador de teléfono?",
-        "keyword": "adaptador",
+        "q": "Adaptador y cargador en préstamo",
+        "keyword": "Adaptador y cargador",
         "a": "Por favor, tómelos de la caja que está sobre el mostrador. Por favor, \"asegúrese\" de devolverlos al hacer el check-out.",
         "category": "Servicios y artículos"
       },
@@ -742,8 +742,8 @@
         "category": "Acceso / Operación / Autoservicio"
       },
       {
-        "q": "Quiero guardar mi equipaje.",
-        "keyword": "equipaje",
+        "q": "Almacenaje de equipaje",
+        "keyword": "Almacenaje de equipaje",
         "a": "Puede dejar su equipaje frente al mostrador antes del check-in y después del check-out.",
         "category": "Guardaequipaje y báscula"
       },
@@ -754,8 +754,8 @@
         "category": "Guardaequipaje y báscula"
       },
       {
-        "q": "¿Puedo guardar mi equipaje por mucho tiempo?",
-        "keyword": "mucho tiempo",
+        "q": "Almacenaje prolongado, ¿es posible?",
+        "keyword": "Almacenaje prolongado",
         "a": "Puede guardar su equipaje gratis por hasta una semana. Por favor, déjelo frente al mostrador y ponga su nombre, contacto, fecha de check-out y fecha de regreso. Después de una semana, el costo es de 1,000 KRW por día.",
         "category": "Guardaequipaje y báscula"
       },
@@ -766,14 +766,14 @@
         "category": "Habitaciones y camas"
       },
       {
-        "q": "Perdí algo.",
-        "keyword": "Perdí algo",
+        "q": "Objeto perdido: consulta",
+        "keyword": "Objeto perdido",
         "a": "Por favor, envíe la siguiente información sobre el objeto perdido a dongdaemun2@gmail.com: 1. Nombre 2. Tamaño 3. Forma 4. Color 5. Fecha 6. Hora 7. Lugar. Revisaremos el CCTV. Las habitaciones compartidas tienen casilleros personales, así que no somos responsables por objetos perdidos.",
         "category": "Otras solicitudes y consultas"
       },
       {
-        "q": "Hay otra persona o cosas de otra persona en mi cama.",
-        "keyword": "mi cama",
+        "q": "Cama duplicada, alguien está en mi lugar",
+        "keyword": "Cama duplicada",
         "a": "Parece que otro huésped está usando su cama por error al confundir el número de la cama. Por favor, pulse el botón de chat de abajo y contacte al gerente.",
         "category": "Habitaciones y camas"
       },
@@ -790,8 +790,8 @@
         "category": "Servicios y artículos"
       },
       {
-        "q": "Alguien se comió mi comida del refrigerador.",
-        "keyword": "refrigerador",
+        "q": "Comida del refrigerador desapareció",
+        "keyword": "Comida del refrigerador",
         "a": "Por favor, revise otra vez el aviso del refrigerador. Cualquier comida que no tenga escrita la 'fecha de check-out' puede ser comida por cualquiera.",
         "category": "Lavandería y uso del refrigerador"
       },
@@ -861,8 +861,8 @@
         "category": "Байгууламж & Удирдамжууд"
       },
       {
-        "q": "Цахилгаан адаптер болон утасны цэнэглэгч зээлж болох уу?",
-        "keyword": "Цахилгаан адаптер",
+        "q": "Адаптер, цэнэглэгч зээлэх",
+        "keyword": "Адаптер, цэнэглэгч",
         "a": "Тоолуурын дээрх хайрцагаас авна уу. Гадагш гарахдаа буцааж өгөх ёстой.",
         "category": "Байгууламж & Удирдамжууд"
       },
@@ -879,8 +879,8 @@
         "category": "Орох & Үйлчилгээгүй Ажиллагаа"
       },
       {
-        "q": "Миний цүүцийг хадгалахыг хүсэж байна.",
-        "keyword": "цүүц",
+        "q": "Ачаа хадгалуулах хүсэлт",
+        "keyword": "Ачаа хадгалуулах",
         "a": "Та цүүцийг шинээр нэвтрэхээс өмнө эсвэл гадагш гарсаны дараа тоолуурын өмнөд хадгалах боломжтой.",
         "category": "Ачаа & Жинлүүр"
       },
@@ -891,8 +891,8 @@
         "category": "Ачаа & Жинлүүр"
       },
       {
-        "q": "Миний цүүцийг удаан хугацаанд хадгалах боломжтой юу?",
-        "keyword": "удаан хугацаа",
+        "q": "Урт хугацааны хадгалалт боломжтой юу?",
+        "keyword": "Урт хугацааны хадгалалт",
         "a": "Цүүцийг нэг долоо хоног хүртэл үнэгүй хадгалах боломжтой. Тоолуурын өмнөд таны нэр, холбоо барих мэдээлэл, гадагш гарах огноо, буцаан ирэх огноо бичсэн тэмдэглэлийг үлээ. Нэг долоо хоног дараа 1 хоног бүрд 1,000 KRW хураамж авна.",
         "category": "Ачаа & Жинлүүр"
       },
@@ -903,14 +903,14 @@
         "category": "Өрөө & Орын Холбогдох Асуултууд"
       },
       {
-        "q": "Би ямар нэгэн зүйл алдагдаж байгаа.",
-        "keyword": "алдагдаж",
+        "q": "Алдагдсан эд зүйлийн лавлагаа",
+        "keyword": "Алдагдсан эд зүйл",
         "a": "Гүйцэтгэл: 1. Нэр, 2. Хэмжээ, 3. Хэлбэр, 4. Өнгө, 5. Огноо, 6. Цаг, 7. Байршил. Бид CCTV-г шалгана. Нийтийн унтлагын өрөөнүүдэд алдагдсан эд зүйлсийн хувьд бид ямар нэгэн үүрэг хүлээхгүй байна, учир нь хэр сая боловсролтой хувийн түлхүүр сав байдаг.",
         "category": "Бусад Асуудал & Туслалцаа"
       },
       {
-        "q": "Миний ор дээр хүн эсвэл юм нэг байна.",
-        "keyword": "ор",
+        "q": "Ор давхцал гарсан бололтой",
+        "keyword": "Ор давхцал",
         "a": "Өөр зочин орны дугаарыг буруу ойлгосон байж магадгүй. Кийосктор бидэнд мессеж илгээнэ үү. Манай ажилтнууд удалгүй туслалцаа үзүүлнэ.",
         "category": "Өрөө & Орын Холбогдох Асуултууд"
       },
@@ -927,8 +927,8 @@
         "category": "Байгууламж & Удирдамжууд"
       },
       {
-        "q": "Хөргөгчөөс миний хоол авсан.",
-        "keyword": "Хөргөгч",
+        "q": "Хөргөгчний хоол алга болжээ",
+        "keyword": "Хөргөгчний хоол",
         "a": "Хөргөгчний сэргэлэлтийг дахин унших. 'Гадагш гарах өдрийн' шошгогүй хоол нь бүх хүнд сүлжээ үзүүлэх боломжтой!",
         "category": "Хувцас угаалга & Хөргөгч"
       },
@@ -998,8 +998,8 @@
         "category": "Tiện nghi & Dịch vụ"
       },
       {
-        "q": "Tôi có thể mượn bộ chuyển đổi điện và sạc điện thoại không?",
-        "keyword": "bộ chuyển đổi điện",
+        "q": "Bộ đổi điện & sạc cần mượn",
+        "keyword": "Bộ đổi điện & sạc",
         "a": "Lấy từ hộp trên quầy tiếp tân. Vui lòng chắc chắn trả lại khi bạn checkout.",
         "category": "Tiện nghi & Dịch vụ"
       },
@@ -1016,8 +1016,8 @@
         "category": "Vào cửa & Hoạt động không có nhân viên"
       },
       {
-        "q": "Tôi muốn cất giữ hành lý của tôi.",
-        "keyword": "hành lý",
+        "q": "Gửi hành lý được không?",
+        "keyword": "Gửi hành lý",
         "a": "Bạn có thể cất giữ hành lý trước khi nhận phòng hoặc sau khi checkout ở trước quầy tiếp tân.",
         "category": "Hành lý & Cân"
       },
@@ -1028,8 +1028,8 @@
         "category": "Hành lý & Cân"
       },
       {
-        "q": "Tôi có thể cất giữ hành lý lâu dài không?",
-        "keyword": "lâu dài",
+        "q": "Gửi hành lý lâu dài được không?",
+        "keyword": "Gửi hành lý lâu dài",
         "a": "Hành lý có thể được cất giữ miễn phí trong tối đa một tuần. Để lại trước quầy tiếp tân kèm theo tên, thông tin liên hệ, ngày checkout và ngày trở lại. Sau một tuần, phí 1.000 KRW mỗi ngày sẽ áp dụng.",
         "category": "Hành lý & Cân"
       },
@@ -1040,14 +1040,14 @@
         "category": "Phòng & Liên quan đến giường"
       },
       {
-        "q": "Tôi bị mất thứ gì đó.",
-        "keyword": "bị mất",
+        "q": "Đồ thất lạc — cần hỏi",
+        "keyword": "Đồ thất lạc",
         "a": "Vui lòng cung cấp chi tiết: 1. Tên, 2. Kích thước, 3. Hình dáng, 4. Màu sắc, 5. Ngày, 6. Giờ, 7. Vị trí. Chúng tôi sẽ kiểm tra camera. Chúng tôi không chịu trách nhiệm đối với các vật bị mất trong phòng ký túc xá vì mỗi giường có một tủ khóa cá nhân.",
         "category": "Yêu cầu & Trợ giúp khác"
       },
       {
-        "q": "Có người hoặc vật gì đó trên giường của tôi.",
-        "keyword": "giường của tôi",
+        "q": "Giường bị trùng, có người ở chỗ tôi",
+        "keyword": "Giường bị trùng",
         "a": "Có thể khách khác đã nhầm số giường. Vui lòng gửi tin nhắn cho chúng tôi qua kiosk. Nhân viên chúng tôi sẽ giúp bạn sớm.",
         "category": "Phòng & Liên quan đến giường"
       },
@@ -1064,8 +1064,8 @@
         "category": "Tiện nghi & Dịch vụ"
       },
       {
-        "q": "Có người lấy thức ăn của tôi từ tủ lạnh.",
-        "keyword": "tủ lạnh",
+        "q": "Đồ ăn trong tủ lạnh bị mất",
+        "keyword": "Đồ ăn trong tủ lạnh",
         "a": "Vui lòng kiểm tra lại thông báo trong tủ lạnh. Bất kỳ thức ăn nào không có nhãn 'ngày checkout' đều là tự do cho bất kỳ ai lấy!",
         "category": "Giặt đồ & Tủ lạnh"
       },
@@ -1135,8 +1135,8 @@
         "category": "Équipements et Fournitures"
       },
       {
-        "q": "Puis-je emprunter un adaptateur secteur et un chargeur de téléphone?",
-        "keyword": "adaptateur secteur",
+        "q": "Adaptateur et chargeur à emprunter",
+        "keyword": "Adaptateur et chargeur",
         "a": "Veuillez les prendre de la boîte sur le comptoir. Veuillez \"vous assurer\" de les retourner lors du départ.",
         "category": "Équipements et Fournitures"
       },
@@ -1153,8 +1153,8 @@
         "category": "Accès / Fonctionnement / Libre-service"
       },
       {
-        "q": "Je veux ranger mes bagages.",
-        "keyword": "bagages",
+        "q": "Dépôt de bagages, s'il vous plaît",
+        "keyword": "Dépôt de bagages",
         "a": "Vous pouvez laisser vos bagages devant le comptoir avant l'enregistrement et après le départ.",
         "category": "Rangement des Bagages et Utilisation de la Balance"
       },
@@ -1165,8 +1165,8 @@
         "category": "Rangement des Bagages et Utilisation de la Balance"
       },
       {
-        "q": "Puis-je ranger mes bagages pendant longtemps?",
-        "keyword": "longtemps",
+        "q": "Dépôt longue durée possible ?",
+        "keyword": "Dépôt longue durée",
         "a": "Vous pouvez ranger vos bagages gratuitement pendant une semaine. Veuillez les laisser devant le comptoir et joindre votre nom, vos coordonnées, votre date de départ et votre date de retour. Après une semaine, c'est 1 000 KRW par jour.",
         "category": "Rangement des Bagages et Utilisation de la Balance"
       },
@@ -1177,14 +1177,14 @@
         "category": "Chambres et Lits"
       },
       {
-        "q": "J'ai perdu quelque chose.",
-        "keyword": "perdu quelque chose",
+        "q": "Objet perdu, une question",
+        "keyword": "Objet perdu",
         "a": "Veuillez envoyer les informations suivantes sur l'objet perdu à dongdaemun2@gmail.com: 1. Nom 2. Taille 3. Forme 4. Couleur 5. Date 6. Heure 7. Lieu. Nous vérifierons les enregistrements CCTV. Les chambres de dortoir disposent de casiers personnels, nous ne sommes donc pas responsables des objets perdus.",
         "category": "Autres Demandes et Demandes de Renseignements"
       },
       {
-        "q": "Il y a une autre personne ou les affaires de quelqu'un d'autre sur mon lit.",
-        "keyword": "mon lit",
+        "q": "Lit en double, quelqu'un est à ma place",
+        "keyword": "Lit en double",
         "a": "Il semble qu'un autre client utilise votre lit par erreur en raison du numéro de lit. Veuillez appuyer sur le bouton de chat ci-dessous et contacter le responsable.",
         "category": "Chambres et Lits"
       },
@@ -1201,8 +1201,8 @@
         "category": "Équipements et Fournitures"
       },
       {
-        "q": "Quelqu'un a mangé ma nourriture dans le réfrigérateur.",
-        "keyword": "réfrigérateur",
+        "q": "Nourriture du frigo disparue",
+        "keyword": "Nourriture du frigo",
         "a": "Veuillez vérifier à nouveau l'avis du réfrigérateur. Toute nourriture sans \"date de départ\" écrite dessus peut être mangée par n'importe qui!!",
         "category": "Utilisation de la Lessive et du Réfrigérateur"
       },
@@ -1272,8 +1272,8 @@
         "category": "Amenities and Supplies"
       },
       {
-        "q": "Kann ich einen Stromadapter und ein Telefonladegerät ausleihen?",
-        "keyword": "power adapter",
+        "q": "Adapter & Ladegerät ausleihen",
+        "keyword": "Adapter & Ladegerät",
         "a": "Bitte nehmen Sie diese aus der Box am Schalter. Bitte \"achten Sie darauf\", sie bei der Abreise zurückzugeben.",
         "category": "Amenities and Supplies"
       },
@@ -1290,8 +1290,8 @@
         "category": "Access / Operation / Self-service"
       },
       {
-        "q": "Ich möchte mein Gepäck lagern.",
-        "keyword": "luggage",
+        "q": "Gepäck lagern, bitte",
+        "keyword": "Gepäck lagern",
         "a": "Sie können Ihr Gepäck vor dem Check-in und nach dem Check-out vor der Rezeption abstellen.",
         "category": "Luggage Storage and Scale Use"
       },
@@ -1302,8 +1302,8 @@
         "category": "Luggage Storage and Scale Use"
       },
       {
-        "q": "Kann ich mein Gepäck lange lagern?",
-        "keyword": "long time",
+        "q": "Langzeitlagerung möglich?",
+        "keyword": "Langzeitlagerung",
         "a": "Sie können Ihr Gepäck kostenlos bis zu eine Woche lagern. Bitte lassen Sie es vor der Rezeption und befestigen Sie Ihren Namen, Kontaktinformationen, Abreisedatum und Rückgabedatum. Nach einer Woche kostet es 1.000 KRW pro Tag.",
         "category": "Luggage Storage and Scale Use"
       },
@@ -1314,14 +1314,14 @@
         "category": "Rooms and Beds"
       },
       {
-        "q": "Ich habe etwas verloren.",
-        "keyword": "lost something",
+        "q": "Verlorener Gegenstand, Anfrage",
+        "keyword": "Verlorener Gegenstand",
         "a": "Bitte senden Sie die folgenden Informationen über das verlorene Objekt an dongdaemun2@gmail.com: 1. Name 2. Größe 3. Form 4. Farbe 5. Datum 6. Uhrzeit 7. Ort. Wir werden die Überwachungskamera überprüfen. Schlafsäle haben persönliche Spinde, daher sind wir nicht verantwortlich für verlorene Gegenstände.",
         "category": "Other Requests and Inquiries"
       },
       {
-        "q": "Es ist eine andere Person oder fremde Sachen auf meinem Bett.",
-        "keyword": "my bed",
+        "q": "Bett-Verwechslung, jemand ist an meinem Platz",
+        "keyword": "Bett-Verwechslung",
         "a": "Es sieht so aus, als würde ein anderer Gast Ihr Bett versehentlich nutzen wegen der Bettnummer. Bitte tippen Sie auf die Chat-Schaltfläche unten und kontaktieren Sie den Manager.",
         "category": "Rooms and Beds"
       },
@@ -1338,8 +1338,8 @@
         "category": "Amenities and Supplies"
       },
       {
-        "q": "Jemand hat mein Essen im Kühlschrank gegessen.",
-        "keyword": "refrigerator",
+        "q": "Essen im Kühlschrank verschwunden",
+        "keyword": "Essen im Kühlschrank",
         "a": "Bitte lesen Sie den Kühlschrankhinweis noch einmal. Alle Lebensmittel ohne \"Abreisedatum\" können von jedem gegessen werden!!",
         "category": "Laundry and Refrigerator Use"
       },
@@ -1409,8 +1409,8 @@
         "category": "المرافق والإمدادات"
       },
       {
-        "q": "هل يمكنني استعارة محول الطاقة وشاحن الهاتف؟",
-        "keyword": "power adapter",
+        "q": "المحول والشاحن للاستعارة",
+        "keyword": "المحول والشاحن",
         "a": "يرجى أخذها من الصندوق على العداد. يرجى \"التأكد من\" إعادتها عند تسجيل المغادرة.",
         "category": "المرافق والإمدادات"
       },
@@ -1427,8 +1427,8 @@
         "category": "الوصول / التشغيل / الخدمة الذاتية"
       },
       {
-        "q": "أريد تخزين أمتعتي.",
-        "keyword": "luggage",
+        "q": "تخزين الأمتعة من فضلكم",
+        "keyword": "تخزين الأمتعة",
         "a": "يمكنك ترك أمتعتك أمام العداد قبل تسجيل الوصول وبعد تسجيل المغادرة.",
         "category": "تخزين الأمتعة واستخدام الميزان"
       },
@@ -1439,8 +1439,8 @@
         "category": "تخزين الأمتعة واستخدام الميزان"
       },
       {
-        "q": "هل يمكنني تخزين أمتعتي لفترة طويلة؟",
-        "keyword": "long time",
+        "q": "تخزين طويل الأمد ممكن؟",
+        "keyword": "تخزين طويل الأمد",
         "a": "يمكنك تخزين أمتعتك مجاناً لمدة تصل إلى أسبوع واحد. يرجى تركها أمام العداد وإرفاق اسمك ومعلومات الاتصال الخاصة بك وتاريخ تسجيل المغادرة وتاريخ العودة. بعد أسبوع واحد، تكون الرسوم 1,000 KRW يومياً.",
         "category": "تخزين الأمتعة واستخدام الميزان"
       },
@@ -1451,14 +1451,14 @@
         "category": "الغرف والأسرة"
       },
       {
-        "q": "لقد فقدت شيئاً ما.",
-        "keyword": "lost something",
+        "q": "غرض مفقود، استفسار",
+        "keyword": "غرض مفقود",
         "a": "يرجى إرسال المعلومات التالية حول الشيء المفقود إلى dongdaemun2@gmail.com: 1. الاسم 2. الحجم 3. الشكل 4. اللون 5. التاريخ 6. الوقت 7. المكان. سوف نتحقق من كاميرات المراقبة. غرف النزل الجماعية بها خزائن شخصية، لذا لسنا مسؤولين عن الأشياء المفقودة.",
         "category": "الطلبات والاستفسارات الأخرى"
       },
       {
-        "q": "هناك شخص آخر أو أشياء شخص آخر على سريري.",
-        "keyword": "my bed",
+        "q": "تكرار السرير، يوجد شخص في مكاني",
+        "keyword": "تكرار السرير",
         "a": "يبدو أن نزيلاً آخر يستخدم سريرك بالخطأ بسبب رقم السرير. يرجى النقر على زر الدردشة أدناه والاتصال بمدير الفندق.",
         "category": "الغرف والأسرة"
       },
@@ -1475,8 +1475,8 @@
         "category": "المرافق والإمدادات"
       },
       {
-        "q": "أكل شخص ما طعامي في الثلاجة.",
-        "keyword": "refrigerator",
+        "q": "طعام الثلاجة اختفى",
+        "keyword": "طعام الثلاجة",
         "a": "يرجى قراءة إشعار الثلاجة مرة أخرى. أي طعام بدون \"تاريخ تسجيل مغادرة\" مكتوب عليه يمكن لأي شخص أن يأكله!!",
         "category": "استخدام الغسيل والثلاجة"
       },
@@ -1546,8 +1546,8 @@
         "category": "Amenities and Supplies"
       },
       {
-        "q": "Güç adaptörü ve telefon şarjı ödünç alabilir miyim?",
-        "keyword": "power adapter",
+        "q": "Adaptör ve şarj ödünç almak",
+        "keyword": "Adaptör ve şarj",
         "a": "Lütfen tezgahtaki kutudan alınız. Lütfen çıkış yaparken \"geri koyduğunuzdan emin olunuz\".",
         "category": "Amenities and Supplies"
       },
@@ -1564,8 +1564,8 @@
         "category": "Access / Operation / Self-service"
       },
       {
-        "q": "Bagajımı saklamak istiyorum.",
-        "keyword": "luggage",
+        "q": "Bagaj saklama talebi",
+        "keyword": "Bagaj saklama",
         "a": "Giriş öncesi ve çıkış sonrası bagajınızı tezgahın önüne bırakabilirsiniz.",
         "category": "Luggage Storage and Scale Use"
       },
@@ -1576,8 +1576,8 @@
         "category": "Luggage Storage and Scale Use"
       },
       {
-        "q": "Bagajımı uzun süre saklayabilir miyim?",
-        "keyword": "long time",
+        "q": "Uzun süreli saklama mümkün mü?",
+        "keyword": "Uzun süreli saklama",
         "a": "Bagajınızı bir haftaya kadar ücretsiz saklayabilirsiniz. Lütfen tezgahın önüne bırakınız ve adınız, iletişim bilgileriniz, çıkış tarihi ve dönüş tarihini yazınız. Bir hafta sonra günde 1.000 KRW'dir.",
         "category": "Luggage Storage and Scale Use"
       },
@@ -1588,14 +1588,14 @@
         "category": "Rooms and Beds"
       },
       {
-        "q": "Birşey kaybettim.",
-        "keyword": "lost something",
+        "q": "Kayıp eşya bildirimi",
+        "keyword": "Kayıp eşya",
         "a": "Lütfen kaybolan eşya hakkında aşağıdaki bilgileri dongdaemun2@gmail.com'a gönderin: 1. Ad 2. Boyut 3. Şekil 4. Renk 5. Tarih 6. Saat 7. Yer. CCTV'yi kontrol edeceğiz. Yatakhane odalarında kişisel dolaplar olduğu için kaybolan eşyalardan sorumlu değiliz.",
         "category": "Other Requests and Inquiries"
       },
       {
-        "q": "Yatağımda başka birisi ya da başkasının eşyası var.",
-        "keyword": "my bed",
+        "q": "Yatak çakışması var gibi",
+        "keyword": "Yatak çakışması",
         "a": "Başka bir konuk yatak numarasından dolayı yanlışlıkla yatağınızı kullanıyor gibi görünüyor. Lütfen aşağıdaki sohbet düğmesine dokunun ve yöneticiyle iletişime geçin.",
         "category": "Rooms and Beds"
       },
@@ -1612,8 +1612,8 @@
         "category": "Amenities and Supplies"
       },
       {
-        "q": "Birisi buzdolabındaki yemeğimi yedi.",
-        "keyword": "refrigerator",
+        "q": "Buzdolabı yemeği kayboldu",
+        "keyword": "Buzdolabı yemeği",
         "a": "Lütfen buzdolabı bildirisini tekrar kontrol edin. 'çıkış tarihi' yazılı olmayan herhangi bir yemek herkes tarafından yenilebilir!!",
         "category": "Laundry and Refrigerator Use"
       },
