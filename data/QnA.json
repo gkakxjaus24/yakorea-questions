@@ -18,7 +18,9 @@
         "q": "마시는 물은 어디에 있나요?",
         "keyword": "마시는 물",
         "a": "주방 테이블 위의 정수기를 이용하세요(뜨거운물은 전기주전자를 사용하세요)",
-        "category": "생활 편의 시설 및 비품 관련"
+        "category": "생활 편의 시설 및 비품 관련",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "수건이 더 필요해요.",
@@ -38,7 +40,9 @@
         "q": "조식은 언제 먹을 수 있나요?",
         "keyword": "조식",
         "a": "조식은 오전 7시부터 10시까지 주방에서 셀프로 먹을 수 있습니다.",
-        "category": "생활 편의 시설 및 비품 관련"
+        "category": "생활 편의 시설 및 비품 관련",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "변압기·충전기 빌리기",
@@ -100,7 +104,9 @@
         "q": "와이파이는 어디에 있나요?",
         "keyword": "와이파이",
         "a": "각 방 스위치에 와이파이 아이디와 비밀번호를 붙여 놨습니다",
-        "category": "생활 편의 시설 및 비품 관련"
+        "category": "생활 편의 시설 및 비품 관련",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "프린트를 하고 싶어요",
@@ -159,7 +165,9 @@
         "q": "Where can I get drinking water?",
         "keyword": "drinking water",
         "a": "Please use the water purifier on the kitchen table. (For hot water, please use the electric kettle.)",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "I need more towels.",
@@ -179,7 +187,9 @@
         "q": "When can I have breakfast?",
         "keyword": "breakfast",
         "a": "Breakfast is self-service in the kitchen from 7:00 AM to 10:00 AM.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Adapter & charger rental",
@@ -241,7 +251,9 @@
         "q": "Where is the Wi-Fi information?",
         "keyword": "Wi-Fi",
         "a": "The Wi-Fi ID and password are posted on the light switch in each room.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "I want to print something.",
@@ -300,7 +312,9 @@
         "q": "饮用水在哪里？",
         "keyword": "饮用水",
         "a": "请使用厨房桌子上的净水器。（热水请使用电热水壶。）",
-        "category": "生活便利设施及用品"
+        "category": "生活便利设施及用品",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "我还需要毛巾。",
@@ -320,7 +334,9 @@
         "q": "早餐什么时候可以吃？",
         "keyword": "早餐",
         "a": "早餐时间是上午7点到10点，可以在厨房自助享用。",
-        "category": "生活便利设施及用品"
+        "category": "生活便利设施及用品",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "变压器·充电器 借用",
@@ -382,7 +398,9 @@
         "q": "Wi-Fi 信息在哪里？",
         "keyword": "Wi-Fi",
         "a": "每个房间的开关旁边都贴有 Wi-Fi 名称和密码。",
-        "category": "生活便利设施及用品"
+        "category": "生活便利设施及用品",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "我想打印。",
@@ -441,7 +459,9 @@
         "q": "飲み水はどこにありますか？",
         "keyword": "飲み水",
         "a": "キッチンのテーブルの上にある浄水器をご利用ください。（お湯は電気ケトルをご利用ください。）",
-        "category": "生活設備・備品"
+        "category": "生活設備・備品",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "タオルがもっと必要です。",
@@ -461,7 +481,9 @@
         "q": "朝食はいつ食べられますか？",
         "keyword": "朝食",
         "a": "朝食は午前7時から10時まで、キッチンでセルフサービスでご利用いただけます。",
-        "category": "生活設備・備品"
+        "category": "生活設備・備品",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "変圧器・充電器を借りたい",
@@ -523,7 +545,9 @@
         "q": "Wi-Fi はどこですか？",
         "keyword": "Wi-Fi",
         "a": "各部屋のスイッチに Wi-Fi ID とパスワードを貼ってあります。",
-        "category": "生活設備・備品"
+        "category": "生活設備・備品",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "印刷したいです。",
@@ -582,7 +606,9 @@
         "q": "Где можно взять питьевую воду?",
         "keyword": "питьевую воду",
         "a": "Пожалуйста, используйте очиститель воды на кухонном столе. (Для горячей воды используйте электрический чайник.)",
-        "category": "Удобства и принадлежности"
+        "category": "Удобства и принадлежности",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Мне нужно еще полотенце.",
@@ -602,7 +628,9 @@
         "q": "Когда можно завтракать?",
         "keyword": "завтракать",
         "a": "Завтрак можно взять самостоятельно на кухне с 7:00 до 10:00.",
-        "category": "Удобства и принадлежности"
+        "category": "Удобства и принадлежности",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Адаптер и зарядка напрокат",
@@ -664,7 +692,9 @@
         "q": "Где находится информация о Wi-Fi?",
         "keyword": "Wi-Fi",
         "a": "Wi-Fi ID и пароль указаны на выключателе в каждой комнате.",
-        "category": "Удобства и принадлежности"
+        "category": "Удобства и принадлежности",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Я хочу распечатать файл.",
@@ -723,7 +753,9 @@
         "q": "¿Dónde puedo encontrar agua para beber?",
         "keyword": "agua para beber",
         "a": "Por favor, use el purificador de agua que está sobre la mesa de la cocina. (Para agua caliente, use el hervidor eléctrico.)",
-        "category": "Servicios y artículos"
+        "category": "Servicios y artículos",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Necesito más toallas.",
@@ -743,7 +775,9 @@
         "q": "¿Cuándo puedo desayunar?",
         "keyword": "desayunar",
         "a": "El desayuno es autoservicio en la cocina de 7:00 AM a 10:00 AM.",
-        "category": "Servicios y artículos"
+        "category": "Servicios y artículos",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Adaptador y cargador en préstamo",
@@ -805,7 +839,9 @@
         "q": "¿Dónde está la información del Wi-Fi?",
         "keyword": "Wi-Fi",
         "a": "El ID y la contraseña del Wi-Fi están pegados en el interruptor de cada habitación.",
-        "category": "Servicios y artículos"
+        "category": "Servicios y artículos",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Quiero imprimir algo.",
@@ -864,7 +900,9 @@
         "q": "Ундны ус хаанаас авах вэ?",
         "keyword": "Ундны ус",
         "a": "Цэвэрлэгч төхөөрөмжийг хоолны ширээн дээр ашигла. Халуун усны хувьд электрон буланг ашигла.",
-        "category": "Байгууламж & Удирдамжууд"
+        "category": "Байгууламж & Удирдамжууд",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Илүү алчуур хэрэгтэй.",
@@ -884,7 +922,9 @@
         "q": "Өглөөний хоол хэзээ сервиз хийгддэг вэ?",
         "keyword": "Өглөөний хоол",
         "a": "Өглөөний хоол өглөө 7-10 цагт хоолны өрөөнд өөрийгөө сервиз хийх байдалтай байна.",
-        "category": "Байгууламж & Удирдамжууд"
+        "category": "Байгууламж & Удирдамжууд",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Адаптер, цэнэглэгч зээлэх",
@@ -946,7 +986,9 @@
         "q": "Wi-Fi хаана байдаг вэ?",
         "keyword": "Wi-Fi",
         "a": "Wi-Fi нэр болон нууц үг нь гэрлийн сүлжээний дээр эсвэл хэр сая дотор ус байр дээр байдаг.",
-        "category": "Байгууламж & Удирдамжууд"
+        "category": "Байгууламж & Удирдамжууд",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Би ямар нэг зүйл хэвлүүлмээр байна.",
@@ -1005,7 +1047,9 @@
         "q": "Tôi có thể lấy nước uống ở đâu?",
         "keyword": "nước uống",
         "a": "Sử dụng máy lọc nước trên bàn bếp. Để có nước nóng, hãy dùng bình đun nước điện.",
-        "category": "Tiện nghi & Dịch vụ"
+        "category": "Tiện nghi & Dịch vụ",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Tôi cần thêm khăn tắm.",
@@ -1025,7 +1069,9 @@
         "q": "Bữa sáng phục vụ lúc mấy giờ?",
         "keyword": "Bữa sáng",
         "a": "Bữa sáng tự lấy trong bếp từ 7 giờ sáng đến 10 giờ sáng.",
-        "category": "Tiện nghi & Dịch vụ"
+        "category": "Tiện nghi & Dịch vụ",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Bộ đổi điện & sạc cần mượn",
@@ -1087,7 +1133,9 @@
         "q": "Wi-Fi ở đâu?",
         "keyword": "Wi-Fi",
         "a": "ID Wi-Fi và mật khẩu nằm trên công tắc đèn hoặc gần cửa trong mỗi phòng.",
-        "category": "Tiện nghi & Dịch vụ"
+        "category": "Tiện nghi & Dịch vụ",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Tôi muốn in tài liệu.",
@@ -1146,7 +1194,9 @@
         "q": "Où puis-je obtenir de l'eau potable?",
         "keyword": "eau potable",
         "a": "Veuillez utiliser le purificateur d'eau sur la table de la cuisine. (Pour l'eau chaude, veuillez utiliser la bouilloire électrique.)",
-        "category": "Équipements et Fournitures"
+        "category": "Équipements et Fournitures",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "J'ai besoin de plus de serviettes.",
@@ -1166,7 +1216,9 @@
         "q": "À quelle heure puis-je prendre le petit-déjeuner?",
         "keyword": "petit-déjeuner",
         "a": "Le petit-déjeuner est en libre-service à la cuisine de 7h00 à 10h00.",
-        "category": "Équipements et Fournitures"
+        "category": "Équipements et Fournitures",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Adaptateur et chargeur à emprunter",
@@ -1228,7 +1280,9 @@
         "q": "Où se trouvent les informations Wi-Fi?",
         "keyword": "Wi-Fi",
         "a": "L'identifiant et le mot de passe Wi-Fi sont affichés sur l'interrupteur lumineux de chaque chambre.",
-        "category": "Équipements et Fournitures"
+        "category": "Équipements et Fournitures",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Je veux imprimer quelque chose.",
@@ -1287,7 +1341,9 @@
         "q": "Wo kann ich Trinkwasser bekommen?",
         "keyword": "Trinkwasser",
         "a": "Bitte nutzen Sie den Wasserfilter auf dem Küchentisch. (Für heißes Wasser nutzen Sie bitte den Wasserkocher.)",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Ich brauche mehr Handtücher.",
@@ -1307,7 +1363,9 @@
         "q": "Wann kann ich frühstücken?",
         "keyword": "frühstücken",
         "a": "Das Frühstück ist Selbstbedienung in der Küche von 7:00 Uhr bis 10:00 Uhr.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Adapter & Ladegerät ausleihen",
@@ -1369,7 +1427,9 @@
         "q": "Wo sind die Wi-Fi-Informationen?",
         "keyword": "Wi-Fi",
         "a": "Die Wi-Fi-ID und das Passwort sind am Lichtschalter in jedem Zimmer angebracht.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Ich möchte etwas drucken.",
@@ -1428,7 +1488,9 @@
         "q": "أين يمكنني الحصول على ماء الشرب؟",
         "keyword": "ماء الشرب",
         "a": "يرجى استخدام منقي المياه على طاولة المطبخ. (للماء الساخن، يرجى استخدام غلاية كهربائية.)",
-        "category": "المرافق والإمدادات"
+        "category": "المرافق والإمدادات",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "أنا بحاجة إلى مزيد من المناشف.",
@@ -1448,7 +1510,9 @@
         "q": "متى يمكنني تناول الإفطار؟",
         "keyword": "الإفطار",
         "a": "الإفطار خدمة ذاتية في المطبخ من الساعة 7:00 صباحاً إلى 10:00 صباحاً.",
-        "category": "المرافق والإمدادات"
+        "category": "المرافق والإمدادات",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "المحول والشاحن للاستعارة",
@@ -1510,7 +1574,9 @@
         "q": "أين معلومات Wi-Fi؟",
         "keyword": "Wi-Fi",
         "a": "معرّف Wi-Fi وكلمة المرور معروضة على مفتاح الإضاءة في كل غرفة.",
-        "category": "المرافق والإمدادات"
+        "category": "المرافق والإمدادات",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "أريد طباعة شيء ما.",
@@ -1569,7 +1635,9 @@
         "q": "İçme suyu nereden alabilirim?",
         "keyword": "İçme suyu",
         "a": "Lütfen mutfak masasındaki su arıtıcısını kullanınız. (Sıcak su için lütfen elektrik ketilini kullanınız.)",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Daha fazla havlu lazım.",
@@ -1589,7 +1657,9 @@
         "q": "Kahvaltı saat kaçta?",
         "keyword": "Kahvaltı",
         "a": "Kahvaltı sabah 7:00'den 10:00'a kadar mutfakta kendi servisizdir.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Adaptör ve şarj ödünç almak",
@@ -1651,7 +1721,9 @@
         "q": "Wi-Fi bilgisi nerede?",
         "keyword": "Wi-Fi",
         "a": "Wi-Fi kimliği ve şifresi her odadaki ışık anahtarına yapıştırılmıştır.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Birşey yazdırmak istiyorum.",
