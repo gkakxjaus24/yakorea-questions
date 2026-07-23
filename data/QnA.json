@@ -24,7 +24,9 @@
         "q": "수건이 더 필요해요.",
         "keyword": "수건",
         "a": "다 쓴 수건은 2층 수건 바구니(지하객실은 샤워실 앞 바구니)에 \"반드시\" 반납하고 카운터 오른쪽 수건 바구니에서 새 수건을 가져가세요",
-        "category": "생활 편의 시설 및 비품 관련"
+        "category": "생활 편의 시설 및 비품 관련",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "제 슬리퍼가 없어요",
@@ -48,7 +50,9 @@
         "q": "빨래를 하고 싶어요.",
         "keyword": "빨래",
         "a": "빨래는 카운터의 세탁가방 하나에 5,000원입니다(세탁/건조 포함). 카운터 오른쪽의 세탁가방에 현금과 빨래를 넣고 카운터 옆에 두세요. 세탁은 24시간 안에 완료되고 끝나면 카운터 옆에 둘게요.",
-        "category": "세탁 및 냉장고 이용"
+        "category": "세탁 및 냉장고 이용",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "공용공간은 언제까지 사용할 수 있나요?",
@@ -161,7 +165,9 @@
         "q": "I need more towels.",
         "keyword": "towels",
         "a": "Please \"make sure\" to return used towels to the towel basket on the 2nd floor. (For basement rooms, use the basket in front of the shower room.) Then take a new towel from the towel basket on the right side of the counter.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "My slippers are missing.",
@@ -185,7 +191,9 @@
         "q": "I want to do laundry.",
         "keyword": "laundry",
         "a": "Laundry is 5,000 KRW per laundry bag at the counter. (Washing and drying included.) Put your cash and laundry in the laundry bag on the right side of the counter and leave it next to the counter. It will be finished within 24 hours, and when it is done, we will leave it next to the counter.",
-        "category": "Laundry and Refrigerator Use"
+        "category": "Laundry and Refrigerator Use",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Until what time can I use the common area?",
@@ -298,7 +306,9 @@
         "q": "我还需要毛巾。",
         "keyword": "毛巾",
         "a": "请\"务必\"把用过的毛巾放回2楼的毛巾篮里。（地下房间请放到淋浴间前面的篮子里。）然后从前台右侧的毛巾篮里拿新的毛巾。",
-        "category": "生活便利设施及用品"
+        "category": "生活便利设施及用品",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "我的拖鞋不见了。",
@@ -322,7 +332,9 @@
         "q": "我想洗衣服。",
         "keyword": "洗衣",
         "a": "洗衣服务是前台一个洗衣袋 5,000 KRW。（包含洗涤和烘干。）请把现金和衣物放进前台右侧的洗衣袋里，然后放在前台旁边。洗衣会在24小时内完成，完成后我们会放在前台旁边。",
-        "category": "洗衣及冰箱使用"
+        "category": "洗衣及冰箱使用",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "公共区域可以使用到几点？",
@@ -435,7 +447,9 @@
         "q": "タオルがもっと必要です。",
         "keyword": "タオル",
         "a": "使ったタオルは2階のタオルかごへ\"必ず\"返却してください。（地下のお部屋はシャワールーム前のかごをご利用ください。）そのあと、カウンター右側のタオルかごから新しいタオルをお取りください。",
-        "category": "生活設備・備品"
+        "category": "生活設備・備品",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "自分のスリッパがありません。",
@@ -459,7 +473,9 @@
         "q": "洗濯をしたいです。",
         "keyword": "洗濯",
         "a": "洗濯はカウンターの洗濯袋1つにつき 5,000 KRW です。（洗濯・乾燥込み）カウンター右側の洗濯袋に現金と洗濯物を入れて、カウンターの横に置いてください。24時間以内に終わり、終わったらカウンターの横に置いておきます。",
-        "category": "洗濯・冷蔵庫の利用"
+        "category": "洗濯・冷蔵庫の利用",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "共用スペースは何時まで使えますか？",
@@ -572,7 +588,9 @@
         "q": "Мне нужно еще полотенце.",
         "keyword": "полотенце",
         "a": "Пожалуйста, \"обязательно\" верните использованные полотенца в корзину для полотенец на 2-м этаже. (Для комнат в подвале используйте корзину перед душевой.) Затем возьмите новое полотенце из корзины справа от стойки.",
-        "category": "Удобства и принадлежности"
+        "category": "Удобства и принадлежности",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Моих тапочек нет.",
@@ -596,7 +614,9 @@
         "q": "Я хочу постирать вещи.",
         "keyword": "постирать",
         "a": "Стирка стоит 5,000 KRW за один мешок для стирки у стойки. (Стирка и сушка включены.) Положите наличные и вещи в мешок для стирки справа от стойки и оставьте его рядом со стойкой. Стирка будет готова в течение 24 часов. Когда она будет готова, мы оставим ее рядом со стойкой.",
-        "category": "Прачечная и холодильник"
+        "category": "Прачечная и холодильник",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "До которого часа можно пользоваться общей зоной?",
@@ -709,7 +729,9 @@
         "q": "Necesito más toallas.",
         "keyword": "toallas",
         "a": "Por favor, \"asegúrese\" de devolver las toallas usadas a la cesta de toallas del segundo piso. (Para las habitaciones del sótano, use la cesta que está frente a la ducha.) Después, tome una toalla nueva de la cesta que está a la derecha del mostrador.",
-        "category": "Servicios y artículos"
+        "category": "Servicios y artículos",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "No encuentro mis pantuflas.",
@@ -733,7 +755,9 @@
         "q": "Quiero lavar mi ropa.",
         "keyword": "lavar mi ropa",
         "a": "El servicio de lavandería cuesta 5,000 KRW por cada bolsa de lavandería en el mostrador. (Incluye lavado y secado.) Ponga el dinero en efectivo y la ropa dentro de la bolsa de lavandería que está a la derecha del mostrador y déjela al lado del mostrador. Estará listo dentro de 24 horas y, cuando termine, lo dejaremos al lado del mostrador.",
-        "category": "Lavandería y uso del refrigerador"
+        "category": "Lavandería y uso del refrigerador",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "¿Hasta qué hora puedo usar el área común?",
@@ -846,7 +870,9 @@
         "q": "Илүү алчуур хэрэгтэй.",
         "keyword": "алчуур",
         "a": "Ашигласан алчуурыг 2-р давхарын алчуурын сагсанд (эсвэл подвалын өрөө сүүлийн ванны өрөөний өмнөх сагс) буцаана уу. Дараа нь тоолуурын баруун талын сагсаас шинэ алчуурыг авна уу.",
-        "category": "Байгууламж & Удирдамжууд"
+        "category": "Байгууламж & Удирдамжууд",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Миний шаахай алга болсон.",
@@ -870,7 +896,9 @@
         "q": "Хувцас угаахыг хүсэж байна.",
         "keyword": "Хувцас угаах",
         "a": "Хувцас угаах услуга 1 цүүц дээр 5,000 KRW байна (угаалга болон хатаалт орно). Мөнгөө конверт дээр хийж, хувцастай хамт хувцас угаах цүүцэнд хийн тоолуурын хажууд үлээ. Таны хувцас 24 цагийн дотор бэлэн болно, бэлэн болоход бид тоолуурын хажууд байрлуулна.",
-        "category": "Хувцас угаалга & Хөргөгч"
+        "category": "Хувцас угаалга & Хөргөгч",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Нийтийн талбай хэзээ ашиглаж болох вэ?",
@@ -983,7 +1011,9 @@
         "q": "Tôi cần thêm khăn tắm.",
         "keyword": "khăn tắm",
         "a": "Vui lòng trả khăn đã sử dụng vào giỏ khăn ở tầng 2 (hoặc giỏ ở trước phòng tắm đối với các phòng hầm). Sau đó lấy khăn sạch từ giỏ ở bên phải quầy tiếp tân.",
-        "category": "Tiện nghi & Dịch vụ"
+        "category": "Tiện nghi & Dịch vụ",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Dép của tôi bị mất.",
@@ -1007,7 +1037,9 @@
         "q": "Tôi muốn giặt quần áo.",
         "keyword": "giặt quần áo",
         "a": "Giặt quần áo giá 5.000 KRW mỗi túi tại quầy tiếp tân (bao gồm giặt và sấy). Bỏ tiền mặt vào phong bì, đặt vào túi giặt cùng với quần áo của bạn, và để bên cạnh quầy tiếp tân. Quần áo của bạn sẽ hoàn tất trong vòng 24 giờ, và chúng tôi sẽ để bên cạnh quầy tiếp tân khi sẵn sàng.",
-        "category": "Giặt đồ & Tủ lạnh"
+        "category": "Giặt đồ & Tủ lạnh",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Tôi có thể sử dụng khu vực chung lúc nào?",
@@ -1120,7 +1152,9 @@
         "q": "J'ai besoin de plus de serviettes.",
         "keyword": "serviettes",
         "a": "Veuillez \"vous assurer\" de retourner les serviettes usagées au panier à serviettes au 2e étage. (Pour les chambres au sous-sol, utilisez le panier devant la salle de douche.) Puis prenez une nouvelle serviette du panier à serviettes à droite du comptoir.",
-        "category": "Équipements et Fournitures"
+        "category": "Équipements et Fournitures",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Mes pantoufles ont disparu.",
@@ -1144,7 +1178,9 @@
         "q": "Je veux faire la lessive.",
         "keyword": "lessive",
         "a": "La lessive coûte 5 000 KRW par sac de lessive au comptoir. (Lavage et séchage inclus.) Mettez votre argent et la lessive dans le sac de lessive à droite du comptoir et laissez-le à côté du comptoir. Ce sera terminé dans les 24 heures, et une fois fait, nous le laisserons à côté du comptoir.",
-        "category": "Utilisation de la Lessive et du Réfrigérateur"
+        "category": "Utilisation de la Lessive et du Réfrigérateur",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Jusqu'à quelle heure puis-je utiliser l'espace commun?",
@@ -1257,7 +1293,9 @@
         "q": "Ich brauche mehr Handtücher.",
         "keyword": "Handtücher",
         "a": "Bitte \"achten Sie darauf\", gebrauchte Handtücher in den Handtuchkorb im 2. Stock zurückzugeben. (Für Kellerräume nutzen Sie bitte den Korb vor dem Duschraum.) Nehmen Sie dann ein neues Handtuch aus dem Handtuchkorb auf der rechten Seite des Schalters.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Meine Pantoffeln sind verschwunden.",
@@ -1281,7 +1319,9 @@
         "q": "Ich möchte Wäsche waschen.",
         "keyword": "Wäsche waschen",
         "a": "Wäsche kostet 5.000 KRW pro Wäschesack an der Rezeption. (Waschen und Trocknen inklusive.) Legen Sie Ihr Bargeld und die Wäsche in den Wäschesack auf der rechten Seite des Schalters und lassen Sie ihn neben der Rezeption. Es wird innerhalb von 24 Stunden fertig, und wenn es fertig ist, lassen wir es neben der Rezeption.",
-        "category": "Laundry and Refrigerator Use"
+        "category": "Laundry and Refrigerator Use",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Bis zu welcher Zeit kann ich den gemeinsamen Bereich nutzen?",
@@ -1394,7 +1434,9 @@
         "q": "أنا بحاجة إلى مزيد من المناشف.",
         "keyword": "المناشف",
         "a": "يرجى \"التأكد من\" إعادة المناشف المستخدمة إلى سلة المناشف في الطابق الثاني. (للغرف الموجودة في الطابق السفلي، استخدم السلة أمام حمام الاستحمام.) ثم خذ منشفة جديدة من سلة المناشف على الجانب الأيمن من العداد.",
-        "category": "المرافق والإمدادات"
+        "category": "المرافق والإمدادات",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "نعالي مفقودة.",
@@ -1418,7 +1460,9 @@
         "q": "أريد أن أغسل ملابسي.",
         "keyword": "أغسل ملابسي",
         "a": "تكاليف الغسيل 5,000 KRW لكل كيس غسيل على العداد. (الغسيل والتجفيف مشموليان.) ضع النقود وملابسك في كيس الغسيل على الجانب الأيمن من العداد واتركه بجانب العداد. سيكون جاهزاً خلال 24 ساعة، وعندما ينتهي، سنتركه بجانب العداد.",
-        "category": "استخدام الغسيل والثلاجة"
+        "category": "استخدام الغسيل والثلاجة",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "إلى متى يمكنني استخدام المنطقة المشتركة؟",
@@ -1531,7 +1575,9 @@
         "q": "Daha fazla havlu lazım.",
         "keyword": "havlu",
         "a": "Lütfen kullanılan havluları 2. kattaki havlu sepetine \"geri koyduğunuzdan emin olunuz\". (Bodrum katı odalar için duş odasının önündeki sepeti kullanınız.) Ardından tezgahın sağ tarafındaki havlu sepetinden yeni bir havlu alınız.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Terliklerim kayboldu.",
@@ -1555,7 +1601,9 @@
         "q": "Çamaşır yıkamak istiyorum.",
         "keyword": "Çamaşır yıkamak",
         "a": "Çamaşır yıkama tezgahta çamaşır torbası başına 5.000 KRW'dir. (Yıkama ve kurutma dahil.) Nakit paranızı ve çamaşırları tezgahın sağ tarafındaki çamaşır torbasına koyup tezgahın yanına bırakınız. 24 saat içinde tamamlanacak ve hazır olunca tezgahın yanına bırakacağız.",
-        "category": "Laundry and Refrigerator Use"
+        "category": "Laundry and Refrigerator Use",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Ortak alanı ne kadar süre kullanabilirim?",
