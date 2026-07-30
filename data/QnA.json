@@ -5,8 +5,11 @@
       {
         "q": "공용화장실이 있나요?",
         "keyword": "공용화장실",
-        "a": "죄송합니다. 공용화장실은 없습니다.",
-        "category": "생활 편의 시설 및 비품 관련"
+        "a": "공용화장실은 없지만 화장실 사용이 급하다면 오전 7시부터 밤 11시까지 직원용 화장실을 개방해 놓고 있습니다. 직원이 상주하고 있기 때문에 기본 에티켓(소음, 위생)을 잘 지켜주세요 :)",
+        "category": "생활 편의 시설 및 비품 관련",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "출입문은 언제 닫나요?",
@@ -152,8 +155,11 @@
       {
         "q": "Is there a shared bathroom?",
         "keyword": "shared bathroom",
-        "a": "Sorry, there is no shared bathroom.",
-        "category": "Amenities and Supplies"
+        "a": "There is no shared bathroom, but if you urgently need one, the staff bathroom is open from 7:00 AM to 11:00 PM. Since staff are present, please follow basic etiquette (noise, hygiene) :)",
+        "category": "Amenities and Supplies",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "When does the entrance door close?",
@@ -299,8 +305,11 @@
       {
         "q": "有公共卫生间吗？",
         "keyword": "公共卫生间",
-        "a": "抱歉，没有公共卫生间。",
-        "category": "生活便利设施及用品"
+        "a": "没有公共卫生间，但如果您急需使用洗手间，员工专用卫生间在早上7点到晚上11点开放。由于工作人员常驻，请遵守基本礼仪（噪音、卫生）:)",
+        "category": "生活便利设施及用品",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "大门什么时候关闭？",
@@ -446,8 +455,11 @@
       {
         "q": "共用トイレはありますか？",
         "keyword": "共用トイレ",
-        "a": "申し訳ありません。共用トイレはありません。",
-        "category": "生活設備・備品"
+        "a": "共用トイレはありませんが、急ぎでトイレが必要な場合は、午前7時から午後11時まで従業員用トイレを開放しています。スタッフが常駐しているため、基本的なエチケット（騒音・衛生）を守ってください :)",
+        "category": "生活設備・備品",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "入口のドアはいつ閉まりますか？",
@@ -593,8 +605,11 @@
       {
         "q": "Есть ли общий туалет?",
         "keyword": "туалет",
-        "a": "Извините, общего туалета нет.",
-        "category": "Удобства и принадлежности"
+        "a": "Общего туалета нет, но если вам срочно нужен туалет, туалет для персонала открыт с 7:00 до 23:00. Поскольку там присутствует персонал, пожалуйста, соблюдайте основные правила этикета (шум, гигиена) :)",
+        "category": "Удобства и принадлежности",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Когда закрывается входная дверь?",
@@ -740,8 +755,11 @@
       {
         "q": "¿Hay un baño compartido?",
         "keyword": "baño compartido",
-        "a": "Lo sentimos, no hay baño compartido.",
-        "category": "Servicios y artículos"
+        "a": "No hay baño compartido, pero si necesita uno con urgencia, el baño del personal está abierto de 7:00 a 23:00. Como hay personal presente, por favor respete la etiqueta básica (ruido, higiene) :)",
+        "category": "Servicios y artículos",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "¿Cuándo se cierra la puerta de entrada?",
@@ -887,8 +905,11 @@
       {
         "q": "Олон нийтийн угаалгын өрөө байдаг уу?",
         "keyword": "Олон нийтийн угаалгын өрөө",
-        "a": "Уучлаарай, олон нийтийн угаалгын өрөө байхгүй байна.",
-        "category": "Байгууламж & Удирдамжууд"
+        "a": "Олон нийтийн угаалгын өрөө байхгүй ч, яаралтай хэрэгтэй бол ажилтны угаалгын өрөөг өглөөний 7 цагаас шөнийн 11 цаг хүртэл нээлттэй байлгадаг. Ажилтан байнга байдаг тул үндсэн ёс зүйг (чимээ, ариун цэвэр) сахина уу :)",
+        "category": "Байгууламж & Удирдамжууд",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Урд хаалга хэзээ хаагддаг вэ?",
@@ -1034,8 +1055,11 @@
       {
         "q": "Có phòng vệ sinh công cộng không?",
         "keyword": "phòng vệ sinh công cộng",
-        "a": "Xin lỗi, chúng tôi không có phòng tắm công cộng.",
-        "category": "Tiện nghi & Dịch vụ"
+        "a": "Không có phòng vệ sinh công cộng, nhưng nếu bạn cần gấp, nhà vệ sinh dành cho nhân viên sẽ mở cửa từ 7 giờ sáng đến 11 giờ tối. Vì có nhân viên túc trực nên vui lòng giữ phép lịch sự cơ bản (tiếng ồn, vệ sinh) :)",
+        "category": "Tiện nghi & Dịch vụ",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Cửa chính đóng lúc mấy giờ?",
@@ -1181,8 +1205,11 @@
       {
         "q": "Y a-t-il une salle de bain commune?",
         "keyword": "salle de bain commune",
-        "a": "Désolé, il n'y a pas de salle de bain commune.",
-        "category": "Équipements et Fournitures"
+        "a": "Il n'y a pas de salle de bain commune, mais si vous en avez un besoin urgent, les toilettes du personnel sont ouvertes de 7h à 23h. Le personnel étant présent, merci de respecter les règles de base (bruit, hygiène) :)",
+        "category": "Équipements et Fournitures",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "À quelle heure la porte d'entrée ferme-t-elle?",
@@ -1328,8 +1355,11 @@
       {
         "q": "Gibt es ein gemeinsames Badezimmer?",
         "keyword": "gemeinsames Badezimmer",
-        "a": "Entschuldigung, es gibt kein gemeinsames Badezimmer.",
-        "category": "Amenities and Supplies"
+        "a": "Es gibt kein gemeinsames Badezimmer, aber falls Sie dringend eine Toilette benötigen, ist die Mitarbeitertoilette von 7:00 bis 23:00 Uhr geöffnet. Da Personal anwesend ist, achten Sie bitte auf grundlegende Etikette (Lärm, Hygiene) :)",
+        "category": "Amenities and Supplies",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Wann schließt die Eingangstür?",
@@ -1475,8 +1505,11 @@
       {
         "q": "هل هناك حمام مشترك؟",
         "keyword": "حمام مشترك",
-        "a": "عذراً، لا يوجد حمام مشترك.",
-        "category": "المرافق والإمدادات"
+        "a": "لا يوجد حمام مشترك، ولكن إذا كنت بحاجة ماسة إلى الحمام، فإن حمام الموظفين مفتوح من الساعة 7 صباحًا حتى 11 مساءً. نظرًا لوجود الموظفين، يرجى مراعاة آداب السلوك الأساسية (الضوضاء والنظافة) :)",
+        "category": "المرافق والإمدادات",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "متى يغلق باب المدخل؟",
@@ -1622,8 +1655,11 @@
       {
         "q": "Ortak banyo var mı?",
         "keyword": "Ortak banyo",
-        "a": "Üzgünüz, ortak banyo yoktur.",
-        "category": "Amenities and Supplies"
+        "a": "Ortak banyo yoktur, ancak acil ihtiyacınız olursa personel tuvaleti sabah 7'den gece 11'e kadar açıktır. Personel bulunduğu için lütfen temel görgü kurallarına (gürültü, hijyen) dikkat edin :)",
+        "category": "Amenities and Supplies",
+        "area": "basement",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Giriş kapısı saat kaçta kapanır?",
