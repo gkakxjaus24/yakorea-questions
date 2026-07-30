@@ -8,6 +8,12 @@ function getLanguageFromURL() {
   return urlParams.get("lang") || "ko";
 }
 
+// 특정 구역(예: 지하객실) 전용 질문 노출용 — QR 코드에 ?area=basement 를 붙여서 구분
+function getAreaFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("area") || null;
+}
+
 async function loadLanguageData() {
   try {
     const response = await fetch("/data/QnA.json");
@@ -87,9 +93,13 @@ function addEventListeners() {
 async function updateUI() {
   document.querySelector(".headline").innerHTML = i18n.title;
 
+  const area = getAreaFromURL();
+
   // 클릭 통계는 언어와 무관한 원본 배열 인덱스(_idx)로 질문을 식별하므로,
   // 카테고리별로 재그룹핑해도 원래 위치를 잃지 않도록 미리 붙여둔다.
+  // item.area가 있는 질문은 URL의 area와 일치할 때만 노출(예: 지하객실 전용 질문).
   const grouped = i18n.qna.reduce((acc, item, idx) => {
+    if (item.area && item.area !== area) return acc;
     (acc[item.category] = acc[item.category] || []).push({ ...item, _idx: idx });
     return acc;
   }, {});
