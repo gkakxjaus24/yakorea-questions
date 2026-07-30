@@ -37,7 +37,9 @@
         "q": "제 슬리퍼가 없어요",
         "keyword": "슬리퍼",
         "a": "다른 손님이 슬리퍼 번호를 착각하고 가져 갔나보네요. 이런 경우를 대비해서 신발장에 Extra Slippers를 놔 뒀습니다. 그걸 사용해주세요.",
-        "category": "생활 편의 시설 및 비품 관련"
+        "category": "생활 편의 시설 및 비품 관련",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "조식은 언제 먹을 수 있나요?",
@@ -187,7 +189,9 @@
         "q": "My slippers are missing.",
         "keyword": "slippers",
         "a": "It looks like another guest took them by mistake because of the slipper number. We prepared Extra Slippers in the shoe cabinet for this kind of situation. Please use them.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "When can I have breakfast?",
@@ -337,7 +341,9 @@
         "q": "我的拖鞋不见了。",
         "keyword": "拖鞋",
         "a": "看起来是其他客人把拖鞋号码看错后拿走了。为了这种情况，我们在鞋柜里准备了 Extra Slippers。请使用那个。",
-        "category": "生活便利设施及用品"
+        "category": "生活便利设施及用品",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "早餐什么时候可以吃？",
@@ -487,7 +493,9 @@
         "q": "自分のスリッパがありません。",
         "keyword": "スリッパ",
         "a": "他のお客様がスリッパ番号を間違えて持って行ったようです。このような場合に備えて、靴箱に Extra Slippers を置いてあります。そちらをご利用ください。",
-        "category": "生活設備・備品"
+        "category": "生活設備・備品",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "朝食はいつ食べられますか？",
@@ -637,7 +645,9 @@
         "q": "Моих тапочек нет.",
         "keyword": "тапочек",
         "a": "Похоже, другой гость взял их по ошибке, перепутав номер тапочек. На такой случай в шкафу для обуви есть Extra Slippers. Пожалуйста, используйте их.",
-        "category": "Удобства и принадлежности"
+        "category": "Удобства и принадлежности",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Когда можно завтракать?",
@@ -787,7 +797,9 @@
         "q": "No encuentro mis pantuflas.",
         "keyword": "pantuflas",
         "a": "Parece que otro huésped se las llevó por error al confundir el número de las pantuflas. Para este tipo de caso, hemos dejado Extra Slippers en el zapatero. Por favor, úselas.",
-        "category": "Servicios y artículos"
+        "category": "Servicios y artículos",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "¿Cuándo puedo desayunar?",
@@ -937,7 +949,9 @@
         "q": "Миний шаахай алга болсон.",
         "keyword": "шаахай",
         "a": "Өөр зочин буруу шаахай авсан байж магадгүй. Гутлын өмнөд байгаа 'Нэмэлт Шаахай'-г ашигла уу.",
-        "category": "Байгууламж & Удирдамжууд"
+        "category": "Байгууламж & Удирдамжууд",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Өглөөний хоол хэзээ сервиз хийгддэг вэ?",
@@ -1087,7 +1101,9 @@
         "q": "Dép của tôi bị mất.",
         "keyword": "Dép",
         "a": "Có thể khách khác đã lấy nhầm dép. Vui lòng sử dụng 'Dép dự phòng' trong giá để dép.",
-        "category": "Tiện nghi & Dịch vụ"
+        "category": "Tiện nghi & Dịch vụ",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Bữa sáng phục vụ lúc mấy giờ?",
@@ -1237,7 +1253,9 @@
         "q": "Mes pantoufles ont disparu.",
         "keyword": "pantoufles",
         "a": "Il semble qu'un autre client les ait prises par erreur en raison du numéro de pantoufle. Nous avons préparé des pantoufles supplémentaires dans l'armoire à chaussures pour ce type de situation. Veuillez les utiliser.",
-        "category": "Équipements et Fournitures"
+        "category": "Équipements et Fournitures",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "À quelle heure puis-je prendre le petit-déjeuner?",
@@ -1387,7 +1405,9 @@
         "q": "Meine Pantoffeln sind verschwunden.",
         "keyword": "Pantoffeln",
         "a": "Es sieht so aus, als hätte ein anderer Gast sie versehentlich mitgenommen wegen der Pantoffelnummer. Wir haben Ersatzpantoffeln im Schuhschrank für solche Situationen vorbereitet. Bitte nutzen Sie diese.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Wann kann ich frühstücken?",
@@ -1537,7 +1557,9 @@
         "q": "نعالي مفقودة.",
         "keyword": "نعالي",
         "a": "يبدو أن نزيلاً آخر أخذها بالخطأ بسبب رقم النعل. لقد أعددنا نعالاً إضافية في خزانة الأحذية لمثل هذه الحالات. يرجى استخدامها.",
-        "category": "المرافق والإمدادات"
+        "category": "المرافق والإمدادات",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "متى يمكنني تناول الإفطار؟",
@@ -1687,7 +1709,9 @@
         "q": "Terliklerim kayboldu.",
         "keyword": "Terliklerim",
         "a": "Başka bir konuk terlik numarasından dolayı yanlışlıkla onları almış görünüyor. Bu gibi durumlar için ayakkabı dolabında Ekstra Terlikleri hazırladık. Lütfen onları kullanınız.",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
       },
       {
         "q": "Kahvaltı saat kaçta?",
