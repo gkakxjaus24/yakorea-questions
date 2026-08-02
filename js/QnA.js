@@ -71,6 +71,34 @@ function renderMedia(src, type) {
   return `<div class="media-container"><img src="${src}" alt="" /></div>`;
 }
 
+// visibleHours: { start: "07:00", end: "10:00" }. 종료 시각은 포함하지 않는다.
+// 23:00~05:00처럼 자정을 넘기는 시간대도 지원한다.
+function isVisibleAtCurrentTime(item, now = new Date()) {
+  if (!item.visibleHours) return true;
+
+  const { start, end } = item.visibleHours;
+  const toMinutes = (time) => {
+    const [hour, minute] = String(time).split(":").map(Number);
+    if (!Number.isInteger(hour) || !Number.isInteger(minute)
+      || hour < 0 || hour > 23 || minute < 0 || minute > 59) {
+      return null;
+    }
+    return hour * 60 + minute;
+  };
+
+  const startMinutes = toMinutes(start);
+  const endMinutes = toMinutes(end);
+  if (startMinutes === null || endMinutes === null || startMinutes === endMinutes) {
+    console.warn("[QnA] Invalid visibleHours; showing item:", item.visibleHours);
+    return true;
+  }
+
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  return startMinutes < endMinutes
+    ? currentMinutes >= startMinutes && currentMinutes < endMinutes
+    : currentMinutes >= startMinutes || currentMinutes < endMinutes;
+}
+
 function addEventListeners() {
   document.querySelectorAll(".question").forEach((question) => {
     question.addEventListener("click", () => {
@@ -100,6 +128,7 @@ async function updateUI() {
   // item.area가 있는 질문은 URL의 area와 일치할 때만 노출(예: 지하객실 전용 질문).
   const grouped = i18n.qna.reduce((acc, item, idx) => {
     if (item.area && item.area !== area) return acc;
+    if (!isVisibleAtCurrentTime(item)) return acc;
     (acc[item.category] = acc[item.category] || []).push({ ...item, _idx: idx });
     return acc;
   }, {});

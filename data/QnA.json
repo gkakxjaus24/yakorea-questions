@@ -47,7 +47,8 @@
         "a": "조식은 오전 7시부터 10시까지 주방에서 셀프로 먹을 수 있습니다.",
         "category": "생활 편의 시설 및 비품 관련",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "변압기·충전기 빌리기",
@@ -199,7 +200,8 @@
         "a": "Breakfast is self-service in the kitchen from 7:00 AM to 10:00 AM.",
         "category": "Amenities and Supplies",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "Adapter & charger rental",
@@ -351,7 +353,8 @@
         "a": "早餐时间是上午7点到10点，可以在厨房自助享用。",
         "category": "生活便利设施及用品",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "变压器·充电器 借用",
@@ -503,7 +506,8 @@
         "a": "朝食は午前7時から10時まで、キッチンでセルフサービスでご利用いただけます。",
         "category": "生活設備・備品",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "変圧器・充電器を借りたい",
@@ -655,7 +659,8 @@
         "a": "Завтрак можно взять самостоятельно на кухне с 7:00 до 10:00.",
         "category": "Удобства и принадлежности",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "Адаптер и зарядка напрокат",
@@ -807,7 +812,8 @@
         "a": "El desayuno es autoservicio en la cocina de 7:00 AM a 10:00 AM.",
         "category": "Servicios y artículos",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "Adaptador y cargador en préstamo",
@@ -959,7 +965,8 @@
         "a": "Өглөөний хоол өглөө 7-10 цагт хоолны өрөөнд өөрийгөө сервиз хийх байдалтай байна.",
         "category": "Байгууламж & Удирдамжууд",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "Адаптер, цэнэглэгч зээлэх",
@@ -1111,7 +1118,8 @@
         "a": "Bữa sáng tự lấy trong bếp từ 7 giờ sáng đến 10 giờ sáng.",
         "category": "Tiện nghi & Dịch vụ",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "Bộ đổi điện & sạc cần mượn",
@@ -1263,7 +1271,8 @@
         "a": "Le petit-déjeuner est en libre-service à la cuisine de 7h00 à 10h00.",
         "category": "Équipements et Fournitures",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "Adaptateur et chargeur à emprunter",
@@ -1415,7 +1424,8 @@
         "a": "Das Frühstück ist Selbstbedienung in der Küche von 7:00 Uhr bis 10:00 Uhr.",
         "category": "Amenities and Supplies",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "Adapter & Ladegerät ausleihen",
@@ -1567,7 +1577,8 @@
         "a": "الإفطار خدمة ذاتية في المطبخ من الساعة 7:00 صباحاً إلى 10:00 صباحاً.",
         "category": "المرافق والإمدادات",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "المحول والشاحن للاستعارة",
@@ -1719,7 +1730,8 @@
         "a": "Kahvaltı sabah 7:00'den 10:00'a kadar mutfakta kendi servisizdir.",
         "category": "Amenities and Supplies",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image"
+        "mediaType": "image",
+        "visibleHours": { "start": "07:00", "end": "10:00" }
       },
       {
         "q": "Adaptör ve şarj ödünç almak",
