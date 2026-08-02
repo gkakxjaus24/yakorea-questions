@@ -47,8 +47,17 @@
         "a": "조식은 오전 7시부터 10시까지 주방에서 셀프로 먹을 수 있습니다.",
         "category": "생활 편의 시설 및 비품 관련",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "조식박스가 열리지 않아요.",
+        "keyword": "조식박스",
+        "a": "프론트 데스크 키보드 밑에 예비용 조식 박스 열쇠가 있습니다. 불편을 드려 죄송합니다.",
+        "category": "생활 편의 시설 및 비품 관련",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "변압기·충전기 빌리기",
@@ -200,8 +209,17 @@
         "a": "Breakfast is self-service in the kitchen from 7:00 AM to 10:00 AM.",
         "category": "Amenities and Supplies",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "The breakfast box won't open.",
+        "keyword": "breakfast box",
+        "a": "A spare key for the breakfast box is under the keyboard at the front desk. We apologize for the inconvenience.",
+        "category": "Amenities and Supplies",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "Adapter & charger rental",
@@ -353,8 +371,17 @@
         "a": "早餐时间是上午7点到10点，可以在厨房自助享用。",
         "category": "生活便利设施及用品",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "早餐箱打不开。",
+        "keyword": "早餐箱",
+        "a": "前台键盘下面有一把备用的早餐箱钥匙。给您带来不便，我们深表歉意。",
+        "category": "生活便利设施及用品",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "变压器·充电器 借用",
@@ -506,8 +533,17 @@
         "a": "朝食は午前7時から10時まで、キッチンでセルフサービスでご利用いただけます。",
         "category": "生活設備・備品",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "朝食ボックスが開きません。",
+        "keyword": "朝食ボックス",
+        "a": "フロントデスクのキーボードの下に、朝食ボックスの予備の鍵があります。ご不便をおかけして申し訳ございません。",
+        "category": "生活設備・備品",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "変圧器・充電器を借りたい",
@@ -659,8 +695,17 @@
         "a": "Завтрак можно взять самостоятельно на кухне с 7:00 до 10:00.",
         "category": "Удобства и принадлежности",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "Коробка с завтраком не открывается.",
+        "keyword": "Коробка с завтраком",
+        "a": "Запасной ключ от коробки с завтраком находится под клавиатурой на стойке регистрации. Приносим извинения за неудобства.",
+        "category": "Удобства и принадлежности",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "Адаптер и зарядка напрокат",
@@ -812,8 +857,17 @@
         "a": "El desayuno es autoservicio en la cocina de 7:00 AM a 10:00 AM.",
         "category": "Servicios y artículos",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "La caja del desayuno no se abre.",
+        "keyword": "caja del desayuno",
+        "a": "Hay una llave de repuesto para la caja del desayuno debajo del teclado de la recepción. Lamentamos las molestias.",
+        "category": "Servicios y artículos",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "Adaptador y cargador en préstamo",
@@ -965,8 +1019,17 @@
         "a": "Өглөөний хоол өглөө 7-10 цагт хоолны өрөөнд өөрийгөө сервиз хийх байдалтай байна.",
         "category": "Байгууламж & Удирдамжууд",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "Өглөөний хоолны хайрцаг онгойхгүй байна.",
+        "keyword": "Өглөөний хоолны хайрцаг",
+        "a": "Ресепшний компьютерын гарын доор өглөөний хоолны хайрцгийн нөөц түлхүүр бий. Танд төвөг учруулсанд уучлаарай.",
+        "category": "Байгууламж & Удирдамжууд",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "Адаптер, цэнэглэгч зээлэх",
@@ -1118,8 +1181,17 @@
         "a": "Bữa sáng tự lấy trong bếp từ 7 giờ sáng đến 10 giờ sáng.",
         "category": "Tiện nghi & Dịch vụ",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "Hộp đồ ăn sáng không mở được.",
+        "keyword": "Hộp đồ ăn sáng",
+        "a": "Có chìa khóa dự phòng của hộp đồ ăn sáng ở dưới bàn phím tại quầy lễ tân. Chúng tôi xin lỗi vì sự bất tiện này.",
+        "category": "Tiện nghi & Dịch vụ",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "Bộ đổi điện & sạc cần mượn",
@@ -1271,8 +1343,17 @@
         "a": "Le petit-déjeuner est en libre-service à la cuisine de 7h00 à 10h00.",
         "category": "Équipements et Fournitures",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "La boîte du petit-déjeuner ne s'ouvre pas.",
+        "keyword": "boîte du petit-déjeuner",
+        "a": "Une clé de secours pour la boîte du petit-déjeuner se trouve sous le clavier de la réception. Nous sommes désolés pour ce désagrément.",
+        "category": "Équipements et Fournitures",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "Adaptateur et chargeur à emprunter",
@@ -1424,8 +1505,17 @@
         "a": "Das Frühstück ist Selbstbedienung in der Küche von 7:00 Uhr bis 10:00 Uhr.",
         "category": "Amenities and Supplies",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "Die Frühstücksbox lässt sich nicht öffnen.",
+        "keyword": "Frühstücksbox",
+        "a": "Unter der Tastatur an der Rezeption liegt ein Ersatzschlüssel für die Frühstücksbox. Wir entschuldigen uns für die Unannehmlichkeiten.",
+        "category": "Amenities and Supplies",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "Adapter & Ladegerät ausleihen",
@@ -1577,8 +1667,17 @@
         "a": "الإفطار خدمة ذاتية في المطبخ من الساعة 7:00 صباحاً إلى 10:00 صباحاً.",
         "category": "المرافق والإمدادات",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "صندوق الإفطار لا يفتح.",
+        "keyword": "صندوق الإفطار",
+        "a": "يوجد مفتاح احتياطي لصندوق الإفطار تحت لوحة المفاتيح في مكتب الاستقبال. نعتذر عن الإزعاج.",
+        "category": "المرافق والإمدادات",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "المحول والشاحن للاستعارة",
@@ -1730,8 +1829,17 @@
         "a": "Kahvaltı sabah 7:00'den 10:00'a kadar mutfakta kendi servisizdir.",
         "category": "Amenities and Supplies",
         "media": "images/faq/breakfast.jpg",
-        "mediaType": "image",
-        "visibleHours": { "start": "07:00", "end": "10:00" }
+        "mediaType": "image"
+      },
+      {
+        "q": "Kahvaltı kutusu açılmıyor.",
+        "keyword": "Kahvaltı kutusu",
+        "a": "Kahvaltı kutusunun yedek anahtarı resepsiyondaki klavyenin altındadır. Verdiğimiz rahatsızlıktan dolayı özür dileriz.",
+        "category": "Amenities and Supplies",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        }
       },
       {
         "q": "Adaptör ve şarj ödünç almak",
