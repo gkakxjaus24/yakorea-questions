@@ -14,6 +14,12 @@ function getAreaFromURL() {
   return urlParams.get("area") || null;
 }
 
+// 이메일 링크(?nochat=1)로 들어온 경우 — 채팅 위젯이 아예 없으므로
+// "채팅 버튼을 눌러주세요" 안내 질문(hideWhen: "nochat")은 숨긴다.
+function isNoChat() {
+  return new URLSearchParams(window.location.search).get("nochat") === "1";
+}
+
 async function loadLanguageData() {
   try {
     const response = await fetch("/data/QnA.json");
@@ -122,6 +128,7 @@ async function updateUI() {
   document.querySelector(".headline").innerHTML = i18n.title;
 
   const area = getAreaFromURL();
+  const nochat = isNoChat();
 
   // 클릭 통계는 언어와 무관한 원본 배열 인덱스(_idx)로 질문을 식별하므로,
   // 카테고리별로 재그룹핑해도 원래 위치를 잃지 않도록 미리 붙여둔다.
@@ -129,6 +136,7 @@ async function updateUI() {
   const grouped = i18n.qna.reduce((acc, item, idx) => {
     if (item.area && item.area !== area) return acc;
     if (!isVisibleAtCurrentTime(item)) return acc;
+    if (item.hideWhen === "nochat" && nochat) return acc;
     (acc[item.category] = acc[item.category] || []).push({ ...item, _idx: idx });
     return acc;
   }, {});

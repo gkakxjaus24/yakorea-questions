@@ -157,7 +157,8 @@
         "q": "다른 도움이 더 필요해요",
         "keyword": "도움",
         "a": "화면 오른쪽 아래 채팅 버튼을 눌러 매니저에게 문의해주세요.",
-        "category": "기타 요청 및 문의"
+        "category": "기타 요청 및 문의",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -319,7 +320,8 @@
         "q": "I need more help.",
         "keyword": "help",
         "a": "Please tap the chat button at the bottom right of the screen and contact the manager.",
-        "category": "Other Requests and Inquiries"
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -481,7 +483,8 @@
         "q": "我还需要其他帮助。",
         "keyword": "帮助",
         "a": "请点击屏幕右下角的聊天按钮联系经理。",
-        "category": "其他请求及咨询"
+        "category": "其他请求及咨询",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -643,7 +646,8 @@
         "q": "他にも助けが必要です。",
         "keyword": "助け",
         "a": "画面右下のチャットボタンを押して、マネージャーにお問い合わせください。",
-        "category": "その他のリクエスト・お問い合わせ"
+        "category": "その他のリクエスト・お問い合わせ",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -805,7 +809,8 @@
         "q": "Мне нужна другая помощь.",
         "keyword": "помощь",
         "a": "Пожалуйста, нажмите кнопку чата в правом нижнем углу экрана и свяжитесь с менеджером.",
-        "category": "Другие запросы и вопросы"
+        "category": "Другие запросы и вопросы",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -967,7 +972,8 @@
         "q": "Necesito más ayuda.",
         "keyword": "ayuda",
         "a": "Por favor, pulse el botón de chat en la parte inferior derecha de la pantalla y contacte al gerente.",
-        "category": "Otras solicitudes y consultas"
+        "category": "Otras solicitudes y consultas",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -1129,7 +1135,8 @@
         "q": "Надад илүү их туслалцаа хэрэгтэй (Ажилтантай холбогдох)",
         "keyword": "туслалцаа",
         "a": "Экраны баруун доод булан дээрх чат дүрсэн 💬 дарна уу, манай ажилтантай холбогдоно уу.",
-        "category": "Бусад Асуудал & Туслалцаа"
+        "category": "Бусад Асуудал & Туслалцаа",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -1291,7 +1298,8 @@
         "q": "Tôi cần trợ giúp thêm (Liên hệ nhân viên)",
         "keyword": "trợ giúp",
         "a": "Vui lòng nhấp vào biểu tượng trò chuyện 💬 ở góc dưới bên phải của màn hình để kết nối với nhân viên của chúng tôi.",
-        "category": "Yêu cầu & Trợ giúp khác"
+        "category": "Yêu cầu & Trợ giúp khác",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -1453,7 +1461,8 @@
         "q": "J'ai besoin de plus d'aide.",
         "keyword": "aide",
         "a": "Veuillez appuyer sur le bouton de chat en bas à droite de l'écran et contacter le responsable.",
-        "category": "Autres Demandes et Demandes de Renseignements"
+        "category": "Autres Demandes et Demandes de Renseignements",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -1615,7 +1624,8 @@
         "q": "Ich brauche mehr Hilfe.",
         "keyword": "Hilfe",
         "a": "Bitte tippen Sie auf die Chat-Schaltfläche unten rechts auf dem Bildschirm und kontaktieren Sie den Manager.",
-        "category": "Other Requests and Inquiries"
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -1777,7 +1787,8 @@
         "q": "أحتاج إلى مزيد من المساعدة.",
         "keyword": "المساعدة",
         "a": "يرجى النقر على زر الدردشة في أسفل يمين الشاشة والاتصال بمدير الفندق.",
-        "category": "الطلبات والاستفسارات الأخرى"
+        "category": "الطلبات والاستفسارات الأخرى",
+        "hideWhen": "nochat"
       }
     ]
   },
@@ -1939,7 +1950,8 @@
         "q": "Daha fazla yardıma ihtiyacım var.",
         "keyword": "yardıma",
         "a": "Lütfen ekranın sağ altındaki sohbet düğmesine dokunun ve yöneticiyle iletişime geçin.",
-        "category": "Other Requests and Inquiries"
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
       }
     ]
   }

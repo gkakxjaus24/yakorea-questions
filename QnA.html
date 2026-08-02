@@ -14,6 +14,15 @@
   </div>
   <script src="js/common.js"></script>
   <script src="js/QnA.js"></script>
-  <script src="https://projectclaude-production-5351.up.railway.app/widget/chat-widget.js" data-mode="guest-qr"></script>
+  <script>
+    // 이메일로 전달되는 링크(?nochat=1)로 들어온 손님은 채팅을 쓸 수 없게
+    // 위젯 스크립트 자체를 로드하지 않는다. 그 외(키오스크/방 QR코드)는 기존대로 정상 로드.
+    if (new URLSearchParams(window.location.search).get('nochat') !== '1') {
+      const s = document.createElement('script');
+      s.src = 'https://projectclaude-production-5351.up.railway.app/widget/chat-widget.js';
+      s.dataset.mode = 'guest-qr';
+      document.body.appendChild(s);
+    }
+  </script>
 </body>
 </html>
