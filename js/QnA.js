@@ -8,7 +8,7 @@ function getLanguageFromURL() {
   return urlParams.get("lang") || "ko";
 }
 
-// 특정 구역(예: 지하객실) 전용 질문 노출용 — QR 코드에 ?area=basement 를 붙여서 구분
+// 구역별 QR 코드 구분용 — ?area=privateA|privateB|dorm|dormBasement|common
 function getAreaFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get("area") || null;
@@ -105,6 +105,22 @@ function isVisibleAtCurrentTime(item, now = new Date()) {
     : currentMinutes >= startMinutes || currentMinutes < endMinutes;
 }
 
+// ── 노출 조건 총괄 게이트 ─────────────────────────────────────
+// 질문 하나가 "지금 이 화면에" 보여야 하는지를 한곳에서 판단한다.
+// 조건을 새로 추가할 때(요일별/기간별/공지 고정 등) 이 함수만 건드리면 되고,
+// updateUI()의 reduce는 항상 isItemVisible() 한 줄만 호출하면 된다.
+//
+// - item.areas: string[]  — 없으면 모든 구역 공통. 있으면 현재 area와 하나라도 겹쳐야 노출
+//   (구역 코드: privateA, privateB, dorm, dormBasement, common)
+// - item.visibleHours: { start, end } — 위 isVisibleAtCurrentTime() 참고
+// - item.hideWhen: "nochat" — 이메일 링크(?nochat=1)에서는 숨김
+function isItemVisible(item, { area, nochat, now = new Date() } = {}) {
+  if (item.areas && !item.areas.includes(area)) return false;
+  if (!isVisibleAtCurrentTime(item, now)) return false;
+  if (item.hideWhen === "nochat" && nochat) return false;
+  return true;
+}
+
 function addEventListeners() {
   document.querySelectorAll(".question").forEach((question) => {
     question.addEventListener("click", () => {
@@ -132,11 +148,8 @@ async function updateUI() {
 
   // 클릭 통계는 언어와 무관한 원본 배열 인덱스(_idx)로 질문을 식별하므로,
   // 카테고리별로 재그룹핑해도 원래 위치를 잃지 않도록 미리 붙여둔다.
-  // item.area가 있는 질문은 URL의 area와 일치할 때만 노출(예: 지하객실 전용 질문).
   const grouped = i18n.qna.reduce((acc, item, idx) => {
-    if (item.area && item.area !== area) return acc;
-    if (!isVisibleAtCurrentTime(item)) return acc;
-    if (item.hideWhen === "nochat" && nochat) return acc;
+    if (!isItemVisible(item, { area, nochat })) return acc;
     (acc[item.category] = acc[item.category] || []).push({ ...item, _idx: idx });
     return acc;
   }, {});
