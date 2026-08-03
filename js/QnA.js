@@ -48,7 +48,7 @@ function reportFaqClick(index) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      source: "qr",
+      source: isNoChat() ? "link" : "qr",
       question_ko: questionKo,
       lang: getLanguageFromURL(),
     }),
