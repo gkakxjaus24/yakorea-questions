@@ -164,6 +164,12 @@
         "a": "화면 오른쪽 아래 채팅 버튼을 눌러 매니저에게 문의해주세요.",
         "category": "기타 요청 및 문의",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "체크아웃 시간은 몇시인가요?",
+        "a": "오전 11시 입니다. 키오스크에서 방번호를 입력 후 슬리퍼를 반납하면 됩니다. 늦으면 20분마다 5,000원의 벌금이 부과됩니다.",
+        "category": "출입/운영 방식/무인 관련",
+        "keyword": "체크아웃"
       }
     ]
   },
@@ -332,6 +338,12 @@
         "a": "Please tap the chat button at the bottom right of the screen and contact the manager.",
         "category": "Other Requests and Inquiries",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "What time is check-out?",
+        "a": "Check-out is at 11:00 AM. Enter your room number on the kiosk and return your slippers. A late fee of 5,000 KRW is charged every 20 minutes after that.",
+        "category": "Access / Operation / Self-service",
+        "keyword": "check-out"
       }
     ]
   },
@@ -500,6 +512,12 @@
         "a": "请点击屏幕右下角的聊天按钮联系经理。",
         "category": "其他请求及咨询",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "退房时间是几点？",
+        "a": "退房时间是上午11点。请在触摸屏上输入房间号并归还拖鞋。逾期每20分钟收取5,000韩元的罚款。",
+        "category": "出入 / 运营方式 / 无人值守",
+        "keyword": "退房时间"
       }
     ]
   },
@@ -668,6 +686,12 @@
         "a": "画面右下のチャットボタンを押して、マネージャーにお問い合わせください。",
         "category": "その他のリクエスト・お問い合わせ",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "チェックアウトの時間は何時ですか？",
+        "a": "午前11時です。キオスクで部屋番号を入力し、スリッパを返却してください。遅れると20分ごとに5,000ウォンの延滞料金がかかります。",
+        "category": "出入 / 運営方式 / 無人運営",
+        "keyword": "チェックアウトの時間"
       }
     ]
   },
@@ -836,6 +860,12 @@
         "a": "Пожалуйста, нажмите кнопку чата в правом нижнем углу экрана и свяжитесь с менеджером.",
         "category": "Другие запросы и вопросы",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "Во сколько выезд (check-out)?",
+        "a": "Выезд в 11:00. Введите номер комнаты на киоске и верните тапочки. За опоздание взимается штраф 5 000 вон за каждые 20 минут.",
+        "category": "Вход / Работа / Самообслуживание",
+        "keyword": "выезд"
       }
     ]
   },
@@ -1004,6 +1034,12 @@
         "a": "Por favor, pulse el botón de chat en la parte inferior derecha de la pantalla y contacte al gerente.",
         "category": "Otras solicitudes y consultas",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "¿A qué hora es el check-out?",
+        "a": "El check-out es a las 11:00 a.m. Ingrese su número de habitación en el quiosco y devuelva las zapatillas. Si se retrasa, se cobrará una multa de 5,000 KRW cada 20 minutos.",
+        "category": "Acceso / Operación / Autoservicio",
+        "keyword": "check-out"
       }
     ]
   },
@@ -1172,6 +1208,12 @@
         "a": "Экраны баруун доод булан дээрх чат дүрсэн 💬 дарна уу, манай ажилтантай холбогдоно уу.",
         "category": "Бусад Асуудал & Туслалцаа",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "Чекаут хийх цаг хэд вэ?",
+        "a": "Өглөөний 11 цагт. Киоск дээр өрөөний дугаараа оруулаад шаахайгаа буцаана уу. Хоцорвол 20 минут тутамд 5,000 вон торгууль ногдуулна.",
+        "category": "Орох & Үйлчилгээгүй Ажиллагаа",
+        "keyword": "Чекаут"
       }
     ]
   },
@@ -1340,6 +1382,12 @@
         "a": "Vui lòng nhấp vào biểu tượng trò chuyện 💬 ở góc dưới bên phải của màn hình để kết nối với nhân viên của chúng tôi.",
         "category": "Yêu cầu & Trợ giúp khác",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "Giờ trả phòng (check-out) là mấy giờ?",
+        "a": "Giờ trả phòng là 11 giờ sáng. Vui lòng nhập số phòng tại kiosk và trả lại dép. Nếu trễ, sẽ bị phạt 5.000 won mỗi 20 phút.",
+        "category": "Vào cửa & Hoạt động không có nhân viên",
+        "keyword": "trả phòng"
       }
     ]
   },
@@ -1508,6 +1556,12 @@
         "a": "Veuillez appuyer sur le bouton de chat en bas à droite de l'écran et contacter le responsable.",
         "category": "Autres Demandes et Demandes de Renseignements",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "À quelle heure est le check-out ?",
+        "a": "Le check-out est à 11h00. Entrez votre numéro de chambre sur la borne et rendez vos pantoufles. En cas de retard, une amende de 5 000 KRW est appliquée toutes les 20 minutes.",
+        "category": "Accès / Fonctionnement / Libre-service",
+        "keyword": "check-out"
       }
     ]
   },
@@ -1676,6 +1730,12 @@
         "a": "Bitte tippen Sie auf die Chat-Schaltfläche unten rechts auf dem Bildschirm und kontaktieren Sie den Manager.",
         "category": "Other Requests and Inquiries",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "Um wie viel Uhr ist der Check-out?",
+        "a": "Der Check-out ist um 11:00 Uhr. Geben Sie Ihre Zimmernummer am Kiosk ein und geben Sie die Hausschuhe zurück. Bei Verspätung wird alle 20 Minuten eine Gebühr von 5.000 KRW berechnet.",
+        "category": "Access / Operation / Self-service",
+        "keyword": "Check-out"
       }
     ]
   },
@@ -1844,6 +1904,12 @@
         "a": "يرجى النقر على زر الدردشة في أسفل يمين الشاشة والاتصال بمدير الفندق.",
         "category": "الطلبات والاستفسارات الأخرى",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "في أي ساعة يكون تسجيل المغادرة؟",
+        "a": "تسجيل المغادرة الساعة 11 صباحًا. أدخل رقم غرفتك على الجهاز وأعد النعال. في حال التأخير، تُفرض غرامة 5000 وون كل 20 دقيقة.",
+        "category": "الوصول / التشغيل / الخدمة الذاتية",
+        "keyword": "تسجيل المغادرة"
       }
     ]
   },
@@ -2012,6 +2078,12 @@
         "a": "Lütfen ekranın sağ altındaki sohbet düğmesine dokunun ve yöneticiyle iletişime geçin.",
         "category": "Other Requests and Inquiries",
         "hideWhen": "nochat"
+      },
+      {
+        "q": "Check-out saati kaçtır?",
+        "a": "Check-out saat 11:00'dir. Kiosktan oda numaranızı girip terlikleri iade edin. Geç kalırsanız her 20 dakikada bir 5.000 won ceza uygulanır.",
+        "category": "Access / Operation / Self-service",
+        "keyword": "Check-out"
       }
     ]
   }
