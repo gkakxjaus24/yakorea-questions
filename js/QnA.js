@@ -8,7 +8,7 @@ function getLanguageFromURL() {
   return urlParams.get("lang") || "ko";
 }
 
-// 구역별 QR 코드 구분용 — ?area=privateA|privateB|dorm|dormBasement|common
+// 구역별 QR 코드 구분용 — ?area=privateA|privateB|dorm|dormBasement|common|frontDesk
 function getAreaFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get("area") || null;
