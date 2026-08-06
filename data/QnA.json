@@ -186,7 +186,8 @@
         "a": "물을 처음 사용하면 뜨거운물이 나올때까지 물손잡이를 뜨거운 물쪽으로 틀어 놓고 2-3분 정도 기다리면 됩니다",
         "category": "객실 및 침대 관련",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -378,7 +379,8 @@
         "a": "When using the water for the first time, turn the handle toward hot and wait about 2-3 minutes until hot water comes out.",
         "category": "Rooms and Beds",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -570,7 +572,8 @@
         "a": "第一次用水时，请将水龙头把手转向热水一侧，等待2-3分钟左右，热水就会流出。",
         "category": "房间及床位",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -762,7 +765,8 @@
         "a": "初めてお水を使う場合は、水栓レバーをお湯側に回して2〜3分ほどお待ちいただくとお湯が出ます。",
         "category": "客室・ベッド",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -954,7 +958,8 @@
         "a": "При первом использовании воды поверните ручку крана в сторону горячей воды и подождите 2-3 минуты, пока не пойдёт горячая вода.",
         "category": "Комнаты и кровати",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -1146,7 +1151,8 @@
         "a": "Al usar el agua por primera vez, gire la manija hacia el lado del agua caliente y espere unos 2-3 minutos hasta que salga agua caliente.",
         "category": "Habitaciones y camas",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -1338,7 +1344,8 @@
         "a": "Усыг анх удаа ашиглаж байгаа бол услгуурын бариулыг халуун ус тал руу эргүүлээд 2-3 минут орчим хүлээвэл халуун ус гарна.",
         "category": "Өрөө & Орын Холбогдох Асуултууд",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -1530,7 +1537,8 @@
         "a": "Khi sử dụng nước lần đầu, hãy vặn tay cầm vòi nước sang phía nước nóng và đợi khoảng 2-3 phút thì nước nóng sẽ ra.",
         "category": "Phòng & Liên quan đến giường",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -1722,7 +1730,8 @@
         "a": "Lors de la première utilisation de l'eau, tournez la poignée vers le côté eau chaude et attendez environ 2 à 3 minutes jusqu'à ce que l'eau chaude coule.",
         "category": "Chambres et Lits",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -1914,7 +1923,8 @@
         "a": "Wenn Sie das Wasser zum ersten Mal benutzen, drehen Sie den Griff auf die heiße Seite und warten Sie etwa 2-3 Minuten, bis warmes Wasser kommt.",
         "category": "Rooms and Beds",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -2106,7 +2116,8 @@
         "a": "عند استخدام الماء لأول مرة، أدر المقبض نحو جهة الماء الساخن وانتظر حوالي 2-3 دقائق حتى يخرج الماء الساخن.",
         "category": "الغرف والأسرة",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
@@ -2298,7 +2309,8 @@
         "a": "Suyu ilk kez kullanırken, musluk kolunu sıcak su tarafına çevirin ve sıcak su gelene kadar yaklaşık 2-3 dakika bekleyin.",
         "category": "Rooms and Beds",
         "areas": [
-          "privateA"
+          "privateA",
+          "dorm"
         ]
       }
     ]
