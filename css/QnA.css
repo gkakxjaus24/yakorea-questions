@@ -103,6 +103,77 @@
   transition: background-color 0.3s;
 }
 
+.hidden { display: none !important; }
+
+#feedback-section {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  box-sizing: border-box;
+}
+
+.feedback-disclaimer {
+  font-size: 13px;
+  color: #999;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.feedback-field-label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin: 10px 0 4px;
+}
+
+#feedback-room,
+#feedback-bed,
+#feedback-content {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+#feedback-content {
+  resize: vertical;
+  margin-top: 4px;
+}
+
+.feedback-error {
+  color: #d33;
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+
+.feedback-success {
+  color: #2a8a4a;
+  font-size: 14px;
+  margin: 10px 0 0;
+  font-weight: bold;
+}
+
+.feedback-submit-btn {
+  margin-top: 12px;
+  padding: 12px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.feedback-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media (max-width: 768px) {
   .container {
     font-size: 80% !important;

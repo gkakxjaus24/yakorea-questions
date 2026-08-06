@@ -190,7 +190,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "건의사항 · 불편사항",
+      "disclaimer": "이름은 받지 않습니다. 방번호는 문제 확인용으로만 사용되며 불이익은 없습니다.",
+      "roomLabel": "방 번호",
+      "roomPlaceholder": "방을 선택해주세요",
+      "bedLabel": "침대 번호",
+      "bedPlaceholder": "침대를 선택해주세요",
+      "placeholder": "불편하신 점이나 건의사항을 남겨주세요",
+      "submitBtn": "보내기",
+      "successMsg": "소중한 의견 감사합니다.",
+      "errorMsg": "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
+      "roomRequiredMsg": "방 번호를 선택해주세요.",
+      "contentRequiredMsg": "내용을 입력해주세요."
+    }
   },
   "en": {
     "title": "Frequently Asked Questions🙋‍♂️❓",
@@ -383,7 +397,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "Feedback / Complaints",
+      "disclaimer": "We don't collect your name. Your room number is used only to check the issue, and there's no downside to sharing it.",
+      "roomLabel": "Room Number",
+      "roomPlaceholder": "Select your room",
+      "bedLabel": "Bed Number",
+      "bedPlaceholder": "Select your bed",
+      "placeholder": "Please leave any feedback or issues you'd like us to know about",
+      "submitBtn": "Send",
+      "successMsg": "Thank you for your feedback.",
+      "errorMsg": "Failed to send. Please try again later.",
+      "roomRequiredMsg": "Please select your room.",
+      "contentRequiredMsg": "Please enter your message."
+    }
   },
   "zh": {
     "title": "常见问题🙋‍♂️❓",
@@ -576,7 +604,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "建议 · 不满反馈",
+      "disclaimer": "我们不会收集您的姓名。房间号仅用于确认问题，不会给您带来任何不利影响。",
+      "roomLabel": "房间号",
+      "roomPlaceholder": "请选择房间",
+      "bedLabel": "床位号",
+      "bedPlaceholder": "请选择床位",
+      "placeholder": "请留下您的建议或不满之处",
+      "submitBtn": "发送",
+      "successMsg": "感谢您的宝贵意见。",
+      "errorMsg": "发送失败，请稍后再试。",
+      "roomRequiredMsg": "请选择房间号。",
+      "contentRequiredMsg": "请输入内容。"
+    }
   },
   "ja": {
     "title": "よくある質問🙋‍♂️❓",
@@ -769,7 +811,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "ご意見・ご不満",
+      "disclaimer": "お名前は取得しません。部屋番号は問題確認のためだけに使用され、不利益になることはありません。",
+      "roomLabel": "部屋番号",
+      "roomPlaceholder": "部屋を選択してください",
+      "bedLabel": "ベッド番号",
+      "bedPlaceholder": "ベッドを選択してください",
+      "placeholder": "ご不便な点やご意見をお聞かせください",
+      "submitBtn": "送信",
+      "successMsg": "貴重なご意見ありがとうございます。",
+      "errorMsg": "送信に失敗しました。しばらくしてから再試行してください。",
+      "roomRequiredMsg": "部屋番号を選択してください。",
+      "contentRequiredMsg": "内容を入力してください。"
+    }
   },
   "ru": {
     "title": "Часто задаваемые вопросы🙋‍♂️❓",
@@ -962,7 +1018,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "Отзывы и жалобы",
+      "disclaimer": "Мы не собираем ваше имя. Номер комнаты используется только для проверки проблемы и не повлечёт никаких негативных последствий.",
+      "roomLabel": "Номер комнаты",
+      "roomPlaceholder": "Выберите комнату",
+      "bedLabel": "Номер кровати",
+      "bedPlaceholder": "Выберите кровать",
+      "placeholder": "Оставьте отзыв о неудобствах или пожелания",
+      "submitBtn": "Отправить",
+      "successMsg": "Спасибо за ваш отзыв.",
+      "errorMsg": "Не удалось отправить. Попробуйте позже.",
+      "roomRequiredMsg": "Пожалуйста, выберите комнату.",
+      "contentRequiredMsg": "Пожалуйста, введите сообщение."
+    }
   },
   "es": {
     "title": "Preguntas frecuentes🙋‍♂️❓",
@@ -1155,7 +1225,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "Sugerencias y quejas",
+      "disclaimer": "No recopilamos su nombre. El número de habitación se usa solo para verificar el problema y no tendrá ninguna consecuencia negativa.",
+      "roomLabel": "Número de habitación",
+      "roomPlaceholder": "Seleccione su habitación",
+      "bedLabel": "Número de cama",
+      "bedPlaceholder": "Seleccione su cama",
+      "placeholder": "Déjenos sus comentarios o inconvenientes",
+      "submitBtn": "Enviar",
+      "successMsg": "Gracias por sus comentarios.",
+      "errorMsg": "Error al enviar. Inténtelo de nuevo más tarde.",
+      "roomRequiredMsg": "Seleccione su habitación.",
+      "contentRequiredMsg": "Ingrese su mensaje."
+    }
   },
   "mn": {
     "title": "ТУСЛАЛЦАА & АСУУЛТУУД🙋‍♂️❓",
@@ -1348,7 +1432,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "Санал хүсэлт, гомдол",
+      "disclaimer": "Бид таны нэрийг цуглуулахгүй. Өрөөний дугаарыг зөвхөн асуудлыг шалгахад ашиглах бөгөөд ямар ч сөрөг үр дагавар байхгүй.",
+      "roomLabel": "Өрөөний дугаар",
+      "roomPlaceholder": "Өрөөгөө сонгоно уу",
+      "bedLabel": "Орны дугаар",
+      "bedPlaceholder": "Орноо сонгоно уу",
+      "placeholder": "Тухтай бус зүйл эсвэл санал хүсэлтээ үлдээнэ үү",
+      "submitBtn": "Илгээх",
+      "successMsg": "Санал хүсэлтэд баярлалаа.",
+      "errorMsg": "Илгээж чадсангүй. Дараа дахин оролдоно уу.",
+      "roomRequiredMsg": "Өрөөгөө сонгоно уу.",
+      "contentRequiredMsg": "Мессежээ оруулна уу."
+    }
   },
   "vi": {
     "title": "TRỢ GIÚP & CÂU HỎI🙋‍♂️❓",
@@ -1541,7 +1639,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "Góp ý / Phản ánh",
+      "disclaimer": "Chúng tôi không thu thập tên của bạn. Số phòng chỉ được dùng để xác minh vấn đề và không gây bất lợi gì cho bạn.",
+      "roomLabel": "Số phòng",
+      "roomPlaceholder": "Vui lòng chọn phòng",
+      "bedLabel": "Số giường",
+      "bedPlaceholder": "Vui lòng chọn giường",
+      "placeholder": "Vui lòng để lại góp ý hoặc điều bất tiện của bạn",
+      "submitBtn": "Gửi",
+      "successMsg": "Cảm ơn góp ý của bạn.",
+      "errorMsg": "Gửi thất bại. Vui lòng thử lại sau.",
+      "roomRequiredMsg": "Vui lòng chọn phòng của bạn.",
+      "contentRequiredMsg": "Vui lòng nhập nội dung."
+    }
   },
   "fr": {
     "title": "Questions Fréquemment Posées🙋‍♂️❓",
@@ -1734,7 +1846,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "Suggestions / Réclamations",
+      "disclaimer": "Nous ne collectons pas votre nom. Le numéro de chambre sert uniquement à vérifier le problème et n'entraîne aucun inconvénient pour vous.",
+      "roomLabel": "Numéro de chambre",
+      "roomPlaceholder": "Sélectionnez votre chambre",
+      "bedLabel": "Numéro de lit",
+      "bedPlaceholder": "Sélectionnez votre lit",
+      "placeholder": "Laissez-nous vos remarques ou désagréments",
+      "submitBtn": "Envoyer",
+      "successMsg": "Merci pour votre avis.",
+      "errorMsg": "Échec de l'envoi. Veuillez réessayer plus tard.",
+      "roomRequiredMsg": "Veuillez sélectionner votre chambre.",
+      "contentRequiredMsg": "Veuillez saisir votre message."
+    }
   },
   "de": {
     "title": "Häufig gestellte Fragen🙋‍♂️❓",
@@ -1927,7 +2053,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "Feedback / Beschwerden",
+      "disclaimer": "Wir erfassen Ihren Namen nicht. Die Zimmernummer wird nur zur Überprüfung des Problems verwendet und hat keine Nachteile für Sie.",
+      "roomLabel": "Zimmernummer",
+      "roomPlaceholder": "Bitte Zimmer auswählen",
+      "bedLabel": "Bettnummer",
+      "bedPlaceholder": "Bitte Bett auswählen",
+      "placeholder": "Bitte teilen Sie uns Ihr Feedback oder Unannehmlichkeiten mit",
+      "submitBtn": "Senden",
+      "successMsg": "Vielen Dank für Ihr Feedback.",
+      "errorMsg": "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.",
+      "roomRequiredMsg": "Bitte wählen Sie Ihr Zimmer aus.",
+      "contentRequiredMsg": "Bitte geben Sie Ihre Nachricht ein."
+    }
   },
   "ar": {
     "title": "الأسئلة الشائعة🙋‍♂️❓",
@@ -2120,7 +2260,21 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "الاقتراحات والشكاوى",
+      "disclaimer": "لا نجمع اسمك. يُستخدم رقم الغرفة فقط للتحقق من المشكلة، ولن يترتب عليه أي ضرر.",
+      "roomLabel": "رقم الغرفة",
+      "roomPlaceholder": "يرجى اختيار غرفتك",
+      "bedLabel": "رقم السرير",
+      "bedPlaceholder": "يرجى اختيار سريرك",
+      "placeholder": "يرجى ترك ملاحظاتك أو أي إزعاج واجهته",
+      "submitBtn": "إرسال",
+      "successMsg": "شكرًا لملاحظاتك.",
+      "errorMsg": "فشل الإرسال. يرجى المحاولة لاحقًا.",
+      "roomRequiredMsg": "يرجى اختيار غرفتك.",
+      "contentRequiredMsg": "يرجى إدخال رسالتك."
+    }
   },
   "tr": {
     "title": "Sıkça Sorulan Sorular🙋‍♂️❓",
@@ -2313,6 +2467,20 @@
           "dorm"
         ]
       }
-    ]
+    ],
+    "feedback": {
+      "title": "Öneri / Şikayet",
+      "disclaimer": "Adınızı almıyoruz. Oda numarası yalnızca sorunu doğrulamak için kullanılır ve size herhangi bir dezavantaj sağlamaz.",
+      "roomLabel": "Oda Numarası",
+      "roomPlaceholder": "Lütfen odanızı seçin",
+      "bedLabel": "Yatak Numarası",
+      "bedPlaceholder": "Lütfen yatağınızı seçin",
+      "placeholder": "Rahatsızlığınızı veya önerinizi bize bildirin",
+      "submitBtn": "Gönder",
+      "successMsg": "Görüşünüz için teşekkürler.",
+      "errorMsg": "Gönderilemedi. Lütfen daha sonra tekrar deneyin.",
+      "roomRequiredMsg": "Lütfen odanızı seçin.",
+      "contentRequiredMsg": "Lütfen mesajınızı girin."
+    }
   }
 }
