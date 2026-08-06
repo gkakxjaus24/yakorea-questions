@@ -193,7 +193,7 @@
     ],
     "feedback": {
       "title": "건의사항 · 불편사항",
-      "disclaimer": "이름은 받지 않습니다. 방번호는 문제 확인용으로만 사용되며 불이익은 없습니다.",
+      "disclaimer": "방번호는 문제를 확인하기 위해서만 사용되며, 의견은 익명으로 전달됩니다.",
       "roomLabel": "방 번호",
       "roomPlaceholder": "방을 선택해주세요",
       "bedLabel": "침대 번호",
@@ -400,7 +400,7 @@
     ],
     "feedback": {
       "title": "Feedback / Complaints",
-      "disclaimer": "We don't collect your name. Your room number is used only to check the issue, and there's no downside to sharing it.",
+      "disclaimer": "Your room number is used only to check the issue, and your feedback is delivered anonymously.",
       "roomLabel": "Room Number",
       "roomPlaceholder": "Select your room",
       "bedLabel": "Bed Number",
@@ -607,7 +607,7 @@
     ],
     "feedback": {
       "title": "建议 · 不满反馈",
-      "disclaimer": "我们不会收集您的姓名。房间号仅用于确认问题，不会给您带来任何不利影响。",
+      "disclaimer": "房间号仅用于确认问题，您的意见将匿名传达。",
       "roomLabel": "房间号",
       "roomPlaceholder": "请选择房间",
       "bedLabel": "床位号",
@@ -814,7 +814,7 @@
     ],
     "feedback": {
       "title": "ご意見・ご不満",
-      "disclaimer": "お名前は取得しません。部屋番号は問題確認のためだけに使用され、不利益になることはありません。",
+      "disclaimer": "部屋番号は問題確認のためだけに使用され、ご意見は匿名で伝えられます。",
       "roomLabel": "部屋番号",
       "roomPlaceholder": "部屋を選択してください",
       "bedLabel": "ベッド番号",
@@ -1021,7 +1021,7 @@
     ],
     "feedback": {
       "title": "Отзывы и жалобы",
-      "disclaimer": "Мы не собираем ваше имя. Номер комнаты используется только для проверки проблемы и не повлечёт никаких негативных последствий.",
+      "disclaimer": "Номер комнаты используется только для проверки проблемы, а ваш отзыв передаётся анонимно.",
       "roomLabel": "Номер комнаты",
       "roomPlaceholder": "Выберите комнату",
       "bedLabel": "Номер кровати",
@@ -1228,7 +1228,7 @@
     ],
     "feedback": {
       "title": "Sugerencias y quejas",
-      "disclaimer": "No recopilamos su nombre. El número de habitación se usa solo para verificar el problema y no tendrá ninguna consecuencia negativa.",
+      "disclaimer": "El número de habitación se usa solo para verificar el problema, y su opinión se transmite de forma anónima.",
       "roomLabel": "Número de habitación",
       "roomPlaceholder": "Seleccione su habitación",
       "bedLabel": "Número de cama",
@@ -1435,7 +1435,7 @@
     ],
     "feedback": {
       "title": "Санал хүсэлт, гомдол",
-      "disclaimer": "Бид таны нэрийг цуглуулахгүй. Өрөөний дугаарыг зөвхөн асуудлыг шалгахад ашиглах бөгөөд ямар ч сөрөг үр дагавар байхгүй.",
+      "disclaimer": "Өрөөний дугаарыг зөвхөн асуудлыг шалгахад ашиглах бөгөөд таны санал хүсэлт нэрээ нуун дарагдуулж дамжуулагдана.",
       "roomLabel": "Өрөөний дугаар",
       "roomPlaceholder": "Өрөөгөө сонгоно уу",
       "bedLabel": "Орны дугаар",
@@ -1642,7 +1642,7 @@
     ],
     "feedback": {
       "title": "Góp ý / Phản ánh",
-      "disclaimer": "Chúng tôi không thu thập tên của bạn. Số phòng chỉ được dùng để xác minh vấn đề và không gây bất lợi gì cho bạn.",
+      "disclaimer": "Số phòng chỉ được dùng để xác minh vấn đề, và ý kiến của bạn sẽ được chuyển đi ẩn danh.",
       "roomLabel": "Số phòng",
       "roomPlaceholder": "Vui lòng chọn phòng",
       "bedLabel": "Số giường",
@@ -1849,7 +1849,7 @@
     ],
     "feedback": {
       "title": "Suggestions / Réclamations",
-      "disclaimer": "Nous ne collectons pas votre nom. Le numéro de chambre sert uniquement à vérifier le problème et n'entraîne aucun inconvénient pour vous.",
+      "disclaimer": "Le numéro de chambre sert uniquement à vérifier le problème, et votre avis est transmis de manière anonyme.",
       "roomLabel": "Numéro de chambre",
       "roomPlaceholder": "Sélectionnez votre chambre",
       "bedLabel": "Numéro de lit",
@@ -2056,7 +2056,7 @@
     ],
     "feedback": {
       "title": "Feedback / Beschwerden",
-      "disclaimer": "Wir erfassen Ihren Namen nicht. Die Zimmernummer wird nur zur Überprüfung des Problems verwendet und hat keine Nachteile für Sie.",
+      "disclaimer": "Die Zimmernummer wird nur zur Überprüfung des Problems verwendet, und Ihr Feedback wird anonym übermittelt.",
       "roomLabel": "Zimmernummer",
       "roomPlaceholder": "Bitte Zimmer auswählen",
       "bedLabel": "Bettnummer",
@@ -2263,7 +2263,7 @@
     ],
     "feedback": {
       "title": "الاقتراحات والشكاوى",
-      "disclaimer": "لا نجمع اسمك. يُستخدم رقم الغرفة فقط للتحقق من المشكلة، ولن يترتب عليه أي ضرر.",
+      "disclaimer": "يُستخدم رقم الغرفة فقط للتحقق من المشكلة، ويتم إرسال رأيك بشكل مجهول.",
       "roomLabel": "رقم الغرفة",
       "roomPlaceholder": "يرجى اختيار غرفتك",
       "bedLabel": "رقم السرير",
@@ -2470,7 +2470,7 @@
     ],
     "feedback": {
       "title": "Öneri / Şikayet",
-      "disclaimer": "Adınızı almıyoruz. Oda numarası yalnızca sorunu doğrulamak için kullanılır ve size herhangi bir dezavantaj sağlamaz.",
+      "disclaimer": "Oda numarası yalnızca sorunu doğrulamak için kullanılır ve görüşünüz anonim olarak iletilir.",
       "roomLabel": "Oda Numarası",
       "roomPlaceholder": "Lütfen odanızı seçin",
       "bedLabel": "Yatak Numarası",
