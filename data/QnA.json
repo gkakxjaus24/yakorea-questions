@@ -118,7 +118,13 @@
         "q": "침대 중복 배정된 것 같아요",
         "keyword": "침대 중복",
         "a": "다른 손님이 침대번호를 착각하고 사용하고 있나보네요. 아래 채팅 버튼을 눌러 매니저에게 문의해주세요.",
-        "category": "객실 및 침대 관련"
+        "category": "객실 및 침대 관련",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "와이파이는 어디에 있나요?",
@@ -144,7 +150,13 @@
         "q": "침대번호를 바꾸고 싶어요",
         "keyword": "침대번호",
         "a": "아래 채팅 버튼을 눌러 매니저에게 문의해주세요. 침대를 바꿀 수 있는 날짜를 알려드릴게요. (체크인 당일은 이미 침대배정이 끝나서 침대를 바꿀 수 없어요) 침대를 바꾸는 날 오전 11시까지 원래 사용하던 침대를 비워주세요. 청소가 끝나는 오후 3시 이후에 새로운 침대로 옮길 수 있어요.",
-        "category": "객실 및 침대 관련"
+        "category": "객실 및 침대 관련",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "환불규정",
@@ -325,7 +337,13 @@
         "q": "Bed mix-up, someone's in my spot",
         "keyword": "Bed mix-up",
         "a": "It looks like another guest is using your bed by mistake because of the bed number. Please tap the chat button below and contact the manager.",
-        "category": "Rooms and Beds"
+        "category": "Rooms and Beds",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Where is the Wi-Fi information?",
@@ -351,7 +369,13 @@
         "q": "I want to change my bed number.",
         "keyword": "bed number",
         "a": "Please tap the chat button below and contact the manager. We will tell you the date when you can change your bed. (On the day of check-in, bed assignment is already finished, so you cannot change your bed.) Please clear your original bed by 11:00 AM on the day you change beds. You can move to the new bed after 3:00 PM, when cleaning is finished.",
-        "category": "Rooms and Beds"
+        "category": "Rooms and Beds",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Refund policy",
@@ -532,7 +556,13 @@
         "q": "床位重复分配了",
         "keyword": "床位重复",
         "a": "看起来是其他客人把床号看错后用了您的床。请点击下方聊天按钮联系经理。",
-        "category": "房间及床位"
+        "category": "房间及床位",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Wi-Fi 信息在哪里？",
@@ -558,7 +588,13 @@
         "q": "我想换床号。",
         "keyword": "换床",
         "a": "请点击下方聊天按钮联系经理。我们会告诉您可以换床的日期。（入住当天床位已经分配完成，所以不能换床。）请在换床当天上午11点前清空原来的床位。清洁结束后的下午3点以后，您可以搬到新的床位。",
-        "category": "房间及床位"
+        "category": "房间及床位",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "退款规定",
@@ -739,7 +775,13 @@
         "q": "ベッド重複の可能性があります",
         "keyword": "ベッド重複",
         "a": "他のお客様がベッド番号を間違えて使っているようです。下のチャットボタンを押して、マネージャーにお問い合わせください。",
-        "category": "客室・ベッド"
+        "category": "客室・ベッド",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Wi-Fi はどこですか？",
@@ -765,7 +807,13 @@
         "q": "ベッド番号を変えたいです。",
         "keyword": "ベッド番号",
         "a": "下のチャットボタンを押して、マネージャーにお問い合わせください。ベッドを変更できる日をお知らせします。（チェックイン当日はすでにベッド割り当てが終わっているため、変更できません。）ベッドを変更する日の午前11時までに、今使っているベッドを空けてください。清掃が終わる午後3時以降に、新しいベッドへ移動できます。",
-        "category": "客室・ベッド"
+        "category": "客室・ベッド",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "返金規定",
@@ -946,7 +994,13 @@
         "q": "Путаница с кроватью — кто-то на моём месте",
         "keyword": "Путаница с кроватью",
         "a": "Похоже, другой гость по ошибке использует вашу кровать, перепутав номер кровати. Пожалуйста, нажмите кнопку чата ниже и свяжитесь с менеджером.",
-        "category": "Комнаты и кровати"
+        "category": "Комнаты и кровати",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Где находится информация о Wi-Fi?",
@@ -972,7 +1026,13 @@
         "q": "Я хочу поменять номер кровати.",
         "keyword": "номер кровати",
         "a": "Пожалуйста, нажмите кнопку чата ниже и свяжитесь с менеджером. Мы скажем вам дату, когда можно будет поменять кровать. (В день заезда поменять кровать нельзя, потому что распределение кроватей уже завершено.) Пожалуйста, освободите свою текущую кровать до 11:00 утра в день смены кровати. Вы сможете перейти на новую кровать после 3:00 дня, когда уборка будет закончена.",
-        "category": "Комнаты и кровати"
+        "category": "Комнаты и кровати",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Правила возврата",
@@ -1153,7 +1213,13 @@
         "q": "Cama duplicada, alguien está en mi lugar",
         "keyword": "Cama duplicada",
         "a": "Parece que otro huésped está usando su cama por error al confundir el número de la cama. Por favor, pulse el botón de chat de abajo y contacte al gerente.",
-        "category": "Habitaciones y camas"
+        "category": "Habitaciones y camas",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "¿Dónde está la información del Wi-Fi?",
@@ -1179,7 +1245,13 @@
         "q": "Quiero cambiar mi número de cama.",
         "keyword": "número de cama",
         "a": "Por favor, pulse el botón de chat de abajo y contacte al gerente. Le diremos la fecha en que puede cambiar de cama. (El mismo día del check-in no se puede cambiar la cama, porque la asignación ya está hecha.) Por favor, deje libre su cama original antes de las 11:00 AM el día del cambio. Puede moverse a la nueva cama después de las 3:00 PM, cuando termine la limpieza.",
-        "category": "Habitaciones y camas"
+        "category": "Habitaciones y camas",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Política de reembolso",
@@ -1360,7 +1432,13 @@
         "q": "Ор давхцал гарсан бололтой",
         "keyword": "Ор давхцал",
         "a": "Өөр зочин орны дугаарыг буруу ойлгосон байж магадгүй. Кийосктор бидэнд мессеж илгээнэ үү. Манай ажилтнууд удалгүй туслалцаа үзүүлнэ.",
-        "category": "Өрөө & Орын Холбогдох Асуултууд"
+        "category": "Өрөө & Орын Холбогдох Асуултууд",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Wi-Fi хаана байдаг вэ?",
@@ -1386,7 +1464,13 @@
         "q": "Миний ор дугаарыг өөрчилж болох уу?",
         "keyword": "ор дугаар",
         "a": "Тоолуурт жагсаалт үлээнэ үү. Та дараа өдрөөс ор өөрчилж болно. Өглөө 11 цагт одоогийн ороо хоосон үлээнэ үү, сүүлийн ухсалт дууссаны дараа 3 цагт шинэ орондоо очно уу.",
-        "category": "Өрөө & Орын Холбогдох Асуултууд"
+        "category": "Өрөө & Орын Холбогдох Асуултууд",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Буцаан олговрын бодлого юу вэ?",
@@ -1567,7 +1651,13 @@
         "q": "Giường bị trùng, có người ở chỗ tôi",
         "keyword": "Giường bị trùng",
         "a": "Có thể khách khác đã nhầm số giường. Vui lòng gửi tin nhắn cho chúng tôi qua kiosk. Nhân viên chúng tôi sẽ giúp bạn sớm.",
-        "category": "Phòng & Liên quan đến giường"
+        "category": "Phòng & Liên quan đến giường",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Wi-Fi ở đâu?",
@@ -1593,7 +1683,13 @@
         "q": "Tôi có thể thay đổi số giường không?",
         "keyword": "số giường",
         "a": "Để lại một tờ ghi chú ở quầy tiếp tân. Bạn có thể thay đổi giường từ ngày hôm sau. Vui lòng rời khỏi giường hiện tại của bạn trước 11 giờ sáng, và chuyển đến giường mới sau 15 giờ khi làm vệ sinh xong.",
-        "category": "Phòng & Liên quan đến giường"
+        "category": "Phòng & Liên quan đến giường",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Chính sách hoàn tiền là gì?",
@@ -1774,7 +1870,13 @@
         "q": "Lit en double, quelqu'un est à ma place",
         "keyword": "Lit en double",
         "a": "Il semble qu'un autre client utilise votre lit par erreur en raison du numéro de lit. Veuillez appuyer sur le bouton de chat ci-dessous et contacter le responsable.",
-        "category": "Chambres et Lits"
+        "category": "Chambres et Lits",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Où se trouvent les informations Wi-Fi?",
@@ -1800,7 +1902,13 @@
         "q": "Je veux changer mon numéro de lit.",
         "keyword": "numéro de lit",
         "a": "Veuillez appuyer sur le bouton de chat ci-dessous et contacter le responsable. Nous vous indiquerons la date à laquelle vous pouvez changer de lit. (Le jour de l'enregistrement, l'attribution des lits est déjà terminée, vous ne pouvez donc pas changer de lit.) Veuillez libérer votre lit d'origine avant 11h00 le jour où vous changez de lit. Vous pouvez passer au nouveau lit après 15h00, quand le nettoyage est terminé.",
-        "category": "Chambres et Lits"
+        "category": "Chambres et Lits",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Politique de remboursement",
@@ -1981,7 +2089,13 @@
         "q": "Bett-Verwechslung, jemand ist an meinem Platz",
         "keyword": "Bett-Verwechslung",
         "a": "Es sieht so aus, als würde ein anderer Gast Ihr Bett versehentlich nutzen wegen der Bettnummer. Bitte tippen Sie auf die Chat-Schaltfläche unten und kontaktieren Sie den Manager.",
-        "category": "Rooms and Beds"
+        "category": "Rooms and Beds",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Wo sind die Wi-Fi-Informationen?",
@@ -2007,7 +2121,13 @@
         "q": "Ich möchte meine Bettnummer ändern.",
         "keyword": "Bettnummer",
         "a": "Bitte tippen Sie auf die Chat-Schaltfläche unten und kontaktieren Sie den Manager. Wir werden Ihnen das Datum mitteilen, an dem Sie Ihr Bett wechseln können. (Am Ankunftstag ist die Bettzuweisung bereits abgeschlossen, daher können Sie Ihr Bett nicht wechseln.) Bitte räumen Sie Ihr ursprüngliches Bett bis 11:00 Uhr am Tag des Bettenwechsels. Sie können nach 15:00 Uhr ins neue Bett wechseln, wenn die Reinigung fertig ist.",
-        "category": "Rooms and Beds"
+        "category": "Rooms and Beds",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Rückgaberichtlinie",
@@ -2188,7 +2308,13 @@
         "q": "تكرار السرير، يوجد شخص في مكاني",
         "keyword": "تكرار السرير",
         "a": "يبدو أن نزيلاً آخر يستخدم سريرك بالخطأ بسبب رقم السرير. يرجى النقر على زر الدردشة أدناه والاتصال بمدير الفندق.",
-        "category": "الغرف والأسرة"
+        "category": "الغرف والأسرة",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "أين معلومات Wi-Fi؟",
@@ -2214,7 +2340,13 @@
         "q": "أريد تغيير رقم سريري.",
         "keyword": "رقم سريري",
         "a": "يرجى النقر على زر الدردشة أدناه والاتصال بمدير الفندق. سنخبرك بالتاريخ الذي يمكنك فيه تغيير سريرك. (في يوم تسجيل الوصول، يكون توزيع الأسرة قد اكتمل بالفعل، لذا لا يمكنك تغيير سريرك.) يرجى إخلاء سريرك الأصلي بحلول الساعة 11:00 صباحاً في اليوم الذي تغير فيه الأسرة. يمكنك الانتقال إلى السرير الجديد بعد الساعة 3:00 مساءً، عندما ينتهي التنظيف.",
-        "category": "الغرف والأسرة"
+        "category": "الغرف والأسرة",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "سياسة الاسترداد",
@@ -2395,7 +2527,13 @@
         "q": "Yatak çakışması var gibi",
         "keyword": "Yatak çakışması",
         "a": "Başka bir konuk yatak numarasından dolayı yanlışlıkla yatağınızı kullanıyor gibi görünüyor. Lütfen aşağıdaki sohbet düğmesine dokunun ve yöneticiyle iletişime geçin.",
-        "category": "Rooms and Beds"
+        "category": "Rooms and Beds",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Wi-Fi bilgisi nerede?",
@@ -2421,7 +2559,13 @@
         "q": "Yatak numaramı değiştirmek istiyorum.",
         "keyword": "Yatak numaramı",
         "a": "Lütfen aşağıdaki sohbet düğmesine dokunun ve yöneticiyle iletişime geçin. Yatak değiştirebileceğiniz tarihi size söyleriz. (Giriş günü, yatak atama zaten tamamlanmıştır, bu yüzden yatağı değiştiremezsiniz.) Lütfen yatak değiştirdiğiniz gün saat 11:00'a kadar orijinal yatağınızı boşaltın. Temizlik tamamlandıktan sonra saat 15:00'te yeni yatağa geçebilirsiniz.",
-        "category": "Rooms and Beds"
+        "category": "Rooms and Beds",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
       },
       {
         "q": "Para iadesi politikası",
