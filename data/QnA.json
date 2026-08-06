@@ -178,7 +178,7 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "체크아웃 시간은 몇시인가요?",
+        "q": "체크아웃은 어떻게 하나요?",
         "a": "오전 11시 입니다. 키오스크에서 방번호를 입력 후 슬리퍼를 반납하면 됩니다. 늦으면 20분마다 5,000원의 벌금이 부과됩니다.",
         "category": "출입/운영 방식/무인 관련",
         "keyword": "체크아웃"
@@ -397,10 +397,10 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "What time is check-out?",
+        "q": "How do I check out?",
         "a": "Check-out is at 11:00 AM. Enter your room number on the kiosk and return your slippers. A late fee of 5,000 KRW is charged every 20 minutes after that.",
         "category": "Access / Operation / Self-service",
-        "keyword": "check-out"
+        "keyword": "check out"
       },
       {
         "q": "Hot water isn't coming out.",
@@ -616,10 +616,10 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "退房时间是几点？",
+        "q": "退房怎么操作？",
         "a": "退房时间是上午11点。请在触摸屏上输入房间号并归还拖鞋。逾期每20分钟收取5,000韩元的罚款。",
         "category": "出入 / 运营方式 / 无人值守",
-        "keyword": "退房时间"
+        "keyword": "退房"
       },
       {
         "q": "热水出不来。",
@@ -835,10 +835,10 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "チェックアウトの時間は何時ですか？",
+        "q": "チェックアウトはどうすればいいですか？",
         "a": "午前11時です。キオスクで部屋番号を入力し、スリッパを返却してください。遅れると20分ごとに5,000ウォンの延滞料金がかかります。",
         "category": "出入 / 運営方式 / 無人運営",
-        "keyword": "チェックアウトの時間"
+        "keyword": "チェックアウト"
       },
       {
         "q": "お湯が出ません。",
@@ -1054,10 +1054,10 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "Во сколько выезд (check-out)?",
+        "q": "Как выехать (check-out)?",
         "a": "Выезд в 11:00. Введите номер комнаты на киоске и верните тапочки. За опоздание взимается штраф 5 000 вон за каждые 20 минут.",
         "category": "Вход / Работа / Самообслуживание",
-        "keyword": "выезд"
+        "keyword": "check-out"
       },
       {
         "q": "Не идёт горячая вода.",
@@ -1273,7 +1273,7 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "¿A qué hora es el check-out?",
+        "q": "¿Cómo hago el check-out?",
         "a": "El check-out es a las 11:00 a.m. Ingrese su número de habitación en el quiosco y devuelva las zapatillas. Si se retrasa, se cobrará una multa de 5,000 KRW cada 20 minutos.",
         "category": "Acceso / Operación / Autoservicio",
         "keyword": "check-out"
@@ -1492,7 +1492,7 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "Чекаут хийх цаг хэд вэ?",
+        "q": "Чекаутыг яаж хийх вэ?",
         "a": "Өглөөний 11 цагт. Киоск дээр өрөөний дугаараа оруулаад шаахайгаа буцаана уу. Хоцорвол 20 минут тутамд 5,000 вон торгууль ногдуулна.",
         "category": "Орох & Үйлчилгээгүй Ажиллагаа",
         "keyword": "Чекаут"
@@ -1711,7 +1711,7 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "Giờ trả phòng (check-out) là mấy giờ?",
+        "q": "Làm thế nào để trả phòng (check-out)?",
         "a": "Giờ trả phòng là 11 giờ sáng. Vui lòng nhập số phòng tại kiosk và trả lại dép. Nếu trễ, sẽ bị phạt 5.000 won mỗi 20 phút.",
         "category": "Vào cửa & Hoạt động không có nhân viên",
         "keyword": "trả phòng"
@@ -1930,7 +1930,7 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "À quelle heure est le check-out ?",
+        "q": "Comment faire le check-out ?",
         "a": "Le check-out est à 11h00. Entrez votre numéro de chambre sur la borne et rendez vos pantoufles. En cas de retard, une amende de 5 000 KRW est appliquée toutes les 20 minutes.",
         "category": "Accès / Fonctionnement / Libre-service",
         "keyword": "check-out"
@@ -2149,7 +2149,7 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "Um wie viel Uhr ist der Check-out?",
+        "q": "Wie funktioniert der Check-out?",
         "a": "Der Check-out ist um 11:00 Uhr. Geben Sie Ihre Zimmernummer am Kiosk ein und geben Sie die Hausschuhe zurück. Bei Verspätung wird alle 20 Minuten eine Gebühr von 5.000 KRW berechnet.",
         "category": "Access / Operation / Self-service",
         "keyword": "Check-out"
@@ -2368,7 +2368,7 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "في أي ساعة يكون تسجيل المغادرة؟",
+        "q": "كيف يتم تسجيل المغادرة؟",
         "a": "تسجيل المغادرة الساعة 11 صباحًا. أدخل رقم غرفتك على الجهاز وأعد النعال. في حال التأخير، تُفرض غرامة 5000 وون كل 20 دقيقة.",
         "category": "الوصول / التشغيل / الخدمة الذاتية",
         "keyword": "تسجيل المغادرة"
@@ -2587,7 +2587,7 @@
         "hideWhen": "nochat"
       },
       {
-        "q": "Check-out saati kaçtır?",
+        "q": "Check-out nasıl yapılır?",
         "a": "Check-out saat 11:00'dir. Kiosktan oda numaranızı girip terlikleri iade edin. Geç kalırsanız her 20 dakikada bir 5.000 won ceza uygulanır.",
         "category": "Access / Operation / Self-service",
         "keyword": "Check-out"
