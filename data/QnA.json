@@ -170,6 +170,24 @@
         "a": "오전 11시 입니다. 키오스크에서 방번호를 입력 후 슬리퍼를 반납하면 됩니다. 늦으면 20분마다 5,000원의 벌금이 부과됩니다.",
         "category": "출입/운영 방식/무인 관련",
         "keyword": "체크아웃"
+      },
+      {
+        "q": "뜨거운 물이 안나와요.",
+        "keyword": "뜨거운 물",
+        "a": "보일러 컨트롤러(전등 스위치 옆) 에러 코드를 확인해주세요. 10번 에러코드가 떠 있다면 욕실 안에 보일러실 벽쪽 스위치를 껏다가 켜주세요. 불편을 드려 죄송합니다.",
+        "category": "객실 및 침대 관련",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "뜨거운 물이 안나와요.",
+        "keyword": "뜨거운 물",
+        "a": "물을 처음 사용하면 뜨거운물이 나올때까지 물손잡이를 뜨거운 물쪽으로 틀어 놓고 2-3분 정도 기다리면 됩니다",
+        "category": "객실 및 침대 관련",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -344,6 +362,24 @@
         "a": "Check-out is at 11:00 AM. Enter your room number on the kiosk and return your slippers. A late fee of 5,000 KRW is charged every 20 minutes after that.",
         "category": "Access / Operation / Self-service",
         "keyword": "check-out"
+      },
+      {
+        "q": "Hot water isn't coming out.",
+        "keyword": "Hot water",
+        "a": "Please check the boiler controller (next to the light switch) for an error code. If error code 10 is showing, turn the switch on the boiler-room wall inside the bathroom off and back on. Sorry for the inconvenience.",
+        "category": "Rooms and Beds",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "Hot water isn't coming out.",
+        "keyword": "Hot water",
+        "a": "When using the water for the first time, turn the handle toward hot and wait about 2-3 minutes until hot water comes out.",
+        "category": "Rooms and Beds",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -518,6 +554,24 @@
         "a": "退房时间是上午11点。请在触摸屏上输入房间号并归还拖鞋。逾期每20分钟收取5,000韩元的罚款。",
         "category": "出入 / 运营方式 / 无人值守",
         "keyword": "退房时间"
+      },
+      {
+        "q": "热水出不来。",
+        "keyword": "热水",
+        "a": "请查看锅炉控制器（电灯开关旁边）上的错误代码。如果显示10号错误代码，请关闭并重新打开浴室内锅炉房墙上的开关。给您带来不便，敬请谅解。",
+        "category": "房间及床位",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "热水出不来。",
+        "keyword": "热水",
+        "a": "第一次用水时，请将水龙头把手转向热水一侧，等待2-3分钟左右，热水就会流出。",
+        "category": "房间及床位",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -692,6 +746,24 @@
         "a": "午前11時です。キオスクで部屋番号を入力し、スリッパを返却してください。遅れると20分ごとに5,000ウォンの延滞料金がかかります。",
         "category": "出入 / 運営方式 / 無人運営",
         "keyword": "チェックアウトの時間"
+      },
+      {
+        "q": "お湯が出ません。",
+        "keyword": "お湯",
+        "a": "ボイラーコントローラー（照明スイッチの横）のエラーコードをご確認ください。エラーコード10が表示されている場合は、浴室内のボイラー室の壁にあるスイッチをオフにしてから再度オンにしてください。ご不便をおかけして申し訳ございません。",
+        "category": "客室・ベッド",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "お湯が出ません。",
+        "keyword": "お湯",
+        "a": "初めてお水を使う場合は、水栓レバーをお湯側に回して2〜3分ほどお待ちいただくとお湯が出ます。",
+        "category": "客室・ベッド",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -866,6 +938,24 @@
         "a": "Выезд в 11:00. Введите номер комнаты на киоске и верните тапочки. За опоздание взимается штраф 5 000 вон за каждые 20 минут.",
         "category": "Вход / Работа / Самообслуживание",
         "keyword": "выезд"
+      },
+      {
+        "q": "Не идёт горячая вода.",
+        "keyword": "горячая вода",
+        "a": "Проверьте код ошибки на контроллере бойлера (рядом с выключателем света). Если отображается код ошибки 10, выключите и снова включите выключатель на стене бойлерной внутри ванной комнаты. Приносим извинения за неудобства.",
+        "category": "Комнаты и кровати",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "Не идёт горячая вода.",
+        "keyword": "горячая вода",
+        "a": "При первом использовании воды поверните ручку крана в сторону горячей воды и подождите 2-3 минуты, пока не пойдёт горячая вода.",
+        "category": "Комнаты и кровати",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -1040,6 +1130,24 @@
         "a": "El check-out es a las 11:00 a.m. Ingrese su número de habitación en el quiosco y devuelva las zapatillas. Si se retrasa, se cobrará una multa de 5,000 KRW cada 20 minutos.",
         "category": "Acceso / Operación / Autoservicio",
         "keyword": "check-out"
+      },
+      {
+        "q": "No sale agua caliente.",
+        "keyword": "agua caliente",
+        "a": "Revise el código de error en el controlador de la caldera (junto al interruptor de luz). Si aparece el código de error 10, apague y vuelva a encender el interruptor de la pared del cuarto de caldera dentro del baño. Disculpe las molestias.",
+        "category": "Habitaciones y camas",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "No sale agua caliente.",
+        "keyword": "agua caliente",
+        "a": "Al usar el agua por primera vez, gire la manija hacia el lado del agua caliente y espere unos 2-3 minutos hasta que salga agua caliente.",
+        "category": "Habitaciones y camas",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -1214,6 +1322,24 @@
         "a": "Өглөөний 11 цагт. Киоск дээр өрөөний дугаараа оруулаад шаахайгаа буцаана уу. Хоцорвол 20 минут тутамд 5,000 вон торгууль ногдуулна.",
         "category": "Орох & Үйлчилгээгүй Ажиллагаа",
         "keyword": "Чекаут"
+      },
+      {
+        "q": "Халуун ус гарахгүй байна.",
+        "keyword": "Халуун ус",
+        "a": "Бойлерын хяналтын самбар дээрх (гэрлийн унтраалгын хажууд) алдааны кодыг шалгана уу. Хэрэв 10-р алдааны код гарч байвал угаалгын өрөөн доторх бойлерын өрөөний ханан дахь унтраалгыг унтрааж дахин асаана уу. Таагүй байдал үүсгэсэнд уучлаарай.",
+        "category": "Өрөө & Орын Холбогдох Асуултууд",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "Халуун ус гарахгүй байна.",
+        "keyword": "Халуун ус",
+        "a": "Усыг анх удаа ашиглаж байгаа бол услгуурын бариулыг халуун ус тал руу эргүүлээд 2-3 минут орчим хүлээвэл халуун ус гарна.",
+        "category": "Өрөө & Орын Холбогдох Асуултууд",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -1388,6 +1514,24 @@
         "a": "Giờ trả phòng là 11 giờ sáng. Vui lòng nhập số phòng tại kiosk và trả lại dép. Nếu trễ, sẽ bị phạt 5.000 won mỗi 20 phút.",
         "category": "Vào cửa & Hoạt động không có nhân viên",
         "keyword": "trả phòng"
+      },
+      {
+        "q": "Không có nước nóng.",
+        "keyword": "nước nóng",
+        "a": "Vui lòng kiểm tra mã lỗi trên bộ điều khiển lò hơi (bên cạnh công tắc đèn). Nếu hiển thị mã lỗi số 10, hãy tắt rồi bật lại công tắc trên tường phòng lò hơi bên trong phòng tắm. Xin lỗi vì sự bất tiện này.",
+        "category": "Phòng & Liên quan đến giường",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "Không có nước nóng.",
+        "keyword": "nước nóng",
+        "a": "Khi sử dụng nước lần đầu, hãy vặn tay cầm vòi nước sang phía nước nóng và đợi khoảng 2-3 phút thì nước nóng sẽ ra.",
+        "category": "Phòng & Liên quan đến giường",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -1562,6 +1706,24 @@
         "a": "Le check-out est à 11h00. Entrez votre numéro de chambre sur la borne et rendez vos pantoufles. En cas de retard, une amende de 5 000 KRW est appliquée toutes les 20 minutes.",
         "category": "Accès / Fonctionnement / Libre-service",
         "keyword": "check-out"
+      },
+      {
+        "q": "L'eau chaude ne sort pas.",
+        "keyword": "eau chaude",
+        "a": "Veuillez vérifier le code d'erreur sur le contrôleur de chaudière (à côté de l'interrupteur d'éclairage). Si le code d'erreur 10 s'affiche, éteignez puis rallumez l'interrupteur situé sur le mur de la chaufferie à l'intérieur de la salle de bain. Désolé pour la gêne occasionnée.",
+        "category": "Chambres et Lits",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "L'eau chaude ne sort pas.",
+        "keyword": "eau chaude",
+        "a": "Lors de la première utilisation de l'eau, tournez la poignée vers le côté eau chaude et attendez environ 2 à 3 minutes jusqu'à ce que l'eau chaude coule.",
+        "category": "Chambres et Lits",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -1736,6 +1898,24 @@
         "a": "Der Check-out ist um 11:00 Uhr. Geben Sie Ihre Zimmernummer am Kiosk ein und geben Sie die Hausschuhe zurück. Bei Verspätung wird alle 20 Minuten eine Gebühr von 5.000 KRW berechnet.",
         "category": "Access / Operation / Self-service",
         "keyword": "Check-out"
+      },
+      {
+        "q": "Es kommt kein warmes Wasser.",
+        "keyword": "warmes Wasser",
+        "a": "Bitte überprüfen Sie den Fehlercode am Heizungscontroller (neben dem Lichtschalter). Wenn Fehlercode 10 angezeigt wird, schalten Sie den Schalter an der Wand des Heizungsraums im Badezimmer aus und wieder ein. Entschuldigung für die Unannehmlichkeiten.",
+        "category": "Rooms and Beds",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "Es kommt kein warmes Wasser.",
+        "keyword": "warmes Wasser",
+        "a": "Wenn Sie das Wasser zum ersten Mal benutzen, drehen Sie den Griff auf die heiße Seite und warten Sie etwa 2-3 Minuten, bis warmes Wasser kommt.",
+        "category": "Rooms and Beds",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -1910,6 +2090,24 @@
         "a": "تسجيل المغادرة الساعة 11 صباحًا. أدخل رقم غرفتك على الجهاز وأعد النعال. في حال التأخير، تُفرض غرامة 5000 وون كل 20 دقيقة.",
         "category": "الوصول / التشغيل / الخدمة الذاتية",
         "keyword": "تسجيل المغادرة"
+      },
+      {
+        "q": "الماء الساخن لا يخرج.",
+        "keyword": "الماء الساخن",
+        "a": "يرجى التحقق من رمز الخطأ الموجود على وحدة تحكم السخان (بجانب مفتاح الإضاءة). إذا ظهر رمز الخطأ رقم 10، فأطفئ المفتاح الموجود على جدار غرفة السخان داخل الحمام ثم أعد تشغيله. نعتذر عن الإزعاج.",
+        "category": "الغرف والأسرة",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "الماء الساخن لا يخرج.",
+        "keyword": "الماء الساخن",
+        "a": "عند استخدام الماء لأول مرة، أدر المقبض نحو جهة الماء الساخن وانتظر حوالي 2-3 دقائق حتى يخرج الماء الساخن.",
+        "category": "الغرف والأسرة",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   },
@@ -2084,6 +2282,24 @@
         "a": "Check-out saat 11:00'dir. Kiosktan oda numaranızı girip terlikleri iade edin. Geç kalırsanız her 20 dakikada bir 5.000 won ceza uygulanır.",
         "category": "Access / Operation / Self-service",
         "keyword": "Check-out"
+      },
+      {
+        "q": "Sıcak su gelmiyor.",
+        "keyword": "Sıcak su",
+        "a": "Lütfen kombi kontrol panelindeki (ışık düğmesinin yanında) hata kodunu kontrol edin. 10 numaralı hata kodu görünüyorsa, banyonun içindeki kombi odası duvarındaki düğmeyi kapatıp tekrar açın. Verdiğimiz rahatsızlıktan dolayı özür dileriz.",
+        "category": "Rooms and Beds",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "Sıcak su gelmiyor.",
+        "keyword": "Sıcak su",
+        "a": "Suyu ilk kez kullanırken, musluk kolunu sıcak su tarafına çevirin ve sıcak su gelene kadar yaklaşık 2-3 dakika bekleyin.",
+        "category": "Rooms and Beds",
+        "areas": [
+          "privateA"
+        ]
       }
     ]
   }
