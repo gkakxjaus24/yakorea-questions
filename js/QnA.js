@@ -75,18 +75,18 @@ function renderQuestionText(item) {
 // (chat-system/server/src/services/faqMatcher.js의 서버 버전과 로직 동일 — 텍스트도 맞춰둠)
 const TOWEL_RATES = [98, 99, 100];
 const TOWEL_NOTE_TEXT = {
-  ko: (range, rate) => `지난주(${range}) 수건 반납률: ${rate}% 달성.`,
-  en: (range, rate) => `Last week (${range}) towel return rate: ${rate}%.`,
-  zh: (range, rate) => `上周(${range})毛巾归还率：${rate}%。`,
-  ja: (range, rate) => `先週(${range})のタオル返却率：${rate}%。`,
-  ru: (range, rate) => `На прошлой неделе (${range}) процент возврата полотенец: ${rate}%.`,
-  es: (range, rate) => `La semana pasada (${range}) tasa de devolución de toallas: ${rate}%.`,
-  mn: (range, rate) => `Өнгөрсөн долоо хоногт (${range}) алчуур буцаах хувь: ${rate}%.`,
-  vi: (range, rate) => `Tuần trước (${range}) tỷ lệ trả khăn: ${rate}%.`,
-  fr: (range, rate) => `La semaine dernière (${range}) taux de retour des serviettes : ${rate}%.`,
-  de: (range, rate) => `Letzte Woche (${range}) Rücklaufquote der Handtücher: ${rate}%.`,
-  ar: (range, rate) => `الأسبوع الماضي (${range}) معدل إعادة المناشف: ${rate}%.`,
-  tr: (range, rate) => `Geçen hafta (${range}) havlu iade oranı: %${rate}.`,
+  ko: (range, rate) => `지난주(${range}) 수건 반납률: ${rate}%`,
+  en: (range, rate) => `Last week (${range}) towel return rate: ${rate}%`,
+  zh: (range, rate) => `上周(${range})毛巾归还率：${rate}%`,
+  ja: (range, rate) => `先週(${range})のタオル返却率：${rate}%`,
+  ru: (range, rate) => `На прошлой неделе (${range}) процент возврата полотенец: ${rate}%`,
+  es: (range, rate) => `La semana pasada (${range}) tasa de devolución de toallas: ${rate}%`,
+  mn: (range, rate) => `Өнгөрсөн долоо хоногт (${range}) алчуур буцаах хувь: ${rate}%`,
+  vi: (range, rate) => `Tuần trước (${range}) tỷ lệ trả khăn: ${rate}%`,
+  fr: (range, rate) => `La semaine dernière (${range}) taux de retour des serviettes : ${rate}%`,
+  de: (range, rate) => `Letzte Woche (${range}) Rücklaufquote der Handtücher: ${rate}%`,
+  ar: (range, rate) => `الأسبوع الماضي (${range}) معدل إعادة المناشف: ${rate}%`,
+  tr: (range, rate) => `Geçen hafta (${range}) havlu iade oranı: %${rate}`,
 };
 
 function hashInt(n) {
@@ -118,7 +118,7 @@ function getTowelReturnNote(lang) {
   const rate = TOWEL_RATES[hashInt(weekSeed) % TOWEL_RATES.length];
 
   const build = TOWEL_NOTE_TEXT[lang] || TOWEL_NOTE_TEXT.ko;
-  return build(range, rate);
+  return `<span style="color:#d32f2f">[${build(range, rate)}]</span>`;
 }
 
 // 답변 텍스트 안의 {{towelRate}}를 실제 안내문으로 치환 (없으면 그대로 반환)

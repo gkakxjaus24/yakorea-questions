@@ -30,7 +30,7 @@
       {
         "q": "수건이 더 필요해요.",
         "keyword": "수건",
-        "a": "다 쓴 수건은 2층 수건 바구니(지하객실은 샤워실 앞 바구니)에 \"반드시\" 반납하고 카운터 오른쪽 수건 바구니에서 새 수건을 가져가세요\n\n{{towelRate}}",
+        "a": "다 쓴 수건은 2층 수건 바구니(지하객실은 샤워실 앞 바구니)에 \"반드시\" 반납하고 카운터 오른쪽 수건 바구니에서 새 수건을 가져가세요<br><br>{{towelRate}}",
         "category": "생활 편의 시설 및 비품 관련",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -249,7 +249,7 @@
       {
         "q": "I need more towels.",
         "keyword": "towels",
-        "a": "Please \"make sure\" to return used towels to the towel basket on the 2nd floor. (For basement rooms, use the basket in front of the shower room.) Then take a new towel from the towel basket on the right side of the counter.\n\n{{towelRate}}",
+        "a": "Please \"make sure\" to return used towels to the towel basket on the 2nd floor. (For basement rooms, use the basket in front of the shower room.) Then take a new towel from the towel basket on the right side of the counter.<br><br>{{towelRate}}",
         "category": "Amenities and Supplies",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -468,7 +468,7 @@
       {
         "q": "我还需要毛巾。",
         "keyword": "毛巾",
-        "a": "请\"务必\"把用过的毛巾放回2楼的毛巾篮里。（地下房间请放到淋浴间前面的篮子里。）然后从前台右侧的毛巾篮里拿新的毛巾。\n\n{{towelRate}}",
+        "a": "请\"务必\"把用过的毛巾放回2楼的毛巾篮里。（地下房间请放到淋浴间前面的篮子里。）然后从前台右侧的毛巾篮里拿新的毛巾。<br><br>{{towelRate}}",
         "category": "生活便利设施及用品",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -687,7 +687,7 @@
       {
         "q": "タオルがもっと必要です。",
         "keyword": "タオル",
-        "a": "使ったタオルは2階のタオルかごへ\"必ず\"返却してください。（地下のお部屋はシャワールーム前のかごをご利用ください。）そのあと、カウンター右側のタオルかごから新しいタオルをお取りください。\n\n{{towelRate}}",
+        "a": "使ったタオルは2階のタオルかごへ\"必ず\"返却してください。（地下のお部屋はシャワールーム前のかごをご利用ください。）そのあと、カウンター右側のタオルかごから新しいタオルをお取りください。<br><br>{{towelRate}}",
         "category": "生活設備・備品",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -906,7 +906,7 @@
       {
         "q": "Мне нужно еще полотенце.",
         "keyword": "полотенце",
-        "a": "Пожалуйста, \"обязательно\" верните использованные полотенца в корзину для полотенец на 2-м этаже. (Для комнат в подвале используйте корзину перед душевой.) Затем возьмите новое полотенце из корзины справа от стойки.\n\n{{towelRate}}",
+        "a": "Пожалуйста, \"обязательно\" верните использованные полотенца в корзину для полотенец на 2-м этаже. (Для комнат в подвале используйте корзину перед душевой.) Затем возьмите новое полотенце из корзины справа от стойки.<br><br>{{towelRate}}",
         "category": "Удобства и принадлежности",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -1125,7 +1125,7 @@
       {
         "q": "Necesito más toallas.",
         "keyword": "toallas",
-        "a": "Por favor, \"asegúrese\" de devolver las toallas usadas a la cesta de toallas del segundo piso. (Para las habitaciones del sótano, use la cesta que está frente a la ducha.) Después, tome una toalla nueva de la cesta que está a la derecha del mostrador.\n\n{{towelRate}}",
+        "a": "Por favor, \"asegúrese\" de devolver las toallas usadas a la cesta de toallas del segundo piso. (Para las habitaciones del sótano, use la cesta que está frente a la ducha.) Después, tome una toalla nueva de la cesta que está a la derecha del mostrador.<br><br>{{towelRate}}",
         "category": "Servicios y artículos",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -1344,7 +1344,7 @@
       {
         "q": "Илүү алчуур хэрэгтэй.",
         "keyword": "алчуур",
-        "a": "Ашигласан алчуурыг 2-р давхарын алчуурын сагсанд (эсвэл подвалын өрөө сүүлийн ванны өрөөний өмнөх сагс) буцаана уу. Дараа нь тоолуурын баруун талын сагсаас шинэ алчуурыг авна уу.\n\n{{towelRate}}",
+        "a": "Ашигласан алчуурыг 2-р давхарын алчуурын сагсанд (эсвэл подвалын өрөө сүүлийн ванны өрөөний өмнөх сагс) буцаана уу. Дараа нь тоолуурын баруун талын сагсаас шинэ алчуурыг авна уу.<br><br>{{towelRate}}",
         "category": "Байгууламж & Удирдамжууд",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -1563,7 +1563,7 @@
       {
         "q": "Tôi cần thêm khăn tắm.",
         "keyword": "khăn tắm",
-        "a": "Vui lòng trả khăn đã sử dụng vào giỏ khăn ở tầng 2 (hoặc giỏ ở trước phòng tắm đối với các phòng hầm). Sau đó lấy khăn sạch từ giỏ ở bên phải quầy tiếp tân.\n\n{{towelRate}}",
+        "a": "Vui lòng trả khăn đã sử dụng vào giỏ khăn ở tầng 2 (hoặc giỏ ở trước phòng tắm đối với các phòng hầm). Sau đó lấy khăn sạch từ giỏ ở bên phải quầy tiếp tân.<br><br>{{towelRate}}",
         "category": "Tiện nghi & Dịch vụ",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -1782,7 +1782,7 @@
       {
         "q": "J'ai besoin de plus de serviettes.",
         "keyword": "serviettes",
-        "a": "Veuillez \"vous assurer\" de retourner les serviettes usagées au panier à serviettes au 2e étage. (Pour les chambres au sous-sol, utilisez le panier devant la salle de douche.) Puis prenez une nouvelle serviette du panier à serviettes à droite du comptoir.\n\n{{towelRate}}",
+        "a": "Veuillez \"vous assurer\" de retourner les serviettes usagées au panier à serviettes au 2e étage. (Pour les chambres au sous-sol, utilisez le panier devant la salle de douche.) Puis prenez une nouvelle serviette du panier à serviettes à droite du comptoir.<br><br>{{towelRate}}",
         "category": "Équipements et Fournitures",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -2001,7 +2001,7 @@
       {
         "q": "Ich brauche mehr Handtücher.",
         "keyword": "Handtücher",
-        "a": "Bitte \"achten Sie darauf\", gebrauchte Handtücher in den Handtuchkorb im 2. Stock zurückzugeben. (Für Kellerräume nutzen Sie bitte den Korb vor dem Duschraum.) Nehmen Sie dann ein neues Handtuch aus dem Handtuchkorb auf der rechten Seite des Schalters.\n\n{{towelRate}}",
+        "a": "Bitte \"achten Sie darauf\", gebrauchte Handtücher in den Handtuchkorb im 2. Stock zurückzugeben. (Für Kellerräume nutzen Sie bitte den Korb vor dem Duschraum.) Nehmen Sie dann ein neues Handtuch aus dem Handtuchkorb auf der rechten Seite des Schalters.<br><br>{{towelRate}}",
         "category": "Amenities and Supplies",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -2220,7 +2220,7 @@
       {
         "q": "أنا بحاجة إلى مزيد من المناشف.",
         "keyword": "المناشف",
-        "a": "يرجى \"التأكد من\" إعادة المناشف المستخدمة إلى سلة المناشف في الطابق الثاني. (للغرف الموجودة في الطابق السفلي، استخدم السلة أمام حمام الاستحمام.) ثم خذ منشفة جديدة من سلة المناشف على الجانب الأيمن من العداد.\n\n{{towelRate}}",
+        "a": "يرجى \"التأكد من\" إعادة المناشف المستخدمة إلى سلة المناشف في الطابق الثاني. (للغرف الموجودة في الطابق السفلي، استخدم السلة أمام حمام الاستحمام.) ثم خذ منشفة جديدة من سلة المناشف على الجانب الأيمن من العداد.<br><br>{{towelRate}}",
         "category": "المرافق والإمدادات",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
@@ -2439,7 +2439,7 @@
       {
         "q": "Daha fazla havlu lazım.",
         "keyword": "havlu",
-        "a": "Lütfen kullanılan havluları 2. kattaki havlu sepetine \"geri koyduğunuzdan emin olunuz\". (Bodrum katı odalar için duş odasının önündeki sepeti kullanınız.) Ardından tezgahın sağ tarafındaki havlu sepetinden yeni bir havlu alınız.\n\n{{towelRate}}",
+        "a": "Lütfen kullanılan havluları 2. kattaki havlu sepetine \"geri koyduğunuzdan emin olunuz\". (Bodrum katı odalar için duş odasının önündeki sepeti kullanınız.) Ardından tezgahın sağ tarafındaki havlu sepetinden yeni bir havlu alınız.<br><br>{{towelRate}}",
         "category": "Amenities and Supplies",
         "media": "images/faq/towel.jpg",
         "mediaType": "image"
