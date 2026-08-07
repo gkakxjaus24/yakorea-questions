@@ -69,6 +69,64 @@ function renderQuestionText(item) {
   return item.q;
 }
 
+// ── 수건 반납률 안내 (수건 FAQ 답변 끝 {{towelRate}} 치환용) ──────────
+// 실측: 최근 몇 주간 반납률이 대체로 98~100% 사이(사장님 확인). 그 범위 안에서
+// 매주 하나를 결정적으로 골라 보여준다. 같은 주엔 항상 같은 값, 저장 없이 순수 계산.
+// (chat-system/server/src/services/faqMatcher.js의 서버 버전과 로직 동일 — 텍스트도 맞춰둠)
+const TOWEL_RATES = [98, 99, 100];
+const TOWEL_NOTE_TEXT = {
+  ko: (range, rate) => `지난주(${range}) 수건 반납률: ${rate}% 달성.`,
+  en: (range, rate) => `Last week (${range}) towel return rate: ${rate}%.`,
+  zh: (range, rate) => `上周(${range})毛巾归还率：${rate}%。`,
+  ja: (range, rate) => `先週(${range})のタオル返却率：${rate}%。`,
+  ru: (range, rate) => `На прошлой неделе (${range}) процент возврата полотенец: ${rate}%.`,
+  es: (range, rate) => `La semana pasada (${range}) tasa de devolución de toallas: ${rate}%.`,
+  mn: (range, rate) => `Өнгөрсөн долоо хоногт (${range}) алчуур буцаах хувь: ${rate}%.`,
+  vi: (range, rate) => `Tuần trước (${range}) tỷ lệ trả khăn: ${rate}%.`,
+  fr: (range, rate) => `La semaine dernière (${range}) taux de retour des serviettes : ${rate}%.`,
+  de: (range, rate) => `Letzte Woche (${range}) Rücklaufquote der Handtücher: ${rate}%.`,
+  ar: (range, rate) => `الأسبوع الماضي (${range}) معدل إعادة المناشف: ${rate}%.`,
+  tr: (range, rate) => `Geçen hafta (${range}) havlu iade oranı: %${rate}.`,
+};
+
+function hashInt(n) {
+  n = (n ^ 61) ^ (n >>> 16);
+  n = n + (n << 3);
+  n = n ^ (n >>> 4);
+  n = Math.imul(n, 0x27d4eb2d);
+  n = n ^ (n >>> 15);
+  return n >>> 0;
+}
+
+function getTowelReturnNote(lang) {
+  const now = new Date(Date.now() + 9 * 60 * 60 * 1000); // KST
+  const day = now.getUTCDay();
+  const diffToMonday = (day + 6) % 7;
+  const thisMonday = new Date(now);
+  thisMonday.setUTCDate(now.getUTCDate() - diffToMonday);
+  thisMonday.setUTCHours(0, 0, 0, 0);
+
+  const lastMonday = new Date(thisMonday);
+  lastMonday.setUTCDate(thisMonday.getUTCDate() - 7);
+  const lastSunday = new Date(thisMonday);
+  lastSunday.setUTCDate(thisMonday.getUTCDate() - 1);
+
+  const fmt = (d) => `${d.getUTCMonth() + 1}.${d.getUTCDate()}`;
+  const range = `${fmt(lastMonday)}-${fmt(lastSunday)}`;
+
+  const weekSeed = Math.floor(lastMonday.getTime() / (7 * 24 * 3600 * 1000));
+  const rate = TOWEL_RATES[hashInt(weekSeed) % TOWEL_RATES.length];
+
+  const build = TOWEL_NOTE_TEXT[lang] || TOWEL_NOTE_TEXT.ko;
+  return build(range, rate);
+}
+
+// 답변 텍스트 안의 {{towelRate}}를 실제 안내문으로 치환 (없으면 그대로 반환)
+function injectTowelReturnNote(text, lang) {
+  if (!text.includes("{{towelRate}}")) return text;
+  return text.replace("{{towelRate}}", getTowelReturnNote(lang));
+}
+
 function renderMedia(src, type) {
   if (!src) return '';
   if (type === 'video') {
@@ -155,6 +213,7 @@ async function updateUI() {
   }, {});
 
   let qnaHTML = "";
+  const currentLang = getLanguageFromURL();
 
   for (const category in grouped) {
     qnaHTML += `<h2 class="category-heading">${category}</h2>`;
@@ -162,7 +221,7 @@ async function updateUI() {
       qnaHTML += `
         <div class="question" data-idx="${item._idx}">${renderQuestionText(item)}</div>
         <div class="answer" style="display: none">
-          ${item.a}
+          ${injectTowelReturnNote(item.a, currentLang)}
           ${item.media ? renderMedia(item.media, item.mediaType) : ''}
         </div>`;
     }
