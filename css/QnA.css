@@ -120,6 +120,11 @@
   line-height: 1.5;
 }
 
+.feedback-disclaimer strong {
+  color: #222;
+  font-weight: 700;
+}
+
 .feedback-field-label {
   display: block;
   font-size: 14px;
