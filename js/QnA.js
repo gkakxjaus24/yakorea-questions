@@ -384,5 +384,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
   await updateUI();
-  renderFeedbackForm();
+  if (!isNoChat()) renderFeedbackForm(); // 이메일 링크(?nochat=1)는 투숙객 대상 아님 — 건의/불편 폼 제외
 });
