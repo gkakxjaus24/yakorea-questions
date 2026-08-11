@@ -215,7 +215,10 @@
       "successMsg": "소중한 의견 감사합니다.",
       "errorMsg": "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
       "roomRequiredMsg": "방 번호를 선택해주세요.",
-      "contentRequiredMsg": "내용을 입력해주세요."
+      "contentRequiredMsg": "내용을 입력해주세요.",
+      "noticeMsg": "여기는 <strong>익명 건의사항</strong> 칸입니다.<br>직원과 실시간으로 연락하시려면 채팅 버튼을 눌러주세요.",
+      "noticeProceed": "익명으로 의견을 전달할게요",
+      "noticeChat": "실시간 채팅을 하겠습니다"
     }
   },
   "en": {
@@ -434,7 +437,10 @@
       "successMsg": "Thank you for your feedback.",
       "errorMsg": "Failed to send. Please try again later.",
       "roomRequiredMsg": "Please select your room.",
-      "contentRequiredMsg": "Please enter your message."
+      "contentRequiredMsg": "Please enter your message.",
+      "noticeMsg": "This is an <strong>anonymous suggestion box</strong>.<br>To reach our staff in real time, please use the chat button.",
+      "noticeProceed": "I'll leave anonymous feedback",
+      "noticeChat": "I'd like to chat in real time"
     }
   },
   "zh": {
@@ -653,7 +659,10 @@
       "successMsg": "感谢您的宝贵意见。",
       "errorMsg": "发送失败，请稍后再试。",
       "roomRequiredMsg": "请选择房间号。",
-      "contentRequiredMsg": "请输入内容。"
+      "contentRequiredMsg": "请输入内容。",
+      "noticeMsg": "这里是<strong>匿名意见箱</strong>。<br>如需与工作人员实时联系，请点击聊天按钮。",
+      "noticeProceed": "我要匿名留言",
+      "noticeChat": "我要实时聊天"
     }
   },
   "ja": {
@@ -872,7 +881,10 @@
       "successMsg": "貴重なご意見ありがとうございます。",
       "errorMsg": "送信に失敗しました。しばらくしてから再試行してください。",
       "roomRequiredMsg": "部屋番号を選択してください。",
-      "contentRequiredMsg": "内容を入力してください。"
+      "contentRequiredMsg": "内容を入力してください。",
+      "noticeMsg": "こちらは<strong>匿名のご意見箱</strong>です。<br>スタッフとリアルタイムで連絡するにはチャットボタンをご利用ください。",
+      "noticeProceed": "匿名で意見を送ります",
+      "noticeChat": "リアルタイムでチャットします"
     }
   },
   "ru": {
@@ -1091,7 +1103,10 @@
       "successMsg": "Спасибо за ваш отзыв.",
       "errorMsg": "Не удалось отправить. Попробуйте позже.",
       "roomRequiredMsg": "Пожалуйста, выберите комнату.",
-      "contentRequiredMsg": "Пожалуйста, введите сообщение."
+      "contentRequiredMsg": "Пожалуйста, введите сообщение.",
+      "noticeMsg": "Это <strong>анонимная форма для отзывов</strong>.<br>Чтобы связаться с сотрудником в реальном времени, воспользуйтесь кнопкой чата.",
+      "noticeProceed": "Оставлю анонимный отзыв",
+      "noticeChat": "Хочу написать в чат"
     }
   },
   "es": {
@@ -1310,7 +1325,10 @@
       "successMsg": "Gracias por sus comentarios.",
       "errorMsg": "Error al enviar. Inténtelo de nuevo más tarde.",
       "roomRequiredMsg": "Seleccione su habitación.",
-      "contentRequiredMsg": "Ingrese su mensaje."
+      "contentRequiredMsg": "Ingrese su mensaje.",
+      "noticeMsg": "Este es un <strong>buzón de sugerencias anónimo</strong>.<br>Para contactar con el personal en tiempo real, use el botón de chat.",
+      "noticeProceed": "Dejaré un comentario anónimo",
+      "noticeChat": "Quiero chatear en tiempo real"
     }
   },
   "mn": {
@@ -1529,7 +1547,10 @@
       "successMsg": "Санал хүсэлтэд баярлалаа.",
       "errorMsg": "Илгээж чадсангүй. Дараа дахин оролдоно уу.",
       "roomRequiredMsg": "Өрөөгөө сонгоно уу.",
-      "contentRequiredMsg": "Мессежээ оруулна уу."
+      "contentRequiredMsg": "Мессежээ оруулна уу.",
+      "noticeMsg": "Энэ бол <strong>нэрээ нууцалсан санал хүсэлтийн хэсэг</strong>.<br>Ажилтантай шууд холбогдохыг хүсвэл чат товчийг дарна уу.",
+      "noticeProceed": "Нэрээ нууцлан санал үлдээе",
+      "noticeChat": "Шууд чатлахыг хүсч байна"
     }
   },
   "vi": {
@@ -1748,7 +1769,10 @@
       "successMsg": "Cảm ơn góp ý của bạn.",
       "errorMsg": "Gửi thất bại. Vui lòng thử lại sau.",
       "roomRequiredMsg": "Vui lòng chọn phòng của bạn.",
-      "contentRequiredMsg": "Vui lòng nhập nội dung."
+      "contentRequiredMsg": "Vui lòng nhập nội dung.",
+      "noticeMsg": "Đây là <strong>hộp góp ý ẩn danh</strong>.<br>Để liên hệ trực tiếp với nhân viên, vui lòng nhấn nút chat.",
+      "noticeProceed": "Tôi sẽ gửi góp ý ẩn danh",
+      "noticeChat": "Tôi muốn chat trực tiếp"
     }
   },
   "fr": {
@@ -1967,7 +1991,10 @@
       "successMsg": "Merci pour votre avis.",
       "errorMsg": "Échec de l'envoi. Veuillez réessayer plus tard.",
       "roomRequiredMsg": "Veuillez sélectionner votre chambre.",
-      "contentRequiredMsg": "Veuillez saisir votre message."
+      "contentRequiredMsg": "Veuillez saisir votre message.",
+      "noticeMsg": "Ceci est une <strong>boîte à suggestions anonyme</strong>.<br>Pour joindre le personnel en temps réel, utilisez le bouton de chat.",
+      "noticeProceed": "Je laisse un avis anonyme",
+      "noticeChat": "Je veux discuter en direct"
     }
   },
   "de": {
@@ -2186,7 +2213,10 @@
       "successMsg": "Vielen Dank für Ihr Feedback.",
       "errorMsg": "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.",
       "roomRequiredMsg": "Bitte wählen Sie Ihr Zimmer aus.",
-      "contentRequiredMsg": "Bitte geben Sie Ihre Nachricht ein."
+      "contentRequiredMsg": "Bitte geben Sie Ihre Nachricht ein.",
+      "noticeMsg": "Dies ist ein <strong>anonymer Feedback-Bereich</strong>.<br>Um Mitarbeiter in Echtzeit zu erreichen, nutzen Sie bitte den Chat-Button.",
+      "noticeProceed": "Ich hinterlasse anonymes Feedback",
+      "noticeChat": "Ich möchte live chatten"
     }
   },
   "ar": {
@@ -2405,7 +2435,10 @@
       "successMsg": "شكرًا لملاحظاتك.",
       "errorMsg": "فشل الإرسال. يرجى المحاولة لاحقًا.",
       "roomRequiredMsg": "يرجى اختيار غرفتك.",
-      "contentRequiredMsg": "يرجى إدخال رسالتك."
+      "contentRequiredMsg": "يرجى إدخال رسالتك.",
+      "noticeMsg": "هذا <strong>صندوق اقتراحات مجهول الهوية</strong>.<br>للتواصل مع الموظفين مباشرة، يرجى استخدام زر الدردشة.",
+      "noticeProceed": "سأترك رأيي بشكل مجهول",
+      "noticeChat": "أريد الدردشة المباشرة"
     }
   },
   "tr": {
@@ -2624,7 +2657,10 @@
       "successMsg": "Görüşünüz için teşekkürler.",
       "errorMsg": "Gönderilemedi. Lütfen daha sonra tekrar deneyin.",
       "roomRequiredMsg": "Lütfen odanızı seçin.",
-      "contentRequiredMsg": "Lütfen mesajınızı girin."
+      "contentRequiredMsg": "Lütfen mesajınızı girin.",
+      "noticeMsg": "Burası <strong>anonim öneri kutusudur</strong>.<br>Personelle anlık iletişim için lütfen sohbet düğmesini kullanın.",
+      "noticeProceed": "Anonim olarak görüş bırakacağım",
+      "noticeChat": "Canlı sohbet etmek istiyorum"
     }
   }
 }

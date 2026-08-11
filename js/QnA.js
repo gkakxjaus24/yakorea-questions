@@ -298,10 +298,17 @@ function renderFeedbackForm() {
         <option value="">${fb.bedPlaceholder}</option>
       </select>
     </div>
-    <textarea id="feedback-content" placeholder="${fb.placeholder}" rows="4"></textarea>
+    <textarea id="feedback-content" placeholder="${fb.placeholder}" rows="4" readonly></textarea>
     <p id="feedback-error" class="feedback-error hidden"></p>
     <button id="feedback-submit" class="feedback-submit-btn">${fb.submitBtn}</button>
     <p id="feedback-success" class="feedback-success hidden">${fb.successMsg}</p>
+    <div id="feedback-notice" class="hidden">
+      <div class="feedback-notice-box">
+        <p class="feedback-notice-msg">${fb.noticeMsg}</p>
+        <button id="feedback-notice-proceed" class="feedback-notice-btn primary">${fb.noticeProceed}</button>
+        <button id="feedback-notice-chat" class="feedback-notice-btn">${fb.noticeChat}</button>
+      </div>
+    </div>
   `;
   document.querySelector(".container").insertAdjacentElement("afterend", section);
 
@@ -312,6 +319,34 @@ function renderFeedbackForm() {
   const errorEl = section.querySelector("#feedback-error");
   const successEl = section.querySelector("#feedback-success");
   const submitBtn = section.querySelector("#feedback-submit");
+  const noticeEl = section.querySelector("#feedback-notice");
+  const noticeProceedBtn = section.querySelector("#feedback-notice-proceed");
+  const noticeChatBtn = section.querySelector("#feedback-notice-chat");
+
+  // 손님들이 실시간 문의를 이 칸에 적는 일이 잦아, 처음 입력을 시도할 때 한 번
+  // 안내 팝업을 띄운다. textarea를 readonly로 두는 이유는 모바일에서 팝업보다
+  // 먼저 키보드가 올라오는 것을 막기 위함 — "익명으로 전달" 선택 시 해제한다.
+  let noticeAcknowledged = false;
+  function openFeedbackNotice() {
+    if (noticeAcknowledged) return;
+    noticeEl.classList.remove("hidden");
+  }
+  contentEl.addEventListener("focus", openFeedbackNotice);
+  contentEl.addEventListener("click", openFeedbackNotice);
+
+  noticeProceedBtn.addEventListener("click", () => {
+    noticeAcknowledged = true;
+    noticeEl.classList.add("hidden");
+    contentEl.removeAttribute("readonly");
+    contentEl.focus();
+  });
+
+  // 실시간 채팅을 원하는 경우: 팝업만 닫고 입력칸은 잠근 채로 둔다.
+  // (손님이 채팅 버튼을 찾아 누르도록 유도 — 다시 입력칸을 누르면 안내가 재노출됨)
+  noticeChatBtn.addEventListener("click", () => {
+    noticeEl.classList.add("hidden");
+    contentEl.blur();
+  });
 
   roomSelect.addEventListener("change", () => {
     const opt = roomSelect.selectedOptions[0];
