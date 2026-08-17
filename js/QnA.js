@@ -275,17 +275,17 @@ function getRoomsForArea(area) {
   return ROOM_LIST;
 }
 
-function renderFeedbackForm() {
+// 건의사항 질문(data/QnA.json의 "건의사항이 있어요" 항목, a: '<div id="feedback-inline-slot">')을
+// 아코디언으로 열어야만 보이게 한다 — 손님이 실시간 문의를 이 칸에 잘못 적던 문제가 있었는데,
+// 팝업으로 막기보다 애초에 스스로 클릭해서 들어와야 하는 위치로 옮기는 편이 나음(2026-08 결정).
+function renderFeedbackFormInto(slot) {
   const fb = i18n.feedback;
   if (!fb) return;
 
   const area = getAreaFromURL();
   const rooms = getRoomsForArea(area);
 
-  const section = document.createElement("section");
-  section.id = "feedback-section";
-  section.innerHTML = `
-    <h2 class="category-heading">${fb.title}</h2>
+  slot.innerHTML = `
     <p class="feedback-disclaimer">${fb.disclaimer}</p>
     <label class="feedback-field-label" for="feedback-room">${fb.roomLabel}</label>
     <select id="feedback-room">
@@ -298,59 +298,23 @@ function renderFeedbackForm() {
         <option value="">${fb.bedPlaceholder}</option>
       </select>
     </div>
-    <textarea id="feedback-content" placeholder="${fb.placeholder}" rows="4" readonly></textarea>
+    <textarea id="feedback-content" placeholder="${fb.placeholder}" rows="4"></textarea>
     <p id="feedback-error" class="feedback-error hidden"></p>
     <button id="feedback-submit" class="feedback-submit-btn">${fb.submitBtn}</button>
     <p id="feedback-success" class="feedback-success hidden">${fb.successMsg}</p>
-    <div id="feedback-notice" class="hidden">
-      <div class="feedback-notice-box">
-        <p class="feedback-notice-msg">${fb.noticeMsg}</p>
-        <button id="feedback-notice-proceed" class="feedback-notice-btn">${fb.noticeProceed}</button>
-        <button id="feedback-notice-chat" class="feedback-notice-btn primary">${fb.noticeChat}</button>
-      </div>
-    </div>
   `;
-  document.querySelector(".container").insertAdjacentElement("afterend", section);
 
-  const roomSelect = section.querySelector("#feedback-room");
-  const bedWrap = section.querySelector("#feedback-bed-wrap");
-  const bedSelect = section.querySelector("#feedback-bed");
-  const contentEl = section.querySelector("#feedback-content");
-  const errorEl = section.querySelector("#feedback-error");
-  const successEl = section.querySelector("#feedback-success");
-  const submitBtn = section.querySelector("#feedback-submit");
-  const noticeEl = section.querySelector("#feedback-notice");
-  const noticeProceedBtn = section.querySelector("#feedback-notice-proceed");
-  const noticeChatBtn = section.querySelector("#feedback-notice-chat");
+  const roomSelect = slot.querySelector("#feedback-room");
+  const bedWrap = slot.querySelector("#feedback-bed-wrap");
+  const bedSelect = slot.querySelector("#feedback-bed");
+  const contentEl = slot.querySelector("#feedback-content");
+  const errorEl = slot.querySelector("#feedback-error");
+  const successEl = slot.querySelector("#feedback-success");
+  const submitBtn = slot.querySelector("#feedback-submit");
 
-  // 손님들이 실시간 문의를 이 칸에 적는 일이 잦아, 처음 입력을 시도할 때 한 번
-  // 안내 팝업을 띄운다. textarea를 readonly로 두는 이유는 모바일에서 팝업보다
-  // 먼저 키보드가 올라오는 것을 막기 위함 — "익명으로 전달" 선택 시 해제한다.
-  let noticeAcknowledged = false;
-  function openFeedbackNotice() {
-    if (noticeAcknowledged) return;
-    noticeEl.classList.remove("hidden");
-  }
-  contentEl.addEventListener("focus", openFeedbackNotice);
-  contentEl.addEventListener("click", openFeedbackNotice);
-
-  noticeProceedBtn.addEventListener("click", () => {
-    noticeAcknowledged = true;
-    noticeEl.classList.add("hidden");
-    contentEl.removeAttribute("readonly");
-    contentEl.focus();
-  });
-
-  // 실시간 채팅을 원하는 경우: 팝업을 닫고 채팅 위젯을 바로 열어준다.
-  // (버튼만 누르면 끝나야지, "채팅 버튼을 찾아서 눌러라"는 안내는 또 다른 이탈 지점이 된다)
-  noticeChatBtn.addEventListener("click", () => {
-    noticeEl.classList.add("hidden");
-    contentEl.blur();
-    const toggleBtn = document
-      .getElementById("ya-chat-widget-host")
-      ?.shadowRoot?.getElementById("toggle-btn");
-    if (toggleBtn) toggleBtn.click();
-  });
+  // 아코디언 질문 클릭 시 열림/닫힘이 토글되므로, 폼 내부 클릭이 그 상위 리스너로
+  // 버블링되어 다시 닫히지 않도록 막는다.
+  slot.addEventListener("click", (e) => e.stopPropagation());
 
   roomSelect.addEventListener("change", () => {
     const opt = roomSelect.selectedOptions[0];
@@ -423,5 +387,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
   await updateUI();
-  if (!isNoChat()) renderFeedbackForm(); // 이메일 링크(?nochat=1)는 투숙객 대상 아님 — 건의/불편 폼 제외
+  // "건의사항이 있어요" 항목의 답변 칸(a: '<div id="feedback-inline-slot">')을 찾아 폼을 채워 넣는다.
+  // 이메일 링크(?nochat=1)에서는 해당 항목 자체가 hideWhen으로 숨겨져 slot이 없으므로 자동으로 스킵됨.
+  const feedbackSlot = document.getElementById("feedback-inline-slot");
+  if (feedbackSlot) renderFeedbackFormInto(feedbackSlot);
 });

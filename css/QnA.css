@@ -105,14 +105,6 @@
 
 .hidden { display: none !important; }
 
-#feedback-section {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 16px 40px;
-  box-sizing: border-box;
-}
-
 .feedback-disclaimer {
   font-size: 13px;
   color: #999;
@@ -177,61 +169,6 @@
 .feedback-submit-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-/* 건의사항 입력 전 안내 팝업 — 실시간 문의를 이 칸에 적는 손님이 많아 추가 */
-#feedback-notice {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 9999;
-}
-
-.feedback-notice-box {
-  background: #fff;
-  border-radius: 14px;
-  padding: 24px 20px 20px;
-  width: 100%;
-  max-width: 360px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-}
-
-.feedback-notice-msg {
-  margin: 0 0 18px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #222;
-  text-align: center;
-}
-
-.feedback-notice-msg strong {
-  font-weight: 700;
-}
-
-.feedback-notice-btn {
-  display: block;
-  width: 100%;
-  padding: 12px 16px;
-  margin-top: 8px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #f5f5f5;
-  color: #444;
-  font-size: 14px;
-  line-height: 1.4;
-  cursor: pointer;
-}
-
-.feedback-notice-btn.primary {
-  background: #333;
-  border-color: #333;
-  color: #fff;
-  font-weight: 600;
 }
 
 @media (max-width: 768px) {

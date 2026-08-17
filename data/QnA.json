@@ -165,6 +165,13 @@
         "category": "기타 요청 및 문의"
       },
       {
+        "q": "건의사항이 있어요",
+        "keyword": "건의사항",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "기타 요청 및 문의",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "카운터에 왜 항상 사람이 없나요?",
         "keyword": "카운터",
         "a": "저희 호스텔은 무인으로 운영하고 있습니다. 인건비를 절약해서 여러분들에게 좀 더 저렴한 가격으로 게스트하우스를 이용할 수 있게 해드리고 있습니다. 궁금한 점은 아래 채팅 버튼을 이용해주세요.",
@@ -215,10 +222,7 @@
       "successMsg": "소중한 의견 감사합니다.",
       "errorMsg": "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
       "roomRequiredMsg": "방 번호를 선택해주세요.",
-      "contentRequiredMsg": "내용을 입력해주세요.",
-      "noticeMsg": "익명 건의사항은 <strong>답변을 드릴 수 없습니다</strong>.<br>답변이 필요하시면 직원과 실시간 채팅을 이용해주세요.",
-      "noticeProceed": "익명으로 의견을 전달할게요",
-      "noticeChat": "실시간 채팅을 하겠습니다"
+      "contentRequiredMsg": "내용을 입력해주세요."
     }
   },
   "en": {
@@ -387,6 +391,13 @@
         "category": "Other Requests and Inquiries"
       },
       {
+        "q": "I have a suggestion",
+        "keyword": "suggestion",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Why is there usually no staff at the counter?",
         "keyword": "no staff",
         "a": "Our hostel is operated as a self-service hostel. By saving labor costs, we can offer you a more affordable price. If you have any questions, please use the chat button below.",
@@ -437,10 +448,7 @@
       "successMsg": "Thank you for your feedback.",
       "errorMsg": "Failed to send. Please try again later.",
       "roomRequiredMsg": "Please select your room.",
-      "contentRequiredMsg": "Please enter your message.",
-      "noticeMsg": "Anonymous feedback <strong>cannot receive a reply</strong>.<br>If you need a reply, please use the live chat with our staff.",
-      "noticeProceed": "I'll leave anonymous feedback",
-      "noticeChat": "I'd like to chat in real time"
+      "contentRequiredMsg": "Please enter your message."
     }
   },
   "zh": {
@@ -609,6 +617,13 @@
         "category": "其他请求及咨询"
       },
       {
+        "q": "我有建议",
+        "keyword": "建议",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "其他请求及咨询",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "为什么前台总是没人？",
         "keyword": "前台",
         "a": "本旅舍采用无人值守方式运营。通过节省人工成本，我们可以为大家提供更便宜的住宿价格。如有疑问，请使用下方聊天按钮联系我们。",
@@ -659,10 +674,7 @@
       "successMsg": "感谢您的宝贵意见。",
       "errorMsg": "发送失败，请稍后再试。",
       "roomRequiredMsg": "请选择房间号。",
-      "contentRequiredMsg": "请输入内容。",
-      "noticeMsg": "匿名建议<strong>无法收到回复</strong>。<br>如需回复，请使用与工作人员的实时聊天。",
-      "noticeProceed": "我要匿名留言",
-      "noticeChat": "我要实时聊天"
+      "contentRequiredMsg": "请输入内容。"
     }
   },
   "ja": {
@@ -831,6 +843,13 @@
         "category": "その他のリクエスト・お問い合わせ"
       },
       {
+        "q": "ご要望があります",
+        "keyword": "ご要望",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "その他のリクエスト・お問い合わせ",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "なぜカウンターにはいつもスタッフがいないのですか？",
         "keyword": "スタッフ",
         "a": "当ホステルは無人で運営しています。人件費を抑えることで、より安い価格でご利用いただけるようにしています。ご不明な点は、下のチャットボタンをご利用ください。",
@@ -881,10 +900,7 @@
       "successMsg": "貴重なご意見ありがとうございます。",
       "errorMsg": "送信に失敗しました。しばらくしてから再試行してください。",
       "roomRequiredMsg": "部屋番号を選択してください。",
-      "contentRequiredMsg": "内容を入力してください。",
-      "noticeMsg": "匿名のご意見には<strong>返信できません</strong>。<br>返信が必要な場合はスタッフとのリアルタイムチャットをご利用ください。",
-      "noticeProceed": "匿名で意見を送ります",
-      "noticeChat": "リアルタイムでチャットします"
+      "contentRequiredMsg": "内容を入力してください。"
     }
   },
   "ru": {
@@ -1053,6 +1069,13 @@
         "category": "Другие запросы и вопросы"
       },
       {
+        "q": "У меня есть пожелание",
+        "keyword": "пожелание",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Другие запросы и вопросы",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Почему на стойке обычно никого нет?",
         "keyword": "стойке",
         "a": "Наш хостел работает в формате самообслуживания. Благодаря экономии на расходах на персонал мы можем предлагать вам более низкую цену. Если у вас есть вопросы, пожалуйста, используйте кнопку чата ниже.",
@@ -1103,10 +1126,7 @@
       "successMsg": "Спасибо за ваш отзыв.",
       "errorMsg": "Не удалось отправить. Попробуйте позже.",
       "roomRequiredMsg": "Пожалуйста, выберите комнату.",
-      "contentRequiredMsg": "Пожалуйста, введите сообщение.",
-      "noticeMsg": "На анонимный отзыв <strong>мы не сможем ответить</strong>.<br>Если нужен ответ, воспользуйтесь чатом с сотрудником.",
-      "noticeProceed": "Оставлю анонимный отзыв",
-      "noticeChat": "Хочу написать в чат"
+      "contentRequiredMsg": "Пожалуйста, введите сообщение."
     }
   },
   "es": {
@@ -1275,6 +1295,13 @@
         "category": "Otras solicitudes y consultas"
       },
       {
+        "q": "Tengo una sugerencia",
+        "keyword": "sugerencia",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Otras solicitudes y consultas",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "¿Por qué casi nunca hay personal en el mostrador?",
         "keyword": "personal",
         "a": "Nuestro hostal funciona en modo autoservicio. Al ahorrar en costos de personal, podemos ofrecerles un precio más económico. Si tiene alguna pregunta, por favor use el botón de chat de abajo.",
@@ -1325,10 +1352,7 @@
       "successMsg": "Gracias por sus comentarios.",
       "errorMsg": "Error al enviar. Inténtelo de nuevo más tarde.",
       "roomRequiredMsg": "Seleccione su habitación.",
-      "contentRequiredMsg": "Ingrese su mensaje.",
-      "noticeMsg": "A los comentarios anónimos <strong>no podemos responder</strong>.<br>Si necesita una respuesta, use el chat en vivo con el personal.",
-      "noticeProceed": "Dejaré un comentario anónimo",
-      "noticeChat": "Quiero chatear en tiempo real"
+      "contentRequiredMsg": "Ingrese su mensaje."
     }
   },
   "mn": {
@@ -1497,6 +1521,13 @@
         "category": "Бусад Асуудал & Туслалцаа"
       },
       {
+        "q": "Надад санал байна",
+        "keyword": "санал",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Бусад Асуудал & Туслалцаа",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Яагаад тоолуурт хүн байхгүй вэ?",
         "keyword": "хүн байхгүй",
         "a": "Манай хостел үйлчилгээгүй. Энэ нь зардлаа хэмнэж, бид илүү хямд үнэ санал болгох боломжийг олгодог. Гэхдээ хэрэв та туслалцаа хэрэгтэй бол ямар ч цаг дахь бидэнд залгана уу.",
@@ -1547,10 +1578,7 @@
       "successMsg": "Санал хүсэлтэд баярлалаа.",
       "errorMsg": "Илгээж чадсангүй. Дараа дахин оролдоно уу.",
       "roomRequiredMsg": "Өрөөгөө сонгоно уу.",
-      "contentRequiredMsg": "Мессежээ оруулна уу.",
-      "noticeMsg": "Нэрээ нууцалсан санал хүсэлтэд <strong>хариу өгөх боломжгүй</strong>.<br>Хариу шаардлагатай бол ажилтантай шууд чатаар холбогдоно уу.",
-      "noticeProceed": "Нэрээ нууцлан санал үлдээе",
-      "noticeChat": "Шууд чатлахыг хүсч байна"
+      "contentRequiredMsg": "Мессежээ оруулна уу."
     }
   },
   "vi": {
@@ -1719,6 +1747,13 @@
         "category": "Yêu cầu & Trợ giúp khác"
       },
       {
+        "q": "Tôi có góp ý",
+        "keyword": "góp ý",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Yêu cầu & Trợ giúp khác",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Tại sao không có người ở quầy tiếp tân?",
         "keyword": "không có người",
         "a": "Khách sạn của chúng tôi không có nhân viên. Điều này giúp chúng tôi tiết kiệm chi phí, vì vậy chúng tôi có thể cung cấp giá rẻ hơn. Nhưng nếu bạn cần trợ giúp, vui lòng gọi cho chúng tôi bất kỳ lúc nào.",
@@ -1769,10 +1804,7 @@
       "successMsg": "Cảm ơn góp ý của bạn.",
       "errorMsg": "Gửi thất bại. Vui lòng thử lại sau.",
       "roomRequiredMsg": "Vui lòng chọn phòng của bạn.",
-      "contentRequiredMsg": "Vui lòng nhập nội dung.",
-      "noticeMsg": "Góp ý ẩn danh <strong>sẽ không nhận được phản hồi</strong>.<br>Nếu cần phản hồi, vui lòng dùng chat trực tiếp với nhân viên.",
-      "noticeProceed": "Tôi sẽ gửi góp ý ẩn danh",
-      "noticeChat": "Tôi muốn chat trực tiếp"
+      "contentRequiredMsg": "Vui lòng nhập nội dung."
     }
   },
   "fr": {
@@ -1941,6 +1973,13 @@
         "category": "Autres Demandes et Demandes de Renseignements"
       },
       {
+        "q": "J'ai une suggestion",
+        "keyword": "suggestion",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Autres Demandes et Demandes de Renseignements",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Pourquoi n'y a-t-il généralement pas de personnel au comptoir?",
         "keyword": "pas de personnel",
         "a": "Notre auberge fonctionne comme une auberge en libre-service. En économisant les coûts de main-d'œuvre, nous pouvons vous offrir un prix plus abordable. Si vous avez des questions, veuillez utiliser le bouton de chat ci-dessous.",
@@ -1991,10 +2030,7 @@
       "successMsg": "Merci pour votre avis.",
       "errorMsg": "Échec de l'envoi. Veuillez réessayer plus tard.",
       "roomRequiredMsg": "Veuillez sélectionner votre chambre.",
-      "contentRequiredMsg": "Veuillez saisir votre message.",
-      "noticeMsg": "Un avis anonyme <strong>ne recevra pas de réponse</strong>.<br>Si vous avez besoin d'une réponse, utilisez le chat en direct avec le personnel.",
-      "noticeProceed": "Je laisse un avis anonyme",
-      "noticeChat": "Je veux discuter en direct"
+      "contentRequiredMsg": "Veuillez saisir votre message."
     }
   },
   "de": {
@@ -2163,6 +2199,13 @@
         "category": "Other Requests and Inquiries"
       },
       {
+        "q": "Ich habe einen Vorschlag",
+        "keyword": "Vorschlag",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Warum gibt es normalerweise kein Personal an der Rezeption?",
         "keyword": "kein Personal",
         "a": "Unser Hostel wird als Selbstbedienungs-Hostel betrieben. Durch Einsparung von Arbeitskosten können wir Ihnen einen günstigeren Preis anbieten. Wenn Sie Fragen haben, nutzen Sie bitte die Chat-Schaltfläche unten.",
@@ -2213,10 +2256,7 @@
       "successMsg": "Vielen Dank für Ihr Feedback.",
       "errorMsg": "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.",
       "roomRequiredMsg": "Bitte wählen Sie Ihr Zimmer aus.",
-      "contentRequiredMsg": "Bitte geben Sie Ihre Nachricht ein.",
-      "noticeMsg": "Anonymes Feedback <strong>kann nicht beantwortet werden</strong>.<br>Wenn Sie eine Antwort benötigen, nutzen Sie bitte den Live-Chat mit unserem Personal.",
-      "noticeProceed": "Ich hinterlasse anonymes Feedback",
-      "noticeChat": "Ich möchte live chatten"
+      "contentRequiredMsg": "Bitte geben Sie Ihre Nachricht ein."
     }
   },
   "ar": {
@@ -2385,6 +2425,13 @@
         "category": "الطلبات والاستفسارات الأخرى"
       },
       {
+        "q": "لدي اقتراح",
+        "keyword": "اقتراح",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "الطلبات والاستفسارات الأخرى",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "لماذا لا يوجد عادة موظفون على العداد؟",
         "keyword": "موظفون",
         "a": "فندقنا يعمل كفندق خدمة ذاتية. من خلال توفير تكاليف العمالة، يمكننا تقديم سعر أكثر بأسعار معقولة. إذا كان لديك أي أسئلة، يرجى استخدام زر الدردشة أدناه.",
@@ -2435,10 +2482,7 @@
       "successMsg": "شكرًا لملاحظاتك.",
       "errorMsg": "فشل الإرسال. يرجى المحاولة لاحقًا.",
       "roomRequiredMsg": "يرجى اختيار غرفتك.",
-      "contentRequiredMsg": "يرجى إدخال رسالتك.",
-      "noticeMsg": "لا يمكننا <strong>الرد على الملاحظات المجهولة</strong>.<br>إذا كنت بحاجة إلى رد، يرجى استخدام الدردشة المباشرة مع الموظفين.",
-      "noticeProceed": "سأترك رأيي بشكل مجهول",
-      "noticeChat": "أريد الدردشة المباشرة"
+      "contentRequiredMsg": "يرجى إدخال رسالتك."
     }
   },
   "tr": {
@@ -2607,6 +2651,13 @@
         "category": "Other Requests and Inquiries"
       },
       {
+        "q": "Bir önerim var",
+        "keyword": "öneri",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Neden tezgahta genellikle personel yoktur?",
         "keyword": "personel yoktur",
         "a": "Oteller otel kendinden hizmeti bir hostelin olarak işletilmektedir. İşçilik maliyetlerini azaltarak sizlere daha uygun fiyat sunabiliyoruz. Herhangi bir sorunuz varsa lütfen aşağıdaki sohbet düğmesini kullanınız.",
@@ -2657,10 +2708,7 @@
       "successMsg": "Görüşünüz için teşekkürler.",
       "errorMsg": "Gönderilemedi. Lütfen daha sonra tekrar deneyin.",
       "roomRequiredMsg": "Lütfen odanızı seçin.",
-      "contentRequiredMsg": "Lütfen mesajınızı girin.",
-      "noticeMsg": "Anonim geri bildirimlere <strong>yanıt veremiyoruz</strong>.<br>Yanıt gerekiyorsa lütfen personelle canlı sohbeti kullanın.",
-      "noticeProceed": "Anonim olarak görüş bırakacağım",
-      "noticeChat": "Canlı sohbet etmek istiyorum"
+      "contentRequiredMsg": "Lütfen mesajınızı girin."
     }
   }
 }
