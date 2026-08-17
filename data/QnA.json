@@ -67,7 +67,7 @@
       {
         "q": "변압기·충전기 빌리기",
         "keyword": "변압기·충전기",
-        "a": "카운터 위에 있는 박스에서 가져가세요. 체크아웃 할 때 \"반드시\" 반납해주세요",
+        "a": "변압기 충전기는 따로 빌려드리지 않습니다. 각 객실 내에 비치된 충전기를 사용해주세요.",
         "category": "생활 편의 시설 및 비품 관련"
       },
       {
@@ -293,7 +293,7 @@
       {
         "q": "Adapter & charger rental",
         "keyword": "Adapter & charger",
-        "a": "Please take them from the box on the counter. Please \"make sure\" to return them when you check out.",
+        "a": "We don't lend out voltage transformers or chargers separately. Please use the charger provided in each room.",
         "category": "Amenities and Supplies"
       },
       {
@@ -519,7 +519,7 @@
       {
         "q": "变压器·充电器 借用",
         "keyword": "变压器·充电器",
-        "a": "请从前台上的盒子里拿取。退房时请\"务必\"归还。",
+        "a": "我们不单独出借变压器/充电器。请使用客房内配备的充电器。",
         "category": "生活便利设施及用品"
       },
       {
@@ -745,7 +745,7 @@
       {
         "q": "変圧器・充電器を借りたい",
         "keyword": "変圧器・充電器",
-        "a": "カウンターの上にある箱から取ってください。チェックアウトのときに\"必ず\"返却してください。",
+        "a": "変圧器・充電器の個別の貸し出しは行っておりません。各客室に備え付けの充電器をご利用ください。",
         "category": "生活設備・備品"
       },
       {
@@ -971,7 +971,7 @@
       {
         "q": "Адаптер и зарядка напрокат",
         "keyword": "Адаптер и зарядка",
-        "a": "Пожалуйста, возьмите их из коробки на стойке. Пожалуйста, \"обязательно\" верните их при выезде.",
+        "a": "Мы не выдаём трансформаторы/зарядные устройства отдельно. Пожалуйста, используйте зарядное устройство, предоставленное в номере.",
         "category": "Удобства и принадлежности"
       },
       {
@@ -1197,7 +1197,7 @@
       {
         "q": "Adaptador y cargador en préstamo",
         "keyword": "Adaptador y cargador",
-        "a": "Por favor, tómelos de la caja que está sobre el mostrador. Por favor, \"asegúrese\" de devolverlos al hacer el check-out.",
+        "a": "No prestamos transformadores ni cargadores por separado. Utilice el cargador disponible en cada habitación.",
         "category": "Servicios y artículos"
       },
       {
@@ -1423,7 +1423,7 @@
       {
         "q": "Адаптер, цэнэглэгч зээлэх",
         "keyword": "Адаптер, цэнэглэгч",
-        "a": "Тоолуурын дээрх хайрцагаас авна уу. Гадагш гарахдаа буцааж өгөх ёстой.",
+        "a": "Бид трансформатор/цэнэглэгчийг тусад нь зээлдэггүй. Өрөө бүрт байрлуулсан цэнэглэгчийг ашиглана уу.",
         "category": "Байгууламж & Удирдамжууд"
       },
       {
@@ -1649,7 +1649,7 @@
       {
         "q": "Bộ đổi điện & sạc cần mượn",
         "keyword": "Bộ đổi điện & sạc",
-        "a": "Lấy từ hộp trên quầy tiếp tân. Vui lòng chắc chắn trả lại khi bạn checkout.",
+        "a": "Chúng tôi không cho mượn riêng máy biến áp/bộ sạc. Vui lòng sử dụng bộ sạc có sẵn trong mỗi phòng.",
         "category": "Tiện nghi & Dịch vụ"
       },
       {
@@ -1875,7 +1875,7 @@
       {
         "q": "Adaptateur et chargeur à emprunter",
         "keyword": "Adaptateur et chargeur",
-        "a": "Veuillez les prendre de la boîte sur le comptoir. Veuillez \"vous assurer\" de les retourner lors du départ.",
+        "a": "Nous ne prêtons pas de transformateurs ni de chargeurs séparément. Merci d'utiliser le chargeur fourni dans chaque chambre.",
         "category": "Équipements et Fournitures"
       },
       {
@@ -2101,7 +2101,7 @@
       {
         "q": "Adapter & Ladegerät ausleihen",
         "keyword": "Adapter & Ladegerät",
-        "a": "Bitte nehmen Sie diese aus der Box am Schalter. Bitte \"achten Sie darauf\", sie bei der Abreise zurückzugeben.",
+        "a": "Wir verleihen Spannungswandler/Ladegeräte nicht separat. Bitte verwenden Sie das in jedem Zimmer bereitgestellte Ladegerät.",
         "category": "Amenities and Supplies"
       },
       {
@@ -2327,7 +2327,7 @@
       {
         "q": "المحول والشاحن للاستعارة",
         "keyword": "المحول والشاحن",
-        "a": "يرجى أخذها من الصندوق على العداد. يرجى \"التأكد من\" إعادتها عند تسجيل المغادرة.",
+        "a": "لا نقوم بإعارة المحولات/الشواحن بشكل منفصل. يرجى استخدام الشاحن المتوفر في كل غرفة.",
         "category": "المرافق والإمدادات"
       },
       {
@@ -2553,7 +2553,7 @@
       {
         "q": "Adaptör ve şarj ödünç almak",
         "keyword": "Adaptör ve şarj",
-        "a": "Lütfen tezgahtaki kutudan alınız. Lütfen çıkış yaparken \"geri koyduğunuzdan emin olunuz\".",
+        "a": "Trafo/şarj cihazlarını ayrıca ödünç vermiyoruz. Lütfen her odada bulunan şarj cihazını kullanın.",
         "category": "Amenities and Supplies"
       },
       {
