@@ -305,8 +305,8 @@ function renderFeedbackForm() {
     <div id="feedback-notice" class="hidden">
       <div class="feedback-notice-box">
         <p class="feedback-notice-msg">${fb.noticeMsg}</p>
-        <button id="feedback-notice-proceed" class="feedback-notice-btn primary">${fb.noticeProceed}</button>
-        <button id="feedback-notice-chat" class="feedback-notice-btn">${fb.noticeChat}</button>
+        <button id="feedback-notice-proceed" class="feedback-notice-btn">${fb.noticeProceed}</button>
+        <button id="feedback-notice-chat" class="feedback-notice-btn primary">${fb.noticeChat}</button>
       </div>
     </div>
   `;
@@ -341,11 +341,15 @@ function renderFeedbackForm() {
     contentEl.focus();
   });
 
-  // 실시간 채팅을 원하는 경우: 팝업만 닫고 입력칸은 잠근 채로 둔다.
-  // (손님이 채팅 버튼을 찾아 누르도록 유도 — 다시 입력칸을 누르면 안내가 재노출됨)
+  // 실시간 채팅을 원하는 경우: 팝업을 닫고 채팅 위젯을 바로 열어준다.
+  // (버튼만 누르면 끝나야지, "채팅 버튼을 찾아서 눌러라"는 안내는 또 다른 이탈 지점이 된다)
   noticeChatBtn.addEventListener("click", () => {
     noticeEl.classList.add("hidden");
     contentEl.blur();
+    const toggleBtn = document
+      .getElementById("ya-chat-widget-host")
+      ?.shadowRoot?.getElementById("toggle-btn");
+    if (toggleBtn) toggleBtn.click();
   });
 
   roomSelect.addEventListener("change", () => {
