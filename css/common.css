@@ -197,3 +197,21 @@ h1, h2, .headline {
   background-size: cover;
   background-position: center;
 }
+
+.lang-si {
+  color: #6b3fa0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-si.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.lang-hi {
+  color: #1a237e;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-hi.svg');
+  background-size: cover;
+  background-position: center;
+}
