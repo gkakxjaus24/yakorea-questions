@@ -215,3 +215,21 @@ h1, h2, .headline {
   background-size: cover;
   background-position: center;
 }
+
+.lang-th {
+  color: #a51931;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-th.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.lang-id {
+  color: #ce1126;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url('../images/flag-id.svg');
+  background-size: cover;
+  background-position: center;
+}

@@ -3162,5 +3162,457 @@
       "roomRequiredMsg": "कृपया अपना कमरा चुनें।",
       "contentRequiredMsg": "कृपया अपना संदेश दर्ज करें।"
     }
+  },
+  "th": {
+    "title": "คำถามที่พบบ่อย🙋‍♂️❓",
+    "qna": [
+      {
+        "q": "มีห้องน้ำร่วมกันหรือไม่?",
+        "keyword": "shared bathroom",
+        "a": "ไม่มีห้องน้ำร่วมกัน แต่หากคุณต้องการใช้ห้องน้ำอย่างเร่งด่วน ห้องน้ำของพนักงานเปิดให้ใช้ตั้งแต่ 7:00 AM ถึง 11:00 PM เนื่องจากมีพนักงานอยู่ โปรดปฏิบัติตามกฎการใช้พื้นที่ (ควรหลีกเลี่ยงเสียงดัง และรักษาความสะอาด) :)",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image",
+        "areas": [
+          "dormBasement"
+        ]
+      },
+      {
+        "q": "ประตูทางเข้าปิดเวลาไหน?",
+        "keyword": "entrance door",
+        "a": "ประตูทางเข้าเปิดตลอด 24 ชั่วโมง",
+        "category": "การเข้าถึง / การดำเนินการ / บริการด้วยตนเอง"
+      },
+      {
+        "q": "ฉันจะได้น้ำดื่มจากไหน?",
+        "keyword": "drinking water",
+        "a": "โปรดใช้เครื่องกรองน้ำบนโต๊ะในห้องครัว (สำหรับน้ำร้อน โปรดใช้กาต้มน้ำไฟฟ้า)",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "ฉันต้องการผ้าเช็ดตัวเพิ่มเติม",
+        "keyword": "towels",
+        "a": "โปรด \"แน่ใจ\" ที่จะใส่ผ้าเช็ดตัวที่ใช้แล้วลงในตะกร้าผ้าเช็ดตัวชั้น 2 (สำหรับห้องชั้นใต้ดิน โปรดใช้ตะกร้าข้างหน้าห้องอาบน้ำ) จากนั้นนำผ้าเช็ดตัวใหม่จากตะกร้าผ้าเช็ดตัวด้านขวาของเคาน์เตอร์<br><br>{{towelRate}}",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "รองเท้าของฉันหายไป",
+        "keyword": "slippers",
+        "a": "ดูเหมือนว่าแขกท่านอื่นจะเอารองเท้าไปโดยไม่ตั้งใจเพราะหมายเลขรองเท้า เราเตรียมรองเท้าสำรองไว้ในตู้รองเท้าสำหรับสถานการณ์เช่นนี้ โปรดใช้รองเท้าเหล่านั้น",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "ฉันสามารถรับประทานอาหารเช้าได้เมื่อไหร่?",
+        "keyword": "breakfast",
+        "a": "อาหารเช้าสามารถนำมาเองในห้องครัวตั้งแต่ 7:00 AM ถึง 10:00 AM",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "กล่องอาหารเช้าเปิดไม่ได้",
+        "keyword": "breakfast box",
+        "a": "กุญแจสำรองสำหรับกล่องอาหารเช้าอยู่ใต้แป้นพิมพ์ที่เคาน์เตอร์ อาจารย์ขออภัยสำหรับความไม่สะดวก",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        },
+        "areas": [
+          "common"
+        ]
+      },
+      {
+        "q": "เช่าอะแดปเตอร์และชาร์จเจอร์",
+        "keyword": "Adapter & charger",
+        "a": "เราไม่ให้เช่าหม้อแปลงแรงดันหรือชาร์จเจอร์แยกกัน โปรดใช้ชาร์จเจอร์ที่ให้ไว้ในแต่ละห้อง",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้"
+      },
+      {
+        "q": "ฉันต้องการซักผ้า",
+        "keyword": "laundry",
+        "a": "ค่าซักผ้า 5,000 KRW ต่อถุงซักผ้าที่เคาน์เตอร์ (รวมการซักและการอบแห้ง) ใส่เงินสดและเสื้อผ้าของคุณลงในถุงซักผ้าด้านขวาของเคาน์เตอร์และฝากไว้ข้างเคาน์เตอร์ จะเสร็จสิ้นภายใน 24 ชั่วโมง และเมื่อเสร็จแล้ว เราจะฝากไว้ข้างเคาน์เตอร์",
+        "category": "การใช้เครื่องซักผ้าและตู้เย็น",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "ฉันสามารถใช้พื้นที่ร่วมกันได้นานถึงกี่โมง?",
+        "keyword": "common area",
+        "a": "คุณสามารถใช้พื้นที่ร่วมกันได้ 24 ชั่วโมงต่อวัน แต่มีห้องพักสำหรับแขกอยู่ชั้น 1 ด้วย โปรดเงียบสงบหลังจาก 11:00 PM และในตอนเช้ามื่อ",
+        "category": "การเข้าถึง / การดำเนินการ / บริการด้วยตนเอง"
+      },
+      {
+        "q": "เก็บกระเป๋าเดินทาง โปรดค่ะ",
+        "keyword": "Luggage storage",
+        "a": "คุณสามารถฝากกระเป๋าเดินทางไว้หน้าเคาน์เตอร์ก่อนเช็คอินและหลังเช็คเอาต์",
+        "category": "เก็บกระเป๋าและการใช้เครื่องชั่ง"
+      },
+      {
+        "q": "มีตาชั่งชั่งกระเป๋าเดินทางหรือไม่?",
+        "keyword": "scale",
+        "a": "มีตาชั่งพกพาบนโต๊ะหน้าเคาน์เตอร์",
+        "category": "เก็บกระเป๋าและการใช้เครื่องชั่ง"
+      },
+      {
+        "q": "มีการเก็บกระเป๋าระยะยาวหรือไม่?",
+        "keyword": "Long-term storage",
+        "a": "คุณสามารถเก็บกระเป๋าของคุณได้ฟรีเป็นเวลาสูงสุดหนึ่งสัปดาห์ โปรดฝากไว้หน้าเคาน์เตอร์และใส่ชื่อ ข้อมูลติดต่อ วันที่เช็คเอาต์ และวันที่คืนของ หลังจากหนึ่งสัปดาห์ มีค่าใช้จ่าย 1,000 KRW ต่อวัน",
+        "category": "เก็บกระเป๋าและการใช้เครื่องชั่ง"
+      },
+      {
+        "q": "ถ้าฉันพักเพิ่มเติมอีกกี่คืน ฉันสามารถใช้เตียงเดิมโดยไม่ต้องย้ายกระเป๋าเดินทางได้หรือไม่?",
+        "keyword": "same bed",
+        "a": "ใช่ หากการจองของคุณเป็นชื่อเดียวกันและห้องประเภทเดียวกัน คุณสามารถใช้เตียงเดิมต่อไปโดยไม่ต้องย้ายกระเป๋าเดินทาง",
+        "category": "ห้องและเตียง"
+      },
+      {
+        "q": "ค้นหาของที่หายไป",
+        "keyword": "Lost item",
+        "a": "โปรดส่งข้อมูลต่อไปนี้เกี่ยวกับของที่หายไปไปยัง dongdaemun2@gmail.com: 1. ชื่อ 2. ขนาด 3. รูปร่าง 4. สี 5. วันที่ 6. เวลา 7. สถานที่ เราจะตรวจสอบกล้อง CCTV ห้องหอพักมีตู้เก็บเอกสารส่วนตัว ดังนั้นเราจึงไม่รับผิดชอบต่อของที่หายไป",
+        "category": "คำขอและการสอบถามอื่น ๆ"
+      },
+      {
+        "q": "สับสนเรื่องเตียง มีคนอื่นนอนอยู่ในตำแหน่งของฉัน",
+        "keyword": "Bed mix-up",
+        "a": "ดูเหมือนว่าแขกท่านอื่นจะใช้เตียงของคุณโดยไม่ตั้งใจเพราะหมายเลขเตียง โปรดแตะปุ่มแชทด้านล่างและติดต่อผู้จัดการ",
+        "category": "ห้องและเตียง",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
+      },
+      {
+        "q": "ข้อมูล Wi-Fi อยู่ที่ไหน?",
+        "keyword": "Wi-Fi",
+        "a": "ID Wi-Fi และรหัสผ่านเขียนไว้บนสวิตช์ไฟในแต่ละห้อง",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "ฉันต้องการพิมพ์บางอย่าง",
+        "keyword": "print",
+        "a": "โปรดส่งไฟล์ไปยัง dongdaemun2@gmail.com จากนั้นติดต่อเราผ่านปุ่มแชทด้านล่าง (เรื่อง: คำขอพิมพ์ ชื่อ หมายเลขห้อง) เอกสาร: สูงสุด 20 หน้าขาวดำและ 10 หน้าสีฟรี ไม่สามารถพิมพ์รูปถ่ายหรือรูปภาพได้",
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้"
+      },
+      {
+        "q": "อาหารในตู้เย็นหายไป",
+        "keyword": "Fridge food",
+        "a": "โปรดตรวจสอบประกาศข้างตู้เย็นอีกครั้ง อาหารใดๆ ที่ไม่มีการเขียน 'วันที่เช็คเอาต์' ไว้สามารถรับประทานโดยใครก็ได้!!",
+        "category": "การใช้เครื่องซักผ้าและตู้เย็น"
+      },
+      {
+        "q": "ฉันต้องการเปลี่ยนหมายเลขเตียง",
+        "keyword": "bed number",
+        "a": "โปรดแตะปุ่มแชทด้านล่างและติดต่อผู้จัดการ เราจะบอกคุณถึงวันที่ที่คุณสามารถเปลี่ยนเตียงได้ (วันเช็คอิน การจัดสรรเตียงจะเสร็จสิ้นแล้ว ดังนั้นคุณจึงไม่สามารถเปลี่ยนเตียงได้) โปรดล้างเตียงเดิมของคุณก่อนเวลา 11:00 AM ในวันที่คุณเปลี่ยนเตียง คุณสามารถย้ายไปยังเตียงใหม่หลังจาก 3:00 PM เมื่อการทำความสะอาดเสร็จสิ้น",
+        "category": "ห้องและเตียง",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
+      },
+      {
+        "q": "นโยบายการคืนเงิน",
+        "keyword": "Refund",
+        "a": "โปรดตรวจสอบนโยบายการคืนเงินของเว็บไซต์จองของคุณ ไม่สามารถคืนเงินได้สำหรับการเปลี่ยนแปลงตารางเวลาส่วนตัว",
+        "category": "คำขอและการสอบถามอื่น ๆ"
+      },
+      {
+        "q": "ฉันมีข้อเสนอแนะ",
+        "keyword": "suggestion",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "คำขอและการสอบถามอื่น ๆ",
+        "hideWhen": "nochat"
+      },
+      {
+        "q": "ทำไมปกติจึงไม่มีพนักงานอยู่ที่เคาน์เตอร์?",
+        "keyword": "no staff",
+        "a": "โรงแรมของเราดำเนินการเป็นโรงแรมแบบ self-service โดยการประหยัดค่าแรงงาน เราสามารถให้ราคาที่ต่ำกว่าแก่คุณ หากคุณมีคำถาม โปรดใช้ปุ่มแชทด้านล่าง",
+        "category": "การเข้าถึง / การดำเนินการ / บริการด้วยตนเอง"
+      },
+      {
+        "q": "ฉันต้องการความช่วยเหลือเพิ่มเติม",
+        "keyword": "help",
+        "a": "โปรดแตะปุ่มแชทที่มุมล่างขวาของหน้าจอและติดต่อผู้จัดการ",
+        "category": "คำขอและการสอบถามอื่น ๆ",
+        "hideWhen": "nochat"
+      },
+      {
+        "q": "ฉันเช็คเอาต์ได้อย่างไร?",
+        "a": "เช็คเอาต์เวลา 11:00 AM ป้อนหมายเลขห้องของคุณบนคีออสก์และคืนรองเท้า มีค่าชาร์จหลังเวลา 5,000 KRW ทุกๆ 20 นาทีหลังจากนั้น",
+        "category": "การเข้าถึง / การดำเนินการ / บริการด้วยตนเอง",
+        "keyword": "check out"
+      },
+      {
+        "q": "น้ำร้อนไม่ออกมา",
+        "keyword": "Hot water",
+        "a": "โปรดตรวจสอบตัวควบคุมหม้อไอน้ำ (ข้างสวิตช์ไฟ) เพื่อค้นหารหัสข้อผิดพลาด หากแสดงรหัสข้อผิดพลาด 10 ให้ปิดสวิตช์บนผนังห้องหม้อไอน้ำภายในห้องน้ำแล้วเปิดอีกครั้ง ขออภัยสำหรับความไม่สะดวก",
+        "category": "ห้องและเตียง",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "น้ำร้อนไม่ออกมา",
+        "keyword": "Hot water",
+        "a": "เมื่อใช้น้ำครั้งแรก ให้หมุนลูกจับไปทางน้ำร้อนและรอประมาณ 2-3 นาทีจนกว่าน้ำร้อนจะออกมา",
+        "category": "ห้องและเตียง",
+        "areas": [
+          "privateA",
+          "dorm"
+        ]
+      }
+    ],
+    "feedback": {
+      "title": "ข้อเสนอแนะ / ข้อร้องเรียน",
+      "disclaimer": "หมายเลขห้องของคุณใช้เพื่อตรวจสอบปัญหาเท่านั้น และข้อเสนอแนะของคุณจะส่งต่อ <strong>โดยไม่ระบุตัวตน</strong>",
+      "roomLabel": "หมายเลขห้อง",
+      "roomPlaceholder": "เลือกห้องของคุณ",
+      "bedLabel": "หมายเลขเตียง",
+      "bedPlaceholder": "เลือกเตียงของคุณ",
+      "placeholder": "โปรดฝากข้อเสนอแนะหรือปัญหาใดๆ ที่คุณต้องการให้เราทราบ",
+      "submitBtn": "ส่ง",
+      "successMsg": "ขอบคุณสำหรับข้อเสนอแนะของคุณ",
+      "errorMsg": "ไม่สามารถส่งได้ โปรดลองอีกครั้งในภายหลัง",
+      "roomRequiredMsg": "โปรดเลือกห้องของคุณ",
+      "contentRequiredMsg": "โปรดป้อนข้อความของคุณ"
+    }
+  },
+  "id": {
+    "title": "Pertanyaan yang Sering Diajukan🙋‍♂️❓",
+    "qna": [
+      {
+        "q": "Apakah ada kamar mandi bersama?",
+        "keyword": "shared bathroom",
+        "a": "Tidak ada kamar mandi bersama, tetapi jika Anda sangat membutuhkannya, kamar mandi staf terbuka dari pukul 7:00 pagi hingga 11:00 malam. Karena staf ada di sana, mohon ikuti etika dasar (kebisingan, kebersihan) :)",
+        "category": "Fasilitas dan Perlengkapan",
+        "media": "images/faq/bathroom.jpg",
+        "mediaType": "image",
+        "areas": [
+          "dormBasement"
+        ]
+      },
+      {
+        "q": "Jam berapa pintu masuk ditutup?",
+        "keyword": "entrance door",
+        "a": "Pintu masuk terbuka 24 jam.",
+        "category": "Akses / Operasional / Layanan Mandiri"
+      },
+      {
+        "q": "Di mana saya bisa mendapatkan air minum?",
+        "keyword": "drinking water",
+        "a": "Silakan gunakan pemurni air di meja dapur. (Untuk air panas, silakan gunakan teko listrik.)",
+        "category": "Fasilitas dan Perlengkapan",
+        "media": "images/faq/water.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "Saya membutuhkan lebih banyak handuk.",
+        "keyword": "towels",
+        "a": "Silakan \"pastikan\" untuk mengembalikan handuk bekas ke keranjang handuk di lantai 2. (Untuk kamar basement, gunakan keranjang di depan kamar mandi.) Kemudian ambil handuk baru dari keranjang handuk di sisi kanan counter.<br><br>{{towelRate}}",
+        "category": "Fasilitas dan Perlengkapan",
+        "media": "images/faq/towel.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "Sandal saya hilang.",
+        "keyword": "slippers",
+        "a": "Tampaknya tamu lain mengambilnya secara tidak sengaja karena nomor sandal. Kami menyiapkan Sandal Tambahan di lemari sepatu untuk situasi seperti ini. Silakan gunakan sandal tersebut.",
+        "category": "Fasilitas dan Perlengkapan",
+        "media": "images/faq/Slippers.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "Kapan saya bisa sarapan?",
+        "keyword": "breakfast",
+        "a": "Sarapan self-service di dapur dari pukul 7:00 pagi hingga 10:00 pagi.",
+        "category": "Fasilitas dan Perlengkapan",
+        "media": "images/faq/breakfast.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "Kotak sarapan tidak bisa dibuka.",
+        "keyword": "breakfast box",
+        "a": "Kunci cadangan untuk kotak sarapan ada di bawah keyboard di front desk. Kami minta maaf atas ketidaknyamanannya.",
+        "category": "Fasilitas dan Perlengkapan",
+        "visibleHours": {
+          "start": "07:00",
+          "end": "10:00"
+        },
+        "areas": [
+          "common"
+        ]
+      },
+      {
+        "q": "Sewa Adaptor & charger",
+        "keyword": "Adapter & charger",
+        "a": "Kami tidak menyewakan transformator tegangan atau charger secara terpisah. Silakan gunakan charger yang disediakan di setiap kamar.",
+        "category": "Fasilitas dan Perlengkapan"
+      },
+      {
+        "q": "Saya ingin mencuci pakaian.",
+        "keyword": "laundry",
+        "a": "Layanan cuci adalah 5.000 KRW per kantong cuci di counter. (Mencuci dan mengeringkan sudah termasuk.) Masukkan uang tunai dan cucian Anda ke dalam kantong cuci di sisi kanan counter dan biarkan di sebelah counter. Akan selesai dalam 24 jam, dan setelah selesai, kami akan meninggalkannya di sebelah counter.",
+        "category": "Penggunaan Laundry dan Kulkas",
+        "media": "images/faq/laundry.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "Sampai jam berapa saya bisa menggunakan area umum?",
+        "keyword": "common area",
+        "a": "Anda bisa menggunakan area umum 24 jam sehari. Tetapi ada juga kamar tamu di lantai 1, jadi mohon berbicara pelan setelah pukul 11:00 malam dan di awal pagi.",
+        "category": "Akses / Operasional / Layanan Mandiri"
+      },
+      {
+        "q": "Penyimpanan bagasi, tolong.",
+        "keyword": "Luggage storage",
+        "a": "Anda bisa meninggalkan bagasi Anda di depan counter sebelum check-in dan setelah check-out.",
+        "category": "Penyimpanan Koper dan Penggunaan Timbangan"
+      },
+      {
+        "q": "Apakah ada timbangan untuk menimbang bagasi saya?",
+        "keyword": "scale",
+        "a": "Ada timbangan portabel di meja di depan counter.",
+        "category": "Penyimpanan Koper dan Penggunaan Timbangan"
+      },
+      {
+        "q": "Penyimpanan jangka panjang tersedia?",
+        "keyword": "Long-term storage",
+        "a": "Anda bisa menyimpan bagasi secara gratis hingga satu minggu. Silakan biarkan di depan counter dan tempel nama, informasi kontak, tanggal check-out, dan tanggal kembali Anda. Setelah satu minggu, biayanya 1.000 KRW per hari.",
+        "category": "Penyimpanan Koper dan Penggunaan Timbangan"
+      },
+      {
+        "q": "Jika saya menginap lebih banyak malam, bisakah saya terus menggunakan kasur yang sama tanpa memindahkan bagasi saya?",
+        "keyword": "same bed",
+        "a": "Ya, jika reservasi Anda atas nama yang sama dan untuk jenis kamar yang sama, Anda bisa terus menggunakan kasur yang sama tanpa memindahkan bagasi Anda.",
+        "category": "Kamar dan Tempat Tidur"
+      },
+      {
+        "q": "Pertanyaan barang hilang",
+        "keyword": "Lost item",
+        "a": "Silakan kirim informasi berikut tentang barang yang hilang ke dongdaemun2@gmail.com: 1. Nama 2. Ukuran 3. Bentuk 4. Warna 5. Tanggal 6. Waktu 7. Lokasi. Kami akan memeriksa CCTV. Kamar asrama memiliki loker pribadi, jadi kami tidak bertanggung jawab atas barang yang hilang.",
+        "category": "Pertanyaan dan Permintaan Lainnya"
+      },
+      {
+        "q": "Kesalahan kasur, seseorang di tempat saya",
+        "keyword": "Bed mix-up",
+        "a": "Tampaknya tamu lain menggunakan kasur Anda secara tidak sengaja karena nomor kasur. Silakan tap tombol chat di bawah dan hubungi manajer.",
+        "category": "Kamar dan Tempat Tidur",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
+      },
+      {
+        "q": "Di mana informasi Wi-Fi?",
+        "keyword": "Wi-Fi",
+        "a": "ID dan password Wi-Fi ditempel di saklar lampu di setiap kamar.",
+        "category": "Fasilitas dan Perlengkapan",
+        "media": "images/faq/wifi.jpg",
+        "mediaType": "image"
+      },
+      {
+        "q": "Saya ingin mencetak sesuatu.",
+        "keyword": "print",
+        "a": "Silakan kirim file ke dongdaemun2@gmail.com dan kemudian hubungi kami melalui tombol chat di bawah. (Subjek: Print Request, Nama, Nomor Kamar) Dokumen: hingga 20 halaman hitam-putih dan 10 halaman berwarna gratis. Foto atau gambar tidak bisa dicetak.",
+        "category": "Fasilitas dan Perlengkapan"
+      },
+      {
+        "q": "Makanan di kulkas hilang",
+        "keyword": "Fridge food",
+        "a": "Silakan periksa kembali pemberitahuan kulkas. Makanan apa pun tanpa tanggal 'check-out' yang ditulis bisa dimakan oleh siapa saja!!",
+        "category": "Penggunaan Laundry dan Kulkas"
+      },
+      {
+        "q": "Saya ingin mengubah nomor kasur saya.",
+        "keyword": "bed number",
+        "a": "Silakan tap tombol chat di bawah dan hubungi manajer. Kami akan memberi tahu Anda tanggal kapan Anda bisa mengubah kasur Anda. (Pada hari check-in, penempatan kasur sudah selesai, jadi Anda tidak bisa mengubah kasur Anda.) Silakan kosongkan kasur asli Anda pada pukul 11:00 pagi pada hari Anda mengubah kasur. Anda bisa pindah ke kasur baru setelah pukul 3:00 sore, setelah pembersihan selesai.",
+        "category": "Kamar dan Tempat Tidur",
+        "areas": [
+          "dorm",
+          "dormBasement",
+          "common",
+          "frontDesk"
+        ]
+      },
+      {
+        "q": "Kebijakan pengembalian dana",
+        "keyword": "Refund",
+        "a": "Silakan periksa kebijakan pengembalian dana situs pemesanan Anda. Pengembalian dana tidak tersedia untuk perubahan jadwal pribadi.",
+        "category": "Pertanyaan dan Permintaan Lainnya"
+      },
+      {
+        "q": "Saya punya saran",
+        "keyword": "suggestion",
+        "a": "<div id=\"feedback-inline-slot\"></div>",
+        "category": "Pertanyaan dan Permintaan Lainnya",
+        "hideWhen": "nochat"
+      },
+      {
+        "q": "Mengapa biasanya tidak ada staf di counter?",
+        "keyword": "no staff",
+        "a": "Hostel kami dioperasikan sebagai hostel self-service. Dengan menghemat biaya tenaga kerja, kami bisa menawarkan harga yang lebih terjangkau kepada Anda. Jika Anda memiliki pertanyaan, silakan gunakan tombol chat di bawah.",
+        "category": "Akses / Operasional / Layanan Mandiri"
+      },
+      {
+        "q": "Saya membutuhkan bantuan lebih banyak.",
+        "keyword": "help",
+        "a": "Silakan tap tombol chat di kanan bawah layar dan hubungi manajer.",
+        "category": "Pertanyaan dan Permintaan Lainnya",
+        "hideWhen": "nochat"
+      },
+      {
+        "q": "Bagaimana cara saya check out?",
+        "a": "Check-out adalah pukul 11:00 pagi. Masukkan nomor kamar Anda di kiosk dan kembalikan sandal Anda. Biaya keterlambatan sebesar 5.000 KRW dikenakan setiap 20 menit setelahnya.",
+        "category": "Akses / Operasional / Layanan Mandiri",
+        "keyword": "check out"
+      },
+      {
+        "q": "Air panas tidak keluar.",
+        "keyword": "Hot water",
+        "a": "Silakan periksa pengontrol boiler (di sebelah saklar lampu) untuk kode kesalahan. Jika kode kesalahan 10 ditampilkan, matikan saklar di dinding ruang boiler di dalam kamar mandi dan nyalakan kembali. Maaf atas ketidaknyamanannya.",
+        "category": "Kamar dan Tempat Tidur",
+        "areas": [
+          "privateB"
+        ]
+      },
+      {
+        "q": "Air panas tidak keluar.",
+        "keyword": "Hot water",
+        "a": "Saat menggunakan air untuk pertama kali, putar pegangan ke arah panas dan tunggu sekitar 2-3 menit sampai air panas keluar.",
+        "category": "Kamar dan Tempat Tidur",
+        "areas": [
+          "privateA",
+          "dorm"
+        ]
+      }
+    ],
+    "feedback": {
+      "title": "Umpan Balik / Keluhan",
+      "disclaimer": "Nomor kamar Anda digunakan hanya untuk memeriksa masalah, dan umpan balik Anda disampaikan <strong>secara anonim</strong>.",
+      "roomLabel": "Nomor Kamar",
+      "roomPlaceholder": "Pilih kamar Anda",
+      "bedLabel": "Nomor Kasur",
+      "bedPlaceholder": "Pilih kasur Anda",
+      "placeholder": "Silakan berikan umpan balik atau masalah apa pun yang ingin kami ketahui",
+      "submitBtn": "Kirim",
+      "successMsg": "Terima kasih atas umpan balik Anda.",
+      "errorMsg": "Gagal mengirim. Silakan coba lagi nanti.",
+      "roomRequiredMsg": "Silakan pilih kamar Anda.",
+      "contentRequiredMsg": "Silakan masukkan pesan Anda."
+    }
   }
 }
