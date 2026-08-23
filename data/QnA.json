@@ -149,7 +149,7 @@
       {
         "q": "침대번호를 바꾸고 싶어요",
         "keyword": "침대번호",
-        "a": "아래 채팅 버튼을 눌러 매니저에게 문의해주세요. 침대를 바꿀 수 있는 날짜를 알려드릴게요. (체크인 당일은 이미 침대배정이 끝나서 침대를 바꿀 수 없어요) 침대를 바꾸는 날 오전 11시까지 원래 사용하던 침대를 비워주세요. 청소가 끝나는 오후 3시 이후에 새로운 침대로 옮길 수 있어요.",
+        "a": "체크인 당일에는 이미 침대배정이 끝났기 때문에 침대를 바꿀 수 없습니다. 침대를 바꾸고 싶으면 다음날부터 가능합니다. 채팅창을 통해서 직원에게 연결해주세요.",
         "category": "객실 및 침대 관련",
         "areas": [
           "dorm",
@@ -375,7 +375,7 @@
       {
         "q": "I want to change my bed number.",
         "keyword": "bed number",
-        "a": "Please tap the chat button below and contact the manager. We will tell you the date when you can change your bed. (On the day of check-in, bed assignment is already finished, so you cannot change your bed.) Please clear your original bed by 11:00 AM on the day you change beds. You can move to the new bed after 3:00 PM, when cleaning is finished.",
+        "a": "On the day of check-in, bed assignments are already finalized, so you cannot change beds. You can change beds starting from the next day. Please connect with staff through the chat window.",
         "category": "Rooms and Beds",
         "areas": [
           "dorm",
@@ -601,7 +601,7 @@
       {
         "q": "我想换床号。",
         "keyword": "换床",
-        "a": "请点击下方聊天按钮联系经理。我们会告诉您可以换床的日期。（入住当天床位已经分配完成，所以不能换床。）请在换床当天上午11点前清空原来的床位。清洁结束后的下午3点以后，您可以搬到新的床位。",
+        "a": "入住当天床位已经分配完毕，无法更换床位。从第二天开始可以更换床位。请通过聊天窗口联系工作人员。",
         "category": "房间及床位",
         "areas": [
           "dorm",
@@ -827,7 +827,7 @@
       {
         "q": "ベッド番号を変えたいです。",
         "keyword": "ベッド番号",
-        "a": "下のチャットボタンを押して、マネージャーにお問い合わせください。ベッドを変更できる日をお知らせします。（チェックイン当日はすでにベッド割り当てが終わっているため、変更できません。）ベッドを変更する日の午前11時までに、今使っているベッドを空けてください。清掃が終わる午後3時以降に、新しいベッドへ移動できます。",
+        "a": "チェックイン当日はすでにベッドの割り当てが完了しているため、ベッドを変更できません。ベッドの変更は翌日から可能です。チャット画面からスタッフにご連絡ください。",
         "category": "客室・ベッド",
         "areas": [
           "dorm",
@@ -1053,7 +1053,7 @@
       {
         "q": "Я хочу поменять номер кровати.",
         "keyword": "номер кровати",
-        "a": "Пожалуйста, нажмите кнопку чата ниже и свяжитесь с менеджером. Мы скажем вам дату, когда можно будет поменять кровать. (В день заезда поменять кровать нельзя, потому что распределение кроватей уже завершено.) Пожалуйста, освободите свою текущую кровать до 11:00 утра в день смены кровати. Вы сможете перейти на новую кровать после 3:00 дня, когда уборка будет закончена.",
+        "a": "В день заезда кровати уже распределены, поэтому сменить кровать нельзя. Сменить кровать можно начиная со следующего дня. Свяжитесь с персоналом через окно чата.",
         "category": "Комнаты и кровати",
         "areas": [
           "dorm",
@@ -1279,7 +1279,7 @@
       {
         "q": "Quiero cambiar mi número de cama.",
         "keyword": "número de cama",
-        "a": "Por favor, pulse el botón de chat de abajo y contacte al gerente. Le diremos la fecha en que puede cambiar de cama. (El mismo día del check-in no se puede cambiar la cama, porque la asignación ya está hecha.) Por favor, deje libre su cama original antes de las 11:00 AM el día del cambio. Puede moverse a la nueva cama después de las 3:00 PM, cuando termine la limpieza.",
+        "a": "El día del check-in las camas ya están asignadas, por lo que no se puede cambiar de cama. Puede cambiar de cama a partir del día siguiente. Contacte al personal a través de la ventana de chat.",
         "category": "Habitaciones y camas",
         "areas": [
           "dorm",
@@ -1505,7 +1505,7 @@
       {
         "q": "Миний ор дугаарыг өөрчилж болох уу?",
         "keyword": "ор дугаар",
-        "a": "Тоолуурт жагсаалт үлээнэ үү. Та дараа өдрөөс ор өөрчилж болно. Өглөө 11 цагт одоогийн ороо хоосон үлээнэ үү, сүүлийн ухсалт дууссаны дараа 3 цагт шинэ орондоо очно уу.",
+        "a": "Чек-ин хийсэн өдөр ор аль хэдийн хуваарилагдсан тул ор солих боломжгүй. Ор солихыг дараагийн өдрөөс хийж болно. Чат цонхоор ажилтантай холбогдоно уу.",
         "category": "Өрөө & Орын Холбогдох Асуултууд",
         "areas": [
           "dorm",
@@ -1731,7 +1731,7 @@
       {
         "q": "Tôi có thể thay đổi số giường không?",
         "keyword": "số giường",
-        "a": "Để lại một tờ ghi chú ở quầy tiếp tân. Bạn có thể thay đổi giường từ ngày hôm sau. Vui lòng rời khỏi giường hiện tại của bạn trước 11 giờ sáng, và chuyển đến giường mới sau 15 giờ khi làm vệ sinh xong.",
+        "a": "Vào ngày check-in, giường đã được sắp xếp xong nên bạn không thể đổi giường. Bạn có thể đổi giường từ ngày hôm sau. Vui lòng liên hệ nhân viên qua cửa sổ chat.",
         "category": "Phòng & Liên quan đến giường",
         "areas": [
           "dorm",
@@ -1957,7 +1957,7 @@
       {
         "q": "Je veux changer mon numéro de lit.",
         "keyword": "numéro de lit",
-        "a": "Veuillez appuyer sur le bouton de chat ci-dessous et contacter le responsable. Nous vous indiquerons la date à laquelle vous pouvez changer de lit. (Le jour de l'enregistrement, l'attribution des lits est déjà terminée, vous ne pouvez donc pas changer de lit.) Veuillez libérer votre lit d'origine avant 11h00 le jour où vous changez de lit. Vous pouvez passer au nouveau lit après 15h00, quand le nettoyage est terminé.",
+        "a": "Le jour de l'arrivée, les lits sont déjà attribués, il n'est donc pas possible d'en changer. Vous pouvez changer de lit à partir du lendemain. Merci de contacter le personnel via la fenêtre de chat.",
         "category": "Chambres et Lits",
         "areas": [
           "dorm",
@@ -2183,7 +2183,7 @@
       {
         "q": "Ich möchte meine Bettnummer ändern.",
         "keyword": "Bettnummer",
-        "a": "Bitte tippen Sie auf die Chat-Schaltfläche unten und kontaktieren Sie den Manager. Wir werden Ihnen das Datum mitteilen, an dem Sie Ihr Bett wechseln können. (Am Ankunftstag ist die Bettzuweisung bereits abgeschlossen, daher können Sie Ihr Bett nicht wechseln.) Bitte räumen Sie Ihr ursprüngliches Bett bis 11:00 Uhr am Tag des Bettenwechsels. Sie können nach 15:00 Uhr ins neue Bett wechseln, wenn die Reinigung fertig ist.",
+        "a": "Am Anreisetag sind die Betten bereits zugewiesen, daher ist ein Bettwechsel nicht möglich. Ein Bettwechsel ist ab dem nächsten Tag möglich. Bitte wenden Sie sich über das Chat-Fenster an das Personal.",
         "category": "Rooms and Beds",
         "areas": [
           "dorm",
@@ -2409,7 +2409,7 @@
       {
         "q": "أريد تغيير رقم سريري.",
         "keyword": "رقم سريري",
-        "a": "يرجى النقر على زر الدردشة أدناه والاتصال بمدير الفندق. سنخبرك بالتاريخ الذي يمكنك فيه تغيير سريرك. (في يوم تسجيل الوصول، يكون توزيع الأسرة قد اكتمل بالفعل، لذا لا يمكنك تغيير سريرك.) يرجى إخلاء سريرك الأصلي بحلول الساعة 11:00 صباحاً في اليوم الذي تغير فيه الأسرة. يمكنك الانتقال إلى السرير الجديد بعد الساعة 3:00 مساءً، عندما ينتهي التنظيف.",
+        "a": "في يوم تسجيل الوصول تكون الأسرة موزعة بالفعل، لذا لا يمكن تغيير السرير. يمكنك تغيير السرير ابتداءً من اليوم التالي. يرجى التواصل مع الموظفين عبر نافذة الدردشة.",
         "category": "الغرف والأسرة",
         "areas": [
           "dorm",
@@ -2635,7 +2635,7 @@
       {
         "q": "Yatak numaramı değiştirmek istiyorum.",
         "keyword": "Yatak numaramı",
-        "a": "Lütfen aşağıdaki sohbet düğmesine dokunun ve yöneticiyle iletişime geçin. Yatak değiştirebileceğiniz tarihi size söyleriz. (Giriş günü, yatak atama zaten tamamlanmıştır, bu yüzden yatağı değiştiremezsiniz.) Lütfen yatak değiştirdiğiniz gün saat 11:00'a kadar orijinal yatağınızı boşaltın. Temizlik tamamlandıktan sonra saat 15:00'te yeni yatağa geçebilirsiniz.",
+        "a": "Check-in gününde yataklar zaten atanmış olduğu için yatak değiştirilemez. Yatak değişikliği ertesi günden itibaren yapılabilir. Lütfen sohbet penceresinden personelle iletişime geçin.",
         "category": "Rooms and Beds",
         "areas": [
           "dorm",
@@ -2861,7 +2861,7 @@
       {
         "q": "මට මගේ ඇඳ අංකය වෙනස් කිරීමට අවශ්‍යයි.",
         "keyword": "මගේ ඇඳ අංකය",
-        "a": "කරුණාකර පහත ඇති chat බොත්තම ඔබා කළමනාකරු අමතන්න. ඔබට ඇඳ වෙනස් කළ හැකි දිනය අපි ඔබට කියන්නෙමු. (check-in දිනයේදී, ඇඳ පැවරීම දැනටමත් අවසන් වී ඇති බැවින්, ඔබට ඇඳ වෙනස් කළ නොහැක.) ඇඳ වෙනස් කරන දිනයේ උදෑසන 11:00 වන විට ඔබේ මුල් ඇඳ හිස් කරන්න. පිරිසිදු කිරීම අවසන් වූ පසු, දහවල් 3:00 න් පසුව ඔබට අලුත් ඇඳට යා හැක.",
+        "a": "check-in දිනයේදී ඇඳ ලබාදීම දැනටමත් අවසන් වී ඇති නිසා ඇඳ මාරු කළ නොහැක. ඇඳ මාරු කිරීම ඊළඟ දිනයේ සිට කළ හැක. චැට් කවුළුව හරහා කාර්ය මණ්ඩලය සමඟ සම්බන්ධ වන්න.",
         "category": "කාමර සහ ඇඳන්",
         "areas": [
           "dorm",
@@ -3087,7 +3087,7 @@
       {
         "q": "मैं अपनी बिस्तर संख्या बदलना चाहता हूं।",
         "keyword": "बिस्तर संख्या",
-        "a": "कृपया नीचे दिए गए चैट बटन को टैप करें और प्रबंधक से संपर्क करें। हम आपको बताएंगे कि आप अपना बिस्तर कब बदल सकते हैं। (चेक-इन के दिन, बिस्तर असाइनमेंट पहले से ही समाप्त हो चुका है, इसलिए आप अपना बिस्तर नहीं बदल सकते।) कृपया बिस्तर बदलने के दिन सुबह 11:00 बजे तक अपने मूल बिस्तर को खाली कर दें। सफाई खत्म होने के बाद आप दोपहर 3:00 बजे नए बिस्तर पर जा सकते हैं।",
+        "a": "चेक-इन के दिन बिस्तर पहले ही आवंटित हो चुके होते हैं, इसलिए बिस्तर नहीं बदला जा सकता। बिस्तर अगले दिन से बदला जा सकता है। कृपया चैट विंडो के ज़रिए स्टाफ से संपर्क करें।",
         "category": "कमरे और बिस्तर",
         "areas": [
           "dorm",
@@ -3313,7 +3313,7 @@
       {
         "q": "ฉันต้องการเปลี่ยนหมายเลขเตียง",
         "keyword": "หมายเลขเตียง",
-        "a": "โปรดแตะปุ่มแชทด้านล่างและติดต่อผู้จัดการ เราจะบอกคุณถึงวันที่ที่คุณสามารถเปลี่ยนเตียงได้ (วันเช็คอิน การจัดสรรเตียงจะเสร็จสิ้นแล้ว ดังนั้นคุณจึงไม่สามารถเปลี่ยนเตียงได้) โปรดล้างเตียงเดิมของคุณก่อนเวลา 11:00 AM ในวันที่คุณเปลี่ยนเตียง คุณสามารถย้ายไปยังเตียงใหม่หลังจาก 3:00 PM เมื่อการทำความสะอาดเสร็จสิ้น",
+        "a": "ในวันเช็คอิน เตียงได้รับการจัดสรรเรียบร้อยแล้ว จึงไม่สามารถเปลี่ยนเตียงได้ คุณสามารถเปลี่ยนเตียงได้ตั้งแต่วันถัดไป กรุณาติดต่อเจ้าหน้าที่ผ่านหน้าต่างแชท",
         "category": "ห้องและเตียง",
         "areas": [
           "dorm",
@@ -3539,7 +3539,7 @@
       {
         "q": "Saya ingin mengubah nomor kasur saya.",
         "keyword": "nomor kasur",
-        "a": "Silakan tap tombol chat di bawah dan hubungi manajer. Kami akan memberi tahu Anda tanggal kapan Anda bisa mengubah kasur Anda. (Pada hari check-in, penempatan kasur sudah selesai, jadi Anda tidak bisa mengubah kasur Anda.) Silakan kosongkan kasur asli Anda pada pukul 11:00 pagi pada hari Anda mengubah kasur. Anda bisa pindah ke kasur baru setelah pukul 3:00 sore, setelah pembersihan selesai.",
+        "a": "Pada hari check-in, tempat tidur sudah dialokasikan sehingga tidak bisa diganti. Anda bisa mengganti tempat tidur mulai keesokan harinya. Silakan hubungi staf melalui jendela chat.",
         "category": "Kamar dan Tempat Tidur",
         "areas": [
           "dorm",
