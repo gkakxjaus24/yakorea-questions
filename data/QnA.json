@@ -213,7 +213,12 @@
         "q": "음식물 쓰레기는 어디 버리나요?",
         "keyword": "음식물 쓰레기",
         "a": "음식물쓰레기는 주방 싱크대 옆 음식물 쓰레기통에 버려주세요. (변기에 버리면 변기가 막힙니다)",
-        "category": "생활 편의 시설 및 비품 관련"
+        "category": "생활 편의 시설 및 비품 관련",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -445,7 +450,12 @@
         "q": "Where do I throw away food waste?",
         "keyword": "food waste",
         "a": "Please throw food waste in the food waste bin next to the kitchen sink. (Flushing it down the toilet will clog it.)",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -677,7 +687,12 @@
         "q": "厨余垃圾要扔在哪里？",
         "keyword": "厨余垃圾",
         "a": "请将厨余垃圾扔进厨房水槽旁边的厨余垃圾桶。（倒入马桶会导致马桶堵塞）",
-        "category": "生活便利设施及用品"
+        "category": "生活便利设施及用品",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -909,7 +924,12 @@
         "q": "生ごみはどこに捨てますか？",
         "keyword": "生ごみ",
         "a": "生ごみはキッチンのシンクの横にある生ごみ用ゴミ箱に捨ててください。（トイレに流すと詰まります）",
-        "category": "生活設備・備品"
+        "category": "生活設備・備品",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -1141,7 +1161,12 @@
         "q": "Куда выбрасывать пищевые отходы?",
         "keyword": "пищевые отходы",
         "a": "Пожалуйста, выбрасывайте пищевые отходы в контейнер для пищевых отходов рядом с кухонной раковиной. (Если бросить в унитаз, он засорится.)",
-        "category": "Удобства и принадлежности"
+        "category": "Удобства и принадлежности",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -1373,7 +1398,12 @@
         "q": "¿Dónde tiro los residuos de comida?",
         "keyword": "residuos de comida",
         "a": "Por favor, tire los residuos de comida en el cubo de residuos de comida junto al fregadero de la cocina. (Si los tira al inodoro, se obstruirá.)",
-        "category": "Servicios y artículos"
+        "category": "Servicios y artículos",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -1605,7 +1635,12 @@
         "q": "Хүнсний хог хаана хаях вэ?",
         "keyword": "Хүнсний хог",
         "a": "Хүнсний хогийг гал тогооны угаалтуурын хажууд байрлах хүнсний хогийн саванд хаяна уу. (Бие засах газарт хаявал бөглөрнө)",
-        "category": "Байгууламж & Удирдамжууд"
+        "category": "Байгууламж & Удирдамжууд",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -1837,7 +1872,12 @@
         "q": "Rác thực phẩm bỏ ở đâu?",
         "keyword": "Rác thực phẩm",
         "a": "Vui lòng bỏ rác thực phẩm vào thùng rác thực phẩm bên cạnh bồn rửa trong bếp. (Nếu đổ vào bồn cầu sẽ gây tắc nghẽn.)",
-        "category": "Tiện nghi & Dịch vụ"
+        "category": "Tiện nghi & Dịch vụ",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -2069,7 +2109,12 @@
         "q": "Où jeter les déchets alimentaires ?",
         "keyword": "déchets alimentaires",
         "a": "Veuillez jeter les déchets alimentaires dans la poubelle à déchets alimentaires à côté de l'évier de la cuisine. (Les jeter dans les toilettes les bouchera.)",
-        "category": "Équipements et Fournitures"
+        "category": "Équipements et Fournitures",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -2301,7 +2346,12 @@
         "q": "Wo entsorge ich Essensreste?",
         "keyword": "Essensreste",
         "a": "Bitte entsorgen Sie Essensreste im Mülleimer für Essensreste neben der Küchenspüle. (Wenn Sie sie in die Toilette werfen, verstopft diese.)",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -2533,7 +2583,12 @@
         "q": "أين أرمي بقايا الطعام؟",
         "keyword": "بقايا الطعام",
         "a": "يرجى وضع بقايا الطعام في سلة نفايات الطعام بجانب حوض المطبخ. (رميها في المرحاض يسبب انسداده.)",
-        "category": "المرافق والإمدادات"
+        "category": "المرافق والإمدادات",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -2765,7 +2820,12 @@
         "q": "Yemek atıklarını nereye atmalıyım?",
         "keyword": "Yemek atıkları",
         "a": "Lütfen yemek atıklarını mutfak lavabosunun yanındaki yemek atığı kutusuna atın. (Tuvalete atarsanız tuvalet tıkanır.)",
-        "category": "Amenities and Supplies"
+        "category": "Amenities and Supplies",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -2997,7 +3057,12 @@
         "q": "කෑම කසළ දාන්නේ කොහෙද?",
         "keyword": "කෑම කසළ",
         "a": "කරුණාකර කෑම කසළ, කුස්සියේ සින්ක් එක අසල ඇති කෑම කසළ බඳුනට දමන්න. (වැසිකිළියට දැම්මොත් වැසිකිළිය බ්ලොක් වේ)",
-        "category": "පහසුකම් සහ සැපයුම්"
+        "category": "පහසුකම් සහ සැපයුම්",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -3229,7 +3294,12 @@
         "q": "खाने का कचरा कहां फेंकें?",
         "keyword": "खाने का कचरा",
         "a": "कृपया खाने का कचरा रसोई के सिंक के पास वाले खाने के कचरे के डिब्बे में डालें। (शौचालय में डालने से शौचालय जाम हो जाएगा)",
-        "category": "सुविधाएं और आपूर्ति"
+        "category": "सुविधाएं और आपूर्ति",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -3461,7 +3531,12 @@
         "q": "เศษอาหารทิ้งที่ไหน?",
         "keyword": "เศษอาหาร",
         "a": "กรุณาทิ้งเศษอาหารลงในถังขยะเศษอาหารข้างอ่างล้างจานในครัว (หากทิ้งลงชักโครกจะทำให้ชักโครกอุดตัน)",
-        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้"
+        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
@@ -3693,7 +3768,12 @@
         "q": "Sampah makanan dibuang di mana?",
         "keyword": "Sampah makanan",
         "a": "Silakan buang sampah makanan ke tempat sampah makanan di samping wastafel dapur. (Jika dibuang ke toilet akan menyumbat toilet)",
-        "category": "Fasilitas dan Perlengkapan"
+        "category": "Fasilitas dan Perlengkapan",
+        "areas": [
+          "privateA",
+          "privateB",
+          "common"
+        ]
       }
     ],
     "feedback": {
