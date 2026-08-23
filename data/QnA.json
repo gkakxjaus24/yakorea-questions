@@ -211,7 +211,7 @@
       },
       {
         "q": "음식물 쓰레기는 어디 버리나요?",
-        "keyword": "음식물쓰레기",
+        "keyword": "음식물 쓰레기",
         "a": "음식물쓰레기는 주방 싱크대 옆 음식물 쓰레기통에 버려주세요. (변기에 버리면 변기가 막힙니다)",
         "category": "생활 편의 시설 및 비품 관련"
       }
@@ -1603,7 +1603,7 @@
       },
       {
         "q": "Хүнсний хог хаана хаях вэ?",
-        "keyword": "хүнсний хог",
+        "keyword": "Хүнсний хог",
         "a": "Хүнсний хогийг гал тогооны угаалтуурын хажууд байрлах хүнсний хогийн саванд хаяна уу. (Бие засах газарт хаявал бөглөрнө)",
         "category": "Байгууламж & Удирдамжууд"
       }
@@ -1835,7 +1835,7 @@
       },
       {
         "q": "Rác thực phẩm bỏ ở đâu?",
-        "keyword": "rác thực phẩm",
+        "keyword": "Rác thực phẩm",
         "a": "Vui lòng bỏ rác thực phẩm vào thùng rác thực phẩm bên cạnh bồn rửa trong bếp. (Nếu đổ vào bồn cầu sẽ gây tắc nghẽn.)",
         "category": "Tiện nghi & Dịch vụ"
       }
@@ -2763,7 +2763,7 @@
       },
       {
         "q": "Yemek atıklarını nereye atmalıyım?",
-        "keyword": "yemek atığı",
+        "keyword": "Yemek atıkları",
         "a": "Lütfen yemek atıklarını mutfak lavabosunun yanındaki yemek atığı kutusuna atın. (Tuvalete atarsanız tuvalet tıkanır.)",
         "category": "Amenities and Supplies"
       }
@@ -3691,7 +3691,7 @@
       },
       {
         "q": "Sampah makanan dibuang di mana?",
-        "keyword": "sampah makanan",
+        "keyword": "Sampah makanan",
         "a": "Silakan buang sampah makanan ke tempat sampah makanan di samping wastafel dapur. (Jika dibuang ke toilet akan menyumbat toilet)",
         "category": "Fasilitas dan Perlengkapan"
       }
