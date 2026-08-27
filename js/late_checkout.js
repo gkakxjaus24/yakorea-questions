@@ -78,6 +78,27 @@ function callLateCheckoutApi(action, resNum) {
   }).then((res) => res.json());
 }
 
+// 서버를 미리 깨워둔다 — 손님이 이름을 치는 동안.
+//
+// Apps Script는 한동안 호출이 없으면 잠들고, 깨어나는 데 1초 넘게 걸린다.
+// 그 시간이 그대로 "확인 중입니다..." 대기시간이 된다. 손님이 이름을 다 치는 데는
+// 보통 5~15초 걸리므로, 화면이 열리는 순간 빈 요청을 하나 보내두면 확인을 누를
+// 때는 이미 깨어 있다. 서버 쪽은 doPost 맨 앞에서 아무것도 하지 않고 바로 답한다.
+//
+// ⚠️ 기다리지 않는다(await 없음). 이건 속도 개선일 뿐이라, 실패하든 늦든
+// 실제 조회에는 아무 영향이 없어야 한다.
+function warmUpServer() {
+  try {
+    fetch(GOOGLE_APP_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ action: "ping" }),
+    }).catch(() => {});
+  } catch (e) {
+    // 여기서 나는 오류는 무시한다 — 손님 화면에 영향을 주면 안 된다.
+  }
+}
+
 // 이름(또는 예약번호 뒷자리)으로 예약 한 건을 조회한다.
 // 이름은 이 요청에만 쓰이고 응답에는 되돌아오지 않는다 — 서버는 방번호와
 // 체크아웃 날짜만 돌려준다.
@@ -394,6 +415,9 @@ function submitLateCheckout(stage, action, successMain, successSub) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  // 언어 파일을 읽는 동안 서버도 같이 깨운다(둘 다 기다리지 않고 동시에 진행).
+  warmUpServer();
+
   await loadLanguageData();
   if (!i18n) return;
   // 공용 버튼("처음으로")은 키오스크의 app.js에만 있다. QR 사이트에는 없으므로
