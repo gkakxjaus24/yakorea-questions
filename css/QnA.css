@@ -68,6 +68,15 @@
   padding: 10px;
 }
 
+/* 답변 안에서 다른 FAQ 질문으로 자동 이동/펼쳐주는 링크(예: "늦은 체크아웃을
+   신청" → "늦은 체크아웃은 어떻게 하나요?" 자동으로 펼침). 하이퍼링크처럼
+   파란색+밑줄만 주고 굵게는 하지 않는다(키오스크 css/QnA.css와 동일 스타일). */
+.faq-jump-link {
+  color: #1a56db;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .media-container {
   margin-top: 10px;
   text-align: left;

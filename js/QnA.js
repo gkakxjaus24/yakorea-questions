@@ -248,8 +248,37 @@ async function updateUI() {
     }
   }
 
-  document.querySelector(".container").innerHTML = qnaHTML;
+  const container = document.querySelector(".container");
+  container.innerHTML = qnaHTML;
   addEventListeners();
+  wireFaqJumpLinks(container);
+}
+
+// 답변 안의 "다른 질문으로 이동" 링크(class="faq-jump-link") 연결 — 키오스크
+// js/QnA.js의 wireFaqJumpLinks와 동일한 방식. data-jump-action에 대상 FAQ의
+// action.url을 적어두면(예: "late_checkout.html") 그 url을 가진 항목을 찾아
+// 자동으로 펼치고 스크롤해준다(하드코딩한 인덱스 대신 url로 찾아 순서 변경에도 안전).
+function wireFaqJumpLinks(container) {
+  const jumpTargetIdx = {};
+  i18n.qna.forEach((item, idx) => {
+    if (item.action && item.action.url) jumpTargetIdx[item.action.url] = idx;
+  });
+
+  container.querySelectorAll(".faq-jump-link").forEach((link) => {
+    const targetIdx = jumpTargetIdx[link.dataset.jumpAction];
+    if (targetIdx == null) return;
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const targetQuestion = container.querySelector(`.question[data-idx="${targetIdx}"]`);
+      if (!targetQuestion) return;
+      const targetAnswer = targetQuestion.nextElementSibling;
+      if (targetAnswer.style.display !== "block") {
+        targetQuestion.click();
+      }
+      targetQuestion.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
 }
 
 // ── 건의사항/불만사항 폼 ─────────────────────────────────────────
