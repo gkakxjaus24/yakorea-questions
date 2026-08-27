@@ -35,6 +35,14 @@
   font-weight: bold;
 }
 
+/* 강조 키워드: 주황 볼드 — 자주 묻는 질문/강조하고 싶은 질문
+   (수건·와이파이·음식물쓰레기·늦은체크아웃·가방보관·조식·빨래·다른도움, 2026-08-27,
+   키오스크 css/QnA.css와 동일 색상) */
+.question .kw-hl {
+  color: #d35400;
+  font-weight: bold;
+}
+
 /* 나머지 설명 텍스트: 회색 */
 .question .sub {
   color: #999;

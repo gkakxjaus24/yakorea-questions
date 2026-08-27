@@ -55,14 +55,17 @@ function reportFaqClick(index) {
   }).catch(() => {});
 }
 
+// item.highlight === true면 검은 볼드(.kw) 대신 주황 볼드(.kw-hl)로 — 자주 묻는
+// 질문/강조하고 싶은 질문을 다른 항목보다 눈에 띄게 함(2026-08-27, 키오스크 js/QnA.js와 동일).
 function renderQuestionText(item) {
   if (item.keyword) {
     const idx = item.q.indexOf(item.keyword);
     if (idx >= 0) {
       const before = item.q.slice(0, idx);
       const after  = item.q.slice(idx + item.keyword.length);
+      const kwClass = item.highlight ? 'kw-hl' : 'kw';
       return (before ? `<span class="sub">${before}</span>` : '')
-           + `<span class="kw">${item.keyword}</span>`
+           + `<span class="${kwClass}">${item.keyword}</span>`
            + (after  ? `<span class="sub">${after}</span>`  : '');
     }
   }
