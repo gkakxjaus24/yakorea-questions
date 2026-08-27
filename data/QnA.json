@@ -186,9 +186,19 @@
       },
       {
         "q": "체크아웃은 어떻게 하나요?",
-        "a": "오전 11시 입니다. 키오스크에서 방번호를 입력 후 슬리퍼를 반납하면 됩니다. 늦으면 20분마다 5,000원의 벌금이 부과됩니다.",
+        "a": "오전 11시 입니다. 키오스크에서 방번호를 입력 후 슬리퍼를 반납하면 됩니다. 늦으면 20분마다 5,000원의 벌금이 부과됩니다. 늦은 체크아웃을 <strong><u>신청한 경우에만</u></strong> 12시까지 가능합니다. 다음 질문을 클릭해서 늦은 체크아웃을 신청해주세요.",
         "category": "출입/운영 방식/무인 관련",
         "keyword": "체크아웃"
+      },
+      {
+        "q": "늦은 체크아웃은 어떻게 하나요?",
+        "a": "늦은 체크아웃은 객실 정리를 조건으로 하며, 그 전날부터 체크아웃 당일 오전 10시까지 신청 가능합니다.<br>(객실 정리 조건은 늦은 체크아웃 신청 시 안내해드립니다)",
+        "category": "출입/운영 방식/무인 관련",
+        "keyword": "늦은 체크아웃",
+        "action": {
+          "label": "늦은 체크아웃 신청하기",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "뜨거운 물이 안나와요.",
@@ -423,9 +433,19 @@
       },
       {
         "q": "How do I check out?",
-        "a": "Check-out is at 11:00 AM. Enter your room number on the kiosk and return your slippers. A late fee of 5,000 KRW is charged every 20 minutes after that.",
+        "a": "Check-out is at 11:00 AM. Enter your room number on the kiosk and return your slippers. A late fee of 5,000 KRW is charged every 20 minutes after that. Staying until 12:00 PM is possible <strong><u>only if you have requested late check-out</u></strong>. Click the next question below to apply for late check-out.",
         "category": "Access / Operation / Self-service",
         "keyword": "check out"
+      },
+      {
+        "q": "How do I get a late check-out?",
+        "a": "Late check-out requires you to tidy the room, and can be requested from the day before until 10:00 AM on your check-out day.<br>(The room tidy-up conditions are shown when you apply.)",
+        "category": "Access / Operation / Self-service",
+        "keyword": "late check-out",
+        "action": {
+          "label": "Apply for Late Check-out",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "Hot water isn't coming out.",
@@ -660,9 +680,19 @@
       },
       {
         "q": "退房怎么操作？",
-        "a": "退房时间是上午11点。请在触摸屏上输入房间号并归还拖鞋。逾期每20分钟收取5,000韩元的罚款。",
+        "a": "退房时间是上午11点。请在触摸屏上输入房间号并归还拖鞋。逾期每20分钟收取5,000韩元的罚款。<strong><u>只有申请延迟退房</u></strong>才能免费使用至中午12点。请点击下一个问题申请延迟退房。",
         "category": "出入 / 运营方式 / 无人值守",
         "keyword": "退房"
+      },
+      {
+        "q": "如何申请延迟退房？",
+        "a": "延迟退房需以整理客房为条件，可在退房前一天至退房当天上午10点之前申请。<br>（客房整理要求将在申请时说明）",
+        "category": "出入 / 运营方式 / 无人值守",
+        "keyword": "延迟退房",
+        "action": {
+          "label": "申请延迟退房",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "热水出不来。",
@@ -897,9 +927,19 @@
       },
       {
         "q": "チェックアウトはどうすればいいですか？",
-        "a": "午前11時です。キオスクで部屋番号を入力し、スリッパを返却してください。遅れると20分ごとに5,000ウォンの延滞料金がかかります。",
+        "a": "午前11時です。キオスクで部屋番号を入力し、スリッパを返却してください。遅れると20分ごとに5,000ウォンの延滞料金がかかります。<strong><u>レイトチェックアウトを申請した場合のみ</u></strong>、正午12時までご利用いただけます。次の質問をクリックしてレイトチェックアウトを申請してください。",
         "category": "出入 / 運営方式 / 無人運営",
         "keyword": "チェックアウト"
+      },
+      {
+        "q": "レイトチェックアウトはどうすればいいですか？",
+        "a": "レイトチェックアウトは客室の片付けが条件で、前日からチェックアウト当日の午前10時までお申し込みいただけます。<br>（客室の片付け条件はお申し込み時にご案内します）",
+        "category": "出入 / 運営方式 / 無人運営",
+        "keyword": "レイトチェックアウト",
+        "action": {
+          "label": "レイトチェックアウトを申請する",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "お湯が出ません。",
@@ -1134,9 +1174,19 @@
       },
       {
         "q": "Как выехать (check-out)?",
-        "a": "Выезд в 11:00. Введите номер комнаты на киоске и верните тапочки. За опоздание взимается штраф 5 000 вон за каждые 20 минут.",
+        "a": "Выезд в 11:00. Введите номер комнаты на киоске и верните тапочки. За опоздание взимается штраф 5 000 вон за каждые 20 минут. Остаться до 12:00 можно <strong><u>только если вы заранее оформили поздний выезд</u></strong>. Нажмите на следующий вопрос, чтобы оформить поздний выезд.",
         "category": "Вход / Работа / Самообслуживание",
         "keyword": "check-out"
+      },
+      {
+        "q": "Как оформить поздний выезд?",
+        "a": "Поздний выезд возможен при условии уборки номера; заявку можно подать со дня накануне до 10:00 в день выезда.<br>(Условия уборки номера будут показаны при подаче заявки)",
+        "category": "Вход / Работа / Самообслуживание",
+        "keyword": "поздний выезд",
+        "action": {
+          "label": "Подать заявку на поздний выезд",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "Не идёт горячая вода.",
@@ -1371,9 +1421,19 @@
       },
       {
         "q": "¿Cómo hago el check-out?",
-        "a": "El check-out es a las 11:00 a.m. Ingrese su número de habitación en el quiosco y devuelva las zapatillas. Si se retrasa, se cobrará una multa de 5,000 KRW cada 20 minutos.",
+        "a": "El check-out es a las 11:00 a.m. Ingrese su número de habitación en el quiosco y devuelva las zapatillas. Si se retrasa, se cobrará una multa de 5,000 KRW cada 20 minutos. Solo puede quedarse hasta las 12:00 p.m. <strong><u>si ha solicitado la salida tardía</u></strong>. Haga clic en la siguiente pregunta para solicitar la salida tardía.",
         "category": "Acceso / Operación / Autoservicio",
         "keyword": "check-out"
+      },
+      {
+        "q": "¿Cómo solicito una salida tardía?",
+        "a": "La salida tardía requiere que ordene la habitación y puede solicitarse desde el día anterior hasta las 10:00 del día de salida.<br>(Las condiciones de orden se le indicarán al solicitarla)",
+        "category": "Acceso / Operación / Autoservicio",
+        "keyword": "salida tardía",
+        "action": {
+          "label": "Solicitar salida tardía",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "No sale agua caliente.",
@@ -1608,9 +1668,19 @@
       },
       {
         "q": "Чекаутыг яаж хийх вэ?",
-        "a": "Өглөөний 11 цагт. Киоск дээр өрөөний дугаараа оруулаад шаахайгаа буцаана уу. Хоцорвол 20 минут тутамд 5,000 вон торгууль ногдуулна.",
+        "a": "Өглөөний 11 цагт. Киоск дээр өрөөний дугаараа оруулаад шаахайгаа буцаана уу. Хоцорвол 20 минут тутамд 5,000 вон торгууль ногдуулна. <strong><u>Зөвхөн хожуу гарах хүсэлт илгээсэн тохиолдолд</u></strong> үд дунд 12 цаг хүртэл байрлаж болно. Доорх асуултыг дарж хожуу гарах хүсэлт илгээнэ үү.",
         "category": "Орох & Үйлчилгээгүй Ажиллагаа",
         "keyword": "Чекаут"
+      },
+      {
+        "q": "Хожуу гарахын тулд яах вэ?",
+        "a": "Хожуу гарахын тулд өрөөгөө цэгцлэх шаардлагатай бөгөөд гарахын өмнөх өдрөөс гарах өдрийн өглөөний 10 цаг хүртэл бүртгүүлж болно.<br>(Өрөө цэгцлэх нөхцөлийг бүртгүүлэх үед танилцуулна)",
+        "category": "Орох & Үйлчилгээгүй Ажиллагаа",
+        "keyword": "Хожуу гарах",
+        "action": {
+          "label": "Хожуу гарах хүсэлт илгээх",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "Халуун ус гарахгүй байна.",
@@ -1845,9 +1915,19 @@
       },
       {
         "q": "Làm thế nào để trả phòng (check-out)?",
-        "a": "Giờ trả phòng là 11 giờ sáng. Vui lòng nhập số phòng tại kiosk và trả lại dép. Nếu trễ, sẽ bị phạt 5.000 won mỗi 20 phút.",
+        "a": "Giờ trả phòng là 11 giờ sáng. Vui lòng nhập số phòng tại kiosk và trả lại dép. Nếu trễ, sẽ bị phạt 5.000 won mỗi 20 phút. Bạn <strong><u>chỉ có thể ở lại miễn phí đến 12:00 trưa nếu đã đăng ký trả phòng muộn</u></strong>. Nhấp vào câu hỏi tiếp theo để đăng ký trả phòng muộn.",
         "category": "Vào cửa & Hoạt động không có nhân viên",
         "keyword": "trả phòng"
+      },
+      {
+        "q": "Làm thế nào để trả phòng muộn?",
+        "a": "Trả phòng muộn yêu cầu dọn dẹp phòng và có thể đăng ký từ ngày hôm trước đến 10:00 sáng ngày trả phòng.<br>(Điều kiện dọn phòng sẽ được hướng dẫn khi bạn đăng ký)",
+        "category": "Vào cửa & Hoạt động không có nhân viên",
+        "keyword": "trả phòng muộn",
+        "action": {
+          "label": "Đăng ký trả phòng muộn",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "Không có nước nóng.",
@@ -2082,9 +2162,19 @@
       },
       {
         "q": "Comment faire le check-out ?",
-        "a": "Le check-out est à 11h00. Entrez votre numéro de chambre sur la borne et rendez vos pantoufles. En cas de retard, une amende de 5 000 KRW est appliquée toutes les 20 minutes.",
+        "a": "Le check-out est à 11h00. Entrez votre numéro de chambre sur la borne et rendez vos pantoufles. En cas de retard, une amende de 5 000 KRW est appliquée toutes les 20 minutes. Vous ne pouvez rester jusqu'à midi <strong><u>que si vous avez demandé un départ tardif</u></strong>. Cliquez sur la question suivante pour demander un départ tardif.",
         "category": "Accès / Fonctionnement / Libre-service",
         "keyword": "check-out"
+      },
+      {
+        "q": "Comment obtenir un départ tardif ?",
+        "a": "Le départ tardif est soumis au rangement de la chambre et peut être demandé de la veille jusqu'à 10h00 le jour du départ.<br>(Les conditions de rangement vous seront indiquées lors de la demande)",
+        "category": "Accès / Fonctionnement / Libre-service",
+        "keyword": "départ tardif",
+        "action": {
+          "label": "Demander un départ tardif",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "L'eau chaude ne sort pas.",
@@ -2319,9 +2409,19 @@
       },
       {
         "q": "Wie funktioniert der Check-out?",
-        "a": "Der Check-out ist um 11:00 Uhr. Geben Sie Ihre Zimmernummer am Kiosk ein und geben Sie die Hausschuhe zurück. Bei Verspätung wird alle 20 Minuten eine Gebühr von 5.000 KRW berechnet.",
+        "a": "Der Check-out ist um 11:00 Uhr. Geben Sie Ihre Zimmernummer am Kiosk ein und geben Sie die Hausschuhe zurück. Bei Verspätung wird alle 20 Minuten eine Gebühr von 5.000 KRW berechnet. Ein Verbleib bis 12:00 Uhr ist <strong><u>nur möglich, wenn Sie vorab einen späten Check-out beantragt haben</u></strong>. Klicken Sie auf die nächste Frage, um einen späten Check-out zu beantragen.",
         "category": "Access / Operation / Self-service",
         "keyword": "Check-out"
+      },
+      {
+        "q": "Wie bekomme ich einen späten Check-out?",
+        "a": "Ein später Check-out setzt das Aufräumen des Zimmers voraus und kann ab dem Vortag bis 10:00 Uhr am Abreisetag beantragt werden.<br>(Die Aufräumbedingungen werden bei der Beantragung angezeigt)",
+        "category": "Access / Operation / Self-service",
+        "keyword": "späten Check-out",
+        "action": {
+          "label": "Späten Check-out beantragen",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "Es kommt kein warmes Wasser.",
@@ -2556,9 +2656,19 @@
       },
       {
         "q": "كيف يتم تسجيل المغادرة؟",
-        "a": "تسجيل المغادرة الساعة 11 صباحًا. أدخل رقم غرفتك على الجهاز وأعد النعال. في حال التأخير، تُفرض غرامة 5000 وون كل 20 دقيقة.",
+        "a": "تسجيل المغادرة الساعة 11 صباحًا. أدخل رقم غرفتك على الجهاز وأعد النعال. في حال التأخير، تُفرض غرامة 5000 وون كل 20 دقيقة. يمكنك البقاء حتى الساعة 12:00 ظهرًا <strong><u>فقط إذا قمت بطلب تسجيل مغادرة متأخر</u></strong>. اضغط على السؤال التالي لطلب تسجيل مغادرة متأخر.",
         "category": "الوصول / التشغيل / الخدمة الذاتية",
         "keyword": "تسجيل المغادرة"
+      },
+      {
+        "q": "كيف أحصل على تسجيل مغادرة متأخر؟",
+        "a": "تسجيل المغادرة المتأخر مشروط بترتيب الغرفة، ويمكن طلبه من اليوم السابق حتى الساعة 10:00 صباحًا في يوم المغادرة.<br>(سيتم توضيح شروط ترتيب الغرفة عند تقديم الطلب)",
+        "category": "الوصول / التشغيل / الخدمة الذاتية",
+        "keyword": "تسجيل مغادرة متأخر",
+        "action": {
+          "label": "طلب تسجيل مغادرة متأخر",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "الماء الساخن لا يخرج.",
@@ -2793,9 +2903,19 @@
       },
       {
         "q": "Check-out nasıl yapılır?",
-        "a": "Check-out saat 11:00'dir. Kiosktan oda numaranızı girip terlikleri iade edin. Geç kalırsanız her 20 dakikada bir 5.000 won ceza uygulanır.",
+        "a": "Check-out saat 11:00'dir. Kiosktan oda numaranızı girip terlikleri iade edin. Geç kalırsanız her 20 dakikada bir 5.000 won ceza uygulanır. Öğlen 12:00'ye kadar kalabilmeniz <strong><u>yalnızca geç çıkış talep etmiş olmanıza bağlıdır</u></strong>. Geç çıkış talep etmek için aşağıdaki soruya tıklayın.",
         "category": "Access / Operation / Self-service",
         "keyword": "Check-out"
+      },
+      {
+        "q": "Geç çıkışı nasıl talep edebilirim?",
+        "a": "Geç çıkış, odanın toplanması şartına bağlıdır ve bir önceki günden çıkış günü saat 10.00'a kadar talep edilebilir.<br>(Oda toplama koşulları başvuru sırasında bildirilir)",
+        "category": "Access / Operation / Self-service",
+        "keyword": "Geç çıkış",
+        "action": {
+          "label": "Geç Çıkış Talep Et",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "Sıcak su gelmiyor.",
@@ -3030,9 +3150,19 @@
       },
       {
         "q": "check-out කරන්නේ කෙසේද?",
-        "a": "Check-out උදෑසන 11:00 ට ය. Kiosk එකේ ඔබේ කාමර අංකය ඇතුළත් කර ඔබේ පාවහන් ආපසු දෙන්න. ඉන් පසුව සෑම විනාඩි 20කටම 5,000 KRW ප්‍රමාද ගාස්තුවක් අය කෙරේ.",
+        "a": "Check-out උදෑසන 11:00 ට ය. Kiosk එකේ ඔබේ කාමර අංකය ඇතුළත් කර ඔබේ පාවහන් ආපසු දෙන්න. ඉන් පසුව සෑම විනාඩි 20කටම 5,000 KRW ප්‍රමාද ගාස්තුවක් අය කෙරේ. <strong><u>ප්‍රමාද වූ චෙක්අවුට් ඉල්ලීමක් කර ඇත්නම් පමණක්</u></strong> ඔබට මධ්‍යාහ්න 12:00 දක්වා නොමිලේ රැඳී සිටිය හැක. ප්‍රමාද වූ චෙක්අවුට් සඳහා අයදුම් කිරීමට කරුණාකර ඊළඟ ප්‍රශ්නය ක්ලික් කරන්න.",
         "category": "ප්‍රවේශය / ක්‍රියාකාරිත්වය / ස්වයං-සේවා",
         "keyword": "check-out කරන්නේ"
+      },
+      {
+        "q": "මට ප්‍රමාද වූ චෙක්අවුට් එකක් ලබාගන්නේ කෙසේද?",
+        "a": "ප්‍රමාද වූ චෙක්අවුට් සඳහා කාමරය පිළිවෙළට තැබීම අවශ්‍ය අතර, ඉන් පෙර දින සිට චෙක්අවුට් දිනයේ පෙරවරු 10.00 දක්වා අයදුම් කළ හැකිය.<br>(කාමරය පිළිවෙළට තැබීමේ කොන්දේසි අයදුම් කරන විට දැනුම් දෙනු ලැබේ)",
+        "category": "ප්‍රවේශය / ක්‍රියාකාරිත්වය / ස්වයං-සේවා",
+        "keyword": "ප්‍රමාද වූ චෙක්අවුට්",
+        "action": {
+          "label": "ප්‍රමාද වූ චෙක්අවුට් සඳහා අයදුම් කරන්න",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "රත් ජලය එන්නේ නැත.",
@@ -3267,9 +3397,19 @@
       },
       {
         "q": "मैं कैसे चेक आउट करूं?",
-        "a": "चेक-आउट 11:00 AM पर है। कियोस्क पर अपनी कमरे की संख्या दर्ज करें और अपनी चप्पलें वापस करें। इसके बाद हर 20 मिनट में 5,000 KRW का विलंब शुल्क लगाया जाता है।",
+        "a": "चेक-आउट 11:00 AM पर है। कियोस्क पर अपनी कमरे की संख्या दर्ज करें और अपनी चप्पलें वापस करें। इसके बाद हर 20 मिनट में 5,000 KRW का विलंब शुल्क लगाया जाता है। दोपहर 12:00 बजे तक रुकना <strong><u>केवल तभी संभव है जब आपने लेट चेक-आउट का अनुरोध किया हो</u></strong>। लेट चेक-आउट के लिए आवेदन करने हेतु कृपया अगला प्रश्न क्लिक करें।",
         "category": "पहुँच / संचालन / स्व-सेवा",
         "keyword": "चेक आउट"
+      },
+      {
+        "q": "मुझे लेट चेक-आउट कैसे मिलेगा?",
+        "a": "लेट चेक-आउट के लिए कमरा व्यवस्थित करना ज़रूरी है, और इसका अनुरोध एक दिन पहले से चेक-आउट वाले दिन सुबह 10:00 बजे तक किया जा सकता है।<br>(कमरा व्यवस्थित करने की शर्तें अनुरोध करते समय बताई जाएँगी)",
+        "category": "पहुँच / संचालन / स्व-सेवा",
+        "keyword": "लेट चेक-आउट",
+        "action": {
+          "label": "लेट चेक-आउट के लिए आवेदन करें",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "गर्म पानी नहीं आ रहा।",
@@ -3504,9 +3644,19 @@
       },
       {
         "q": "ฉันเช็คเอาต์ได้อย่างไร?",
-        "a": "เช็คเอาต์เวลา 11:00 AM ป้อนหมายเลขห้องของคุณบนคีออสก์และคืนรองเท้า มีค่าชาร์จหลังเวลา 5,000 KRW ทุกๆ 20 นาทีหลังจากนั้น",
+        "a": "เช็คเอาต์เวลา 11:00 AM ป้อนหมายเลขห้องของคุณบนคีออสก์และคืนรองเท้า มีค่าชาร์จหลังเวลา 5,000 KRW ทุกๆ 20 นาทีหลังจากนั้น คุณจะสามารถพักได้ฟรีจนถึง 12:00 น. <strong><u>เฉพาะในกรณีที่คุณขอเช็คเอาต์ล่าช้าไว้ล่วงหน้าเท่านั้น</u></strong> กรุณาคลิกคำถามถัดไปเพื่อขอเช็คเอาต์ล่าช้า",
         "category": "การเข้าถึง / การดำเนินการ / บริการด้วยตนเอง",
         "keyword": "เช็คเอาต์"
+      },
+      {
+        "q": "ฉันจะขอเช็คเอาต์ล่าช้าได้อย่างไร?",
+        "a": "การเช็คเอาต์ล่าช้ามีเงื่อนไขว่าต้องจัดห้องให้เรียบร้อย และสามารถยื่นคำขอได้ตั้งแต่วันก่อนหน้าจนถึงเวลา 10:00 น. ของวันเช็คเอาต์<br>(เงื่อนไขการจัดห้องจะแจ้งให้ทราบเมื่อยื่นคำขอ)",
+        "category": "การเข้าถึง / การดำเนินการ / บริการด้วยตนเอง",
+        "keyword": "เช็คเอาต์ล่าช้า",
+        "action": {
+          "label": "ขอเช็คเอาต์ล่าช้า",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "น้ำร้อนไม่ออกมา",
@@ -3741,9 +3891,19 @@
       },
       {
         "q": "Bagaimana cara saya check out?",
-        "a": "Check-out adalah pukul 11:00 pagi. Masukkan nomor kamar Anda di kiosk dan kembalikan sandal Anda. Biaya keterlambatan sebesar 5.000 KRW dikenakan setiap 20 menit setelahnya.",
+        "a": "Check-out adalah pukul 11:00 pagi. Masukkan nomor kamar Anda di kiosk dan kembalikan sandal Anda. Biaya keterlambatan sebesar 5.000 KRW dikenakan setiap 20 menit setelahnya. Anda <strong><u>hanya dapat tinggal gratis hingga pukul 12:00 siang jika telah mengajukan late check-out</u></strong>. Klik pertanyaan berikutnya untuk mengajukan late check-out.",
         "category": "Akses / Operasional / Layanan Mandiri",
         "keyword": "check out"
+      },
+      {
+        "q": "Bagaimana cara mendapatkan late check-out?",
+        "a": "Late check-out mensyaratkan Anda merapikan kamar, dan dapat diajukan sejak sehari sebelumnya hingga pukul 10.00 pada hari check-out.<br>(Ketentuan merapikan kamar akan dijelaskan saat Anda mengajukan)",
+        "category": "Akses / Operasional / Layanan Mandiri",
+        "keyword": "late check-out",
+        "action": {
+          "label": "Ajukan Late Check-out",
+          "url": "late_checkout.html"
+        }
       },
       {
         "q": "Air panas tidak keluar.",

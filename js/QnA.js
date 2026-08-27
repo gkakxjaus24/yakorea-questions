@@ -135,6 +135,23 @@ function renderMedia(src, type) {
   return `<div class="media-container"><img src="${src}" alt="" /></div>`;
 }
 
+// 답변 안의 액션 버튼 — "늦은 체크아웃 신청하기"처럼 다른 페이지로 보내는 CTA.
+// item.action = { label, url }. url은 lang 없이 저장해두고 지금 보고 있는 언어를
+// 여기서 이어붙인다(키오스크 js/QnA.js의 renderAction과 같은 역할).
+//
+// i18n.js의 withCurrentLang()을 쓰지 않고 여기서 직접 만드는 이유: QnA.html은
+// i18n.js를 읽지 않는다(이 파일이 자체 getLanguageFromURL을 갖고 있다).
+// 이 버튼 하나 때문에 스크립트를 하나 더 읽게 하지 않는다.
+function renderAction(action) {
+  if (!action || !action.label || !action.url) return "";
+  const params = new URLSearchParams();
+  params.set("lang", getLanguageFromURL());
+  // 구역 QR(?area=dorm 등)로 들어온 손님이 되돌아올 때 구역이 유지되도록 넘긴다
+  const area = getAreaFromURL();
+  if (area) params.set("area", area);
+  return `<div class="qna-action"><a class="qna-action-btn" href="${action.url}?${params}">${action.label}</a></div>`;
+}
+
 // visibleHours: { start: "07:00", end: "10:00" }. 종료 시각은 포함하지 않는다.
 // 23:00~05:00처럼 자정을 넘기는 시간대도 지원한다.
 function isVisibleAtCurrentTime(item, now = new Date()) {
@@ -223,6 +240,7 @@ async function updateUI() {
         <div class="answer" style="display: none">
           ${injectTowelReturnNote(item.a, currentLang)}
           ${item.media ? renderMedia(item.media, item.mediaType) : ''}
+          ${renderAction(item.action)}
         </div>`;
     }
   }

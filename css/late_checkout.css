@@ -1,0 +1,266 @@
+/* 늦은 체크아웃 신청 — 손님 휴대폰(QR)용 스타일.
+   키오스크(Project_Claude/css/late_checkout.css)와 화면 구성은 같지만, 그쪽은
+   키오스크 common.css의 grid 레이아웃을 되돌리는 규칙이 대부분이라 그대로
+   쓸 수 없다. 여기서는 이 페이지에 필요한 것만 직접 정의한다.
+   ⚠️ 문구·사진·동작(js/late_checkout.js, data/late_checkout.json)은 두 사이트가
+   같은 내용이어야 한다 — Project_Claude/tests/late_checkout_sync.test.js가 감시. */
+
+/* common.css의 body는 justify-content:center라, 내용이 화면보다 길어지면
+   위쪽이 잘려 스크롤로도 닿지 않는다. 위에서부터 쌓이게 바꾼다. */
+body {
+  justify-content: flex-start;
+}
+
+.headline {
+  font-size: 1.6em;
+  height: auto;
+  margin: 24px 0 16px;
+  padding-top: 0 !important;
+  text-align: center;
+  word-break: keep-all;
+  line-height: 1.3;
+}
+
+.lc-page {
+  width: 100%;
+  max-width: 720px;
+  padding: 0 16px calc(32px + env(safe-area-inset-bottom));
+  margin: 0 auto;
+}
+
+#lateCheckoutStage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+/* ── 1단계: 이름 입력 ───────────────────────────────────────────── */
+
+.lc-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.lc-search-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 6px;
+}
+
+.lc-name-input {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 14px 16px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  text-align: center;
+}
+
+.lc-name-input:focus {
+  border-color: #5b7af7;
+}
+
+.lc-search-btn {
+  flex: 0 0 auto;
+  padding: 14px 26px;
+  border-radius: 12px;
+  border: 2px solid #5b7af7;
+  background: #5b7af7;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lc-inline-error {
+  font-size: 16px;
+  color: #c62828;
+  text-align: center;
+  word-break: keep-all;
+  line-height: 1.5;
+  background: #fdecea;
+  border-radius: 10px;
+  padding: 12px 16px;
+  width: 100%;
+}
+
+/* ── 2단계: 예약 정보 + 정리 안내 + 약속 ──────────────────────────── */
+
+.lc-res-card {
+  background: #f5f6f8;
+  border-radius: 16px;
+  padding: 18px 22px;
+  width: 100%;
+}
+
+.lc-res-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 6px 0;
+}
+
+.lc-res-label {
+  font-size: 15px;
+  color: #888;
+  white-space: nowrap;
+}
+
+.lc-res-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  text-align: right;
+}
+
+.lc-tidy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.lc-tidy-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.lc-tidy-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* 혼합 예약(개인실 + 도미토리 침대)일 때만 나온다 */
+.lc-tidy-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #5b7af7;
+  background: #eef1fe;
+  border-radius: 999px;
+  padding: 5px 14px;
+}
+
+/* 사진은 ①②③ 세 칸이 가로로 붙은 구성이라, 폰에서는 좌우 여백 바깥까지
+   끌어내 화면 폭을 다 써야 한 칸이 알아볼 만한 크기가 된다. */
+.lc-tidy-photo {
+  width: calc(100% + 32px);
+  margin-inline: -16px;
+  max-height: 340px;
+  object-fit: contain;
+  background: #f5f6f8;
+}
+
+.lc-tidy-steps {
+  margin: 0;
+  padding-inline-start: 24px;  /* 아랍어(RTL)에서도 번호가 글자 쪽에 붙도록 */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  word-break: keep-all;
+  width: 100%;
+}
+
+.lc-tidy-steps li {
+  margin-bottom: 5px;
+}
+
+.lc-pledge {
+  font-size: 19px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  line-height: 1.5;
+  word-break: keep-all;
+  padding-top: 4px;
+}
+
+/* ── 확인/취소 버튼 (키오스크 check_out_room.css의 co-* 를 여기서 다시 정의) ── */
+
+.co-confirm-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 6px;
+}
+
+.co-confirm-yes,
+.co-confirm-no {
+  flex: 1 1 140px;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  word-break: keep-all;
+}
+
+.co-confirm-yes {
+  border: 2px solid #2e7d32;
+  background: #fff;
+  color: #2e7d32;
+}
+
+.co-confirm-no {
+  border: 2px solid #c62828;
+  background: #fff;
+  color: #c62828;
+}
+
+/* ── 완료·오류 안내 ─────────────────────────────────────────────── */
+
+.co-confirm,
+.co-confirm-question {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  line-height: 1.5;
+  word-break: keep-all;
+  padding: 20px 0;
+}
+
+.co-confirm-sub {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+/* ── FAQ로 돌아가기 ─────────────────────────────────────────────── */
+
+#lcBack {
+  display: flex;
+  justify-content: center;
+  padding-top: 28px;
+}
+
+.lc-back-link {
+  font-size: 16px;
+  color: #5b7af7;
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 1px solid #cdd6fb;
+  border-radius: 999px;
+}

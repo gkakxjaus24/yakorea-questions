@@ -190,3 +190,22 @@
     width: 80vw;
   }
 }
+
+/* 답변 안의 액션 버튼 — "늦은 체크아웃 신청하기" (2026-08-27 추가).
+   키오스크 css/QnA.css의 같은 규칙과 맞춰둔 것이다. */
+.qna-action {
+  margin-top: 14px;
+}
+
+.qna-action-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 14px;
+  border: 2px solid #5b7af7;
+  background: #5b7af7;
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
