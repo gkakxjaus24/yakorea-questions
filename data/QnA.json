@@ -198,7 +198,7 @@
       },
       {
         "q": "늦은 체크아웃은 어떻게 하나요?",
-        "a": "늦은 체크아웃은 객실 정리를 조건으로 하며, 그 전날부터 체크아웃 당일 오전 10시까지 신청 가능합니다.<br>(객실 정리 조건은 늦은 체크아웃 신청 시 안내해드립니다)",
+        "a": "간단한 객실 정리를 하면 12시에 체크아웃 해도 되요 🙂 (퇴실 전 날부터 신청 가능)",
         "category": "출입/운영 방식/무인 관련",
         "keyword": "늦은 체크아웃",
         "action": {
@@ -453,7 +453,7 @@
       },
       {
         "q": "How do I get a late check-out?",
-        "a": "Late check-out requires you to tidy the room, and can be requested from the day before until 10:00 AM on your check-out day.<br>(The room tidy-up conditions are shown when you apply.)",
+        "a": "With simple room tidying, you can check out at 12:00 🙂 (Apply from the day before checkout)",
         "category": "Access / Operation / Self-service",
         "keyword": "late check-out",
         "action": {
@@ -708,7 +708,7 @@
       },
       {
         "q": "如何申请延迟退房？",
-        "a": "延迟退房需以整理客房为条件，可在退房前一天至退房当天上午10点之前申请。<br>（客房整理要求将在申请时说明）",
+        "a": "只需简单整理房间，就可以12点退房哦 🙂（可从退房前一天开始申请）",
         "category": "出入 / 运营方式 / 无人值守",
         "keyword": "延迟退房",
         "action": {
@@ -963,7 +963,7 @@
       },
       {
         "q": "レイトチェックアウトはどうすればいいですか？",
-        "a": "レイトチェックアウトは客室の片付けが条件で、前日からチェックアウト当日の午前10時までお申し込みいただけます。<br>（客室の片付け条件はお申し込み時にご案内します）",
+        "a": "簡単に客室を片付ければ12時にチェックアウトしてOKです 🙂（チェックアウト前日から申請可能）",
         "category": "出入 / 運営方式 / 無人運営",
         "keyword": "レイトチェックアウト",
         "action": {
@@ -1218,7 +1218,7 @@
       },
       {
         "q": "Как оформить поздний выезд?",
-        "a": "Поздний выезд возможен при условии уборки номера; заявку можно подать со дня накануне до 10:00 в день выезда.<br>(Условия уборки номера будут показаны при подаче заявки)",
+        "a": "Если немного приберёте номер, можно выехать в 12:00 🙂 (Подать заявку можно с предыдущего дня)",
         "category": "Вход / Работа / Самообслуживание",
         "keyword": "поздний выезд",
         "action": {
@@ -1473,7 +1473,7 @@
       },
       {
         "q": "¿Cómo solicito una salida tardía?",
-        "a": "La salida tardía requiere que ordene la habitación y puede solicitarse desde el día anterior hasta las 10:00 del día de salida.<br>(Las condiciones de orden se le indicarán al solicitarla)",
+        "a": "Con una limpieza sencilla de la habitación, puede hacer el check-out a las 12:00 🙂 (Solicítelo desde el día anterior)",
         "category": "Acceso / Operación / Autoservicio",
         "keyword": "salida tardía",
         "action": {
@@ -1728,7 +1728,7 @@
       },
       {
         "q": "Хожуу гарахын тулд яах вэ?",
-        "a": "Хожуу гарахын тулд өрөөгөө цэгцлэх шаардлагатай бөгөөд гарахын өмнөх өдрөөс гарах өдрийн өглөөний 10 цаг хүртэл бүртгүүлж болно.<br>(Өрөө цэгцлэх нөхцөлийг бүртгүүлэх үед танилцуулна)",
+        "a": "Өрөөгөө энгийнээр цэвэрлэвэл 12 цагт гарч болно 🙂 (Гарах өдрөөс өмнөх өдрөөс хүсэлт гаргаж болно)",
         "category": "Орох & Үйлчилгээгүй Ажиллагаа",
         "keyword": "Хожуу гарах",
         "action": {
@@ -1983,7 +1983,7 @@
       },
       {
         "q": "Làm thế nào để trả phòng muộn?",
-        "a": "Trả phòng muộn yêu cầu dọn dẹp phòng và có thể đăng ký từ ngày hôm trước đến 10:00 sáng ngày trả phòng.<br>(Điều kiện dọn phòng sẽ được hướng dẫn khi bạn đăng ký)",
+        "a": "Chỉ cần dọn phòng đơn giản là có thể trả phòng lúc 12:00 🙂 (Có thể đăng ký từ ngày trước khi trả phòng)",
         "category": "Vào cửa & Hoạt động không có nhân viên",
         "keyword": "trả phòng muộn",
         "action": {
@@ -2238,7 +2238,7 @@
       },
       {
         "q": "Comment obtenir un départ tardif ?",
-        "a": "Le départ tardif est soumis au rangement de la chambre et peut être demandé de la veille jusqu'à 10h00 le jour du départ.<br>(Les conditions de rangement vous seront indiquées lors de la demande)",
+        "a": "En rangeant simplement la chambre, vous pouvez partir à 12h00 🙂 (Demande possible dès la veille du départ)",
         "category": "Accès / Fonctionnement / Libre-service",
         "keyword": "départ tardif",
         "action": {
@@ -2493,7 +2493,7 @@
       },
       {
         "q": "Wie bekomme ich einen späten Check-out?",
-        "a": "Ein später Check-out setzt das Aufräumen des Zimmers voraus und kann ab dem Vortag bis 10:00 Uhr am Abreisetag beantragt werden.<br>(Die Aufräumbedingungen werden bei der Beantragung angezeigt)",
+        "a": "Bei einfacher Zimmerreinigung können Sie um 12:00 Uhr auschecken 🙂 (Beantragung ab dem Vortag möglich)",
         "category": "Access / Operation / Self-service",
         "keyword": "späten Check-out",
         "action": {
@@ -2748,7 +2748,7 @@
       },
       {
         "q": "كيف أحصل على تسجيل مغادرة متأخر؟",
-        "a": "تسجيل المغادرة المتأخر مشروط بترتيب الغرفة، ويمكن طلبه من اليوم السابق حتى الساعة 10:00 صباحًا في يوم المغادرة.<br>(سيتم توضيح شروط ترتيب الغرفة عند تقديم الطلب)",
+        "a": "بترتيب بسيط للغرفة، يمكنك المغادرة الساعة 12:00 🙂 (يمكن التقديم من اليوم السابق للمغادرة)",
         "category": "الوصول / التشغيل / الخدمة الذاتية",
         "keyword": "تسجيل مغادرة متأخر",
         "action": {
@@ -3003,7 +3003,7 @@
       },
       {
         "q": "Geç çıkışı nasıl talep edebilirim?",
-        "a": "Geç çıkış, odanın toplanması şartına bağlıdır ve bir önceki günden çıkış günü saat 10.00'a kadar talep edilebilir.<br>(Oda toplama koşulları başvuru sırasında bildirilir)",
+        "a": "Basit bir oda toparlamasıyla saat 12:00'de çıkış yapabilirsiniz 🙂 (Çıkıştan bir önceki günden talep edilebilir)",
         "category": "Access / Operation / Self-service",
         "keyword": "Geç çıkış",
         "action": {
@@ -3258,7 +3258,7 @@
       },
       {
         "q": "මට ප්‍රමාද වූ චෙක්අවුට් එකක් ලබාගන්නේ කෙසේද?",
-        "a": "ප්‍රමාද වූ චෙක්අවුට් සඳහා කාමරය පිළිවෙළට තැබීම අවශ්‍ය අතර, ඉන් පෙර දින සිට චෙක්අවුට් දිනයේ පෙරවරු 10.00 දක්වා අයදුම් කළ හැකිය.<br>(කාමරය පිළිවෙළට තැබීමේ කොන්දේසි අයදුම් කරන විට දැනුම් දෙනු ලැබේ)",
+        "a": "සරලව කාමරය පිළිවෙළකට තැබුවහොත් දහවල් 12.00ට පිටවිය හැක 🙂 (පිටවීමට පෙර දින සිට ඉල්ලුම් කළ හැක)",
         "category": "ප්‍රවේශය / ක්‍රියාකාරිත්වය / ස්වයං-සේවා",
         "keyword": "ප්‍රමාද වූ චෙක්අවුට්",
         "action": {
@@ -3513,7 +3513,7 @@
       },
       {
         "q": "मुझे लेट चेक-आउट कैसे मिलेगा?",
-        "a": "लेट चेक-आउट के लिए कमरा व्यवस्थित करना ज़रूरी है, और इसका अनुरोध एक दिन पहले से चेक-आउट वाले दिन सुबह 10:00 बजे तक किया जा सकता है।<br>(कमरा व्यवस्थित करने की शर्तें अनुरोध करते समय बताई जाएँगी)",
+        "a": "कमरे की सामान्य सफाई करने पर आप दोपहर 12:00 बजे चेकआउट कर सकते हैं 🙂 (चेकआउट से एक दिन पहले से अनुरोध कर सकते हैं)",
         "category": "पहुँच / संचालन / स्व-सेवा",
         "keyword": "लेट चेक-आउट",
         "action": {
@@ -3768,7 +3768,7 @@
       },
       {
         "q": "ฉันจะขอเช็คเอาต์ล่าช้าได้อย่างไร?",
-        "a": "การเช็คเอาต์ล่าช้ามีเงื่อนไขว่าต้องจัดห้องให้เรียบร้อย และสามารถยื่นคำขอได้ตั้งแต่วันก่อนหน้าจนถึงเวลา 10:00 น. ของวันเช็คเอาต์<br>(เงื่อนไขการจัดห้องจะแจ้งให้ทราบเมื่อยื่นคำขอ)",
+        "a": "แค่จัดห้องให้เรียบร้อยง่ายๆ ก็เช็คเอาท์ตอน 12:00 น. ได้เลย 🙂 (ขอได้ตั้งแต่วันก่อนเช็คเอาท์)",
         "category": "การเข้าถึง / การดำเนินการ / บริการด้วยตนเอง",
         "keyword": "เช็คเอาต์ล่าช้า",
         "action": {
@@ -4023,7 +4023,7 @@
       },
       {
         "q": "Bagaimana cara mendapatkan late check-out?",
-        "a": "Late check-out mensyaratkan Anda merapikan kamar, dan dapat diajukan sejak sehari sebelumnya hingga pukul 10.00 pada hari check-out.<br>(Ketentuan merapikan kamar akan dijelaskan saat Anda mengajukan)",
+        "a": "Dengan merapikan kamar secara sederhana, Anda bisa check-out jam 12:00 🙂 (Bisa diajukan mulai sehari sebelum check-out)",
         "category": "Akses / Operasional / Layanan Mandiri",
         "keyword": "late check-out",
         "action": {
