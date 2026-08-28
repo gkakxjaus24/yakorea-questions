@@ -3,17 +3,6 @@
     "title": "자주묻는질문🙋‍♂️❓",
     "qna": [
       {
-        "q": "공용화장실이 있나요?",
-        "keyword": "공용화장실",
-        "a": "공용화장실은 없지만 화장실 사용이 급하다면 오전 7시부터 밤 11시까지 직원용 화장실을 개방해 놓고 있습니다. 직원이 상주하고 있기 때문에 기본 에티켓(소음, 위생)을 잘 지켜주세요 :)",
-        "category": "생활 편의 시설 및 비품 관련",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
-      {
         "q": "출입문은 언제 닫나요?",
         "keyword": "출입문",
         "a": "출입문은 24시간 열려 있습니다",
@@ -257,17 +246,6 @@
   "en": {
     "title": "Frequently Asked Questions🙋‍♂️❓",
     "qna": [
-      {
-        "q": "Is there a shared bathroom?",
-        "keyword": "shared bathroom",
-        "a": "There is no shared bathroom, but if you urgently need one, the staff bathroom is open from 7:00 AM to 11:00 PM. Since staff are present, please follow basic etiquette (noise, hygiene) :)",
-        "category": "Amenities and Supplies",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
       {
         "q": "When does the entrance door close?",
         "keyword": "entrance door",
@@ -513,17 +491,6 @@
     "title": "常见问题🙋‍♂️❓",
     "qna": [
       {
-        "q": "有公共卫生间吗？",
-        "keyword": "公共卫生间",
-        "a": "没有公共卫生间，但如果您急需使用洗手间，员工专用卫生间在早上7点到晚上11点开放。由于工作人员常驻，请遵守基本礼仪（噪音、卫生）:)",
-        "category": "生活便利设施及用品",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
-      {
         "q": "大门什么时候关闭？",
         "keyword": "大门",
         "a": "大门24小时开放。",
@@ -767,17 +734,6 @@
   "ja": {
     "title": "よくある質問🙋‍♂️❓",
     "qna": [
-      {
-        "q": "共用トイレはありますか？",
-        "keyword": "共用トイレ",
-        "a": "共用トイレはありませんが、急ぎでトイレが必要な場合は、午前7時から午後11時まで従業員用トイレを開放しています。スタッフが常駐しているため、基本的なエチケット（騒音・衛生）を守ってください :)",
-        "category": "生活設備・備品",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
       {
         "q": "入口のドアはいつ閉まりますか？",
         "keyword": "入口のドア",
@@ -1023,17 +979,6 @@
     "title": "Часто задаваемые вопросы🙋‍♂️❓",
     "qna": [
       {
-        "q": "Есть ли общий туалет?",
-        "keyword": "туалет",
-        "a": "Общего туалета нет, но если вам срочно нужен туалет, туалет для персонала открыт с 7:00 до 23:00. Поскольку там присутствует персонал, пожалуйста, соблюдайте основные правила этикета (шум, гигиена) :)",
-        "category": "Удобства и принадлежности",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
-      {
         "q": "Когда закрывается входная дверь?",
         "keyword": "входная дверь",
         "a": "Входная дверь открыта 24 часа.",
@@ -1277,17 +1222,6 @@
   "es": {
     "title": "Preguntas frecuentes🙋‍♂️❓",
     "qna": [
-      {
-        "q": "¿Hay un baño compartido?",
-        "keyword": "baño compartido",
-        "a": "No hay baño compartido, pero si necesita uno con urgencia, el baño del personal está abierto de 7:00 a 23:00. Como hay personal presente, por favor respete la etiqueta básica (ruido, higiene) :)",
-        "category": "Servicios y artículos",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
       {
         "q": "¿Cuándo se cierra la puerta de entrada?",
         "keyword": "puerta de entrada",
@@ -1533,17 +1467,6 @@
     "title": "ТУСЛАЛЦАА & АСУУЛТУУД🙋‍♂️❓",
     "qna": [
       {
-        "q": "Олон нийтийн угаалгын өрөө байдаг уу?",
-        "keyword": "Олон нийтийн угаалгын өрөө",
-        "a": "Олон нийтийн угаалгын өрөө байхгүй ч, яаралтай хэрэгтэй бол ажилтны угаалгын өрөөг өглөөний 7 цагаас шөнийн 11 цаг хүртэл нээлттэй байлгадаг. Ажилтан байнга байдаг тул үндсэн ёс зүйг (чимээ, ариун цэвэр) сахина уу :)",
-        "category": "Байгууламж & Удирдамжууд",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
-      {
         "q": "Урд хаалга хэзээ хаагддаг вэ?",
         "keyword": "Урд хаалга",
         "a": "Урд хаалга 24 цаг нээлттэй байдаг.",
@@ -1787,17 +1710,6 @@
   "vi": {
     "title": "TRỢ GIÚP & CÂU HỎI🙋‍♂️❓",
     "qna": [
-      {
-        "q": "Có phòng vệ sinh công cộng không?",
-        "keyword": "phòng vệ sinh công cộng",
-        "a": "Không có phòng vệ sinh công cộng, nhưng nếu bạn cần gấp, nhà vệ sinh dành cho nhân viên sẽ mở cửa từ 7 giờ sáng đến 11 giờ tối. Vì có nhân viên túc trực nên vui lòng giữ phép lịch sự cơ bản (tiếng ồn, vệ sinh) :)",
-        "category": "Tiện nghi & Dịch vụ",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
       {
         "q": "Cửa chính đóng lúc mấy giờ?",
         "keyword": "Cửa chính",
@@ -2043,17 +1955,6 @@
     "title": "Questions Fréquemment Posées🙋‍♂️❓",
     "qna": [
       {
-        "q": "Y a-t-il une salle de bain commune?",
-        "keyword": "salle de bain commune",
-        "a": "Il n'y a pas de salle de bain commune, mais si vous en avez un besoin urgent, les toilettes du personnel sont ouvertes de 7h à 23h. Le personnel étant présent, merci de respecter les règles de base (bruit, hygiène) :)",
-        "category": "Équipements et Fournitures",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
-      {
         "q": "À quelle heure la porte d'entrée ferme-t-elle?",
         "keyword": "porte d'entrée",
         "a": "La porte d'entrée est ouverte 24 heures.",
@@ -2297,17 +2198,6 @@
   "de": {
     "title": "Häufig gestellte Fragen🙋‍♂️❓",
     "qna": [
-      {
-        "q": "Gibt es ein gemeinsames Badezimmer?",
-        "keyword": "gemeinsames Badezimmer",
-        "a": "Es gibt kein gemeinsames Badezimmer, aber falls Sie dringend eine Toilette benötigen, ist die Mitarbeitertoilette von 7:00 bis 23:00 Uhr geöffnet. Da Personal anwesend ist, achten Sie bitte auf grundlegende Etikette (Lärm, Hygiene) :)",
-        "category": "Amenities and Supplies",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
       {
         "q": "Wann schließt die Eingangstür?",
         "keyword": "Eingangstür",
@@ -2553,17 +2443,6 @@
     "title": "الأسئلة الشائعة🙋‍♂️❓",
     "qna": [
       {
-        "q": "هل هناك حمام مشترك؟",
-        "keyword": "حمام مشترك",
-        "a": "لا يوجد حمام مشترك، ولكن إذا كنت بحاجة ماسة إلى الحمام، فإن حمام الموظفين مفتوح من الساعة 7 صباحًا حتى 11 مساءً. نظرًا لوجود الموظفين، يرجى مراعاة آداب السلوك الأساسية (الضوضاء والنظافة) :)",
-        "category": "المرافق والإمدادات",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
-      {
         "q": "متى يغلق باب المدخل؟",
         "keyword": "باب المدخل",
         "a": "باب المدخل مفتوح 24 ساعة.",
@@ -2807,17 +2686,6 @@
   "tr": {
     "title": "Sıkça Sorulan Sorular🙋‍♂️❓",
     "qna": [
-      {
-        "q": "Ortak banyo var mı?",
-        "keyword": "Ortak banyo",
-        "a": "Ortak banyo yoktur, ancak acil ihtiyacınız olursa personel tuvaleti sabah 7'den gece 11'e kadar açıktır. Personel bulunduğu için lütfen temel görgü kurallarına (gürültü, hijyen) dikkat edin :)",
-        "category": "Amenities and Supplies",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
       {
         "q": "Giriş kapısı saat kaçta kapanır?",
         "keyword": "Giriş kapısı",
@@ -3063,17 +2931,6 @@
     "title": "නිතර අසන ප්‍රශ්න🙋‍♂️❓",
     "qna": [
       {
-        "q": "පොදු නානකාමරයක් තිබෙනවාද?",
-        "keyword": "පොදු නානකාමරයක්",
-        "a": "පොදු නානකාමරයක් නොමැත, නමුත් ඔබට හදිසියේ එකක් අවශ්‍ය නම්, කාර්ය මණ්ඩල නානකාමරය උදෑසන 7:00 සිට රාත්‍රී 11:00 දක්වා විවෘතව ඇත. කාර්ය මණ්ඩලය එහි සිටින බැවින්, කරුණාකර මූලික ආචාර ධර්ම (ශබ්දය, සනීපාරක්ෂාව) පිළිපදින්න :)",
-        "category": "පහසුකම් සහ සැපයුම්",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
-      {
         "q": "ප්‍රවේශ දොරටුව වැසෙන්නේ කවදාද?",
         "keyword": "ප්‍රවේශ දොරටුව",
         "a": "ප්‍රවේශ දොරටුව පැය 24 පුරාම විවෘතව පවතී.",
@@ -3317,17 +3174,6 @@
   "hi": {
     "title": "अक्सर पूछे जाने वाले प्रश्न🙋‍♂️❓",
     "qna": [
-      {
-        "q": "क्या कोई साझा बाथरूम है?",
-        "keyword": "साझा बाथरूम",
-        "a": "कोई साझा बाथरूम नहीं है, लेकिन यदि आपको तुरंत एक की आवश्यकता है, तो कर्मचारी बाथरूम सुबह 7:00 बजे से रात 11:00 बजे तक खुला है। चूंकि कर्मचारी मौजूद हैं, कृपया बुनियादी शिष्टाचार (शोर, स्वच्छता) का पालन करें :)",
-        "category": "सुविधाएं और आपूर्ति",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
       {
         "q": "प्रवेश द्वार कब बंद होता है?",
         "keyword": "प्रवेश द्वार",
@@ -3573,17 +3419,6 @@
     "title": "คำถามที่พบบ่อย🙋‍♂️❓",
     "qna": [
       {
-        "q": "มีห้องน้ำร่วมกันหรือไม่?",
-        "keyword": "ห้องน้ำร่วมกัน",
-        "a": "ไม่มีห้องน้ำร่วมกัน แต่หากคุณต้องการใช้ห้องน้ำอย่างเร่งด่วน ห้องน้ำของพนักงานเปิดให้ใช้ตั้งแต่ 7:00 AM ถึง 11:00 PM เนื่องจากมีพนักงานอยู่ โปรดปฏิบัติตามกฎการใช้พื้นที่ (ควรหลีกเลี่ยงเสียงดัง และรักษาความสะอาด) :)",
-        "category": "สิ่งอำนวยความสะดวกและเครื่องใช้",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
-      {
         "q": "ประตูทางเข้าปิดเวลาไหน?",
         "keyword": "ประตูทางเข้า",
         "a": "ประตูทางเข้าเปิดตลอด 24 ชั่วโมง",
@@ -3827,17 +3662,6 @@
   "id": {
     "title": "Pertanyaan yang Sering Diajukan🙋‍♂️❓",
     "qna": [
-      {
-        "q": "Apakah ada kamar mandi bersama?",
-        "keyword": "kamar mandi bersama",
-        "a": "Tidak ada kamar mandi bersama, tetapi jika Anda sangat membutuhkannya, kamar mandi staf terbuka dari pukul 7:00 pagi hingga 11:00 malam. Karena staf ada di sana, mohon ikuti etika dasar (kebisingan, kebersihan) :)",
-        "category": "Fasilitas dan Perlengkapan",
-        "media": "images/faq/bathroom.jpg",
-        "mediaType": "image",
-        "areas": [
-          "dormBasement"
-        ]
-      },
       {
         "q": "Jam berapa pintu masuk ditutup?",
         "keyword": "pintu masuk",
