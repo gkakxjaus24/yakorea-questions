@@ -40,7 +40,22 @@ async function loadLanguageData() {
   }
 }
 
+// 채팅 위젯이 QR 열람을 기록할 때 sessionStorage에 넣는 탭 단위 id.
+// 여기서는 읽기만 한다 — 두 곳에서 만들면 같은 탭에 다른 id가 생겨
+// "QR을 찍은 손님이 질문까지 눌렀나"를 이어붙일 수 없게 된다.
+const QR_SID_KEY = "ya_qr_sid";
+function getQrSid() {
+  try {
+    return sessionStorage.getItem(QR_SID_KEY) || null;
+  } catch (_) {
+    return null; // 사파리 프라이빗 모드 등에서 막히면 sid 없이 보낸다
+  }
+}
+
 // ✅ FAQ 클릭 통계 — 답변을 열람할 때만 기록(닫을 때는 제외), 실패해도 UI에 영향 없음
+// area/sid는 어드민 통합 통계의 퍼널용(2026-08-30). 어느 구역 QR에서 어떤 질문을
+// 눌렀는지, QR을 찍은 손님이 실제로 질문까지 갔는지를 보려는 목적. 둘 다 없어도
+// 서버가 기록은 그대로 한다.
 function reportFaqClick(index) {
   const questionKo = koQna[index]?.q;
   if (!questionKo) return;
@@ -51,6 +66,8 @@ function reportFaqClick(index) {
       source: isNoChat() ? "link" : "qr",
       question_ko: questionKo,
       lang: getLanguageFromURL(),
+      area: getAreaFromURL(),
+      sid: getQrSid(),
     }),
   }).catch(() => {});
 }
