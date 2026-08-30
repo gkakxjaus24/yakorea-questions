@@ -33,9 +33,13 @@
       const params = new URLSearchParams(window.location.search);
       const area = params.get('area');
       const nochat = params.get('nochat');
+      // ?preview=1 — 운영자가 손님 화면을 확인하는 미리보기. 통계 기록을 전부
+      // 건너뛰므로, 언어를 골라 QnA로 넘어가도 플래그가 유지되어야 한다.
+      const preview = params.get('preview');
       const areaParam = area ? `&area=${area}` : '';
       const nochatParam = nochat ? `&nochat=${nochat}` : '';
-      window.location.href = `QnA.html?lang=${lang}${areaParam}${nochatParam}`;
+      const previewParam = preview ? `&preview=${preview}` : '';
+      window.location.href = `QnA.html?lang=${lang}${areaParam}${nochatParam}${previewParam}`;
     }
   </script>
 </body>

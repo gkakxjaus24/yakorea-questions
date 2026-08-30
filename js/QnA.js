@@ -20,6 +20,14 @@ function isNoChat() {
   return new URLSearchParams(window.location.search).get("nochat") === "1";
 }
 
+// ?preview=1 — 운영자가 손님 화면을 그대로 확인하는 미리보기 모드(2026-08-30).
+// 화면과 동작은 손님과 완전히 같고, 통계 기록만 전부 건너뛴다.
+// (QR 열람·FAQ 클릭·LLM 폴백·건의사항 — 각 기록 지점에서 이 함수를 확인한다.)
+// 운영자가 직접 QR을 찍어보면 통계가 오염되므로 그걸 피하려는 목적.
+function isPreview() {
+  return new URLSearchParams(window.location.search).get("preview") === "1";
+}
+
 async function loadLanguageData() {
   try {
     const response = await fetch("/data/QnA.json");
@@ -59,6 +67,7 @@ function getQrSid() {
 function reportFaqClick(index) {
   const questionKo = koQna[index]?.q;
   if (!questionKo) return;
+  if (isPreview()) return; // 미리보기 — 통계에 남기지 않는다
   fetch(`${FAQ_STATS_API}/api/faq/click`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -422,6 +431,15 @@ function renderFeedbackFormInto(slot) {
 
     submitBtn.disabled = true;
     try {
+      // 미리보기에서는 실제로 보내지 않는다 — 건의사항은 텔레그램 알림까지 나가고
+      // 통합 통계 퍼널의 마지막 단계로도 잡히기 때문. 화면 흐름은 그대로 보여준다.
+      if (isPreview()) {
+        successEl.classList.remove("hidden");
+        contentEl.value = "";
+        roomSelect.value = "";
+        bedWrap.classList.add("hidden");
+        return;
+      }
       const res = await fetch(`${FAQ_STATS_API}/api/feedback`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
