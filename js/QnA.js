@@ -164,7 +164,8 @@ function renderMedia(src, type) {
   return `<div class="media-container"><img src="${src}" alt="" /></div>`;
 }
 
-// 답변 안의 액션 버튼 — "늦은 체크아웃 신청하기"처럼 다른 페이지로 보내는 CTA.
+// 답변 안의 액션 버튼 — 답변에서 다른 페이지로 보내는 CTA.
+// (2026-09-02 늦은 체크아웃 폐지로 현재 쓰는 FAQ 항목은 없지만, 기능은 그대로 둔다.)
 // item.action = { label, url }. url은 lang 없이 저장해두고 지금 보고 있는 언어를
 // 여기서 이어붙인다(키오스크 js/QnA.js의 renderAction과 같은 역할).
 //
@@ -282,8 +283,9 @@ async function updateUI() {
 
 // 답변 안의 "다른 질문으로 이동" 링크(class="faq-jump-link") 연결 — 키오스크
 // js/QnA.js의 wireFaqJumpLinks와 동일한 방식. data-jump-action에 대상 FAQ의
-// action.url을 적어두면(예: "late_checkout.html") 그 url을 가진 항목을 찾아
-// 자동으로 펼치고 스크롤해준다(하드코딩한 인덱스 대신 url로 찾아 순서 변경에도 안전).
+// action.url을 적어두면 그 url을 가진 항목을 찾아 자동으로 펼치고 스크롤해준다
+// (하드코딩한 인덱스 대신 url로 찾아 순서 변경에도 안전).
+// 2026-09-02 늦은 체크아웃 폐지로 현재 쓰는 항목은 없지만 기능은 그대로 둔다.
 function wireFaqJumpLinks(container) {
   const jumpTargetIdx = {};
   i18n.qna.forEach((item, idx) => {
