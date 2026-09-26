@@ -363,13 +363,7 @@ function renderFeedbackFormInto(slot) {
   const area = getAreaFromURL();
   const rooms = getRoomsForArea(area);
 
-  // 8/18 팝업을 없앨 때 "답변 없음 · 채팅 이용" 안내까지 같이 사라져 손님이 이 칸을
-  // 채팅처럼 쓰는 일이 늘었다(2026-09-26). 팝업 없이 폼 맨 위에 항상 보이게 되살린다.
   slot.innerHTML = `
-    <div class="feedback-notice">
-      <p>${fb.noticeMsg}</p>
-      <button type="button" id="feedback-chat-btn" class="feedback-chat-btn">${fb.chatBtn}</button>
-    </div>
     <p class="feedback-disclaimer">${fb.disclaimer}</p>
     <label class="feedback-field-label" for="feedback-room">${fb.roomLabel}</label>
     <select id="feedback-room">
@@ -382,7 +376,7 @@ function renderFeedbackFormInto(slot) {
         <option value="">${fb.bedPlaceholder}</option>
       </select>
     </div>
-    <textarea id="feedback-content" placeholder="${fb.placeholder}" rows="4"></textarea>
+    <textarea id="feedback-content" placeholder="${fb.placeholder}" rows="4" readonly></textarea>
     <p id="feedback-error" class="feedback-error hidden"></p>
     <button id="feedback-submit" class="feedback-submit-btn">${fb.submitBtn}</button>
     <p id="feedback-success" class="feedback-success hidden">${fb.successMsg}</p>
@@ -400,9 +394,50 @@ function renderFeedbackFormInto(slot) {
   // 버블링되어 다시 닫히지 않도록 막는다.
   slot.addEventListener("click", (e) => e.stopPropagation());
 
+  // ── "답변 없음 · 채팅 이용" 안내 팝업 ──
+  // 8/18 팝업을 없앨 때 이 안내까지 같이 사라져 손님이 이 칸을 채팅처럼 쓰는 일이
+  // 늘었다(2026-09-26). 입력칸을 누르면 팝업을 띄우고, "익명 의견 전달"을 골라야만
+  // 입력이 풀린다. textarea를 readonly로 시작하는 건 팝업보다 키보드가 먼저 올라오는
+  // 것을 막기 위함. 팝업은 아코디언 안이 아니라 body에 붙인다 — 조상 요소의
+  // transform/overflow에 position:fixed가 갇히지 않도록.
+  document.getElementById("feedback-notice")?.remove();
+  const noticeEl = document.createElement("div");
+  noticeEl.id = "feedback-notice";
+  noticeEl.className = "hidden";
+  noticeEl.innerHTML = `
+    <div class="feedback-notice-box">
+      <p class="feedback-notice-msg">${fb.noticeMsg}</p>
+      <button type="button" id="feedback-notice-chat" class="feedback-notice-btn primary">${fb.chatBtn}</button>
+      <button type="button" id="feedback-notice-proceed" class="feedback-notice-btn">${fb.proceedBtn}</button>
+    </div>
+  `;
+  document.body.appendChild(noticeEl);
+
+  let noticeAcknowledged = false;
+  function openFeedbackNotice() {
+    if (noticeAcknowledged) return;
+    contentEl.blur();
+    noticeEl.classList.remove("hidden");
+  }
+  contentEl.addEventListener("focus", openFeedbackNotice);
+  contentEl.addEventListener("click", openFeedbackNotice);
+
+  // 바깥 어두운 영역을 누르면 아무것도 고르지 않은 채 닫는다(입력은 계속 잠김).
+  noticeEl.addEventListener("click", (e) => {
+    if (e.target === noticeEl) noticeEl.classList.add("hidden");
+  });
+
+  noticeEl.querySelector("#feedback-notice-proceed").addEventListener("click", () => {
+    noticeAcknowledged = true;
+    noticeEl.classList.add("hidden");
+    contentEl.removeAttribute("readonly");
+    contentEl.focus();
+  });
+
   // 채팅 위젯은 shadow DOM 안에 있으므로 토글 버튼을 직접 눌러 연다.
   // 토글이라 이미 열린 상태에서 누르면 닫혀버리므로, 닫혀 있을 때만 누른다.
-  slot.querySelector("#feedback-chat-btn").addEventListener("click", () => {
+  noticeEl.querySelector("#feedback-notice-chat").addEventListener("click", () => {
+    noticeEl.classList.add("hidden");
     const sr = document.getElementById("ya-chat-widget-host")?.shadowRoot;
     const toggleBtn = sr?.getElementById("toggle-btn");
     const chatBox = sr?.getElementById("chat-box");
