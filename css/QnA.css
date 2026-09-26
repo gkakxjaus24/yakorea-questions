@@ -172,9 +172,10 @@
   cursor: pointer;
 }
 
+/* 페이지의 다른 액션 버튼(.qna-action-btn)과 같은 파란색 */
 .feedback-notice-btn.primary {
-  background: #e8542f;
-  border-color: #e8542f;
+  background: #5b7af7;
+  border-color: #5b7af7;
   color: #fff;
   font-weight: 700;
 }

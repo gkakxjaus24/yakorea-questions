@@ -407,8 +407,8 @@ function renderFeedbackFormInto(slot) {
   noticeEl.innerHTML = `
     <div class="feedback-notice-box">
       <p class="feedback-notice-msg">${fb.noticeMsg}</p>
-      <button type="button" id="feedback-notice-chat" class="feedback-notice-btn primary">${fb.chatBtn}</button>
-      <button type="button" id="feedback-notice-proceed" class="feedback-notice-btn">${fb.proceedBtn}</button>
+      <button type="button" id="feedback-notice-proceed" class="feedback-notice-btn primary">${fb.proceedBtn}</button>
+      <button type="button" id="feedback-notice-chat" class="feedback-notice-btn">${fb.chatBtn}</button>
     </div>
   `;
   document.body.appendChild(noticeEl);
