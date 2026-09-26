@@ -363,7 +363,13 @@ function renderFeedbackFormInto(slot) {
   const area = getAreaFromURL();
   const rooms = getRoomsForArea(area);
 
+  // 8/18 팝업을 없앨 때 "답변 없음 · 채팅 이용" 안내까지 같이 사라져 손님이 이 칸을
+  // 채팅처럼 쓰는 일이 늘었다(2026-09-26). 팝업 없이 폼 맨 위에 항상 보이게 되살린다.
   slot.innerHTML = `
+    <div class="feedback-notice">
+      <p>${fb.noticeMsg}</p>
+      <button type="button" id="feedback-chat-btn" class="feedback-chat-btn">${fb.chatBtn}</button>
+    </div>
     <p class="feedback-disclaimer">${fb.disclaimer}</p>
     <label class="feedback-field-label" for="feedback-room">${fb.roomLabel}</label>
     <select id="feedback-room">
@@ -393,6 +399,15 @@ function renderFeedbackFormInto(slot) {
   // 아코디언 질문 클릭 시 열림/닫힘이 토글되므로, 폼 내부 클릭이 그 상위 리스너로
   // 버블링되어 다시 닫히지 않도록 막는다.
   slot.addEventListener("click", (e) => e.stopPropagation());
+
+  // 채팅 위젯은 shadow DOM 안에 있으므로 토글 버튼을 직접 눌러 연다.
+  // 토글이라 이미 열린 상태에서 누르면 닫혀버리므로, 닫혀 있을 때만 누른다.
+  slot.querySelector("#feedback-chat-btn").addEventListener("click", () => {
+    const sr = document.getElementById("ya-chat-widget-host")?.shadowRoot;
+    const toggleBtn = sr?.getElementById("toggle-btn");
+    const chatBox = sr?.getElementById("chat-box");
+    if (toggleBtn && (!chatBox || chatBox.classList.contains("hidden"))) toggleBtn.click();
+  });
 
   roomSelect.addEventListener("change", () => {
     const opt = roomSelect.selectedOptions[0];

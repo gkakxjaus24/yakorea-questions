@@ -124,6 +124,38 @@
 
 .hidden { display: none !important; }
 
+/* 실시간 문의를 건의사항 칸에 적는 문제 방지 — 폼 맨 위에 항상 보이는 경고 + 채팅 바로가기 */
+.feedback-notice {
+  background: #fff4f2;
+  border: 1px solid #f3b8ae;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0 0 12px;
+}
+
+.feedback-notice p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #b3261e;
+  line-height: 1.5;
+}
+
+.feedback-notice strong {
+  font-weight: 700;
+}
+
+.feedback-chat-btn {
+  width: 100%;
+  padding: 11px 16px;
+  background: #e8542f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .feedback-disclaimer {
   font-size: 13px;
   color: #999;
