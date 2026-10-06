@@ -246,6 +246,41 @@
   cursor: not-allowed;
 }
 
+/* ── 같은 방 손님 때문에 불편해요 (도미토리 불편 접수) ── */
+.complaint-disclaimer {
+  font-size: 13px;
+  color: #999;
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+.complaint-disclaimer strong {
+  color: #222;
+  font-weight: 700;
+}
+
+.complaint-label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin: 12px 0 4px;
+}
+
+.complaint-field {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px; /* 16px 미만이면 iOS 사파리가 입력칸을 누를 때 화면을 확대한다 */
+  font-family: inherit;
+  background: #fff;
+}
+
+textarea.complaint-field {
+  resize: vertical;
+}
+
 @media (max-width: 768px) {
   .container {
     font-size: 80% !important;

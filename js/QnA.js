@@ -1,7 +1,21 @@
 let i18n;
 let koQna = []; // 클릭 통계용 — 표시 언어와 무관하게 한국어 원문으로 질문을 식별
 
-const FAQ_STATS_API = "https://projectclaude-production-5351.up.railway.app";
+// 로컬 테스트용: 개발 PC(localhost) 또는 같은 와이파이의 사설 IP(폰으로 테스트할 때)에서 열었을 때만
+// ?api=http://그주소:3001 로 서버를 바꿀 수 있다. 운영 주소에서는 이 파라미터를 무시한다 —
+// 남이 링크로 서버를 바꿔치기하지 못하게.
+const FAQ_STATS_API = (() => {
+  const prod = "https://projectclaude-production-5351.up.railway.app";
+  const LOCAL_HOST = /^(localhost|127\.0\.0\.1|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+|172\.(1[6-9]|2\d|3[01])\.\d+\.\d+)$/;
+  const override = new URLSearchParams(location.search).get("api");
+  if (!override || !LOCAL_HOST.test(location.hostname)) return prod;
+  try {
+    const u = new URL(override);
+    return u.protocol === "http:" && LOCAL_HOST.test(u.hostname) && !u.pathname.replace("/", "") ? u.origin : prod;
+  } catch (_) {
+    return prod;
+  }
+})();
 
 function getLanguageFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -516,6 +530,126 @@ function renderFeedbackFormInto(slot) {
   });
 }
 
+// ── 같은 방 손님 때문에 불편해요 (도미토리 불편 접수, 2026-10-05) ────────────────
+// 모든 QR 구역에서 보이는 항목이다(areas 없음, 이메일 링크 nochat만 숨김). 처음엔 도미토리 전용이었으나 개인실·공용공간에서도 생길 수 있어 넓혔다(2026-10-06).
+// 같은 방 손님이 다른 사람에게 불편을 주고 있을 때(코골이·냄새·시끄러운 통화 등) 알린다.
+// 1건만 접수돼도 사장님·매니저에게 텔레그램이 가고, 조치는 사람이 판단한다(자동 조치 없음).
+// 입력은 자유 텍스트 3칸이다(2026-10-06 사장님 요청 — 선택 목록이 복잡하다고 단순화):
+//   본인 방-침대번호 / 신고할 사람 방-침대번호(모르면 외모·특징) / 신고 내용
+// 본인 방·침대는 직원만 본다 — 신고당한 분에게는 알리지 않는다. deviceId는 같은 사람이
+// 여러 번 눌러 "여러 명"처럼 보이는 걸 막는 난수일 뿐이다(localStorage, 개인 식별 정보 아님).
+const COMPLAINT_DEVICE_KEY = "ya_complaint_did";
+
+function getComplaintDeviceId() {
+  const make = () =>
+    (Math.random().toString(36).slice(2) + Date.now().toString(36) + Math.random().toString(36).slice(2)).slice(0, 32);
+  try {
+    let id = localStorage.getItem(COMPLAINT_DEVICE_KEY);
+    if (!id) {
+      id = make();
+      localStorage.setItem(COMPLAINT_DEVICE_KEY, id);
+    }
+    return id;
+  } catch (_) {
+    return make(); // 저장소가 막혀 있으면 이번 접수만 쓰는 임시 값(중복 방지는 약해진다)
+  }
+}
+
+function renderComplaintFormInto(slot) {
+  const fb = i18n.complaint;
+  if (!fb) return;
+
+  const area = getAreaFromURL();
+
+  slot.innerHTML = `
+    <p class="complaint-disclaimer">${fb.disclaimer}</p>
+
+    <label class="complaint-label" for="complaint-my-info">${fb.myInfoLabel}</label>
+    <input id="complaint-my-info" class="complaint-field" type="text" maxlength="60" autocomplete="off"
+      placeholder="${fb.myInfoPlaceholder}" />
+
+    <label class="complaint-label" for="complaint-target-info">${fb.targetInfoLabel}</label>
+    <textarea id="complaint-target-info" class="complaint-field" rows="2" maxlength="150"
+      placeholder="${fb.targetInfoPlaceholder}"></textarea>
+
+    <label class="complaint-label" for="complaint-content">${fb.contentLabel}</label>
+    <textarea id="complaint-content" class="complaint-field" rows="4" maxlength="1000"
+      placeholder="${fb.contentPlaceholder}"></textarea>
+
+    <p id="complaint-error" class="feedback-error hidden"></p>
+    <button id="complaint-submit" class="feedback-submit-btn">${fb.submitBtn}</button>
+    <p id="complaint-success" class="feedback-success hidden">${fb.successMsg}</p>
+  `;
+
+  const myInfoEl = slot.querySelector("#complaint-my-info");
+  const targetEl = slot.querySelector("#complaint-target-info");
+  const contentEl = slot.querySelector("#complaint-content");
+  const errorEl = slot.querySelector("#complaint-error");
+  const successEl = slot.querySelector("#complaint-success");
+  const submitBtn = slot.querySelector("#complaint-submit");
+
+  // 아코디언 질문의 열림/닫힘 토글로 버블링되지 않게 막는다(건의사항 폼과 같은 이유).
+  slot.addEventListener("click", (e) => e.stopPropagation());
+
+  function showError(msg) {
+    errorEl.textContent = msg;
+    errorEl.classList.remove("hidden");
+  }
+
+  submitBtn.addEventListener("click", async () => {
+    errorEl.classList.add("hidden");
+    successEl.classList.add("hidden");
+
+    const myInfo = myInfoEl.value.trim();
+    const targetInfo = targetEl.value.trim();
+    const content = contentEl.value.trim();
+
+    if (!myInfo) return showError(fb.myInfoRequiredMsg);
+    if (!targetInfo) return showError(fb.targetInfoRequiredMsg);
+    if (!content) return showError(fb.contentRequiredMsg);
+
+    const resetForm = () => {
+      successEl.classList.remove("hidden");
+      targetEl.value = "";
+      contentEl.value = "";
+      // 본인 방-침대번호는 그대로 둔다 — 같은 손님이 이어서 다른 사람을 신고할 수 있다
+    };
+
+    submitBtn.disabled = true;
+    try {
+      // 미리보기(?preview=1)에서는 실제로 보내지 않는다 — 텔레그램 알림이 나가기 때문.
+      // 화면 흐름은 그대로 보여준다.
+      if (isPreview()) return resetForm();
+      const res = await fetch(`${FAQ_STATS_API}/api/complaints`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          reporterInfo: myInfo,
+          targetInfo,
+          content,
+          language: getLanguageFromURL(),
+          area: area || "",
+          deviceId: getComplaintDeviceId(),
+        }),
+      });
+      if (res.status === 429) {
+        const body = await res.json().catch(() => ({}));
+        return showError(body.error === "duplicate" ? fb.duplicateMsg : fb.limitMsg);
+      }
+      if (res.status === 400) {
+        const body = await res.json().catch(() => ({}));
+        return showError(body.error === "same_bed" ? fb.sameBedMsg : fb.errorMsg);
+      }
+      if (!res.ok) throw new Error("send failed");
+      resetForm();
+    } catch {
+      showError(fb.errorMsg);
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const loaded = await loadLanguageData();
   if (!loaded || !i18n) {
@@ -528,4 +662,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 이메일 링크(?nochat=1)에서는 해당 항목 자체가 hideWhen으로 숨겨져 slot이 없으므로 자동으로 스킵됨.
   const feedbackSlot = document.getElementById("feedback-inline-slot");
   if (feedbackSlot) renderFeedbackFormInto(feedbackSlot);
+  // "같은 방 손님 때문에 불편해요" 항목(도미토리 구역·채팅 가능한 화면에서만 존재)
+  const complaintSlot = document.getElementById("complaint-inline-slot");
+  if (complaintSlot) renderComplaintFormInto(complaintSlot);
 });

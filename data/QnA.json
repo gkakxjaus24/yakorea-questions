@@ -159,6 +159,13 @@
         "category": "기타 요청 및 문의"
       },
       {
+        "q": "다른 손님 불편 신고",
+        "keyword": "다른 손님 불편 신고",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "기타 요청 및 문의",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "건의사항이 있어요",
         "keyword": "건의사항",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -233,6 +240,24 @@
       "errorMsg": "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
       "roomRequiredMsg": "방 번호를 선택해주세요.",
       "contentRequiredMsg": "내용을 입력해주세요."
+    },
+    "complaint": {
+      "disclaimer": "<strong>다수 손님이 한 사람을 신고</strong>한다면 호텔에서 적절한 조치를 취해드리겠습니다.",
+      "myInfoLabel": "본인 이름, 방 번호 (도미토리는 침대 번호까지)",
+      "myInfoPlaceholder": "예: 홍길동, 302  /  홍길동, 205-3",
+      "targetInfoLabel": "신고할 사람의 방 번호 (도미토리는 침대 번호까지)",
+      "targetInfoPlaceholder": "예: 302  /  205-4  (방 번호를 모르면 그분의 외모나 특징을 적어주세요)",
+      "contentLabel": "신고 내용",
+      "contentPlaceholder": "예: 밤새 코를 심하게 골아서 잠을 잘 수 없어요",
+      "submitBtn": "접수하기",
+      "successMsg": "접수되었습니다. 직원이 확인 후 정중하게 안내하겠습니다. 감사합니다.",
+      "errorMsg": "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
+      "myInfoRequiredMsg": "본인 이름과 방 번호를 입력해주세요.",
+      "targetInfoRequiredMsg": "신고할 사람의 방 번호를 입력해주세요.",
+      "contentRequiredMsg": "신고 내용을 입력해주세요.",
+      "sameBedMsg": "본인은 신고할 수 없습니다. 신고할 사람의 방 번호와 침대 번호를 다시 확인해주세요.",
+      "duplicateMsg": "이미 접수하셨습니다. 직원이 확인 중입니다.",
+      "limitMsg": "접수 횟수가 많아 잠시 후 다시 시도해주세요."
     }
   },
   "en": {
@@ -395,6 +420,13 @@
         "category": "Other Requests and Inquiries"
       },
       {
+        "q": "Report a guest disturbance",
+        "keyword": "Report a guest disturbance",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "I have a suggestion",
         "keyword": "suggestion",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -469,6 +501,24 @@
       "errorMsg": "Failed to send. Please try again later.",
       "roomRequiredMsg": "Please select your room.",
       "contentRequiredMsg": "Please enter your message."
+    },
+    "complaint": {
+      "disclaimer": "<strong>If multiple guests report the same person</strong>, our staff will take appropriate action.",
+      "myInfoLabel": "Your name and room number (include bed number for dormitories)",
+      "myInfoPlaceholder": "e.g.: John, 302  /  John, 205-3",
+      "targetInfoLabel": "Room number of the person you're reporting (include bed number for dormitories)",
+      "targetInfoPlaceholder": "e.g.: 302  /  205-4  (if you don't know the room number, please describe their appearance or characteristics)",
+      "contentLabel": "Report details",
+      "contentPlaceholder": "e.g.: They snore loudly throughout the night and I cannot sleep",
+      "submitBtn": "Submit",
+      "successMsg": "Thank you for your report. Our staff will review it and reach out politely. We appreciate your cooperation.",
+      "errorMsg": "Submission failed. Please try again in a few moments.",
+      "myInfoRequiredMsg": "Please enter your name and room number.",
+      "targetInfoRequiredMsg": "Please enter the room number of the person you're reporting.",
+      "contentRequiredMsg": "Please enter the report details.",
+      "sameBedMsg": "You cannot report yourself. Please verify the room number and bed number of the person you're reporting.",
+      "duplicateMsg": "You have already submitted a report. Our staff is currently reviewing it.",
+      "limitMsg": "Too many submissions. Please try again in a few moments."
     }
   },
   "zh": {
@@ -631,6 +681,13 @@
         "category": "其他请求及咨询"
       },
       {
+        "q": "其他客人困扰报告",
+        "keyword": "其他客人困扰报告",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "其他请求及咨询",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "我有建议",
         "keyword": "建议",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -705,6 +762,24 @@
       "errorMsg": "发送失败，请稍后再试。",
       "roomRequiredMsg": "请选择房间号。",
       "contentRequiredMsg": "请输入内容。"
+    },
+    "complaint": {
+      "disclaimer": "<strong>如果多位客人举报同一个人</strong>，酒店将采取适当措施。",
+      "myInfoLabel": "您的名字、房间号（宿舍请包含床号）",
+      "myInfoPlaceholder": "例：洪吉洞、302  /  洪吉洞、205-3",
+      "targetInfoLabel": "被举报人的房间号（宿舍请包含床号）",
+      "targetInfoPlaceholder": "例：302  /  205-4  （如果不知道房间号，请描述该人的外貌或特征）",
+      "contentLabel": "举报内容",
+      "contentPlaceholder": "例：整夜打呼声很大，无法入睡",
+      "submitBtn": "提交",
+      "successMsg": "已提交。工作人员将确认后礼貌地与相关客人沟通。感谢您的配合。",
+      "errorMsg": "发送失败。请稍后重试。",
+      "myInfoRequiredMsg": "请输入您的名字和房间号。",
+      "targetInfoRequiredMsg": "请输入被举报人的房间号。",
+      "contentRequiredMsg": "请输入举报内容。",
+      "sameBedMsg": "您不能举报自己。请重新确认被举报人的房间号和床号。",
+      "duplicateMsg": "您已提交过举报。工作人员正在处理中。",
+      "limitMsg": "提交次数过多，请稍后再试。"
     }
   },
   "ja": {
@@ -867,6 +942,13 @@
         "category": "その他のリクエスト・お問い合わせ"
       },
       {
+        "q": "他のゲストへのご報告",
+        "keyword": "他のゲストへのご報告",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "その他のリクエスト・お問い合わせ",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "ご要望があります",
         "keyword": "ご要望",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -941,6 +1023,24 @@
       "errorMsg": "送信に失敗しました。しばらくしてから再試行してください。",
       "roomRequiredMsg": "部屋番号を選択してください。",
       "contentRequiredMsg": "内容を入力してください。"
+    },
+    "complaint": {
+      "disclaimer": "<strong>複数のゲストが同じ方を報告</strong>された場合、ホテルが適切な対応をさせていただきます。",
+      "myInfoLabel": "お名前、お部屋番号（ドミトリーはベッド番号まで）",
+      "myInfoPlaceholder": "例: 田中太郎, 302  /  田中太郎, 205-3",
+      "targetInfoLabel": "報告するゲストのお部屋番号（ドミトリーはベッド番号まで）",
+      "targetInfoPlaceholder": "例: 302  /  205-4  （お部屋番号がご不明な場合は、その方の外見や特徴をお書きください）",
+      "contentLabel": "報告内容",
+      "contentPlaceholder": "例: 夜中ずっといびきが大きくて、眠ることができません",
+      "submitBtn": "報告する",
+      "successMsg": "ご報告ありがとうございます。スタッフが確認後、丁寧にお声がけさせていただきます。",
+      "errorMsg": "送信に失敗しました。しばらく後にもう一度お試しください。",
+      "myInfoRequiredMsg": "お名前とお部屋番号を入力してください。",
+      "targetInfoRequiredMsg": "報告するゲストのお部屋番号を入力してください。",
+      "contentRequiredMsg": "報告内容を入力してください。",
+      "sameBedMsg": "ご自身は報告できません。報告するゲストのお部屋番号とベッド番号をもう一度ご確認ください。",
+      "duplicateMsg": "すでにご報告いただいています。スタッフが確認中です。",
+      "limitMsg": "報告の回数が多いため、しばらく後にもう一度お試しください。"
     }
   },
   "ru": {
@@ -1103,6 +1203,13 @@
         "category": "Другие запросы и вопросы"
       },
       {
+        "q": "Уведомление о дискомфорте других гостей",
+        "keyword": "Уведомление о дискомфорте других гостей",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Другие запросы и вопросы",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "У меня есть пожелание",
         "keyword": "пожелание",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -1177,6 +1284,24 @@
       "errorMsg": "Не удалось отправить. Попробуйте позже.",
       "roomRequiredMsg": "Пожалуйста, выберите комнату.",
       "contentRequiredMsg": "Пожалуйста, введите сообщение."
+    },
+    "complaint": {
+      "disclaimer": "<strong>Если несколько гостей пожалуют на одного человека</strong>, мы примем надлежащие меры.",
+      "myInfoLabel": "Ваше имя и номер комнаты (для общежития укажите также номер кровати)",
+      "myInfoPlaceholder": "Пример: Иван, 302  /  Иван, 205-3",
+      "targetInfoLabel": "Номер комнаты человека, на которого жалуетесь (для общежития укажите также номер кровати)",
+      "targetInfoPlaceholder": "Пример: 302  /  205-4  (если номер комнаты неизвестен, пожалуйста, опишите внешность или отличительные черты)",
+      "contentLabel": "Содержание жалобы",
+      "contentPlaceholder": "Пример: Человек громко храпит всю ночь, я не могу спать",
+      "submitBtn": "Отправить",
+      "successMsg": "Спасибо за информацию. Наш персонал проверит и вежливо поговорит с гостем. Благодарим вас.",
+      "errorMsg": "Ошибка при отправке. Пожалуйста, попробуйте еще раз через некоторое время.",
+      "myInfoRequiredMsg": "Пожалуйста, укажите ваше имя и номер комнаты.",
+      "targetInfoRequiredMsg": "Пожалуйста, укажите номер комнаты человека, на которого жалуетесь.",
+      "contentRequiredMsg": "Пожалуйста, опишите содержание жалобы.",
+      "sameBedMsg": "Вы не можете пожаловаться на себя. Пожалуйста, проверьте номер комнаты и номер кровати человека, на которого жалуетесь.",
+      "duplicateMsg": "Вы уже отправили жалобу на этого человека. Наш персонал сейчас проверяет.",
+      "limitMsg": "Слишком много попыток отправки. Пожалуйста, попробуйте еще раз через некоторое время."
     }
   },
   "es": {
@@ -1339,6 +1464,13 @@
         "category": "Otras solicitudes y consultas"
       },
       {
+        "q": "Reportar inconveniente de otro huésped",
+        "keyword": "Reportar inconveniente de otro huésped",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Otras solicitudes y consultas",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Tengo una sugerencia",
         "keyword": "sugerencia",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -1413,6 +1545,24 @@
       "errorMsg": "Error al enviar. Inténtelo de nuevo más tarde.",
       "roomRequiredMsg": "Seleccione su habitación.",
       "contentRequiredMsg": "Ingrese su mensaje."
+    },
+    "complaint": {
+      "disclaimer": "<strong>Si varios huéspedes reportan a la misma persona</strong>, el hotel tomará las medidas apropiadas.",
+      "myInfoLabel": "Su nombre y número de habitación (incluido el número de cama para dormitorios)",
+      "myInfoPlaceholder": "p. ej.: Juan, 302  /  Juan, 205-3",
+      "targetInfoLabel": "Número de habitación de la persona a reportar (incluido el número de cama para dormitorios)",
+      "targetInfoPlaceholder": "p. ej.: 302  /  205-4  (si no conoce el número de habitación, describa la apariencia o características de la persona)",
+      "contentLabel": "Detalles del reporte",
+      "contentPlaceholder": "p. ej.: Ronca muy fuerte durante la noche y no puedo dormir",
+      "submitBtn": "Enviar reporte",
+      "successMsg": "Su reporte ha sido recibido. El personal lo revisará y se comunicará cortésmente. Gracias.",
+      "errorMsg": "Error en el envío. Por favor, intente más tarde.",
+      "myInfoRequiredMsg": "Por favor, ingrese su nombre y número de habitación.",
+      "targetInfoRequiredMsg": "Por favor, ingrese el número de habitación de la persona a reportar.",
+      "contentRequiredMsg": "Por favor, ingrese los detalles del reporte.",
+      "sameBedMsg": "No puede reportarse a sí mismo. Por favor, verifique el número de habitación y cama de la persona a reportar.",
+      "duplicateMsg": "Ya ha enviado un reporte. El personal lo está revisando.",
+      "limitMsg": "Ha enviado demasiados reportes. Por favor, intente más tarde."
     }
   },
   "mn": {
@@ -1575,6 +1725,13 @@
         "category": "Бусад Асуудал & Туслалцаа"
       },
       {
+        "q": "Өөр зочны эвдрэлийн мэдээлэл",
+        "keyword": "Өөр зочны эвдрэлийн мэдээлэл",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Бусад Асуудал & Туслалцаа",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Надад санал байна",
         "keyword": "санал",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -1649,6 +1806,24 @@
       "errorMsg": "Илгээж чадсангүй. Дараа дахин оролдоно уу.",
       "roomRequiredMsg": "Өрөөгөө сонгоно уу.",
       "contentRequiredMsg": "Мессежээ оруулна уу."
+    },
+    "complaint": {
+      "disclaimer": "<strong>Олон зочин нэг хүнийг мэдэгдүүлбэл</strong> зочид буудалд тохирох арга хэмжээ авах болно.",
+      "myInfoLabel": "Таны нэр, өрөөний дугаар (сууцын өрөөн бол орны дугаараас)",
+      "myInfoPlaceholder": "е.г.: Хонг Гилдонг, 302  /  Хонг Гилдонг, 205-3",
+      "targetInfoLabel": "Мэдэгдэл хүргүүлэх хүний өрөөний дугаар (сууцын өрөөн бол орны дугаараас)",
+      "targetInfoPlaceholder": "е.г.: 302  /  205-4  (өрөөний дугааргүй бол тэрхүүний гадаад төрх эсвэл онцлогийг бичнэ үү)",
+      "contentLabel": "Мэдэгдлийн агуулга",
+      "contentPlaceholder": "е.г.: Шөнө сэнийн хүзүүрч хүндэтэйгээр унтаж чадахгүй байна",
+      "submitBtn": "Илгээх",
+      "successMsg": "Хүлээн авлаа. Ажилтан шалгаад сахьтай нэр хүндийг хүндэлэн танилцуулах болно. Баярлалаа.",
+      "errorMsg": "Илгээхэд амжилтгүй болсон. Хэсэг хугацаанд дараа дахин оролдоно уу.",
+      "myInfoRequiredMsg": "Таны нэр, өрөөний дугаарыг оруулна уу.",
+      "targetInfoRequiredMsg": "Мэдэгдэл хүргүүлэх хүний өрөөний дугаарыг оруулна уу.",
+      "contentRequiredMsg": "Мэдэгдлийн агуулгыг оруулна уу.",
+      "sameBedMsg": "Та өөрийгөө мэдэгдүүлэх боломжгүй. Мэдэгдэл хүргүүлэх хүний өрөөний дугаар, орны дугаарыг дахин шалгана уу.",
+      "duplicateMsg": "Аль хэдийн илгээсэн байна. Ажилтан шалгаж байна.",
+      "limitMsg": "Илгээх удаа олон байна. Хэсэг хугацаанд дараа дахин оролдоно уу."
     }
   },
   "vi": {
@@ -1811,6 +1986,13 @@
         "category": "Yêu cầu & Trợ giúp khác"
       },
       {
+        "q": "Báo cáo khách gây bất tiện",
+        "keyword": "Báo cáo khách gây bất tiện",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Yêu cầu & Trợ giúp khác",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Tôi có góp ý",
         "keyword": "góp ý",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -1885,6 +2067,24 @@
       "errorMsg": "Gửi thất bại. Vui lòng thử lại sau.",
       "roomRequiredMsg": "Vui lòng chọn phòng của bạn.",
       "contentRequiredMsg": "Vui lòng nhập nội dung."
+    },
+    "complaint": {
+      "disclaimer": "<strong>Nếu nhiều khách báo cáo cùng một người</strong>, khách sạn sẽ có những biện pháp thích hợp.",
+      "myInfoLabel": "Tên của bạn, số phòng (đối với phòng ký túc xá, vui lòng bao gồm cả số giường)",
+      "myInfoPlaceholder": "Ví dụ: Hồng Kiếp Đạo, 302  /  Hồng Kiếp Đạo, 205-3",
+      "targetInfoLabel": "Số phòng của người bị báo cáo (đối với phòng ký túc xá, vui lòng bao gồm cả số giường)",
+      "targetInfoPlaceholder": "Ví dụ: 302  /  205-4  (nếu bạn không biết số phòng, vui lòng mô tả ngoại hình hoặc đặc điểm của họ)",
+      "contentLabel": "Chi tiết báo cáo",
+      "contentPlaceholder": "Ví dụ: Người này ngủ và ngáy rất to suốt đêm, làm tôi không thể ngủ",
+      "submitBtn": "Gửi báo cáo",
+      "successMsg": "Báo cáo của bạn đã được ghi nhận. Nhân viên sẽ xem xét và liên hệ một cách lịch sự. Cảm ơn bạn.",
+      "errorMsg": "Gửi không thành công. Vui lòng thử lại sau vài phút.",
+      "myInfoRequiredMsg": "Vui lòng nhập tên của bạn và số phòng.",
+      "targetInfoRequiredMsg": "Vui lòng nhập số phòng của người bị báo cáo.",
+      "contentRequiredMsg": "Vui lòng nhập chi tiết báo cáo.",
+      "sameBedMsg": "Bạn không thể báo cáo chính mình. Vui lòng kiểm tra lại số phòng và số giường của người bị báo cáo.",
+      "duplicateMsg": "Bạn đã gửi báo cáo này rồi. Nhân viên đang xem xét.",
+      "limitMsg": "Bạn đã gửi quá nhiều báo cáo. Vui lòng thử lại sau vài phút."
     }
   },
   "fr": {
@@ -2047,6 +2247,13 @@
         "category": "Autres Demandes et Demandes de Renseignements"
       },
       {
+        "q": "Signaler un inconfort causé par un autre client",
+        "keyword": "Signaler un inconfort causé par un autre client",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Autres Demandes et Demandes de Renseignements",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "J'ai une suggestion",
         "keyword": "suggestion",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -2121,6 +2328,24 @@
       "errorMsg": "Échec de l'envoi. Veuillez réessayer plus tard.",
       "roomRequiredMsg": "Veuillez sélectionner votre chambre.",
       "contentRequiredMsg": "Veuillez saisir votre message."
+    },
+    "complaint": {
+      "disclaimer": "<strong>Si plusieurs clients signalent la même personne</strong>, l'hôtel prendra les mesures appropriées.",
+      "myInfoLabel": "Votre nom et numéro de chambre (pour dortoir, incluez le numéro de lit)",
+      "myInfoPlaceholder": "Ex. : Jean Dupont, 302  /  Jean Dupont, 205-3",
+      "targetInfoLabel": "Numéro de chambre de la personne signalée (pour dortoir, incluez le numéro de lit)",
+      "targetInfoPlaceholder": "Ex. : 302  /  205-4  (si vous ne connaissez pas le numéro de chambre, décrivez l'apparence ou les caractéristiques de la personne)",
+      "contentLabel": "Détails du signalement",
+      "contentPlaceholder": "Ex. : La personne ronfle bruyamment toute la nuit, je ne peux pas dormir",
+      "submitBtn": "Soumettre",
+      "successMsg": "Votre signalement a été reçu. Notre équipe l'examinera et adressera poliment un message à la personne concernée. Merci.",
+      "errorMsg": "La transmission a échoué. Veuillez réessayer dans quelques instants.",
+      "myInfoRequiredMsg": "Veuillez entrer votre nom et votre numéro de chambre.",
+      "targetInfoRequiredMsg": "Veuillez entrer le numéro de chambre de la personne signalée.",
+      "contentRequiredMsg": "Veuillez décrire les détails du signalement.",
+      "sameBedMsg": "Vous ne pouvez pas vous signaler vous-même. Veuillez vérifier à nouveau le numéro de chambre et le numéro de lit de la personne signalée.",
+      "duplicateMsg": "Vous avez déjà soumis un signalement. Notre équipe l'examine actuellement.",
+      "limitMsg": "Vous avez atteint le nombre maximum de signalements. Veuillez réessayer dans quelques instants."
     }
   },
   "de": {
@@ -2283,6 +2508,13 @@
         "category": "Other Requests and Inquiries"
       },
       {
+        "q": "Mitteilung über störende Mitgäste",
+        "keyword": "Mitteilung über störende Mitgäste",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Ich habe einen Vorschlag",
         "keyword": "Vorschlag",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -2357,6 +2589,24 @@
       "errorMsg": "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.",
       "roomRequiredMsg": "Bitte wählen Sie Ihr Zimmer aus.",
       "contentRequiredMsg": "Bitte geben Sie Ihre Nachricht ein."
+    },
+    "complaint": {
+      "disclaimer": "<strong>Wenn mehrere Gäste die gleiche Person melden</strong>, werden wir angemessene Maßnahmen einleiten.",
+      "myInfoLabel": "Ihr Name und Zimmernummer (Schlafsaal: mit Bettnummer)",
+      "myInfoPlaceholder": "z. B.: John, 302  /  John, 205-3",
+      "targetInfoLabel": "Zimmernummer der zu meldenden Person (Schlafsaal: mit Bettnummer)",
+      "targetInfoPlaceholder": "z. B.: 302  /  205-4  (Wenn Sie die Zimmernummer nicht kennen, beschreiben Sie bitte das Aussehen oder besondere Merkmale der Person)",
+      "contentLabel": "Details der Meldung",
+      "contentPlaceholder": "z. B.: Diese Person schnarcht die ganze Nacht sehr laut und ich kann nicht schlafen",
+      "submitBtn": "Absenden",
+      "successMsg": "Ihre Meldung wurde erhalten. Unser Personal überprüft diese und wird das Gespräch respektvoll führen. Vielen Dank.",
+      "errorMsg": "Übertragung fehlgeschlagen. Bitte versuchen Sie es in Kürze erneut.",
+      "myInfoRequiredMsg": "Bitte geben Sie Ihren Namen und Ihre Zimmernummer ein.",
+      "targetInfoRequiredMsg": "Bitte geben Sie die Zimmernummer der zu meldenden Person ein.",
+      "contentRequiredMsg": "Bitte beschreiben Sie die Details der Meldung.",
+      "sameBedMsg": "Sie können sich selbst nicht melden. Bitte überprüfen Sie die Zimmernummer und Bettnummer der zu meldenden Person.",
+      "duplicateMsg": "Sie haben diese Meldung bereits eingereicht. Unser Personal überprüft diese gerade.",
+      "limitMsg": "Sie haben zu viele Meldungen eingereicht. Bitte versuchen Sie es in Kürze erneut."
     }
   },
   "ar": {
@@ -2519,6 +2769,13 @@
         "category": "الطلبات والاستفسارات الأخرى"
       },
       {
+        "q": "إبلاغ عن إزعاج من نزيل آخر",
+        "keyword": "إبلاغ عن إزعاج من نزيل آخر",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "الطلبات والاستفسارات الأخرى",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "لدي اقتراح",
         "keyword": "اقتراح",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -2593,6 +2850,24 @@
       "errorMsg": "فشل الإرسال. يرجى المحاولة لاحقًا.",
       "roomRequiredMsg": "يرجى اختيار غرفتك.",
       "contentRequiredMsg": "يرجى إدخال رسالتك."
+    },
+    "complaint": {
+      "disclaimer": "<strong>إذا أبلغ عدة ضيوف عن نفس الشخص</strong>، سيتخذ الفندق الإجراءات المناسبة.",
+      "myInfoLabel": "اسمك ورقم الغرفة (في السرير المشترك، أضف رقم السرير أيضًا)",
+      "myInfoPlaceholder": "مثال: علي، 302  /  علي، 205-3",
+      "targetInfoLabel": "رقم غرفة الشخص المُبلَّغ عنه (في السرير المشترك، أضف رقم السرير أيضًا)",
+      "targetInfoPlaceholder": "مثال: 302  /  205-4  (إذا كنت لا تعرف رقم الغرفة، فصِف مظهره أو ميزاته)",
+      "contentLabel": "تفاصيل البلاغ",
+      "contentPlaceholder": "مثال: يشخر بصوت عالٍ طوال الليل ولا يمكنني النوم",
+      "submitBtn": "إرسال البلاغ",
+      "successMsg": "تم استقبال بلاغك. سيقوم الموظفون بالتحقق والتواصل بأدب. شكرًا لك.",
+      "errorMsg": "فشل الإرسال. يرجى المحاولة مرة أخرى بعد قليل.",
+      "myInfoRequiredMsg": "يرجى إدخال اسمك ورقم غرفتك.",
+      "targetInfoRequiredMsg": "يرجى إدخال رقم غرفة الشخص المُبلَّغ عنه.",
+      "contentRequiredMsg": "يرجى إدخال تفاصيل البلاغ.",
+      "sameBedMsg": "لا يمكنك الإبلاغ عن نفسك. يرجى التحقق من رقم الغرفة ورقم السرير للشخص المُبلَّغ عنه.",
+      "duplicateMsg": "تم تقديم بلاغك بالفعل. الموظفون يراجعونه حاليًا.",
+      "limitMsg": "تم تقديم عدد كبير من البلاغات. يرجى المحاولة مرة أخرى بعد قليل."
     }
   },
   "tr": {
@@ -2755,6 +3030,13 @@
         "category": "Other Requests and Inquiries"
       },
       {
+        "q": "Diğer Konuklardan Rahatsızlık Bildirimi",
+        "keyword": "Diğer Konuklardan Rahatsızlık Bildirimi",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Other Requests and Inquiries",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Bir önerim var",
         "keyword": "öneri",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -2829,6 +3111,24 @@
       "errorMsg": "Gönderilemedi. Lütfen daha sonra tekrar deneyin.",
       "roomRequiredMsg": "Lütfen odanızı seçin.",
       "contentRequiredMsg": "Lütfen mesajınızı girin."
+    },
+    "complaint": {
+      "disclaimer": "<strong>Birden fazla konuk aynı kişiyi bildirirse</strong> otel uygun önlemler alacaktır.",
+      "myInfoLabel": "Adınız, oda numarası (yurt için yatak numarası da dahil)",
+      "myInfoPlaceholder": "Örn: Hong Gildong, 302  /  Hong Gildong, 205-3",
+      "targetInfoLabel": "Bildirilen kişinin oda numarası (yurt için yatak numarası da dahil)",
+      "targetInfoPlaceholder": "Örn: 302  /  205-4  (oda numarasını bilmiyorsanız kişinin görünüşünü veya özelliklerini yazınız)",
+      "contentLabel": "Bildirim içeriği",
+      "contentPlaceholder": "Örn: Gece boyunca çok yüksek sesle horladığı için uyuyamıyorum",
+      "submitBtn": "Gönder",
+      "successMsg": "Bildiriminiz alınmıştır. Personelimiz inceledikten sonra kibarca rehberlik edeceğiz. Teşekkür ederiz.",
+      "errorMsg": "Gönderme başarısız oldu. Lütfen biraz sonra tekrar deneyin.",
+      "myInfoRequiredMsg": "Adınızı ve oda numarasını lütfen girin.",
+      "targetInfoRequiredMsg": "Bildirilen kişinin oda numarasını lütfen girin.",
+      "contentRequiredMsg": "Bildirim içeriğini lütfen girin.",
+      "sameBedMsg": "Kendinizi bildiremezsiniz. Lütfen bildirilen kişinin oda numarası ve yatak numarasını kontrol edin.",
+      "duplicateMsg": "Zaten bildirimde bulundunuz. Personelimiz incelemektedir.",
+      "limitMsg": "Çok fazla bildirim gönderildi. Lütfen biraz sonra tekrar deneyin."
     }
   },
   "si": {
@@ -2991,6 +3291,13 @@
         "category": "වෙනත් ඉල්ලීම් සහ විමසීම්"
       },
       {
+        "q": "වෙනත් ගෙස්තු සිට අපහසුතා වාර්තා",
+        "keyword": "වෙනත් ගෙස්තු සිට අපහසුතා වාර්තා",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "වෙනත් ඉල්ලීම් සහ විමසීම්",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "මට යෝජනාවක් ඇත",
         "keyword": "යෝජනාවක්",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -3065,6 +3372,24 @@
       "errorMsg": "යැවීම අසාර්ථක විය. කරුණාකර පසුව නැවත උත්සාහ කරන්න.",
       "roomRequiredMsg": "කරුණාකර ඔබේ කාමරය තෝරන්න.",
       "contentRequiredMsg": "කරුණාකර ඔබේ පණිවිඩය ඇතුළත් කරන්න."
+    },
+    "complaint": {
+      "disclaimer": "<strong>බොහෝ ගිණුම්කරුවරු එක් පුද්ගලයෙකු වාර්තා කරන්නේ නම්</strong> හෝටලය සුදුසු පদක්ෂේප ගනිමු.",
+      "myInfoLabel": "ඔබේ නම, කාමර අංකය (සම්මතයි නම් ඇඳ අංකය ද)",
+      "myInfoPlaceholder": "උදා: හෝङ් ගිල්දෝङ්, 302  /  හෝङ් ගිල්දෝങ්, 205-3",
+      "targetInfoLabel": "වාර්තා කිරීමට සඳහන් පුද්ගලයේ කාමර අංකය (සම්මතයි නම් ඇඳ අංකය ද)",
+      "targetInfoPlaceholder": "උදා: 302  /  205-4  (කාමර අංකය නොදන්නේ නම් එම පුද්ගලයේ පෙනුම හෝ ලක්ෂණ ලිවිය)",
+      "contentLabel": "වාර්තා කිරීමේ විස්තර",
+      "contentPlaceholder": "උදා: සමස්ත රාත්‍රිය තරයේ ගිනි සරණ හෙළුවා නිසා නින්ද ගත නොහැකි විය",
+      "submitBtn": "ඉදිරිපත් කරන්න",
+      "successMsg": "ඉදිරිපත් කරන ලදී. කර්මචාරිවරු පරීක්ෂා කර පිළිමනින්න දිශා දෙන්නෙමු. ස්තුතියි.",
+      "errorMsg": "යැවීම අසාර්థක විය. කරුණාකර විනාඩි කිහිපයකින් නැවත උත්සාහ කරන්න.",
+      "myInfoRequiredMsg": "කරුණාකර ඔබේ නම සහ කාමර අංකය ඇතුළු කරන්න.",
+      "targetInfoRequiredMsg": "කරුණාකර වාර්තා කිරීමට සඳහන් පුද්ගලයේ කාමර අංකය ඇතුළු කරන්න.",
+      "contentRequiredMsg": "කරුණාකර වාර්තා කිරීමේ විස්තර ඇතුළු කරන්න.",
+      "sameBedMsg": "ඔබ ඔබම වාර්තා කළ නොහැක. කරුණාකර වාර්තා කිරීමට සඳහන් පුද්ගලයේ කාමර අංකය සහ ඇඳ අංකය නැවත පරීක්ෂා කරන්න.",
+      "duplicateMsg": "ඔබ ඉදිරිපත් කර ඇත. කර්මචාරිවරු පරීක්ෂා කරමින් පවතී.",
+      "limitMsg": "ඉදිරිපත් කිරීමේ ගණන බහුතරයි. කරුණාකර විනාඩි කිහිපයකින් නැවත උත්සාහ කරන්න."
     }
   },
   "hi": {
@@ -3227,6 +3552,13 @@
         "category": "अन्य अनुरोध और पूछताछ"
       },
       {
+        "q": "अन्य अतिथि असुविधा सूचना",
+        "keyword": "अन्य अतिथि असुविधा सूचना",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "अन्य अनुरोध और पूछताछ",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "मेरे पास एक सुझाव है",
         "keyword": "सुझाव",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -3301,6 +3633,24 @@
       "errorMsg": "भेजने में विफल। कृपया बाद में फिर से प्रयास करें।",
       "roomRequiredMsg": "कृपया अपना कमरा चुनें।",
       "contentRequiredMsg": "कृपया अपना संदेश दर्ज करें।"
+    },
+    "complaint": {
+      "disclaimer": "<strong>यदि कई मेहमान एक ही व्यक्ति की रिपोर्ट करते हैं</strong>, तो होटल उपयुक्त कार्रवाई करेगा।",
+      "myInfoLabel": "अपना नाम और कमरा नंबर (डॉर्मिटरी के लिए बेड नंबर तक)",
+      "myInfoPlaceholder": "उदा.: होंग गिलडॉन्ग, 302  /  होंग गिलडॉन्ग, 205-3",
+      "targetInfoLabel": "रिपोर्ट किए जाने वाले व्यक्ति का कमरा नंबर (डॉर्मिटरी के लिए बेड नंबर तक)",
+      "targetInfoPlaceholder": "उदा.: 302  /  205-4  (यदि कमरा नंबर पता नहीं है, तो उस व्यक्ति के रूप या विशेषताओं का वर्णन करें)",
+      "contentLabel": "रिपोर्ट विवरण",
+      "contentPlaceholder": "उदा.: रात भर जोर से खर्राटे लेते हैं, जिससे मुझे सो नहीं सकते",
+      "submitBtn": "सबमिट करें",
+      "successMsg": "आपकी रिपोर्ट दर्ज हो गई है। स्टाफ इसकी जांच करेगा और विनम्रता से संपर्क करेगा। धन्यवाद।",
+      "errorMsg": "प्रेषण विफल हुआ। कृपया कुछ समय बाद फिर से कोशिश करें।",
+      "myInfoRequiredMsg": "कृपया अपना नाम और कमरा नंबर दर्ज करें।",
+      "targetInfoRequiredMsg": "कृपया रिपोर्ट किए जाने वाले व्यक्ति का कमरा नंबर दर्ज करें।",
+      "contentRequiredMsg": "कृपया रिपोर्ट विवरण दर्ज करें।",
+      "sameBedMsg": "आप स्वयं की रिपोर्ट नहीं कर सकते। कृपया रिपोर्ट किए जाने वाले व्यक्ति के कमरा नंबर और बेड नंबर को फिर से जांचें।",
+      "duplicateMsg": "आपने पहले ही रिपोर्ट सबमिट की है। स्टाफ इसकी जांच कर रहा है।",
+      "limitMsg": "बहुत सारी रिपोर्ट सबमिट की गई हैं। कृपया कुछ समय बाद फिर से कोशिश करें।"
     }
   },
   "th": {
@@ -3463,6 +3813,13 @@
         "category": "คำขอและการสอบถามอื่น ๆ"
       },
       {
+        "q": "แจ้งความไม่สะดวกจากแขกรายอื่น",
+        "keyword": "แจ้งความไม่สะดวกจากแขกรายอื่น",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "คำขอและการสอบถามอื่น ๆ",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "ฉันมีข้อเสนอแนะ",
         "keyword": "ข้อเสนอแนะ",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -3537,6 +3894,24 @@
       "errorMsg": "ไม่สามารถส่งได้ โปรดลองอีกครั้งในภายหลัง",
       "roomRequiredMsg": "โปรดเลือกห้องของคุณ",
       "contentRequiredMsg": "โปรดป้อนข้อความของคุณ"
+    },
+    "complaint": {
+      "disclaimer": "<strong>หากแขกหลายคนรายงานคนเดียวกัน</strong> โรงแรมจะดำเนินการที่เหมาะสม",
+      "myInfoLabel": "ชื่อของคุณ เลขห้อง (หอพักแบบคนเดียว ให้ระบุหมายเลขเตียงด้วย)",
+      "myInfoPlaceholder": "เช่น: สมชาย, 302  /  สมชาย, 205-3",
+      "targetInfoLabel": "เลขห้องของคนที่ต้องการรายงาน (หอพักแบบคนเดียว ให้ระบุหมายเลขเตียงด้วย)",
+      "targetInfoPlaceholder": "เช่น: 302  /  205-4  (หากไม่ทราบเลขห้อง โปรดอธิบายลักษณะหรือเครื่องหมายจำเพาะของบุคคลนั้น)",
+      "contentLabel": "รายละเอียดการรายงาน",
+      "contentPlaceholder": "เช่น: กรนหนักตลอดคืน ทำให้นอนไม่หลับ",
+      "submitBtn": "ส่งรายงาน",
+      "successMsg": "ได้รับรายงานแล้ว พนักงานจะตรวจสอบและแนะนำอย่างสุภาพ ขอบคุณมากค่ะ",
+      "errorMsg": "ส่งไม่สำเร็จ โปรดลองอีกครั้งในอีกสักครู่",
+      "myInfoRequiredMsg": "โปรดระบุชื่อและเลขห้องของคุณ",
+      "targetInfoRequiredMsg": "โปรดระบุเลขห้องของคนที่ต้องการรายงาน",
+      "contentRequiredMsg": "โปรดระบุรายละเอียดการรายงาน",
+      "sameBedMsg": "คุณไม่สามารถรายงานตัวเองได้ โปรดยืนยันเลขห้องและหมายเลขเตียงของคนที่ต้องการรายงานอีกครั้ง",
+      "duplicateMsg": "คุณได้ส่งรายงานแล้ว พนักงานกำลังตรวจสอบ",
+      "limitMsg": "รายงานมากเกินไป โปรดลองอีกครั้งในอีกสักครู่"
     }
   },
   "id": {
@@ -3699,6 +4074,13 @@
         "category": "Pertanyaan dan Permintaan Lainnya"
       },
       {
+        "q": "Laporan ketidaknyamanan tamu lain",
+        "keyword": "Laporan ketidaknyamanan tamu lain",
+        "a": "<div id=\"complaint-inline-slot\"></div>",
+        "category": "Pertanyaan dan Permintaan Lainnya",
+        "hideWhen": "nochat"
+      },
+      {
         "q": "Saya punya saran",
         "keyword": "saran",
         "a": "<div id=\"feedback-inline-slot\"></div>",
@@ -3773,6 +4155,24 @@
       "errorMsg": "Gagal mengirim. Silakan coba lagi nanti.",
       "roomRequiredMsg": "Silakan pilih kamar Anda.",
       "contentRequiredMsg": "Silakan masukkan pesan Anda."
+    },
+    "complaint": {
+      "disclaimer": "<strong>Jika beberapa tamu melaporkan satu orang</strong>, hotel akan mengambil tindakan yang sesuai.",
+      "myInfoLabel": "Nama Anda, nomor kamar (untuk asrama termasuk nomor tempat tidur)",
+      "myInfoPlaceholder": "Cth: Hong Gildong, 302  /  Hong Gildong, 205-3",
+      "targetInfoLabel": "Nomor kamar orang yang dilaporkan (untuk asrama termasuk nomor tempat tidur)",
+      "targetInfoPlaceholder": "Cth: 302  /  205-4  (jika tidak tahu nomor kamarnya, silakan tuliskan ciri-ciri fisik atau penampilan mereka)",
+      "contentLabel": "Detail laporan",
+      "contentPlaceholder": "Cth: Mereka mendengkur sangat keras sepanjang malam sehingga saya tidak bisa tidur",
+      "submitBtn": "Kirim laporan",
+      "successMsg": "Laporan telah diterima. Staf kami akan memeriksanya dan mengingatkan dengan sopan. Terima kasih.",
+      "errorMsg": "Pengiriman gagal. Silakan coba lagi setelah beberapa saat.",
+      "myInfoRequiredMsg": "Silakan masukkan nama dan nomor kamar Anda.",
+      "targetInfoRequiredMsg": "Silakan masukkan nomor kamar orang yang dilaporkan.",
+      "contentRequiredMsg": "Silakan masukkan detail laporan.",
+      "sameBedMsg": "Anda tidak dapat melaporkan diri sendiri. Silakan periksa kembali nomor kamar dan nomor tempat tidur orang yang dilaporkan.",
+      "duplicateMsg": "Anda sudah mengirimkan laporan ini. Staf kami sedang memeriksanya.",
+      "limitMsg": "Terlalu banyak laporan telah dikirim. Silakan coba lagi setelah beberapa saat."
     }
   }
 }
