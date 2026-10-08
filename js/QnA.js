@@ -468,7 +468,11 @@ function renderFeedbackFormInto(slot) {
     }
     const beds = Number(opt.dataset.beds) || 0;
     let bedHTML = `<option value="">${fb.bedPlaceholder}</option>`;
-    for (let i = 1; i <= beds; i++) bedHTML += `<option value="${i}">${i}</option>`;
+    // B1 11~14번은 예비 침대 — 값은 숫자 그대로, 보이는 이름만 Back up A~D (서버 complaintRules.js bedLabel과 같은 규칙)
+    for (let i = 1; i <= beds; i++) {
+      const name = opt.value === "B1" && i > 10 ? `Back up ${String.fromCharCode(64 + i - 10)}` : i;
+      bedHTML += `<option value="${i}">${name}</option>`;
+    }
     bedSelect.innerHTML = bedHTML;
     bedWrap.classList.remove("hidden");
   });
