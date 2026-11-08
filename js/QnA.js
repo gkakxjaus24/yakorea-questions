@@ -279,10 +279,11 @@ async function updateUI() {
   for (const category in grouped) {
     qnaHTML += `<h2 class="category-heading">${category}</h2>`;
     for (const item of grouped[category]) {
+      const answer = Object.hasOwn(item.answersByArea ?? {}, area) ? item.answersByArea[area] : item.a;
       qnaHTML += `
         <div class="question" data-idx="${item._idx}">${renderQuestionText(item)}</div>
         <div class="answer" style="display: none">
-          ${injectTowelReturnNote(item.a, currentLang)}
+          ${injectTowelReturnNote(answer, currentLang)}
           ${item.media ? renderMedia(item.media, item.mediaType) : ''}
           ${renderAction(item.action)}
         </div>`;

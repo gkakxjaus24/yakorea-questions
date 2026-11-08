@@ -86,7 +86,8 @@
       {
         "q": "가방 무게를 잴 수 있는 저울이 있나요?",
         "keyword": "저울",
-        "a": "카운터 앞 테이블에 휴대용 저울이 있습니다",
+        "a": "각 층 복도 끝 선반 쪽에 구비되어 있습니다. 필요하면 가져가세요.",
+        "answersByArea": {"dormBasement":"B1 도미토리 출입문 쪽에 있습니다. 필요하면 가져다 쓰세요.","dorm":"도미토리 객실 안에 있습니다. 필요하면 가져다 쓰세요."},
         "category": "짐 보관 및 저울 이용"
       },
       {
@@ -347,7 +348,8 @@
       {
         "q": "Is there a scale to weigh my luggage?",
         "keyword": "scale",
-        "a": "There is a portable scale on the table in front of the counter.",
+        "a": "You’ll find them by the shelf at the end of the hallway on each floor. Please take what you need.",
+        "answersByArea": {"dormBasement":"It’s by the entrance to the B1 dorm room. Feel free to use it.","dorm":"It’s inside the dorm room. Feel free to use it."},
         "category": "Luggage Storage and Scale Use"
       },
       {
@@ -608,7 +610,8 @@
       {
         "q": "有可以称行李重量的秤吗？",
         "keyword": "秤",
-        "a": "前台前面的桌子上有便携式行李秤。",
+        "a": "每层走廊尽头的架子旁都有备品，需要的话请自取。",
+        "answersByArea": {"dormBasement":"在B1宿舍房的入口门旁，需要的话请自取使用。","dorm":"在宿舍房内，需要的话请自取使用。"},
         "category": "行李寄存及称重"
       },
       {
@@ -869,7 +872,8 @@
       {
         "q": "荷物の重さを量れるはかりはありますか？",
         "keyword": "はかり",
-        "a": "カウンター前のテーブルに携帯用はかりがあります。",
+        "a": "各階の廊下の突き当たりにある棚のそばにあります。必要な分をお取りください。",
+        "answersByArea": {"dormBasement":"B1ドミトリーの出入口付近にあります。必要なときにお使いください。","dorm":"ドミトリーの室内にあります。必要なときにお使いください。"},
         "category": "荷物預かり・はかり利用"
       },
       {
@@ -1130,7 +1134,8 @@
       {
         "q": "Есть ли весы для багажа?",
         "keyword": "весы",
-        "a": "На столе перед стойкой есть переносные весы.",
+        "a": "Запасы находятся у полки в конце коридора на каждом этаже. Возьмите то, что вам нужно.",
+        "answersByArea": {"dormBasement":"У входной двери в общий номер B1. Можете воспользоваться.","dorm":"Внутри общего номера. Можете воспользоваться."},
         "category": "Хранение багажа и весы"
       },
       {
@@ -1391,7 +1396,8 @@
       {
         "q": "¿Hay una báscula para pesar mi equipaje?",
         "keyword": "báscula",
-        "a": "Hay una báscula portátil sobre la mesa frente al mostrador.",
+        "a": "Encontrarás estos artículos junto al estante al final del pasillo de cada planta. Toma lo que necesites.",
+        "answersByArea": {"dormBasement":"Está junto a la puerta de entrada del dormitorio compartido B1. Puedes usarlo.","dorm":"Está dentro del dormitorio compartido. Puedes usarlo."},
         "category": "Guardaequipaje y báscula"
       },
       {
@@ -1652,7 +1658,8 @@
       {
         "q": "Миний цүүцийг жинлэх жинлүүр байдаг уу?",
         "keyword": "жинлүүр",
-        "a": "Тоолуурын өмнөх ширээн дээр портатив жинлүүр байна.",
+        "a": "Давхар бүрийн коридорын төгсгөл дэх тавиурын дэргэд бий. Хэрэгтэй зүйлээ аваарай.",
+        "answersByArea": {"dormBasement":"B1 дундын өрөөний орох хаалганы дэргэд бий. Хэрэгтэй бол ашиглаарай.","dorm":"Дундын өрөөн дотор бий. Хэрэгтэй бол ашиглаарай."},
         "category": "Ачаа & Жинлүүр"
       },
       {
@@ -1913,7 +1920,8 @@
       {
         "q": "Có cân để cân hành lý của tôi không?",
         "keyword": "cân",
-        "a": "Có một cân di động trên bàn ở trước quầy tiếp tân.",
+        "a": "Đồ dùng có sẵn cạnh kệ ở cuối hành lang mỗi tầng. Bạn có thể lấy những gì cần.",
+        "answersByArea": {"dormBasement":"Có ở cạnh cửa ra vào phòng dorm B1. Bạn có thể lấy để sử dụng.","dorm":"Có ở trong phòng dorm. Bạn có thể lấy để sử dụng."},
         "category": "Hành lý & Cân"
       },
       {
@@ -2174,7 +2182,8 @@
       {
         "q": "Y a-t-il une balance pour peser mes bagages?",
         "keyword": "balance",
-        "a": "Il y a une balance portative sur la table devant le comptoir.",
+        "a": "Vous trouverez ces articles près de l’étagère au bout du couloir de chaque étage. Prenez ce dont vous avez besoin.",
+        "answersByArea": {"dormBasement":"C’est près de la porte d’entrée du dortoir B1. Vous pouvez vous en servir.","dorm":"C’est à l’intérieur du dortoir. Vous pouvez vous en servir."},
         "category": "Rangement des Bagages et Utilisation de la Balance"
       },
       {
@@ -2435,7 +2444,8 @@
       {
         "q": "Gibt es eine Waage zum Wiegen meines Gepäcks?",
         "keyword": "Waage",
-        "a": "Es gibt eine tragbare Waage auf dem Tisch vor der Rezeption.",
+        "a": "Die Artikel liegen beim Regal am Ende des Flurs auf jeder Etage bereit. Nehmen Sie sich, was Sie brauchen.",
+        "answersByArea": {"dormBasement":"Sie finden es an der Eingangstür des Schlafsaals B1. Sie können es gerne benutzen.","dorm":"Sie finden es im Schlafsaal. Sie können es gerne benutzen."},
         "category": "Luggage Storage and Scale Use"
       },
       {
@@ -2696,7 +2706,8 @@
       {
         "q": "هل هناك ميزان لوزن أمتعتي؟",
         "keyword": "ميزان",
-        "a": "هناك ميزان محمول على الطاولة أمام العداد.",
+        "a": "تجدون هذه المستلزمات بجوار الرف في نهاية ممر كل طابق. خذوا ما تحتاجونه.",
+        "answersByArea": {"dormBasement":"ستجدونه بجوار باب مدخل الغرفة المشتركة B1. يمكنكم استخدامه عند الحاجة.","dorm":"ستجدونه داخل الغرفة المشتركة. يمكنكم استخدامه عند الحاجة."},
         "category": "تخزين الأمتعة واستخدام الميزان"
       },
       {
@@ -2957,7 +2968,8 @@
       {
         "q": "Bagajımı tartmak için bir ölçek var mı?",
         "keyword": "ölçek",
-        "a": "Tezgahın önündeki masada taşınabilir bir ölçek vardır.",
+        "a": "Malzemeler her katın koridor sonundaki rafın yanında bulunur. İhtiyacınız olanı alabilirsiniz.",
+        "answersByArea": {"dormBasement":"B1 ortak odasının giriş kapısının yanında. İhtiyacınız varsa kullanabilirsiniz.","dorm":"Ortak odanın içinde. İhtiyacınız varsa kullanabilirsiniz."},
         "category": "Luggage Storage and Scale Use"
       },
       {
@@ -3218,7 +3230,8 @@
       {
         "q": "මගේ ලගේජය බර කිරන පරිමාණයක් තිබෙනවාද?",
         "keyword": "පරිමාණයක්",
-        "a": "කවුන්ටරය ඉදිරිපිට මේසය මත අතේ ගෙන යා හැකි බර කිරන පරිමාණයක් ඇත.",
+        "a": "සෑම මහලකම කොරිඩෝවේ කෙළවරේ ඇති රාක්කය අසල මේ ද්‍රව්‍ය තිබෙනවා. අවශ්‍ය දේ ගන්න.",
+        "answersByArea": {"dormBasement":"B1 හවුල් කාමරයේ ඇතුළු වන දොර අසල තිබෙනවා. අවශ්‍ය නම් භාවිතා කරන්න.","dorm":"හවුල් කාමරය ඇතුළේ තිබෙනවා. අවශ්‍ය නම් භාවිතා කරන්න."},
         "category": "ලගේජ ගබඩාව සහ තරාදිය භාවිතය"
       },
       {
@@ -3479,7 +3492,8 @@
       {
         "q": "क्या अपना सामान तौलने के लिए कोई पैमाना है?",
         "keyword": "पैमाना",
-        "a": "काउंटर के सामने की मेज पर एक पोर्टेबल पैमाना है।",
+        "a": "ये सामान हर मंज़िल के गलियारे के अंत में शेल्फ़ के पास रखे हैं। ज़रूरत का सामान ले लें।",
+        "answersByArea": {"dormBasement":"यह B1 डॉर्म के प्रवेश द्वार के पास है। ज़रूरत हो तो इस्तेमाल करें।","dorm":"यह डॉर्म के अंदर है। ज़रूरत हो तो इस्तेमाल करें।"},
         "category": "सामान भंडारण और पैमाने का उपयोग"
       },
       {
@@ -3740,7 +3754,8 @@
       {
         "q": "มีตาชั่งชั่งกระเป๋าเดินทางหรือไม่?",
         "keyword": "ตาชั่ง",
-        "a": "มีตาชั่งพกพาบนโต๊ะหน้าเคาน์เตอร์",
+        "a": "มีของใช้เตรียมไว้ข้างชั้นวางที่ปลายทางเดินของแต่ละชั้น หยิบได้ตามต้องการค่ะ",
+        "answersByArea": {"dormBasement":"อยู่ข้างประตูทางเข้าห้องพักรวม B1 หยิบไปใช้ได้ค่ะ","dorm":"อยู่ในห้องพักรวม หยิบไปใช้ได้ค่ะ"},
         "category": "เก็บกระเป๋าและการใช้เครื่องชั่ง"
       },
       {
@@ -4001,7 +4016,8 @@
       {
         "q": "Apakah ada timbangan untuk menimbang bagasi saya?",
         "keyword": "timbangan",
-        "a": "Ada timbangan portabel di meja di depan counter.",
+        "a": "Perlengkapan tersedia di dekat rak di ujung lorong setiap lantai. Silakan ambil seperlunya.",
+        "answersByArea": {"dormBasement":"Ada di dekat pintu masuk kamar dorm B1. Silakan gunakan jika perlu.","dorm":"Ada di dalam kamar dorm. Silakan gunakan jika perlu."},
         "category": "Penyimpanan Koper dan Penggunaan Timbangan"
       },
       {
